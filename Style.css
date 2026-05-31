@@ -1,0 +1,254 @@
+﻿/* ==========================================================================
+   STYLE.CSS - THÀNH VIÊN 4: UI/UX, RESPONSIVE & DARK MODE
+   ========================================================================== */
+
+/* 1. HỆ THỐNG BIẾN MÀU & THIẾT KẾ */
+:root {
+    /* --- LIGHT MODE --- */
+    --primary-color: #8C1D24; 
+    --secondary-color: #FBF9F6;
+    --accent-color: #E28743; 
+    --dark-neutral: #1E1E1E; 
+    --light-neutral: #FFFFFF; 
+    --border-color: #EAEAEA; 
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 24px rgba(140, 29, 36, 0.08);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* --- 2. CẤU HÌNH DARK MODE --- */
+body.dark-mode {
+    --primary-color: #E94560; /* Đỏ tươi hơn chút để nổi bật trên nền tối */
+    --secondary-color: #121212; /* Nền tổng thể tối sâu */
+    --accent-color: #FFA34D; /* Cam sáng rực rỡ hơn */
+    --dark-neutral: #F5F5F5; /* Chữ chuyển sang trắng sáng */
+    --light-neutral: #1A1A1A; /* Nền các Card/Navbar chuyển sang xám đen */
+    --border-color: #2D2D2D;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* 3. RESET CƠ BẢN & TYPOGRAPHY */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif; /* Font chữ hiện đại thời thượng */
+    background-color: var(--secondary-color);
+    color: var(--dark-neutral);
+    transition: var(--transition);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* 4. BIẾN ĐỔI BOOTSTRAP 5 THEO PHONG CÁCH COFFEE-WEBSTORE */
+
+/* Thanh thông báo nhỏ trên cùng (Promo Bar giống bản mẫu) */
+.promo-bar {
+    background-color: var(--dark-neutral);
+    color: var(--light-neutral);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* Thanh điều hướng Navbar */
+.navbar {
+    background-color: var(--light-neutral) !important;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    color: var(--dark-neutral) !important;
+    font-weight: 500;
+    margin: 0 5px;
+}
+
+    .nav-link:hover, .nav-link.active {
+        color: var(--primary-color) !important;
+    }
+
+/* Ghi đè các nút bấm (Buttons) */
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: #fff !important;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 10px 24px;
+    transition: var(--transition) !important;
+}
+
+    .btn-primary:hover {
+        background-color: var(--dark-neutral) !important;
+        border-color: var(--dark-neutral) !important;
+        transform: translateY(-2px);
+    }
+
+.btn-accent {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: #fff !important;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+    .btn-accent:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+    }
+
+/* 5. GIAO DIỆN CARD SẢN PHẨM LƯỚI (PRODUCT GRID STYLE) */
+.product-card {
+    background-color: var(--light-neutral);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    position: relative;
+}
+
+    .product-card:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-5px);
+    }
+
+/* Hiệu ứng zoom ảnh chuẩn E-commerce */
+.product-img-wrapper {
+    overflow: hidden;
+    position: relative;
+    background-color: #f9f9f9;
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* Nhãn giảm giá / Hot tag */
+.product-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.product-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark-neutral);
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* 6. GIỎ HÀNG & FORM VALIDATION ĐỒNG BỘ */
+.table {
+    color: var(--dark-neutral) !important;
+    border-color: var(--border-color) !important;
+}
+
+.form-control {
+    background-color: var(--light-neutral) !important;
+    color: var(--dark-neutral) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 6px;
+}
+
+    .form-control:focus {
+        border-color: var(--primary-color) !important;
+        box-shadow: 0 0 0 0.25rem rgba(140, 29, 36, 0.15) !important;
+    }
+
+/* Định dạng lỗi Validation Form của Thành viên 2 */
+.is-invalid {
+    border-color: #dc3545 !important;
+}
+
+.invalid-feedback {
+    font-size: 0.85rem;
+    color: #dc3545;
+}
+
+/* 7. CẤU HÌNH CHO HOẠT ẢNH AOS (AOS ANIMATION HOOKS) */
+[data-aos] {
+    pointer-events: none;
+}
+
+body.aos-all [data-aos] {
+    pointer-events: auto;
+}
+
+/* 8. NÚT CHUYỂN ĐỔI DARK MODE GẮN CỐ ĐỊNH (FLOAT BUTTON) */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: var(--transition);
+}
+
+    .dark-mode-toggle:hover {
+        transform: scale(1.1) rotate(15deg);
+    }
+
+/* 9. FOOTER SANG TRỌNG */
+footer {
+    background-color: var(--dark-neutral);
+    color: #A0A0A0;
+    border-top: 3px solid var(--primary-color);
+}
+
+    footer h5 {
+        color: var(--light-neutral);
+        font-weight: 600;
+    }
+
+    footer a:hover {
+        color: var(--accent-color);
+    }
