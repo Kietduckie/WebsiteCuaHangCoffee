@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khách hàng - Cafe Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        :root {
+            --primary-color: #6F4E37;
+            --secondary-color: #D2B48C;
+            --bg-light: #F5EBE6;
+            --text-dark: #3E2723;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .admin-navbar {
+            background-color: var(--primary-color) !important;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+            .admin-navbar .nav-link {
+                color: rgba(255, 255, 255, 0.8) !important;
+                font-weight: 600;
+                padding: 10px 20px !important;
+            }
+
+                .admin-navbar .nav-link:hover, .admin-navbar .nav-link.active {
+                    background-color: var(--secondary-color) !important;
+                    color: var(--text-dark) !important;
+                }
+
+        .customer-card {
+            background: #fff;
+            border: 1px solid var(--secondary-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
+        }
+
+        .table th {
+            background-color: #EFE6E1 !important;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .btn-coffee {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+            .btn-coffee:hover {
+                background-color: var(--text-dark);
+                color: white;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link active"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+            <h3 class="fw-bold m-0 text-uppercase">Quản lý cơ sở dữ liệu khách hàng</h3>
+            <div class="input-group input-group-sm" style="width: 260px;">
+                <input type="text" class="form-control" placeholder="Tìm kiếm tên, số điện thoại...">
+                <button class="btn btn-coffee btn-sm" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </div>
+
+        <div class="customer-card p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle m-0">
+                    <thead>
+                        <tr>
+                            <th>Mã KH</th>
+                            <th>Họ và Tên</th>
+                            <th>Số điện thoại</th>
+                            <th>Email tài khoản</th>
+                            <th class="text-center">Tổng đơn mua</th>
+                            <th>Xếp hạng</th>
+                            <th class="text-center">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold text-muted">#KH201</td>
+                            <td class="fw-semibold">Nguyễn Văn Nam</td>
+                            <td>0908.123.XXX</td>
+                            <td>namnguyen@gmail.com</td>
+                            <td class="fw-bold text-center">12 đơn</td>
+                            <td><span class="badge bg-danger">Thành viên Vàng</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-danger" title="Khóa tài khoản"><i class="fa-solid fa-user-slash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-muted">#KH202</td>
+                            <td class="fw-semibold">Lê Thị Mai</td>
+                            <td>0917.456.XXX</td>
+                            <td>maile98@gmail.com</td>
+                            <td class="fw-bold text-center">5 đơn</td>
+                            <td><span class="badge bg-secondary">Thành viên Bạc</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-danger" title="Khóa tài khoản"><i class="fa-solid fa-user-slash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

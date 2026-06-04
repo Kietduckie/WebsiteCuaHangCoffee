@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý đơn hàng - Cafe Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        :root {
+            --primary-color: #6F4E37; /* Nâu cafe đậm */
+            --secondary-color: #D2B48C; /* Nâu nhạt */
+            --bg-light: #F5EBE6; /* Nền kem sữa */
+            --text-dark: #3E2723; /* Chữ nâu đen */
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .admin-navbar {
+            background-color: var(--primary-color) !important;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+            .admin-navbar .nav-link {
+                color: rgba(255, 255, 255, 0.8) !important;
+                font-weight: 600;
+                padding: 10px 20px !important;
+            }
+
+                .admin-navbar .nav-link:hover, .admin-navbar .nav-link.active {
+                    background-color: var(--secondary-color) !important;
+                    color: var(--text-dark) !important;
+                }
+
+        .order-card {
+            background: #fff;
+            border: 1px solid var(--secondary-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
+        }
+
+        .table th {
+            background-color: #EFE6E1 !important;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link active"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+            <h3 class="fw-bold m-0 text-uppercase">Danh sách đơn hàng nhận được</h3>
+            <div class="d-flex gap-2">
+                <select class="form-select form-select-sm" style="width: 180px;">
+                    <option>Tất cả trạng thái</option>
+                    <option>Chờ xử lý</option>
+                    <option>Đang làm món</option>
+                    <option>Đã giao hàng</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="order-card p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle m-0">
+                    <thead>
+                        <tr>
+                            <th>Mã Đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Chi tiết món đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                            <th class="text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold text-secondary">#DH101</td>
+                            <td>
+                                <div class="fw-semibold">Nguyễn Văn Nam</div>
+                                <small class="text-muted">0908.123.XXX</small>
+                            </td>
+                            <td>
+                                <div class="small">2x Cà phê sữa đá [cite: 3]</div>
+                                <div class="small text-muted">Mẹo: Ít ngọt, nhiều đá</div>
+                            </td>
+                            <td class="fw-bold text-danger">70,000đ</td>
+                            <td class="small text-muted">09:45 - Hôm nay</td>
+                            <td><span class="badge bg-warning text-dark px-2 py-1">Chờ xử lý</span></td>
+                            <td class="text-center">
+                                <button class="btn btn-sm btn-outline-success" title="Xác nhận đơn"><i class="fa-solid fa-check"></i></button>
+                                <button class="btn btn-sm btn-outline-danger" title="Hủy đơn"><i class="fa-solid fa-xmark"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold text-secondary">#DH102</td>
+                            <td>
+                                <div class="fw-semibold">Lê Thị Mai</div>
+                                <small class="text-muted">0917.456.XXX</small>
+                            </td>
+                            <td>
+                                <div class="small">1x Matcha đá xay [cite: 9], 1x Tiramisu [cite: 11]</div>
+                            </td>
+                            <td class="fw-bold text-danger">110,000đ</td>
+                            <td class="small text-muted">08:30 - Hôm nay</td>
+                            <td><span class="badge bg-success px-2 py-1">Đã hoàn thành</span></td>
+                            <td class="text-center">
+                                <span class="text-muted small"><i class="fa-solid fa-circle-check text-success me-1"></i>Đã xử lý</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
