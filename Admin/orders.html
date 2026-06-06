@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/Style.css">
     <link rel="stylesheet" href="CSS/admin.css">
+    <link rel="stylesheet" href="CSS/admin.css">
     <style>
         :root {
             --primary-color: #6F4E37; /* Nâu cafe đậm */
@@ -95,38 +96,38 @@
                             <th class="text-center">Thao tác</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="orders-tbody">
+                        <tr id="row-DH101">
                             <td class="fw-bold text-secondary">#DH101</td>
                             <td>
                                 <div class="fw-semibold">Nguyễn Văn Nam</div>
                                 <small class="text-muted">0908.123.XXX</small>
                             </td>
                             <td>
-                                <div class="small">2x Cà phê sữa đá [cite: 3]</div>
+                                <div class="small">2x Cà phê sữa đá</div>
                                 <div class="small text-muted">Mẹo: Ít ngọt, nhiều đá</div>
                             </td>
                             <td class="fw-bold text-danger">70,000đ</td>
                             <td class="small text-muted">09:45 - Hôm nay</td>
-                            <td><span class="badge bg-warning text-dark px-2 py-1">Chờ xử lý</span></td>
-                            <td class="text-center">
-                                <button class="btn btn-sm btn-outline-success" title="Xác nhận đơn"><i class="fa-solid fa-check"></i></button>
-                                <button class="btn btn-sm btn-outline-danger" title="Hủy đơn"><i class="fa-solid fa-xmark"></i></button>
+                            <td class="status-cell"><span class="badge bg-warning text-dark px-2 py-1">Chờ xử lý</span></td>
+                            <td class="text-center action-cell">
+                                <button class="btn btn-sm btn-outline-success btn-confirm" data-order="DH101" title="Xác nhận đơn"><i class="fa-solid fa-check"></i></button>
+                                <button class="btn btn-sm btn-outline-danger btn-cancel" data-order="DH101" title="Hủy đơn"><i class="fa-solid fa-xmark"></i></button>
                             </td>
                         </tr>
-                        <tr>
+                        <tr id="row-DH102">
                             <td class="fw-bold text-secondary">#DH102</td>
                             <td>
                                 <div class="fw-semibold">Lê Thị Mai</div>
                                 <small class="text-muted">0917.456.XXX</small>
                             </td>
                             <td>
-                                <div class="small">1x Matcha đá xay [cite: 9], 1x Tiramisu [cite: 11]</div>
+                                <div class="small">1x Matcha đá xay, 1x Tiramisu</div>
                             </td>
                             <td class="fw-bold text-danger">110,000đ</td>
                             <td class="small text-muted">08:30 - Hôm nay</td>
-                            <td><span class="badge bg-success px-2 py-1">Đã hoàn thành</span></td>
-                            <td class="text-center">
+                            <td class="status-cell"><span class="badge bg-success px-2 py-1">Đã hoàn thành</span></td>
+                            <td class="text-center action-cell">
                                 <span class="text-muted small"><i class="fa-solid fa-circle-check text-success me-1"></i>Đã xử lý</span>
                             </td>
                         </tr>
@@ -137,5 +138,83 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // =============================================
+        // SCRIPT QUẢN LÝ ĐƠN HÀNG
+        // Lưu trạng thái qua localStorage để đồng bộ với dashboard.html
+        // =============================================
+
+        const STATUS = {
+            PENDING: { badge: 'bg-warning text-dark', text: 'Chờ xử lý' },
+            DELIVERED: { badge: 'bg-success', text: 'Đã hoàn thành' },
+            CANCELLED: { badge: 'bg-danger', text: 'Đã hủy' },
+        };
+
+        // Tải trạng thái đã lưu từ localStorage và áp dụng lên bảng
+        function loadOrderStatuses() {
+            document.querySelectorAll('#orders-tbody tr').forEach(row => {
+                const orderId = row.id.replace('row-', ''); // VD: "DH101"
+                const saved = localStorage.getItem('order_' + orderId);
+                if (saved) applyStatus(row, saved);
+            });
+        }
+
+        // Áp dụng trạng thái mới lên một row
+        function applyStatus(row, statusKey) {
+            const s = STATUS[statusKey];
+            const statusCell = row.querySelector('.status-cell');
+            const actionCell = row.querySelector('.action-cell');
+
+            // Cập nhật badge trạng thái
+            statusCell.innerHTML = `<span class="badge ${s.badge} px-2 py-1">${s.text}</span>`;
+
+            // Ẩn nút hành động nếu đơn đã xử lý xong
+            if (statusKey !== 'PENDING') {
+                const icon = statusKey === 'DELIVERED'
+                    ? '<i class="fa-solid fa-circle-check text-success me-1"></i>'
+                    : '<i class="fa-solid fa-circle-xmark text-danger me-1"></i>';
+                actionCell.innerHTML = `<span class="text-muted small">${icon}Đã xử lý</span>`;
+            }
+        }
+
+        // Gắn sự kiện cho nút Xác nhận và Hủy
+        document.querySelectorAll('.btn-confirm, .btn-cancel').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const orderId = this.dataset.order;         // VD: "DH101"
+                const row = document.getElementById('row-' + orderId);
+                const statusKey = this.classList.contains('btn-confirm') ? 'DELIVERED' : 'CANCELLED';
+
+                // Lưu vào localStorage
+                localStorage.setItem('order_' + orderId, statusKey);
+
+                // Cập nhật giao diện ngay lập tức
+                applyStatus(row, statusKey);
+
+                const msg = statusKey === 'DELIVERED' ? 'Đơn hàng đã được xác nhận!' : 'Đơn hàng đã bị hủy!';
+                showToast(msg, statusKey === 'DELIVERED' ? 'success' : 'danger');
+            });
+        });
+
+        // Toast thông báo nhỏ
+        function showToast(message, type) {
+            const existing = document.getElementById('order-toast');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.id = 'order-toast';
+            toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;min-width:260px;';
+            toast.innerHTML = `
+                    <div class="alert alert-${type} alert-dismissible shadow mb-0 d-flex align-items-center gap-2" role="alert">
+                        <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
+                        <span>${message}</span>
+                        <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
+                    </div>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        // Chạy khi trang load
+        loadOrderStatuses();
+    </script>
 </body>
 </html>

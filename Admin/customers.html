@@ -82,8 +82,8 @@
         <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
             <h3 class="fw-bold m-0 text-uppercase">Quản lý cơ sở dữ liệu khách hàng</h3>
             <div class="input-group input-group-sm" style="width: 260px;">
-                <input type="text" class="form-control" placeholder="Tìm kiếm tên, số điện thoại...">
-                <button class="btn btn-coffee btn-sm" type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <input type="text" id="customer-search" class="form-control" placeholder="Tìm kiếm tên, số điện thoại...">
+                <button class="btn btn-coffee btn-sm" type="button" id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
 
@@ -101,11 +101,11 @@
                             <th class="text-center">Hành động</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
+                    <tbody id="customers-tbody">
+                        <tr class="customer-row">
                             <td class="fw-bold text-muted">#KH201</td>
-                            <td class="fw-semibold">Nguyễn Văn Nam</td>
-                            <td>0908.123.XXX</td>
+                            <td class="fw-semibold cust-name">Nguyễn Văn Nam</td>
+                            <td class="cust-phone">0908.123.XXX</td>
                             <td>namnguyen@gmail.com</td>
                             <td class="fw-bold text-center">12 đơn</td>
                             <td><span class="badge bg-danger">Thành viên Vàng</span></td>
@@ -113,15 +113,20 @@
                                 <button class="btn btn-sm btn-outline-danger" title="Khóa tài khoản"><i class="fa-solid fa-user-slash"></i></button>
                             </td>
                         </tr>
-                        <tr>
+                        <tr class="customer-row">
                             <td class="fw-bold text-muted">#KH202</td>
-                            <td class="fw-semibold">Lê Thị Mai</td>
-                            <td>0917.456.XXX</td>
+                            <td class="fw-semibold cust-name">Lê Thị Mai</td>
+                            <td class="cust-phone">0917.456.XXX</td>
                             <td>maile98@gmail.com</td>
                             <td class="fw-bold text-center">5 đơn</td>
                             <td><span class="badge bg-secondary">Thành viên Bạc</span></td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-outline-danger" title="Khóa tài khoản"><i class="fa-solid fa-user-slash"></i></button>
+                            </td>
+                        </tr>
+                        <tr id="no-result-row" style="display:none;">
+                            <td colspan="7" class="text-center text-muted py-4">
+                                <i class="fa-solid fa-magnifying-glass me-2"></i>Không tìm thấy khách hàng phù hợp.
                             </td>
                         </tr>
                     </tbody>
@@ -131,5 +136,44 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // =============================================
+        // SCRIPT TÌM KIẾM KHÁCH HÀNG
+        // Tìm theo tên hoặc số điện thoại, real-time khi gõ
+        // =============================================
+
+        const searchInput = document.getElementById('customer-search');
+        const searchBtn = document.getElementById('search-btn');
+        const tbody = document.getElementById('customers-tbody');
+
+        function searchCustomers() {
+            const keyword = searchInput.value.trim().toLowerCase();
+            const rows = tbody.querySelectorAll('tr.customer-row');
+            let found = 0;
+
+            rows.forEach(row => {
+                const name = row.querySelector('.cust-name')?.textContent.toLowerCase() || '';
+                const phone = row.querySelector('.cust-phone')?.textContent.toLowerCase() || '';
+
+                if (!keyword || name.includes(keyword) || phone.includes(keyword)) {
+                    row.style.display = '';
+                    found++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Hiện / ẩn dòng thông báo "Không tìm thấy"
+            const noResult = document.getElementById('no-result-row');
+            noResult.style.display = found === 0 ? '' : 'none';
+        }
+
+        // Tìm kiếm real-time khi gõ
+        searchInput.addEventListener('input', searchCustomers);
+        // Tìm kiếm khi nhấn Enter
+        searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') searchCustomers(); });
+        // Tìm kiếm khi nhấn nút kính lúp
+        searchBtn.addEventListener('click', searchCustomers);
+    </script>
 </body>
 </html>

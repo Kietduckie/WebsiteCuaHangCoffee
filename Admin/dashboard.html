@@ -156,18 +156,18 @@
                                     <th>Trạng thái</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="dash-orders-tbody">
+                                <tr id="dash-row-DH101">
                                     <td class="fw-bold text-secondary">#DH101</td>
                                     <td>Cà phê sữa đá...</td>
                                     <td>80,000đ</td>
-                                    <td><span class="badge bg-warning text-dark badge-status">Chờ làm</span></td>
+                                    <td class="dash-status"><span class="badge bg-warning text-dark badge-status">Chờ làm</span></td>
                                 </tr>
-                                <tr>
+                                <tr id="dash-row-DH102">
                                     <td class="fw-bold text-secondary">#DH102</td>
                                     <td>Matcha đá xay</td>
                                     <td>130,000đ</td>
-                                    <td><span class="badge bg-success badge-status">Đã giao</span></td>
+                                    <td class="dash-status"><span class="badge bg-success badge-status">Đã hoàn thành</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -195,6 +195,33 @@
             },
             options: { responsive: true, maintainAspectRatio: false }
         });
+
+        // =============================================
+        // SCRIPT ĐỒNG BỘ TRẠNG THÁI ĐƠN HÀNG TỪ orders.html
+        // Đọc localStorage mỗi khi dashboard được mở / focus
+        // =============================================
+        const DASH_STATUS = {
+            PENDING: { badge: 'bg-warning text-dark', text: 'Chờ làm' },
+            DELIVERED: { badge: 'bg-success', text: 'Đã hoàn thành' },
+            CANCELLED: { badge: 'bg-danger', text: 'Đã hủy' },
+        };
+
+        function syncDashboardOrders() {
+            document.querySelectorAll('#dash-orders-tbody tr').forEach(row => {
+                const orderId = row.id.replace('dash-row-', ''); // VD: "DH101"
+                const saved = localStorage.getItem('order_' + orderId);
+                if (saved && DASH_STATUS[saved]) {
+                    const s = DASH_STATUS[saved];
+                    row.querySelector('.dash-status').innerHTML =
+                        `<span class="badge ${s.badge} badge-status">${s.text}</span>`;
+                }
+            });
+        }
+
+        // Chạy khi trang load và khi tab được focus lại
+        syncDashboardOrders();
+        window.addEventListener('focus', syncDashboardOrders);
+        window.addEventListener('storage', syncDashboardOrders); // Cập nhật realtime nếu mở cả 2 tab
     </script>
 </body>
 </html>
