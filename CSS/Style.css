@@ -5,25 +5,25 @@
 /* 1. HỆ THỐNG BIẾN MÀU & THIẾT KẾ */
 :root {
     /* --- LIGHT MODE --- */
-    --primary-color: #8C1D24; 
-    --secondary-color: #FBF9F6;
-    --accent-color: #E28743; 
-    --dark-neutral: #1E1E1E; 
-    --light-neutral: #FFFFFF; 
-    --border-color: #EAEAEA; 
+    --primary-color: #6F4E37; 
+    --secondary-color: #f4f6f9;
+    --accent-color: #D2B48C; 
+    --dark-neutral: #333333; 
+    --light-neutral: #ffffff; 
+    --border-color: #e0e0e0; 
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 8px 24px rgba(140, 29, 36, 0.08);
+    --shadow-md: 0 8px 24px rgba(111, 78, 55, 0.08);
     --transition: all 0.3s ease-in-out;
 }
 
 /* --- 2. CẤU HÌNH DARK MODE --- */
 body.dark-mode {
-    --primary-color: #E94560; /* Đỏ tươi hơn chút để nổi bật trên nền tối */
-    --secondary-color: #121212; /* Nền tổng thể tối sâu */
-    --accent-color: #FFA34D; /* Cam sáng rực rỡ hơn */
-    --dark-neutral: #F5F5F5; /* Chữ chuyển sang trắng sáng */
-    --light-neutral: #1A1A1A; /* Nền các Card/Navbar chuyển sang xám đen */
-    --border-color: #2D2D2D;
+    --primary-color: #D2B48C; /* Nâu nhạt nổi bật trên nền tối */
+    --secondary-color: #121212; /* Nền đen sâu */
+    --accent-color: #D2B48C; /* Giữ tone nâu nhạt */
+    --dark-neutral: #e0e0e0; /* Chữ chuyển sang trắng sáng */
+    --light-neutral: #1e1e1e; /* Nền các Card/Navbar chuyển sang xám đen */
+    --border-color: #333333;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
