@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bean & Brew café</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <style>
+        /* === OVERRIDE TONE MÀU NÂU CAFE (đồng bộ Style.css) === */
+        :root {
+            --primary-color: #6F4E37;
+            --accent-color: #D2B48C;
+        }
+        /* Buttons */
+        .btn-coffee, .btn-primary {
+            background-color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+            .btn-coffee:hover, .btn-primary:hover {
+                background-color: #5a3d2b !important;
+                border-color: #5a3d2b !important;
+            }
+
+        .btn-coffee-outline {
+            color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+            background-color: transparent !important;
+            font-weight: 600;
+        }
+
+            .btn-coffee-outline:hover {
+                background-color: #6F4E37 !important;
+                color: #fff !important;
+            }
+        /* Colors */
+        .text-warning {
+            color: #D2B48C !important;
+        }
+
+        .border-warning {
+            border-color: #D2B48C !important;
+        }
+
+        .logo {
+            color: #6F4E37 !important;
+        }
+
+        a {
+            color: #6F4E37;
+        }
+
+            a:hover {
+                color: #5a3d2b;
+            }
+        /* Form focus */
+        .form-control:focus, .form-select:focus {
+            border-color: #6F4E37 !important;
+            box-shadow: 0 0 0 0.25rem rgba(111,78,55,0.15) !important;
+        }
+        /* Checkbox & radio */
+        .form-check-input:checked {
+            background-color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+        }
+        /* Mega menu headings */
+        .mega-menu h6.text-warning {
+            color: #D2B48C !important;
+            border-color: #D2B48C !important;
+        }
+        /* Footer icons */
+        footer .bi.text-warning, footer h5.text-warning {
+            color: #D2B48C !important;
+        }
+        /* Background gradient (login) */
+        body.login-page {
+            background: linear-gradient(135deg, rgba(111,78,55,0.10), rgba(210,180,140,0.12)) !important;
+        }
+        /* Login card header */
+        .login-header {
+            background: #6F4E37 !important;
+        }
+        /* Accordion active */
+        .accordion-button:not(.collapsed) {
+            color: #6F4E37 !important;
+            background-color: rgba(111,78,55,0.07) !important;
+            box-shadow: inset 0 -1px 0 rgba(111,78,55,0.2) !important;
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(111,78,55,0.15) !important;
+        }
+        /* Member tier Gold card border */
+        .border-warning {
+            border-color: #D2B48C !important;
+        }
+
+        .bi-award-fill.text-warning {
+            color: #D2B48C !important;
+        }
+        /* Social login buttons */
+        .btn-outline-danger {
+            color: #c0392b;
+            border-color: #c0392b;
+        }
+
+        .btn-outline-primary {
+            color: #3b5998;
+            border-color: #3b5998;
+        }
+        /* back-home link */
+        .back-home {
+            color: #6F4E37 !important;
+        }
+
+            .back-home:hover {
+                color: #D2B48C !important;
+            }
+    </style>
+</head>
+
+<body>
+    <header class="bg-white">
+        <div class="container py-3">
+            <div class="row align-items-center g-3">
+                <div class="col-lg-2 col-md-12 text-center text-lg-start">
+                    <a href="index.html" class="text-decoration-none">
+                        <h2 class="logo mb-0">Bean & Brew Café</h2>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group search-box">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Bạn muốn uống gì hôm nay?" />
+                        <button class="btn btn-coffee">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+                        <a href="member.html" class="btn btn-coffee-outline">Hội viên</a>
+                        <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
+                        <a href="cart.html" class="btn btn-coffee"><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle"
+                           href="menu.html"
+                           data-bs-toggle="dropdown">Menu</a>
+
+                        <div class="dropdown-menu mega-menu w-100 p-3">
+                            <div class="container-fluid">
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            CÀ PHÊ
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê đen đá</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê sữa đá</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Bạc xỉu</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê đen nóng</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê sữa nóng</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            ESPRESSO
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Espresso</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Americano</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Latte</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cappuccino</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            TRÀ
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà đào cam sả</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà vải</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà sen vàng</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Trà chanh mật ong</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Trà dâu tây</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            ĐÁ XAY
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#ice">Matcha đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Chocolate đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Cookies đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Caramel đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Oreo đá xay</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            BÁNH NGỌT
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#ice">Red Velvet</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Tiramisu</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Cheesecake</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Croissant Bơ</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Bánh Su Kem</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Về chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotion.html">Khuyến mãi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="member.html">Hội viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Đặt bàn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= QUYỀN LỢI HỘI VIÊN ================= -->
+
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Quyền Lợi Hội Viên</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card product-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-gift-fill fs-1 text-primary"></i>
+
+                        <h4 class="mt-3">Ưu Đãi Sinh Nhật</h4>
+
+                        <p>Nhận voucher giảm giá đặc biệt trong tháng sinh nhật.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-stars fs-1 text-primary"></i>
+
+                        <h4 class="mt-3">Tích Điểm</h4>
+
+                        <p>Mỗi hóa đơn đều được tích điểm để đổi quà hấp dẫn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card product-card h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-ticket-perforated-fill fs-1 text-primary"></i>
+
+                        <h4 class="mt-3">Voucher Độc Quyền</h4>
+
+                        <p>Thành viên nhận ưu đãi và chương trình riêng hàng tháng.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Câu Hỏi Thường Gặp</h2>
+
+            <p class="text-muted">
+                Giải đáp những thắc mắc phổ biến về chương trình hội viên Bean & Brew
+            </p>
+        </div>
+
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq1">
+                        Làm thế nào để trở thành hội viên Bean & Brew?
+                    </button>
+                </h2>
+
+                <div id="faq1"
+                     class="accordion-collapse collapse show"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Bạn chỉ cần đăng ký tài khoản trên website Bean & Brew hoặc trực
+                        tiếp tại cửa hàng. Sau khi hoàn tất quá trình đăng ký, hệ thống sẽ
+                        tự động kích hoạt tài khoản hội viên và cấp mã thành viên riêng
+                        cho bạn. Từ thời điểm đó, mọi giao dịch mua sắm tại Bean & Brew
+                        đều được ghi nhận để tích điểm và nhận ưu đãi.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq2">
+                        Điểm thưởng được tích như thế nào?
+                    </button>
+                </h2>
+
+                <div id="faq2"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Điểm thưởng được tích dựa trên tổng giá trị hóa đơn. Mỗi lần mua
+                        đồ uống hoặc bánh ngọt tại Bean & Brew, hệ thống sẽ tự động cộng
+                        điểm vào tài khoản của bạn. Điểm tích lũy có thể dùng để đổi quà,
+                        nhận voucher giảm giá hoặc tham gia các chương trình ưu đãi đặc
+                        biệt.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq3">
+                        Điểm tích lũy có thời hạn không?
+                    </button>
+                </h2>
+
+                <div id="faq3"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Điểm thưởng có hiệu lực trong vòng 12 tháng kể từ ngày phát sinh
+                        giao dịch. Trước khi điểm hết hạn, hệ thống sẽ gửi thông báo qua
+                        email hoặc tài khoản hội viên để khách hàng chủ động sử dụng và
+                        không bỏ lỡ quyền lợi của mình.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq4">
+                        Tôi có thể đổi điểm lấy gì?
+                    </button>
+                </h2>
+
+                <div id="faq4"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Điểm thưởng có thể được quy đổi thành đồ uống miễn phí, bánh ngọt,
+                        voucher giảm giá hoặc những phần quà đặc biệt trong các chương
+                        trình khuyến mãi của Bean & Brew. Giá trị quà tặng sẽ thay đổi
+                        theo từng thời điểm.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq5">
+                        Làm sao để nâng hạng thành viên?
+                    </button>
+                </h2>
+
+                <div id="faq5"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Khi đạt đủ số điểm theo quy định, tài khoản sẽ được tự động nâng
+                        hạng lên Gold hoặc Diamond. Thành viên hạng cao hơn sẽ nhận được
+                        nhiều quyền lợi hấp dẫn như tích điểm nhanh hơn, voucher sinh nhật
+                        giá trị hơn và ưu đãi độc quyền.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#faq6">
+                        Tôi quên mật khẩu tài khoản phải làm sao?
+                    </button>
+                </h2>
+
+                <div id="faq6"
+                     class="accordion-collapse collapse"
+                     data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Bạn có thể sử dụng chức năng "Quên mật khẩu" tại trang đăng nhập
+                        để nhận email khôi phục. Nếu vẫn gặp khó khăn, hãy liên hệ đội ngũ
+                        chăm sóc khách hàng Bean & Brew để được hỗ trợ nhanh chóng.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= HẠNG THÀNH VIÊN ================= -->
+    <style>
+        .tier-card {
+            cursor: pointer;
+            border: 2px solid transparent !important;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+            user-select: none;
+        }
+
+            .tier-card.active {
+                border-color: #D2B48C !important;
+                box-shadow: 0 0 0 4px rgba(210, 180, 140, 0.25), 0 6px 20px rgba(111, 78, 55, 0.15) !important;
+                transform: translateY(-4px);
+            }
+
+            .tier-card .tier-check {
+                display: none;
+                color: #6F4E37;
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin-top: 10px;
+            }
+
+            .tier-card.active .tier-check {
+                display: block;
+            }
+    </style>
+
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Hạng Thành Viên</h2>
+                <p class="text-muted small">Nhấn vào hạng để xem chi tiết quyền lợi</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card product-card tier-card h-100" onclick="selectTier(this)">
+                        <div class="card-body text-center">
+                            <h3>
+                                <i class="bi bi-person-circle me-2"></i>
+                                Member
+                            </h3>
+                            <p class="text-muted">Từ 0 điểm</p>
+                            <ul class="list-unstyled">
+                                <li>✓ Tích điểm đổi quà</li>
+                                <li>✓ Nhận ưu đãi cơ bản</li>
+                            </ul>
+                            <div class="tier-check">✦ Đang xem hạng này</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card product-card tier-card h-100" onclick="selectTier(this)">
+                        <div class="card-body text-center">
+                            <h3>
+                                <i class="bi bi-award-fill me-2" style="color:#D2B48C;"></i>
+                                Gold
+                            </h3>
+                            <p class="text-muted">Từ 1.000 điểm</p>
+                            <ul class="list-unstyled">
+                                <li>✓ Tích điểm nhanh hơn</li>
+                                <li>✓ Voucher sinh nhật</li>
+                                <li>✓ Ưu đãi thành viên</li>
+                            </ul>
+                            <div class="tier-check">✦ Đang xem hạng này</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card product-card tier-card h-100" onclick="selectTier(this)">
+                        <div class="card-body text-center">
+                            <h3>
+                                <i class="bi bi-gem text-info me-2"></i>
+                                Diamond
+                            </h3>
+                            <p class="text-muted">Từ 3.000 điểm</p>
+                            <ul class="list-unstyled">
+                                <li>✓ Ưu đãi cao nhất</li>
+                                <li>✓ Quà tặng đặc biệt</li>
+                                <li>✓ Voucher độc quyền</li>
+                            </ul>
+                            <div class="tier-check">✦ Đang xem hạng này</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function selectTier(card) {
+            document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+        }
+    </script>
+    <!-- ================= CTA ================= -->
+
+    <section class="text-center py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-4">Trở Thành Thành Viên Ngay Hôm Nay</h2>
+
+            <p class="mb-4">
+                Tận hưởng những đặc quyền hấp dẫn chỉ dành riêng cho hội viên Bean &
+                Brew.
+            </p>
+
+            <a href="register.html" class="btn btn-primary btn-lg">
+                Đăng Ký Hội Viên
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-warning mb-3">Bean & Brew</h5>
+                    <p class="text-muted">
+                        Nơi thưởng thức cà phê nguyên chất và không gian thư giãn hiện
+                        đại.
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="index.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Trang chủ</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="menu.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Menu</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="booking.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Đặt bàn</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="contact.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Giờ mở cửa</h5>
+                    <p class="text-white-50 mb-1">
+                        <i class="bi bi-clock me-2 text-warning"></i>07:00 - 22:00
+                    </p>
+                    <p class="text-white-50">
+                        <i class="bi bi-calendar-check me-2 text-warning"></i>Tất cả các
+                        ngày
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên hệ</h5>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-geo-alt-fill me-2 text-warning"></i> TP.HCM
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-telephone-fill me-2 text-warning"></i> 0909 999
+                        999
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-envelope-fill me-2 text-warning"></i> info@bean.vn
+                    </p>
+                </div>
+            </div>
+
+            <hr class="text-white-50" />
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap pt-2 pb-3">
+                <div class="mb-2 mb-md-0 fs-4">
+                    <a href="https://facebook.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://youtube.com"
+                       target="_blank"
+                       class="text-white-50 text-warning-hover">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+                <div class="text-white-50 small">
+                    © 2026 Bean & Brew Café. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</body>
+</html>

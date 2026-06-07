@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Admin",
     "\\CSS",
-    "\\Main"
+    "\\Main",
+    "\\Main\\Admin"
   ],
-  "SelectedNode": "\\Admin\\orders.html",
+  "SelectedNode": "\\Main\\Admin\\dashboard.html",
   "PreviewInSolutionExplorer": false
 }

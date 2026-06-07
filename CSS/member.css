@@ -1,0 +1,27 @@
+.accordion-item {
+  border: 1px solid var(--border-color);
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.accordion-button {
+  font-weight: 600;
+  background: var(--light-neutral);
+  color: var(--dark-neutral);
+}
+
+.accordion-button:not(.collapsed) {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-body {
+  background: var(--light-neutral);
+  color: var(--dark-neutral);
+  line-height: 1.8;
+}
