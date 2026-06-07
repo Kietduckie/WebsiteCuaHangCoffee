@@ -70,6 +70,20 @@
       .logo {
         color: #6f4e37 !important;
       }
+      .navbar {
+        position: relative;
+        z-index: 1100;
+      }
+
+      .navbar .collapse.show {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        z-index: 1101;
+      }
     </style>
   </head>
 
@@ -340,7 +354,6 @@
 
     <div class="container py-4">
       <div class="row">
-        <!-- Sidebar trái -->
 
         <div class="col-lg-2 col-md-3">
           <div class="sticky-top" style="top: 80px">
@@ -537,12 +550,9 @@
         alert(name + " đã được thêm vào giỏ hàng!");
       }
 
-      // Hàm hiển thị sản phẩm động từ dữ liệu Admin lưu trong localStorage
 function displayMenu() {
-    // 1. Lấy danh sách sản phẩm từ Admin lưu trong localStorage
     const products = JSON.parse(localStorage.getItem('cafe_menu')) || [];
     
-    // 2. Sửa lại key ở đây cho khớp hoàn toàn với thẻ <option> tiếng Việt bên Admin
     const containers = {
         'Cà phê truyền thống': document.getElementById('container-coffee'),
         'Espresso Coffee': document.getElementById('container-espresso'),
@@ -551,14 +561,11 @@ function displayMenu() {
         'Bánh ngọt': document.getElementById('container-cake')
     };
 
-    // Làm sạch các khu vực chứa trước khi nạp dữ liệu mới tránh trùng lặp
     Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
 
-    // 3. Duyệt qua từng sản phẩm để vẽ giao diện card
     products.forEach(product => {
         const targetContainer = containers[product.category];
         if (targetContainer) {
-            // SỬA LỖI Ở ĐÂY: Dùng product.img (thay vì product.image) để khớp với Admin
             const hinhAnh = product.img || product.image || '../Images/CapheDenDa.jpg'; 
             
             targetContainer.innerHTML += `
@@ -580,13 +587,10 @@ function displayMenu() {
     });
 }
 
-// Luôn chạy hàm này khi vừa tải trang menu.html
 document.addEventListener('DOMContentLoaded', displayMenu);
 
-// Luôn chạy hàm này khi vừa tải trang menu.html
 document.addEventListener('DOMContentLoaded', displayMenu);
 
-// Logic quản lý giỏ hàng của bạn (Giữ nguyên và đồng bộ lưu vào "cart")
 function addToCart(id, name, price) {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     const itemIdx = cart.findIndex(item => item.id === id);
@@ -601,7 +605,6 @@ function addToCart(id, name, price) {
     alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
 }
 
-// Gọi hàm chạy ngay khi tải trang khách hàng
 document.addEventListener('DOMContentLoaded', displayMenu);
     </script>
   </body>
