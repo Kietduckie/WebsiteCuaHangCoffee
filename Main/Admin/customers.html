@@ -66,14 +66,29 @@
 
     <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand text-white fw-bold" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
-                    <li class="nav-item"><a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a></li>
-                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a></li>
-                    <li class="nav-item"><a href="customers.html" class="nav-link active"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a></li>
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="customers.html" class="nav-link active"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
+                    </li>
                 </ul>
+                <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href='file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html' class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -137,15 +152,82 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // =============================================
-        // SCRIPT TÌM KIẾM KHÁCH HÀNG
-        // Tìm theo tên hoặc số điện thoại, real-time khi gõ
-        // =============================================
 
         const searchInput = document.getElementById('customer-search');
         const searchBtn = document.getElementById('search-btn');
         const tbody = document.getElementById('customers-tbody');
 
+    
+        function renderCustomers() {
+            
+            let users = JSON.parse(localStorage.getItem('cafe_users'));
+
+            if (!users || users.length === 0) {
+                users = [
+                    { id: "KH201", name: "Nguyễn Văn Nam", phone: "0908.123.XXX", email: "namnguyen@gmail.com", totalOrders: 12, rank: "Thành viên Vàng", isLocked: false },
+                    { id: "KH202", name: "Lê Thị Mai", phone: "0917.456.XXX", email: "maile98@gmail.com", totalOrders: 5, rank: "Thành viên Bạc", isLocked: false }
+                ];
+                localStorage.setItem('cafe_users', JSON.stringify(users));
+            }
+
+           
+            const noResultRow = document.getElementById('no-result-row');
+            tbody.innerHTML = '';
+            tbody.appendChild(noResultRow);
+
+            
+            users.forEach(user => {
+                const tr = document.createElement('tr');
+                tr.className = 'customer-row';
+                tr.dataset.id = user.id;
+
+                let badgeClass = 'bg-secondary';
+                if (user.rank.includes('Vàng')) badgeClass = 'bg-danger';
+                if (user.rank.includes('Kim cương')) badgeClass = 'bg-dark';
+
+                tr.innerHTML = `
+                    <td class="fw-bold text-muted">#${user.id}</td>
+                    <td class="fw-semibold cust-name">${user.name}</td>
+                    <td class="cust-phone">${user.phone}</td>
+                    <td>${user.email}</td>
+                    <td class="fw-bold text-center">${user.totalOrders} đơn</td>
+                    <td><span class="badge ${badgeClass}">${user.rank}</span></td>
+                    <td class="text-center">
+                        <button class="btn btn-sm ${user.isLocked ? 'btn-danger' : 'btn-outline-danger'} btn-toggle-lock" title="${user.isLocked ? 'Mở khóa tài khoản' : 'Khóa tài khoản'}">
+                            <i class="fa-solid ${user.isLocked ? 'fa-user-lock' : 'fa-user-slash'}"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.insertBefore(tr, noResultRow);
+            });
+
+  
+            initLockEvents();
+        }
+
+
+        function initLockEvents() {
+            document.querySelectorAll('.btn-toggle-lock').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const row = this.closest('.customer-row');
+                    const userId = row.dataset.id;
+                    let users = JSON.parse(localStorage.getItem('cafe_users'));
+
+                    users = users.map(user => {
+                        if (user.id === userId) {
+                            user.isLocked = !user.isLocked;
+                            alert(`${user.isLocked ? 'Đã khóa' : 'Đã mở khóa'} tài khoản của khách hàng: ${user.name}`);
+                        }
+                        return user;
+                    });
+
+                    localStorage.setItem('cafe_users', JSON.stringify(users));
+                    renderCustomers();
+                });
+            });
+        }
+
+       
         function searchCustomers() {
             const keyword = searchInput.value.trim().toLowerCase();
             const rows = tbody.querySelectorAll('tr.customer-row');
@@ -163,17 +245,16 @@
                 }
             });
 
-            // Hiện / ẩn dòng thông báo "Không tìm thấy"
             const noResult = document.getElementById('no-result-row');
             noResult.style.display = found === 0 ? '' : 'none';
         }
 
-        // Tìm kiếm real-time khi gõ
         searchInput.addEventListener('input', searchCustomers);
-        // Tìm kiếm khi nhấn Enter
         searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') searchCustomers(); });
-        // Tìm kiếm khi nhấn nút kính lúp
         searchBtn.addEventListener('click', searchCustomers);
+
+    
+        document.addEventListener('DOMContentLoaded', renderCustomers);
     </script>
 </body>
 </html>
