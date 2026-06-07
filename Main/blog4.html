@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Về Chúng Tôi | Bean & Brew Café</title>
+
+    <title>Bean & Brew café</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
@@ -11,24 +12,295 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
     />
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-      /* === ĐỒNG BỘ TÔNG NÂU CAFE === */
-      .btn-coffee,
-      .btn-primary {
+        .story-card{
+
+    display:block;
+
+    text-decoration:none;
+
+    background:#fff;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.story-card:hover{
+
+    transform:translateY(-10px);
+}
+
+.story-card img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+}
+
+.story-card-content{
+
+    padding:25px;
+}
+
+.story-card-content h5{
+
+    color:#333;
+
+    font-weight:700;
+}
+
+.story-card-content span{
+
+    color:#6F4E37;
+
+    font-weight:600;
+}
+.journey-section{
+    margin:80px auto;
+    max-width:1400px;
+}
+
+.journey-section h2{
+    text-align:center;
+
+    margin-bottom:50px;
+
+    color:#6F4E37;
+
+    font-weight:800;
+}
+      .coffee-story-hero {
+        height: 70vh;
+
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+          url("../Images/about1.jpg");
+
+        background-size: cover;
+        background-position: center;
+
+        display: flex;
+        align-items: center;
+
+        color: white;
+      }
+
+      .story-tag {
+        display: inline-block;
+
+        background: #d2b48c;
+
+        color: #6f4e37;
+
+        padding: 8px 20px;
+
+        border-radius: 30px;
+
+        font-weight: 700;
+      }
+
+      .hero-content h1 {
+        margin-top: 20px;
+        font-size: 4rem;
+        font-weight: 800;
+      }
+
+      .hero-content p {
+        max-width: 700px;
+        font-size: 1.2rem;
+      }
+
+      .journey-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+      }
+
+      .journey-card{
+    background:#fff;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    text-align:center;
+
+    transition:.3s;
+
+    box-shadow:
+    0 8px 30px rgba(0,0,0,.08);
+}
+.journey-section {
+    margin: 60px auto;
+    max-width: 1200px;
+}
+
+.journey-section h2 {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #6F4E37;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.journey-card {
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    transition: .3s;
+}
+
+.journey-card:hover {
+    transform: translateY(-5px);
+}
+
+.journey-card span {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #6F4E37;
+}
+
+.journey-card h4 {
+    margin: 12px 0;
+    color: #6F4E37;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.journey-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: #555;
+}
+.journey-card:hover{
+    transform:translateY(-10px);
+}
+
+.journey-card span{
+    font-size:3rem;
+
+    font-weight:800;
+
+    color:#6F4E37;
+}
+
+      .journey-card h4 {
+        margin: 15px 0;
+        color: #6f4e37;
+      }
+  .story-quote {
+    max-width: 900px;
+    margin: 50px auto;
+
+    padding: 30px;
+
+    text-align: center;
+
+    background: #6F4E37;
+    color: white;
+
+    border-radius: 20px;
+}
+
+.story-quote i {
+    font-size: 2rem;
+    opacity: .5;
+}
+
+.story-quote p {
+    margin-top: 10px;
+    margin-bottom: 0;
+
+    font-size: 1.15rem;
+    line-height: 1.7;
+    font-weight: 500;
+}
+   .coffee-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.fact-box {
+    background: #F8F5F2;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    transition: .3s;
+}
+
+.fact-box h3 {
+    font-size: 2.5rem; 
+    font-weight: 800;
+    color: #6F4E37;
+    margin-bottom: 8px;
+}
+
+.fact-box p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 0;
+}
+.fact-box:hover{
+
+    transform:translateY(-8px);
+
+    background:#fff;
+}
+
+      .fact-box h3{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    color:#6F4E37;
+
+    margin-bottom:15px;
+}
+            .btn-coffee {
         background-color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         color: #fff !important;
-        font-weight: 600;
       }
 
-      .btn-coffee:hover,
-      .btn-primary:hover {
+      .btn-coffee:hover {
         background-color: #5a3d2b !important;
         border-color: #5a3d2b !important;
       }
@@ -37,7 +309,6 @@
         color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         background-color: transparent !important;
-        font-weight: 600;
       }
 
       .btn-coffee-outline:hover {
@@ -48,6 +319,11 @@
       .btn-dark {
         background-color: #6f4e37 !important;
         border-color: #6f4e37 !important;
+      }
+
+      .btn-dark:hover {
+        background-color: #5a3d2b !important;
+        border-color: #5a3d2b !important;
       }
 
       .text-warning {
@@ -61,158 +337,10 @@
       .border-warning {
         border-color: #d2b48c !important;
       }
-
-      .logo {
-        color: #6f4e37 !important;
-      }
-
-      /* === ABOUT PAGE STYLES === */
-      .page-hero {
-        background: linear-gradient(135deg, #3e2723 0%, #6f4e37 100%);
-        padding: 80px 0;
-        color: #fff;
-      }
-
-      .page-hero h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        letter-spacing: -1px;
-      }
-
-      .page-hero p {
-        font-size: 1.15rem;
-        opacity: 0.85;
-      }
-
-      .section-label {
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        color: #d2b48c;
-      }
-
-      .section-title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #3e2723;
-        margin-bottom: 1rem;
-      }
-
-      /* Story section */
-      .story-quote {
-        border-left: 4px solid #d2b48c;
-        padding-left: 1.5rem;
-        color: #5a3d2b;
-        font-size: 1.1rem;
-        font-style: italic;
-      }
-
-      /* Mission/Vision cards */
-      .mv-card {
-        border: none;
-        border-radius: 16px;
-        background: #fff;
-        box-shadow: 0 4px 20px rgba(111, 78, 55, 0.08);
-        padding: 2rem;
-        height: 100%;
-        transition: transform 0.2s;
-      }
-
-      .mv-card:hover {
-        transform: translateY(-4px);
-      }
-
-      .mv-card-icon {
-        width: 56px;
-        height: 56px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .mv-card-icon.brown {
-        background: rgba(111, 78, 55, 0.1);
-        color: #6f4e37;
-      }
-
-      .mv-card-icon.tan {
-        background: rgba(210, 180, 140, 0.2);
-        color: #a0724a;
-      }
-
-      /* Values */
-      .value-item {
-        text-align: center;
-        padding: 2rem 1rem;
-      }
-
-      .value-item i {
-        font-size: 2.5rem;
-        color: #6f4e37;
-        margin-bottom: 1rem;
-        display: block;
-      }
-
-      .value-item h5 {
-        font-weight: 700;
-        color: #3e2723;
-        margin-bottom: 0.5rem;
-      }
-
-      .value-item p {
-        color: #777;
-        font-size: 0.93rem;
-        margin: 0;
-      }
-
-      /* Stats */
-      .stat-band {
-        background: #6f4e37;
-        padding: 50px 0;
-        color: #fff;
-      }
-
-      .stat-band .stat-num {
-        font-size: 2.8rem;
-        font-weight: 800;
-        color: #d2b48c;
-        line-height: 1;
-      }
-
-      .stat-band .stat-label {
-        font-size: 0.9rem;
-        opacity: 0.85;
-        margin-top: 4px;
-      }
-
-      /* Thanks banner */
-      .thanks-band {
-        background: #fdf8f4;
-        border-top: 1px solid #e8d8cb;
-        border-bottom: 1px solid #e8d8cb;
-      }
-      .page-hero {
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-          url("../Images/banner2.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        min-height: 500px;
-
-        display: flex;
-        align-items: center;
-
-        color: white;
-      }
+       .logo {
+        color: #6f4e37 !important;}
     </style>
-  </head>
-
-  <body>
+<body>
     <header class="bg-white">
       <div class="container py-3">
         <div class="row align-items-center g-3">
@@ -221,7 +349,7 @@
               href="index.html"
               class="text-decoration-none d-inline-flex align-items-center gap-2"
             >
-              <h3 class="logo mb-0">Bean & Brew Café</h3>
+              <h2 class="logo mb-0">Bean & Brew Café</h2>
             </a>
           </div>
           <div class="col-lg-6">
@@ -238,7 +366,6 @@
           </div>
           <div class="col-lg-4 col-md-12">
             <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
-              <a href="member.html" class="btn btn-coffee-outline">Hội viên</a>
               <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
               <a href="cart.html" class="btn btn-coffee"
                 ><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a
@@ -476,266 +603,213 @@
         </div>
       </div>
     </nav>
+    <section class="coffee-story-hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="story-tag"> Coffee Story </span>
 
-    <!-- ===== HERO ===== -->
-    <section class="page-hero">
-      <div class="container text-center">
-        <p class="section-label mb-2">Câu chuyện của chúng tôi</p>
-        <h1>Về Bean & Brew</h1>
-        <p class="mt-3 mx-auto" style="max-width: 520px">
-          Không chỉ là cà phê - đó là một trải nghiệm, một kết nối và những
-          khoảnh khắc đáng nhớ.
-        </p>
-        <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
-          <a href="menu.html" class="btn btn-light fw-semibold px-4"
-            >Khám phá Menu</a
-          >
-          <a href="booking.html" class="btn btn-outline-light px-4"
-            >Đặt bàn ngay</a
-          >
+          <h1>Câu Chuyện Hạt Cà Phê Việt</h1>
+
+          <p>
+            Hành trình từ những vùng đất đỏ bazan màu mỡ đến ly cà phê đậm đà
+            trên bàn thưởng thức.
+          </p>
         </div>
       </div>
     </section>
+    <section class="story-section py-5">
+    <div class="container">
 
-    <!-- ===== BRAND STORY ===== -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-5">
-            <p class="section-label">Thương hiệu</p>
-            <h2 class="section-title">Câu Chuyện Bean & Brew</h2>
-            <blockquote class="story-quote mb-4">
-              "Cà phê không chỉ là thức uống - đó là cầu nối cho những cuộc trò
-              chuyện, ý tưởng và khoảnh khắc sống động nhất."
-            </blockquote>
-            <p class="text-muted">
-              Bean & Brew ra đời từ niềm đam mê dành cho cà phê và khát vọng xây
-              dựng không gian kết nối cộng đồng. Từ những ngày đầu, chúng tôi
-              luôn đặt chất lượng làm nền tảng để mang đến trải nghiệm tốt nhất
-              cho mỗi khách hàng.
-            </p>
-          </div>
-          <div class="col-lg-7">
-            <div class="row g-3">
-              <div class="col-6">
-                <div
-                  class="bg-light rounded-4 d-flex align-items-center justify-content-center overflow-hidden"
-                  style="height: 180px"
-                >
-                  <img
-                    src="../Images/about1.jpg"
-                    alt="Coffee"
-                    class="img-fluid w-100 h-100"
-                    style="object-fit: cover"
-                  />
-                </div>
-              </div>
+        <div class="story-intro-card">
 
-              <div class="col-6">
-                <div
-                  class="rounded-4 d-flex align-items-center justify-content-center overflow-hidden"
-                  style="height: 180px"
-                >
-                  <img
-                    src="../Images/about2.jpg"
-                    alt="Coffee Shop"
-                    class="img-fluid w-100 h-100"
-                    style="object-fit: cover"
-                  />
-                </div>
-              </div>
-
-              <div class="col-12">
-                <div
-                  class="rounded-4 d-flex align-items-center justify-content-center"
-                  style="
-                    height: 120px;
-                    background: #fdf3e3;
-                    border: 1px solid #e8d8cb;
-                  "
-                >
-                  <p
-                    class="mb-0 fw-semibold text-center px-4"
-                    style="color: #6f4e37"
-                  >
-                    <i class="bi bi-quote fs-4 me-2"></i>
-                    Mỗi ly cà phê là một câu chuyện riêng
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== STATS ===== -->
-    <div class="stat-band">
-      <div class="container">
-        <div class="row text-center g-4">
-          <div class="col-6 col-md-3">
-            <div class="stat-num">15+</div>
-            <div class="stat-label">Loại cà phê</div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="stat-num">10+</div>
-            <div class="stat-label">Loại trà</div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="stat-num">25+</div>
-            <div class="stat-label">Sản phẩm</div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="stat-num">1000+</div>
-            <div class="stat-label">Khách hàng hài lòng</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ===== MISSION & VISION ===== -->
-    <section class="py-5" style="background: #f9f4f0">
-      <div class="container">
-        <div class="text-center mb-5">
-          <p class="section-label">Định hướng</p>
-          <h2 class="section-title">Sứ Mệnh & Tầm Nhìn</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="mv-card">
-              <div class="mv-card-icon brown">
-                <i class="bi bi-heart-fill"></i>
-              </div>
-              <h4 class="fw-bold mb-3" style="color: #3e2723">Sứ Mệnh</h4>
-              <p class="text-muted mb-0">
-                Mang đến những sản phẩm chất lượng cao cùng dịch vụ tận tâm,
-                giúp khách hàng tận hưởng những khoảnh khắc thư giãn ý nghĩa mỗi
-                ngày.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="mv-card">
-              <div class="mv-card-icon tan"><i class="bi bi-eye-fill"></i></div>
-              <h4 class="fw-bold mb-3" style="color: #3e2723">Tầm Nhìn</h4>
-              <p class="text-muted mb-0">
-                Trở thành thương hiệu cà phê được yêu thích bởi giới trẻ nhờ
-                chất lượng sản phẩm vượt trội và trải nghiệm khách hàng đáng
-                nhớ.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-5">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <!-- Ảnh bên trái -->
-          <div class="col-lg-6">
-            <img
-              src="../Images/about3.jpg"
-              alt="Coffee Story"
-              class="img-fluid rounded-4 shadow"
-            />
-          </div>
-
-          <!-- Nội dung bên phải -->
-          <div class="col-lg-6">
-            <h2 class="fw-bold mb-4" style="color: #6f4e37">
-              Cà Phê Không Chỉ Là Đồ Uống
+            <h2>
+                Hành Trình Của Hạt Cà Phê Việt
             </h2>
 
-            <div
-              class="mb-4"
-              style="
-                width: 80px;
-                height: 4px;
-                background: #d2b48c;
-                border-radius: 10px;
-              "
-            ></div>
-
-            <p class="text-muted fs-5">
-              Tại Bean & Brew, chúng tôi tin rằng mỗi tách cà phê đều mang trong
-              mình một câu chuyện. Từ những hạt cà phê được tuyển chọn kỹ lưỡng
-              cho đến quá trình rang xay và pha chế, mọi công đoạn đều được thực
-              hiện với sự tận tâm để mang đến trải nghiệm tốt nhất cho khách
-              hàng.
+            <p>
+                Việt Nam hiện là một trong những quốc gia xuất khẩu cà phê lớn nhất thế giới.
+                Tuy nhiên, đằng sau mỗi hạt cà phê là câu chuyện về con người, vùng đất
+                và niềm đam mê kéo dài qua nhiều thế hệ.
             </p>
 
-            <p class="text-muted fs-5">
-              Dù là một buổi sáng bận rộn, một cuộc gặp gỡ bạn bè hay những phút
-              giây thư giãn một mình, Bean & Brew luôn mong muốn trở thành nơi
-              lưu giữ những khoảnh khắc đáng nhớ bên ly cà phê thơm ngon.
-            </p>
+        </div>
 
-            <a
-              href="menu.html"
-              class="btn px-4 py-2 mt-3"
-              style="background: #c58a52; color: white"
-            >
-              Khám phá thêm
-            </a>
-          </div>
+    </div>
+</section>
+    <div class="journey-section">
+      <h2>Hành Trình Của Hạt Cà Phê</h2>
+
+      <div class="journey-grid">
+        <div class="journey-card">
+          <span>01</span>
+
+          <h4>Trồng Trọt</h4>
+
+          <p>
+            Những hạt giống được gieo trồng trên vùng đất đỏ bazan tại Tây
+            Nguyên.
+          </p>
+        </div>
+
+        <div class="journey-card">
+          <span>02</span>
+
+          <h4>Thu Hoạch</h4>
+
+          <p>Chỉ những quả cà phê chín đỏ mới được lựa chọn.</p>
+        </div>
+
+        <div class="journey-card">
+          <span>03</span>
+
+          <h4>Rang Xay</h4>
+
+          <p>Quy trình rang quyết định hương vị đặc trưng.</p>
+        </div>
+
+        <div class="journey-card">
+          <span>04</span>
+
+          <h4>Thưởng Thức</h4>
+
+          <p>Thành phẩm là những ly cà phê mang đậm bản sắc Việt.</p>
         </div>
       </div>
-    </section>
-    <!-- ===== CORE VALUES ===== -->
-    <section class="py-5">
-      <div class="container">
-        <div class="text-center mb-5">
-          <p class="section-label">Triết lý</p>
-          <h2 class="section-title">Giá Trị Cốt Lõi</h2>
-        </div>
-        <div class="row g-4">
-          <div class="col-6 col-md-3">
-            <div class="value-item">
-              <i class="bi bi-cup-hot-fill"></i>
-              <h5>Chất Lượng</h5>
-              <p>Nguyên liệu tuyển chọn kỹ lưỡng, hương vị đậm đà chuẩn vị.</p>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="value-item">
-              <i class="bi bi-heart-fill"></i>
-              <h5>Tận Tâm</h5>
-              <p>Luôn đặt khách hàng làm trung tâm trong mọi quyết định.</p>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="value-item">
-              <i class="bi bi-tree-fill"></i>
-              <h5>Bền Vững</h5>
-              <p>Cam kết phát triển thân thiện với môi trường và cộng đồng.</p>
-            </div>
-          </div>
-          <div class="col-6 col-md-3">
-            <div class="value-item">
-              <i class="bi bi-star-fill"></i>
-              <h5>Trải Nghiệm</h5>
-              <p>Mang đến những khoảnh khắc đáng nhớ cho mỗi lần ghé thăm.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <section class="coffee-variety-section py-5">
+    <div class="container">
 
-    <!-- ===== THANKS ===== -->
-    <div class="thanks-band py-5 text-center">
-      <div class="container" style="max-width: 600px">
-        <i class="bi bi-cup-straw fs-1 mb-3 d-block" style="color: #d2b48c"></i>
-        <h3 class="fw-bold" style="color: #3e2723">Cảm Ơn Quý Khách</h3>
-        <p class="text-muted">
-          Bean & Brew trân trọng sự tin tưởng và đồng hành của quý khách trên
-          hành trình của chúng tôi.
+        <h2 class="section-title text-center mb-4">
+            Robusta - Niềm Tự Hào Của Cà Phê Việt Nam
+        </h2>
+
+        <p class="lead text-center mb-5">
+            Khi nhắc đến cà phê Việt Nam, không thể không nhắc đến Robusta –
+            giống cà phê đã góp phần đưa Việt Nam trở thành một trong những quốc gia
+            xuất khẩu cà phê hàng đầu thế giới.
         </p>
-        <a href="menu.html" class="btn btn-coffee mt-2 px-4">Xem thực đơn</a>
+
+        <p>
+            Cà phê Robusta được trồng chủ yếu tại khu vực Tây Nguyên như Đắk Lắk,
+            Gia Lai, Đắk Nông và Lâm Đồng. Nhờ điều kiện khí hậu thuận lợi cùng
+            vùng đất đỏ bazan màu mỡ, hạt Robusta Việt Nam sở hữu chất lượng ổn định
+            và hương vị đặc trưng khó nhầm lẫn.
+        </p>
+
+        <p>
+            So với Arabica, Robusta có hàm lượng caffeine cao hơn, mang đến vị đắng
+            mạnh mẽ, hậu vị kéo dài cùng hương thơm đặc trưng của chocolate đen,
+            các loại hạt rang và caramel. Chính sự đậm đà này đã tạo nên phong cách
+            thưởng thức cà phê rất riêng của người Việt, đặc biệt là các món cà phê
+            phin truyền thống và cà phê sữa đá.
+        </p>
+
+        <p>
+            Ngày nay, Robusta Việt Nam không chỉ được sử dụng trong nước mà còn được
+            xuất khẩu đến nhiều thị trường lớn trên thế giới. Với những cải tiến trong
+            quy trình canh tác, thu hoạch và rang xay, hạt Robusta đang ngày càng được
+            đánh giá cao về chất lượng và khẳng định vị thế trên bản đồ cà phê quốc tế.
+        </p>
+
+        <div class="coffee-note">
+            <strong>Điều thú vị:</strong> Việt Nam hiện là quốc gia sản xuất và xuất khẩu
+            cà phê Robusta lớn nhất thế giới, đóng góp đáng kể vào nguồn cung cà phê toàn cầu.
+        </div>
+
+    </div>
+</section>
+    </div>
+    <div class="story-quote">
+
+    <i class="bi bi-quote"></i>
+
+    <p>
+        Mỗi hạt cà phê là kết tinh của đất trời,
+        công sức người nông dân và niềm đam mê bất tận.
+    </p>
+
+</div>
+    <div class="coffee-facts">
+      <div class="fact-box">
+        <h3>#2</h3>
+        <p>Việt Nam là quốc gia xuất khẩu cà phê lớn thứ hai thế giới.</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>95%</h3>
+        <p>Sản lượng cà phê Robusta của Việt Nam.</p>
+      </div>
+
+      <div class="fact-box">
+        <h3>600K+</h3>
+        <p>Hộ nông dân gắn bó với ngành cà phê.</p>
       </div>
     </div>
+   <div class="container my-5">
 
-    <footer class="bg-dark text-white pt-5">
+    <h2 class="related-title">
+        Bài viết liên quan
+    </h2>
+
+    <div class="row g-4">
+
+        <div class="col-lg-4">
+            <a href="Blog1.html" class="story-card">
+
+                <img src="../Images/blog1.jpg">
+
+                <div class="story-card-content">
+
+                    <h5>
+                        Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị
+                    </h5>
+
+                    <span>Đọc tiếp →</span>
+
+                </div>
+
+            </a>
+        </div>
+
+        <div class="col-lg-4">
+            <a href="Blog2.html" class="story-card">
+
+                <img src="../Images/blog2.jpg">
+
+                <div class="story-card-content">
+
+                    <h5>
+                        Latte Art là gì?
+                    </h5>
+
+                    <span>Đọc tiếp →</span>
+
+                </div>
+
+            </a>
+        </div>
+
+        <div class="col-lg-4">
+            <a href="Blog3.html" class="story-card">
+
+                <img src="../Images/blog3.jpg">
+
+                <div class="story-card-content">
+
+                    <h5>
+                        Khuyến Mãi Mùa Hè
+                    </h5>
+
+                    <span>Đọc tiếp →</span>
+
+                </div>
+
+            </a>
+        </div>
+
+    </div>
+
+</div>
+ <footer class="bg-dark text-white pt-5">
       <div class="container">
         <div class="row">
           <div class="col-md-3 mb-4">
@@ -801,7 +875,8 @@
               999
             </p>
             <p class="text-white-50 mb-2">
-              <i class="bi bi-envelope-fill me-2 text-warning"></i> info@bean.vn
+              <i class="bi bi-envelope-fill me-2 text-warning"></i>
+              info@info@bean&brew.vn
             </p>
           </div>
         </div>
