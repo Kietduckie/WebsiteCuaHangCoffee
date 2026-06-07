@@ -389,7 +389,6 @@
         </div>
       </div>
     </nav>
-    <!-- Banner -->
 
     <section class="py-5 bg-light text-center">
       <div class="container">
@@ -398,12 +397,8 @@
       </div>
     </section>
 
-    <!-- Cart -->
-
     <section class="container py-5">
       <div class="row">
-        <!-- Sản phẩm -->
-
         <div class="col-lg-8">
           <div class="card shadow-sm border-0">
             <div class="card-header bg-white">
@@ -427,8 +422,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Tổng tiền -->
 
         <div class="col-lg-4 mt-4 mt-lg-0">
           <div class="card shadow-sm border-0">
@@ -457,12 +450,88 @@
       <a href="menu.html" class="btn btn-primary"> Xem Menu </a>
     </div>
 
-    <!-- JS -->
-
     <script>
-      // Ví dụ hàm xử lý khi khách hàng bấm nút "XÁC NHẬN ĐẶT HÀNG" trên form
+      function renderCart() {
+        const cartItemsContainer = document.getElementById("cartItems");
+        const totalPriceContainer = document.getElementById("totalPrice");
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = `
+            <tr>
+              <td colspan="5" class="text-center py-4 text-muted">
+                <i class="bi bi-cart-x fs-2 d-block mb-2"></i>
+                Giỏ hàng của bạn đang trống!
+              </td>
+            </tr>`;
+          totalPriceContainer.innerText = "0đ";
+          return;
+        }
+
+        cartItemsContainer.innerHTML = "";
+        let totalPrice = 0;
+
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          totalPrice += itemTotal;
+
+          cartItemsContainer.innerHTML += `
+            <tr>
+              <td>
+                <div class="fw-semibold">${item.name}</div>
+                <small class="text-muted">Mã: ${item.id}</small>
+              </td>
+              <td>${Number(item.price).toLocaleString("vi-VN")}đ</td>
+              <td>
+                <div class="d-flex align-items-center gap-1">
+                  <button class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQuantity(${index}, -1)">-</button>
+                  <span class="mx-2 fw-bold">${item.quantity}</span>
+                  <button class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQuantity(${index}, 1)">+</button>
+                </div>
+              </td>
+              <td class="fw-bold">${Number(itemTotal).toLocaleString("vi-VN")}đ</td>
+              <td>
+                <button class="btn btn-link text-danger p-0" onclick="removeFromCart(${index})">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+
+        totalPriceContainer.innerText =
+          Number(totalPrice).toLocaleString("vi-VN") + "đ";
+      }
+
+      function updateQuantity(index, change) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart[index].quantity += change;
+
+        if (cart[index].quantity <= 0) {
+          cart.splice(index, 1);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+
+      function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (
+          confirm(
+            `Bạn có chắc muốn xóa "${cart[index].name}" khỏi giỏ hàng không?`,
+          )
+        ) {
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        }
+      }
+
       function handleCheckout(event) {
-        event.preventDefault();
+        if (event) event.preventDefault();
 
         const cart = JSON.parse(localStorage.getItem("cart")) || [];
         if (cart.length === 0) {
@@ -470,41 +539,28 @@
           return;
         }
 
-        // Thu thập thông tin khách hàng từ Form
-        const customerName = document
-          .getElementById("customer-name")
-          .value.trim();
-        const customerPhone = document
-          .getElementById("customer-phone")
-          .value.trim();
-        const customerAddress =
-          document.getElementById("customer-address").value.trim() ||
-          "Tại quán";
+        const customerName = prompt("Nhập họ tên của bạn:") || "";
+        const customerPhone = prompt("Nhập số điện thoại của bạn:") || "";
 
-        if (!customerName || !customerPhone) {
-          alert("Vui lòng điền đầy đủ Họ tên và Số điện thoại!");
+        if (!customerName.trim() || !customerPhone.trim()) {
+          alert("Vui lòng điền đầy đủ thông tin để đặt hàng!");
           return;
         }
 
-        // Tính toán tổng tiền của đơn
         const totalAmount = cart.reduce(
           (sum, item) => sum + item.price * item.quantity,
           0,
         );
 
-        // Chuỗi chi tiết món đặt theo định dạng text để hiển thị khớp giao diện admin của bạn
         const itemsText = cart
           .map((item) => `${item.quantity}x ${item.name}`)
           .join(", ");
 
-        // Tạo mã đơn ngẫu nhiên tự động dạng #DH102, #DH512...
         const orderId = "DH" + Math.floor(100 + Math.random() * 900);
 
-        // Lấy thời gian đặt đơn hiện tại
         const now = new Date();
-        const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+        const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate().toString().padStart(2, "0")}/${(now.getMonth() + 1).toString().padStart(2, "0")}/${now.getFullYear()}`;
 
-        // Tạo cấu trúc Đơn hàng mới chuẩn khít với giao diện quản lý orders.html
         const newOrder = {
           id: orderId,
           customerName: customerName,
@@ -515,17 +571,24 @@
           status: "Chờ xử lý",
         };
 
-        // Đẩy đơn hàng mới vào danh sách tổng lưu trên localStorage
         let orders = JSON.parse(localStorage.getItem("cafe_orders")) || [];
-        orders.unshift(newOrder); // Đưa đơn mới lên đầu danh sách
+        orders.unshift(newOrder);
         localStorage.setItem("cafe_orders", JSON.stringify(orders));
 
-        // Xóa sạch giỏ hàng cũ sau khi đặt đơn thành công
         localStorage.removeItem("cart");
 
         alert(`Đặt hàng thành công! Mã đơn của bạn là: #${orderId}`);
-        window.location.href = "menu.html"; // Chuyển khách hàng về lại trang menu
+        window.location.href = "menu.html";
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCart();
+
+        const checkoutBtn = document.querySelector(".btn-primary.btn-lg");
+        if (checkoutBtn) {
+          checkoutBtn.addEventListener("click", handleCheckout);
+        }
+      });
     </script>
     <footer class="bg-dark text-white pt-5">
       <div class="container">

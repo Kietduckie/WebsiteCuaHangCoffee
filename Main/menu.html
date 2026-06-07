@@ -551,8 +551,10 @@
       }
 
 function displayMenu() {
+    // 1. Lấy dữ liệu Menu do Admin quản lý từ localStorage (Key: cafe_menu)
     const products = JSON.parse(localStorage.getItem('cafe_menu')) || [];
     
+    // 2. Định nghĩa các container (vùng chứa) tương ứng với từng danh mục món
     const containers = {
         'Cà phê truyền thống': document.getElementById('container-coffee'),
         'Espresso Coffee': document.getElementById('container-espresso'),
@@ -561,47 +563,74 @@ function displayMenu() {
         'Bánh ngọt': document.getElementById('container-cake')
     };
 
-    Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
+    // 3. Làm sạch (Xóa trắng) nội dung cũ trong các vùng chứa trước khi hiển thị dữ liệu mới
+    Object.values(containers).forEach(container => {
+        if (container) container.innerHTML = '';
+    });
 
+    // 4. Duyệt qua từng sản phẩm trong mảng lấy từ Admin để render ra HTML
     products.forEach(product => {
-        const targetContainer = containers[product.category];
-        if (targetContainer) {
-            const hinhAnh = product.img || product.image || '../Images/CapheDenDa.jpg'; 
-            
-            targetContainer.innerHTML += `
-                <div class="col-xl-3 col-md-6 col-12">
+        // Tìm xem sản phẩm thuộc nhóm danh mục nào trong danh sách containers
+        const container = containers[product.category];
+        
+        // Nếu tìm thấy vùng chứa tương ứng trên giao diện
+        if (container) {
+            // Xử lý ảnh: Nếu không có ảnh hoặc đường dẫn trống thì lấy ảnh mặc định
+            let hinhAnh = product.img ? product.img : 'https://placehold.co/300x220?text=Bean+%26+Brew';
+
+            // Tạo chuỗi HTML cho từng sản phẩm và tích hợp hàm addToCart() bạn vừa làm ở trên
+            const productHTML = `
+                <div class="col-md-4 col-sm-6 mb-4">
                     <div class="card h-100 shadow-sm">
                         <img src="${hinhAnh}" class="card-img-top" style="height:220px; object-fit:cover;" alt="${product.name}" onerror="this.src='https://placehold.co/300x220?text=Bean+%26+Brew'">
-                        <div class="card-body text-center">
-                            <h5>${product.name}</h5>
-                            <p class="text-muted">Mã SP: ${product.id}</p>
-                            <h5 class="text-danger">${Number(product.price).toLocaleString()}đ</h5>
-                            <button class="btn btn-coffee w-100" onclick="addToCart('${product.id}', '${product.name}', ${product.price})">
+                        <div class="card-body text-center d-flex flex-column justify-content-between">
+                            <div>
+                                <h5>${product.name}</h5>
+                                <p class="text-muted small mb-2">Mã SP: ${product.id}</p>
+                                <h5 class="text-danger mb-3">${Number(product.price).toLocaleString()}đ</h5>
+                            </div>
+                            <button class="btn btn-coffee w-100 mt-auto" onclick="addToCart('${product.id}', '${product.name}', ${product.price})">
                                 <i class="bi bi-cart-plus"></i> Thêm vào giỏ
                             </button>
                         </div>
                     </div>
                 </div>
             `;
+            
+            // Cộng dồn giao diện vào danh mục tương ứng
+            container.innerHTML += productHTML;
         }
     });
 }
 
+// Gọi hàm chạy ngay khi trang tải xong
 document.addEventListener('DOMContentLoaded', displayMenu);
 
-document.addEventListener('DOMContentLoaded', displayMenu);
-
+// Hàm thêm sản phẩm vào giỏ hàng từ trang Menu
 function addToCart(id, name, price) {
+    // 1. Lấy giỏ hàng hiện tại từ localStorage (nếu chưa có thì khởi tạo mảng rỗng)
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // 2. Kiểm tra xem sản phẩm đã tồn tại trong giỏ hàng chưa
     const itemIdx = cart.findIndex(item => item.id === id);
     
     if (itemIdx !== -1) {
+        // Nếu sản phẩm đã có, tăng số lượng lên 1
         cart[itemIdx].quantity += 1;
     } else {
-        cart.push({ id, name, price, quantity: 1 });
+        // Nếu sản phẩm chưa có, thêm mới object sản phẩm vào mảng
+        cart.push({ 
+            id: id, 
+            name: name, 
+            price: Number(price), 
+            quantity: 1 
+        });
     }
     
+    // 3. Lưu lại mảng giỏ hàng mới vào localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
+    
+    // 4. Thông báo cho người dùng
     alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
 }
 
