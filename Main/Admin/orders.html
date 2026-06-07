@@ -1,278 +1,334 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý đơn hàng - Cafe Order</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/Style.css">
-    <link rel="stylesheet" href="CSS/admin.css">
-    <link rel="stylesheet" href="CSS/admin.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <link rel="stylesheet" href="CSS/admin.css" />
+    <link rel="stylesheet" href="CSS/admin.css" />
     <style>
-        :root {
-            --primary-color: #6F4E37; /* Nâu cafe đậm */
-            --secondary-color: #D2B48C; /* Nâu nhạt */
-            --bg-light: #F5EBE6; /* Nền kem sữa */
-            --text-dark: #3E2723; /* Chữ nâu đen */
-        }
+      :root {
+        --primary-color: #6f4e37;
+        --secondary-color: #d2b48c;
+        --bg-light: #f5ebe6;
+        --text-dark: #3e2723;
+      }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+      body {
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+      }
 
-        .admin-navbar {
-            background-color: var(--primary-color) !important;
-            border-bottom: 4px solid var(--secondary-color);
-        }
+      .admin-navbar {
+        background-color: var(--primary-color) !important;
+        border-bottom: 4px solid var(--secondary-color);
+      }
 
-            .admin-navbar .nav-link {
-                color: rgba(255, 255, 255, 0.8) !important;
-                font-weight: 600;
-                padding: 10px 20px !important;
-            }
+      .admin-navbar .nav-link {
+        color: rgba(255, 255, 255, 0.8) !important;
+        font-weight: 600;
+        padding: 10px 20px !important;
+      }
 
-                .admin-navbar .nav-link:hover, .admin-navbar .nav-link.active {
-                    background-color: var(--secondary-color) !important;
-                    color: var(--text-dark) !important;
-                }
+      .admin-navbar .nav-link:hover,
+      .admin-navbar .nav-link.active {
+        background-color: var(--secondary-color) !important;
+        color: var(--text-dark) !important;
+      }
 
-        .order-card {
-            background: #fff;
-            border: 1px solid var(--secondary-color);
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
-        }
+      .order-card {
+        background: #fff;
+        border: 1px solid var(--secondary-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
+      }
 
-        .table th {
-            background-color: #EFE6E1 !important;
-            color: var(--text-dark);
-            font-weight: 700;
-        }
+      .table th {
+        background-color: #efe6e1 !important;
+        color: var(--text-dark);
+        font-weight: 700;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand text-white fw-bold" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
-            <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="adminNav">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
-                    <li class="nav-item">
-                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="orders.html" class="nav-link active"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
-                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
-                    <a href='file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html' class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
-                </div>
-            </div>
+      <div class="container-fluid px-4">
+        <a class="navbar-brand text-white fw-bold" href="#"
+          ><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a
+        >
+        <button
+          class="navbar-toggler text-white border-white"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#adminNav"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNav">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+            <li class="nav-item">
+              <a href="dashboard.html" class="nav-link"
+                ><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="products.html" class="nav-link"
+                ><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="orders.html" class="nav-link active"
+                ><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="customers.html" class="nav-link"
+                ><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a
+              >
+            </li>
+          </ul>
+          <div
+            class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0"
+          >
+            <span
+              class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0"
+              >Quyền: Admin</span
+            >
+            <a
+              href="file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html"
+              class="text-white text-decoration-none"
+              ><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a
+            >
+          </div>
         </div>
+      </div>
     </nav>
 
     <main class="container py-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
-            <h3 class="fw-bold m-0 text-uppercase">Danh sách đơn hàng nhận được</h3>
-            <div class="d-flex gap-2">
-                <select class="form-select form-select-sm" style="width: 180px;">
-                    <option>Tất cả trạng thái</option>
-                    <option>Chờ xử lý</option>
-                    <option>Đang làm món</option>
-                    <option>Đã giao hàng</option>
-                </select>
-            </div>
+      <div
+        class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25"
+      >
+        <h3 class="fw-bold m-0 text-uppercase">Danh sách đơn hàng nhận được</h3>
+        <div class="d-flex gap-2">
+          <select class="form-select form-select-sm" style="width: 180px">
+            <option>Tất cả trạng thái</option>
+            <option>Chờ xử lý</option>
+            <option>Đang làm món</option>
+            <option>Đã giao hàng</option>
+          </select>
         </div>
+      </div>
 
-        <div class="order-card p-4">
-            <div class="table-responsive">
-                <table class="table table-hover align-middle m-0">
-                    <thead>
-                        <tr>
-                            <th>Mã Đơn</th>
-                            <th>Khách hàng</th>
-                            <th>Chi tiết món đặt</th>
-                            <th>Tổng tiền</th>
-                            <th>Thời gian</th>
-                            <th>Trạng thái</th>
-                            <th class="text-center">Thao tác</th>
-                        </tr>
-                    </thead>
-                    <tbody id="orders-tbody">
-                        <tr id="row-DH101">
-                            <td class="fw-bold text-secondary">#DH101</td>
-                            <td>
-                                <div class="fw-semibold">Nguyễn Văn Nam</div>
-                                <small class="text-muted">0908.123.XXX</small>
-                            </td>
-                            <td>
-                                <div class="small">2x Cà phê sữa đá</div>
-                                <div class="small text-muted">Mẹo: Ít ngọt, nhiều đá</div>
-                            </td>
-                            <td class="fw-bold text-danger">70,000đ</td>
-                            <td class="small text-muted">09:45 - Hôm nay</td>
-                            <td class="status-cell"><span class="badge bg-warning text-dark px-2 py-1">Chờ xử lý</span></td>
-                            <td class="text-center action-cell">
-                                <button class="btn btn-sm btn-outline-success btn-confirm" data-order="DH101" title="Xác nhận đơn"><i class="fa-solid fa-check"></i></button>
-                                <button class="btn btn-sm btn-outline-danger btn-cancel" data-order="DH101" title="Hủy đơn"><i class="fa-solid fa-xmark"></i></button>
-                            </td>
-                        </tr>
-                        <tr id="row-DH102">
-                            <td class="fw-bold text-secondary">#DH102</td>
-                            <td>
-                                <div class="fw-semibold">Lê Thị Mai</div>
-                                <small class="text-muted">0917.456.XXX</small>
-                            </td>
-                            <td>
-                                <div class="small">1x Matcha đá xay, 1x Tiramisu</div>
-                            </td>
-                            <td class="fw-bold text-danger">110,000đ</td>
-                            <td class="small text-muted">08:30 - Hôm nay</td>
-                            <td class="status-cell"><span class="badge bg-success px-2 py-1">Đã hoàn thành</span></td>
-                            <td class="text-center action-cell">
-                                <span class="text-muted small"><i class="fa-solid fa-circle-check text-success me-1"></i>Đã xử lý</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="order-card p-4">
+        <div class="table-responsive">
+          <table class="table table-hover align-middle m-0">
+            <thead>
+              <tr>
+                <th>Mã Đơn</th>
+                <th>Khách hàng</th>
+                <th>Chi tiết món đặt</th>
+                <th>Tổng tiền</th>
+                <th>Thời gian</th>
+                <th>Trạng thái</th>
+                <th class="text-center">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="orders-tbody">
+              <tr id="row-DH101">
+                <td class="fw-bold text-secondary">#DH101</td>
+                <td>
+                  <div class="fw-semibold">Nguyễn Văn Nam</div>
+                  <small class="text-muted">0908.123.XXX</small>
+                </td>
+                <td>
+                  <div class="small">2x Cà phê sữa đá</div>
+                  <div class="small text-muted">Mẹo: Ít ngọt, nhiều đá</div>
+                </td>
+                <td class="fw-bold text-danger">70,000đ</td>
+                <td class="small text-muted">09:45 - Hôm nay</td>
+                <td class="status-cell">
+                  <span class="badge bg-warning text-dark px-2 py-1"
+                    >Chờ xử lý</span
+                  >
+                </td>
+                <td class="text-center action-cell">
+                  <button
+                    class="btn btn-sm btn-outline-success btn-confirm"
+                    data-order="DH101"
+                    title="Xác nhận đơn"
+                  >
+                    <i class="fa-solid fa-check"></i>
+                  </button>
+                  <button
+                    class="btn btn-sm btn-outline-danger btn-cancel"
+                    data-order="DH101"
+                    title="Hủy đơn"
+                  >
+                    <i class="fa-solid fa-xmark"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr id="row-DH102">
+                <td class="fw-bold text-secondary">#DH102</td>
+                <td>
+                  <div class="fw-semibold">Lê Thị Mai</div>
+                  <small class="text-muted">0917.456.XXX</small>
+                </td>
+                <td>
+                  <div class="small">1x Matcha đá xay, 1x Tiramisu</div>
+                </td>
+                <td class="fw-bold text-danger">110,000đ</td>
+                <td class="small text-muted">08:30 - Hôm nay</td>
+                <td class="status-cell">
+                  <span class="badge bg-success px-2 py-1">Đã hoàn thành</span>
+                </td>
+                <td class="text-center action-cell">
+                  <span class="text-muted small"
+                    ><i class="fa-solid fa-circle-check text-success me-1"></i
+                    >Đã xử lý</span
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+      const ordersTbody = document.getElementById("orders-tbody");
+      const statusFilter = document.querySelector(".form-select");
 
+      // Khởi tạo một số đơn hàng mẫu nếu localStorage trống hoàn toàn
+      const defaultOrders = [
+        {
+          id: "DH101",
+          customerName: "Nguyễn Văn Nam",
+          customerPhone: "0901234567",
+          items: "2x Cà phê sữa đá, 1x Tiramisu",
+          total: 125000,
+          time: "08:30 - 28/05/2026",
+          status: "Chờ xử lý",
+        },
+      ];
 
-        const STATUS = {
-            PENDING: { badge: 'bg-warning text-dark', text: 'Chờ xử lý' },
-            DELIVERED: { badge: 'bg-success', text: 'Đã hoàn thành' },
-            CANCELLED: { badge: 'bg-danger', text: 'Đã hủy' },
-        };
+      let orders =
+        JSON.parse(localStorage.getItem("cafe_orders")) || defaultOrders;
+      if (!localStorage.getItem("cafe_orders")) {
+        localStorage.setItem("cafe_orders", JSON.stringify(orders));
+      }
 
-        const ordersTbody = document.getElementById('orders-tbody');
-        const statusFilter = document.querySelector('.form-select');
+      // Hàm hiển thị trạng thái bằng các nhãn màu (Badge) màu sắc khác nhau
+      function getStatusBadge(status) {
+        if (status === "Chờ xử lý")
+          return '<span class="badge bg-warning text-dark"><i class="fa-solid fa-clock me-1"></i>Chờ xử lý</span>';
+        if (status === "Đang làm món")
+          return '<span class="badge bg-info text-dark"><i class="fa-solid fa-mug-hot me-1"></i>Đang làm món</span>';
+        if (status === "Đã giao hàng")
+          return '<span class="badge bg-success"><i class="fa-solid fa-circle-check me-1"></i>Đã giao hàng</span>';
+        return '<span class="badge bg-danger"><i class="fa-solid fa-circle-xmark me-1"></i>Đã hủy</span>';
+      }
 
-        function renderOrders() {
-            let orders = JSON.parse(localStorage.getItem('cafe_orders'));
+      // Hàm hiển thị danh sách đơn đặt hàng ra bảng quản lý của Admin
+      function renderOrders() {
+        ordersTbody.innerHTML = "";
+        const filterValue = statusFilter.value; // Lọc theo bộ chọn Trạng thái đơn
 
-           
-            if (!orders || orders.length === 0) {
-                orders = [
-                    { id: "DH101", customerName: "Nguyễn Văn Nam", phone: "0908.123.XXX", details: "2x Cà phê sữa đá<br><small class='text-muted'>Mẹo: Ít ngọt, nhiều đá</small>", totalPrice: "70,000đ", time: "09:45 - Hôm nay", status: "PENDING" },
-                    { id: "DH102", customerName: "Lê Thị Mai", phone: "0917.456.XXX", details: "1x Matcha đá xay, 1x Tiramisu", totalPrice: "110,000đ", time: "08:30 - Hôm nay", status: "DELIVERED" }
-                ];
-                localStorage.setItem('cafe_orders', JSON.stringify(orders));
-            }
+        orders.forEach((order) => {
+          // Kiểm tra điều kiện lọc dữ liệu trạng thái
+          if (
+            filterValue !== "Tất cả trạng thái" &&
+            order.status !== filterValue
+          ) {
+            return;
+          }
 
-            ordersTbody.innerHTML = '';
-            const selectedStatus = statusFilter.value; 
+          // Định dạng nút thao tác dựa theo trạng thái hiện tại của đơn hàng
+          let actionButtons = "";
+          if (order.status === "Chờ xử lý") {
+            actionButtons = `
+                <button class="btn btn-sm btn-success btn-action me-1" onclick="updateStatus('${order.id}', 'Đang làm món')"><i class="fa-solid fa-check me-1"></i>Nhận đơn</button>
+                <button class="btn btn-sm btn-outline-danger btn-action" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark me-1"></i>Hủy</button>
+            `;
+          } else if (order.status === "Đang làm món") {
+            actionButtons = `
+                <button class="btn btn-sm btn-primary btn-action me-1" onclick="updateStatus('${order.id}', 'Đã giao hàng')"><i class="fa-solid fa-truck me-1"></i>Giao xong</button>
+                <button class="btn btn-sm btn-outline-danger btn-action" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark me-1"></i>Hủy</button>
+            `;
+          } else {
+            actionButtons = `<span class="text-muted small">Hoàn thành</span>`;
+          }
 
-            orders.forEach(order => {
-         
-                if (selectedStatus !== 'Tất cả trạng thái') {
-                    if (selectedStatus === 'Chờ xử lý' && order.status !== 'PENDING') return;
-                    if (selectedStatus === 'Đã giao hàng' && order.status !== 'DELIVERED') return;
-                    if (selectedStatus === 'Đã hủy' && order.status !== 'CANCELLED') return;
-                }
+          ordersTbody.innerHTML += `
+            <tr id="row-${order.id}">
+                <td class="fw-bold text-secondary">#${order.id}</td>
+                <td>
+                    <div class="fw-semibold">${order.customerName}</div>
+                    <small class="text-muted"><i class="fa-solid fa-phone me-1" style="font-size:10px;"></i>${order.customerPhone}</small>
+                </td>
+                <td class="small text-truncate" style="max-width: 250px;">${order.items}</td>
+                <td class="fw-bold text-brown">${Number(order.total).toLocaleString("vi-VN")}đ</td>
+                <td class="small text-muted">${order.time}</td>
+                <td>${getStatusBadge(order.status)}</td>
+                <td class="text-center">${actionButtons}</td>
+            </tr>
+        `;
+        });
+      }
 
-                const tr = document.createElement('tr');
-                tr.id = `row-${order.id}`;
+      // Hàm cập nhật trạng thái đơn hàng (Ví dụ: Chờ xử lý -> Đang làm món -> Đã giao)
+      function updateStatus(orderId, nextStatus) {
+        orders = orders.map((order) => {
+          if (order.id === orderId) {
+            order.status = nextStatus;
+          }
+          return order;
+        });
 
-                const s = STATUS[order.status];
+        localStorage.setItem("cafe_orders", JSON.stringify(orders));
+        renderOrders(); // Chạy lại hàm vẽ để giao diện cập nhật ngay lập tức
 
-           
-                let actionContent = '';
-                if (order.status === 'PENDING') {
-                    actionContent = `
-                        <button class="btn btn-sm btn-outline-success btn-confirm" data-order="${order.id}" title="Xác nhận đơn"><i class="fa-solid fa-check"></i></button>
-                        <button class="btn btn-sm btn-outline-danger btn-cancel" data-order="${order.id}" title="Hủy đơn"><i class="fa-solid fa-xmark"></i></button>
-                    `;
-                } else {
-                    const icon = order.status === 'DELIVERED'
-                        ? '<i class="fa-solid fa-circle-check text-success me-1"></i>'
-                        : '<i class="fa-solid fa-circle-xmark text-danger me-1"></i>';
-                    actionContent = `<span class="text-muted small">${icon}Đã xử lý</span>`;
-                }
+        let msg = `Đơn hàng #${orderId} đã chuyển sang trạng thái: ${nextStatus}!`;
+        showToast(msg, nextStatus === "Đã hủy" ? "danger" : "success");
+      }
 
-                tr.innerHTML = `
-                    <td class="fw-bold text-secondary">#${order.id}</td>
-                    <td>
-                        <div class="fw-semibold">${order.customerName}</div>
-                        <small class="text-muted">${order.phone}</small>
-                    </td>
-                    <td><div class="small">${order.details}</div></td>
-                    <td class="fw-bold text-danger">${order.totalPrice}</td>
-                    <td class="small text-muted">${order.time}</td>
-                    <td class="status-cell"><span class="badge ${s.badge} px-2 py-1">${s.text}</span></td>
-                    <td class="text-center action-cell">${actionContent}</td>
-                `;
+      // Lắng nghe sự kiện khi thay đổi thẻ select bộ lọc trạng thái
+      statusFilter.addEventListener("change", renderOrders);
 
-                ordersTbody.appendChild(tr);
-            });
+      // Hàm tạo thông báo nhanh bên góc phải màn hình admin khi xử lý đơn thành công
+      function showToast(message, type) {
+        const existing = document.getElementById("order-toast");
+        if (existing) existing.remove();
 
-            initActionEvents();
-        }
+        const toast = document.createElement("div");
+        toast.id = "order-toast";
+        toast.style.cssText =
+          "position:fixed;bottom:24px;right:24px;z-index:9999;min-width:260px;";
+        toast.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible shadow mb-0 d-flex align-items-center gap-2" role="alert">
+            <i class="fa-solid ${type === "success" ? "fa-circle-check" : "fa-circle-xmark"}"></i>
+            <span>${message}</span>
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
+        </div>`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      }
 
- 
-        function initActionEvents() {
-            document.querySelectorAll('.btn-confirm, .btn-cancel').forEach(btn => {
-                btn.addEventListener('click', function () {
-                    const orderId = this.dataset.order;
-                    const isConfirm = this.classList.contains('btn-confirm');
-                    const nextStatus = isConfirm ? 'DELIVERED' : 'CANCELLED';
-
-                    let orders = JSON.parse(localStorage.getItem('cafe_orders'));
-                    orders = orders.map(order => {
-                        if (order.id === orderId) {
-                            order.status = nextStatus;
-                        }
-                        return order;
-                    });
-
-                    localStorage.setItem('cafe_orders', JSON.stringify(orders));
-                    renderOrders(); 
-
-                    const msg = isConfirm ? 'Đơn hàng đã được xác nhận!' : 'Đơn hàng đã bị hủy!';
-                    showToast(msg, isConfirm ? 'success' : 'danger');
-                });
-            });
-        }
-
-        
-        statusFilter.addEventListener('change', renderOrders);
-
-        function showToast(message, type) {
-            const existing = document.getElementById('order-toast');
-            if (existing) existing.remove();
-
-            const toast = document.createElement('div');
-            toast.id = 'order-toast';
-            toast.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;min-width:260px;';
-            toast.innerHTML = `
-                <div class="alert alert-${type} alert-dismissible shadow mb-0 d-flex align-items-center gap-2" role="alert">
-                    <i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>
-                    <span>${message}</span>
-                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
-                </div>`;
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        }
-
-        
-        document.addEventListener('DOMContentLoaded', renderOrders);
+      document.addEventListener("DOMContentLoaded", renderOrders);
     </script>
-</body>
+  </body>
 </html>

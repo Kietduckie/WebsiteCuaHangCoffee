@@ -460,111 +460,71 @@
     <!-- JS -->
 
     <script>
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      // Ví dụ hàm xử lý khi khách hàng bấm nút "XÁC NHẬN ĐẶT HÀNG" trên form
+      function handleCheckout(event) {
+        event.preventDefault();
 
-      let cartHTML = "";
-
-      let total = 0;
-
-      cart.forEach((item, index) => {
-        let subtotal = item.price * item.quantity;
-
-        total += subtotal;
-
-        cartHTML += `
-        <tr>
-
-            <td>
-                ${item.name}
-            </td>
-
-            <td>
-                ${item.price.toLocaleString()}đ
-            </td>
-
-            <td>
-
-                <div class="d-flex align-items-center">
-
-                    <button
-                        class="btn btn-sm btn-outline-secondary"
-                        onclick="decreaseQty(${index})">
-                        -
-                    </button>
-
-                    <span class="mx-3">
-                        ${item.quantity}
-                    </span>
-
-                    <button
-                        class="btn btn-sm btn-outline-secondary"
-                        onclick="increaseQty(${index})">
-                        +
-                    </button>
-
-                </div>
-
-            </td>
-
-            <td>
-                ${subtotal.toLocaleString()}đ
-            </td>
-
-            <td>
-
-                <button
-                    class="btn btn-danger btn-sm"
-                    onclick="removeItem(${index})">
-
-                    <i class="bi bi-trash"></i>
-
-                </button>
-
-            </td>
-
-        </tr>
-        `;
-      });
-
-      if (cart.length === 0) {
-        cartHTML = `
-        <tr>
-            <td colspan="5" class="text-center py-4">
-                Chưa có sản phẩm nào trong giỏ hàng
-            </td>
-        </tr>
-        `;
-      }
-
-      document.getElementById("cartItems").innerHTML = cartHTML;
-
-      document.getElementById("totalPrice").innerText =
-        total.toLocaleString() + "đ";
-
-      function increaseQty(index) {
-        cart[index].quantity++;
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        location.reload();
-      }
-
-      function decreaseQty(index) {
-        if (cart[index].quantity > 1) {
-          cart[index].quantity--;
-
-          localStorage.setItem("cart", JSON.stringify(cart));
-
-          location.reload();
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (cart.length === 0) {
+          alert("Giỏ hàng của bạn đang trống!");
+          return;
         }
-      }
 
-      function removeItem(index) {
-        cart.splice(index, 1);
+        // Thu thập thông tin khách hàng từ Form
+        const customerName = document
+          .getElementById("customer-name")
+          .value.trim();
+        const customerPhone = document
+          .getElementById("customer-phone")
+          .value.trim();
+        const customerAddress =
+          document.getElementById("customer-address").value.trim() ||
+          "Tại quán";
 
-        localStorage.setItem("cart", JSON.stringify(cart));
+        if (!customerName || !customerPhone) {
+          alert("Vui lòng điền đầy đủ Họ tên và Số điện thoại!");
+          return;
+        }
 
-        location.reload();
+        // Tính toán tổng tiền của đơn
+        const totalAmount = cart.reduce(
+          (sum, item) => sum + item.price * item.quantity,
+          0,
+        );
+
+        // Chuỗi chi tiết món đặt theo định dạng text để hiển thị khớp giao diện admin của bạn
+        const itemsText = cart
+          .map((item) => `${item.quantity}x ${item.name}`)
+          .join(", ");
+
+        // Tạo mã đơn ngẫu nhiên tự động dạng #DH102, #DH512...
+        const orderId = "DH" + Math.floor(100 + Math.random() * 900);
+
+        // Lấy thời gian đặt đơn hiện tại
+        const now = new Date();
+        const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()}`;
+
+        // Tạo cấu trúc Đơn hàng mới chuẩn khít với giao diện quản lý orders.html
+        const newOrder = {
+          id: orderId,
+          customerName: customerName,
+          customerPhone: customerPhone,
+          items: itemsText,
+          total: totalAmount,
+          time: timeText,
+          status: "Chờ xử lý",
+        };
+
+        // Đẩy đơn hàng mới vào danh sách tổng lưu trên localStorage
+        let orders = JSON.parse(localStorage.getItem("cafe_orders")) || [];
+        orders.unshift(newOrder); // Đưa đơn mới lên đầu danh sách
+        localStorage.setItem("cafe_orders", JSON.stringify(orders));
+
+        // Xóa sạch giỏ hàng cũ sau khi đặt đơn thành công
+        localStorage.removeItem("cart");
+
+        alert(`Đặt hàng thành công! Mã đơn của bạn là: #${orderId}`);
+        window.location.href = "menu.html"; // Chuyển khách hàng về lại trang menu
       }
     </script>
     <footer class="bg-dark text-white pt-5">

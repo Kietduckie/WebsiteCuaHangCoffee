@@ -23,7 +23,6 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-      /* === OVERRIDE TONE MAU NAU CAFE (theo Style.css da cap nhat) === */
       .btn-coffee {
         background-color: #6f4e37 !important;
         border-color: #6f4e37 !important;
@@ -374,599 +373,33 @@
           </div>
         </div>
 
-        <!-- Nội dung phải -->
+
         <div class="col-lg-10 col-md-9">
-          <!--------section1------------>
-          <section id="coffee" class="mb-5">
-            <h3 class="mb-4 fw-bold">Cà Phê Truyền Thống</h3>
+    <section id="coffee" class="mb-5">
+    <h3 class="mb-4 fw-bold">Cà Phê Truyền Thống</h3>
+    <div class="row g-4" id="container-coffee"></div>
+</section>
 
-            <div class="row g-4">
-              <!-- CF01 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CF01.jpg"
-                    class="card-img-top"
-                    alt="Cà phê đen đá"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cà Phê Đen Đá</h5>
-                    <p class="text-muted">Mã SP: CF01</p>
-                    <h5 class="text-danger">29.000đ</h5>
+<section id="espresso" class="mb-5">
+    <h3 class="mb-4 fw-bold">Espresso Coffee</h3>
+    <div class="row g-4" id="container-espresso"></div>
+</section>
 
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CF01', 'Cà Phê Đen Đá', 29000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
+<section id="tea" class="mb-5">
+    <h3 class="mb-4 fw-bold">Trà Trái Cây</h3>
+    <div class="row g-4" id="container-tea"></div>
+</section>
 
-              <!-- CF02 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CF02.jpg"
-                    class="card-img-top"
-                    alt="Cà phê sữa đá"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cà Phê Sữa Đá</h5>
-                    <p class="text-muted">Mã SP: CF02</p>
-                    <h5 class="text-danger">35.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CF03', 'Bạc Xỉu', 39000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
+<section id="ice" class="mb-5">
+    <h3 class="mb-4 fw-bold">Thức Uống Đá Xay</h3>
+    <div class="row g-4" id="container-ice"></div>
+</section>
 
-              <!-- CF03 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CF03.jpg"
-                    class="card-img-top"
-                    alt="Bạc xỉu"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Bạc Xỉu</h5>
-                    <p class="text-muted">Mã SP: CF03</p>
-                    <h5 class="text-danger">39.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CF03', 'Bạc Xỉu', 39000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CF04 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CF04.jpg"
-                    class="card-img-top"
-                    alt="Cà phê đen nóng"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cà Phê Đen Nóng</h5>
-                    <p class="text-muted">Mã SP: CF04</p>
-                    <h5 class="text-danger">29.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CF04', 'Cà Phê Đen Nóng', 29000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CF05 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CF05.jpg"
-                    class="card-img-top"
-                    alt="Cà phê sữa nóng"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cà Phê Sữa Nóng</h5>
-                    <p class="text-muted">Mã SP: CF05</p>
-                    <h5 class="text-danger">35.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CF05', 'Cà Phê Sữa Nóng', 35000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!--------section2-------------->
-          <section id="espresso" class="mb-5">
-            <h3 class="mb-4 fw-bold">Espresso Coffee</h3>
-
-            <div class="row g-4">
-              <!-- ES01 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/ES01.jpg"
-                    class="card-img-top"
-                    alt="Espresso"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Espresso</h5>
-                    <p class="text-muted">Mã SP: ES01</p>
-                    <h5 class="text-danger">45.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('ES01', 'Espresso', 45000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ES02 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/ES02.jpg"
-                    class="card-img-top"
-                    alt="Americano"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Americano</h5>
-                    <p class="text-muted">Mã SP: ES02</p>
-                    <h5 class="text-danger">49.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('ES02', 'Americano', 49000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ES03 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/ES03.jpg"
-                    class="card-img-top"
-                    alt="Cappuccino"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cappuccino</h5>
-                    <p class="text-muted">Mã SP: ES03</p>
-                    <h5 class="text-danger">55.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('ES03', 'Cappuccino', 55000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- ES04 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/ES04.jpg"
-                    class="card-img-top"
-                    alt="Latte"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Latte</h5>
-                    <p class="text-muted">Mã SP: ES04</p>
-                    <h5 class="text-danger">59.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('ES04', 'Latte', 59000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <!------------------section3---------------------------->
-          <section id="tea" class="mb-5">
-            <h3 class="mb-4 fw-bold">Trà</h3>
-
-            <div class="row g-4">
-              <!-- TE01 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/TE01.jpg"
-                    class="card-img-top"
-                    alt="Trà đào cam sả"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Trà Đào Cam Sả</h5>
-                    <p class="text-muted">Mã SP: TE01</p>
-                    <h5 class="text-danger">49.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('TE01', 'Trà đào cam sả', 49000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TE02 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/TE02.jpg"
-                    class="card-img-top"
-                    alt="Trà vải"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Trà Vải</h5>
-                    <p class="text-muted">Mã SP: TE02</p>
-                    <h5 class="text-danger">45.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('TE02', 'Trà vải', 45000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TE03 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/TE03.jpg"
-                    class="card-img-top"
-                    alt="Trà chanh mật ong"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Trà Chanh Mật Ong</h5>
-                    <p class="text-muted">Mã SP: TE03</p>
-                    <h5 class="text-danger">39.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('TE03', 'Trà chanh mật ong', 39000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TE04 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/TE04.jpg"
-                    class="card-img-top"
-                    alt="Trà sen vàng"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Trà Sen Vàng</h5>
-                    <p class="text-muted">Mã SP: TE04</p>
-                    <h5 class="text-danger">55.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('TE04', 'Trà sen vàng', 55000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- TE05 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/TE05.jpg"
-                    class="card-img-top"
-                    alt="Trà dâu tây"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Trà Dâu Tây</h5>
-                    <p class="text-muted">Mã SP: TE05</p>
-                    <h5 class="text-danger">49.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('TE05', 'Trà dâu tây', 49000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-----------------section4-------------------------->
-          </section>
-          <section id="ice" class="mb-5">
-            <h3 class="mb-4 fw-bold">Đá Xay</h3>
-
-            <div class="row g-4">
-              <!-- IC01 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/IC01.jpg"
-                    class="card-img-top"
-                    alt="Chocolate đá xay"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Chocolate Đá Xay</h5>
-                    <p class="text-muted">Mã SP: IC01</p>
-                    <h5 class="text-danger">59.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('IC01', 'Chocolate đá xay', 59000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- IC02 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/IC02.JPG"
-                    class="card-img-top"
-                    alt="Cookies đá xay"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cookies Đá Xay</h5>
-                    <p class="text-muted">Mã SP: IC02</p>
-                    <h5 class="text-danger">65.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('IC02', 'Cookies đá xay', 65000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- IC03 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/IC03.jpg"
-                    class="card-img-top"
-                    alt="Matcha đá xay"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Matcha Đá Xay</h5>
-                    <p class="text-muted">Mã SP: IC03</p>
-                    <h5 class="text-danger">65.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('IC03', 'Matcha đá xay', 65000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- IC04 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/IC04.jpg"
-                    class="card-img-top"
-                    alt="Caramel đá xay"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Caramel Đá Xay</h5>
-                    <p class="text-muted">Mã SP: IC04</p>
-                    <h5 class="text-danger">69.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('IC04', 'Caramel đá xay', 69000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- IC05 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/IC05.jpg"
-                    class="card-img-top"
-                    alt="Oreo đá xay"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Oreo Đá Xay</h5>
-                    <p class="text-muted">Mã SP: IC05</p>
-                    <h5 class="text-danger">69.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('IC05', 'Oreo đá xay', 69000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-----------------section5-------------------------->
-          <section id="cake" class="mb-5">
-            <h3 class="mb-4 fw-bold">Bánh Ngọt</h3>
-
-            <div class="row g-4">
-              <!-- CK01 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CK01.jpg"
-                    class="card-img-top"
-                    alt="Tiramisu"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Tiramisu</h5>
-                    <p class="text-muted">Mã SP: CK01</p>
-                    <h5 class="text-danger">45.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CK01', 'Tiramisu', 45000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CK02 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CK02.jpg"
-                    class="card-img-top"
-                    alt="Cheesecake"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Cheesecake</h5>
-                    <p class="text-muted">Mã SP: CK02</p>
-                    <h5 class="text-danger">49.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CK02', 'Cheesecake', 49000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CK03 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CK03.jpg"
-                    class="card-img-top"
-                    alt="Red Velvet"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Red Velvet</h5>
-                    <p class="text-muted">Mã SP: CK03</p>
-                    <h5 class="text-danger">55.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CK03', 'Red Velvet', 55000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CK04 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CK04.jpg"
-                    class="card-img-top"
-                    alt="Croissant bơ"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Croissant Bơ</h5>
-                    <p class="text-muted">Mã SP: CK04</p>
-                    <h5 class="text-danger">35.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CK04', 'Croissant bơ', 35000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- CK05 -->
-              <div class="col-xl-3 col-md-6 col-12">
-                <div class="card h-100 shadow-sm">
-                  <img
-                    src="../Images/CK05.jpg"
-                    class="card-img-top"
-                    alt="Bánh Su Kem"
-                  />
-                  <div class="card-body text-center">
-                    <h5>Bánh Su Kem</h5>
-                    <p class="text-muted">Mã SP: CK05</p>
-                    <h5 class="text-danger">29.000đ</h5>
-                    <button
-                      class="btn btn-coffee w-100"
-                      onclick="addToCart('CK05', 'Bánh su kem', 29000)"
-                    >
-                      <i class="bi bi-cart-plus"></i>
-                      Thêm vào giỏ
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+<section id="cake" class="mb-5">
+    <h3 class="mb-4 fw-bold">Bánh Ngọt Ăn Kèm</h3>
+    <div class="row g-4" id="container-cake"></div>
+</section>
         </div>
-        <!-- end col right -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end container -->
 
     <footer class="bg-dark text-white pt-5">
       <div class="container">
@@ -1103,6 +536,73 @@
 
         alert(name + " đã được thêm vào giỏ hàng!");
       }
+
+      // Hàm hiển thị sản phẩm động từ dữ liệu Admin lưu trong localStorage
+function displayMenu() {
+    // 1. Lấy danh sách sản phẩm từ Admin lưu trong localStorage
+    const products = JSON.parse(localStorage.getItem('cafe_menu')) || [];
+    
+    // 2. Sửa lại key ở đây cho khớp hoàn toàn với thẻ <option> tiếng Việt bên Admin
+    const containers = {
+        'Cà phê truyền thống': document.getElementById('container-coffee'),
+        'Espresso Coffee': document.getElementById('container-espresso'),
+        'Trà trái cây': document.getElementById('container-tea'),
+        'Đá xay': document.getElementById('container-ice'),
+        'Bánh ngọt': document.getElementById('container-cake')
+    };
+
+    // Làm sạch các khu vực chứa trước khi nạp dữ liệu mới tránh trùng lặp
+    Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
+
+    // 3. Duyệt qua từng sản phẩm để vẽ giao diện card
+    products.forEach(product => {
+        const targetContainer = containers[product.category];
+        if (targetContainer) {
+            // SỬA LỖI Ở ĐÂY: Dùng product.img (thay vì product.image) để khớp với Admin
+            const hinhAnh = product.img || product.image || '../Images/CapheDenDa.jpg'; 
+            
+            targetContainer.innerHTML += `
+                <div class="col-xl-3 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm">
+                        <img src="${hinhAnh}" class="card-img-top" style="height:220px; object-fit:cover;" alt="${product.name}" onerror="this.src='https://placehold.co/300x220?text=Bean+%26+Brew'">
+                        <div class="card-body text-center">
+                            <h5>${product.name}</h5>
+                            <p class="text-muted">Mã SP: ${product.id}</p>
+                            <h5 class="text-danger">${Number(product.price).toLocaleString()}đ</h5>
+                            <button class="btn btn-coffee w-100" onclick="addToCart('${product.id}', '${product.name}', ${product.price})">
+                                <i class="bi bi-cart-plus"></i> Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    });
+}
+
+// Luôn chạy hàm này khi vừa tải trang menu.html
+document.addEventListener('DOMContentLoaded', displayMenu);
+
+// Luôn chạy hàm này khi vừa tải trang menu.html
+document.addEventListener('DOMContentLoaded', displayMenu);
+
+// Logic quản lý giỏ hàng của bạn (Giữ nguyên và đồng bộ lưu vào "cart")
+function addToCart(id, name, price) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const itemIdx = cart.findIndex(item => item.id === id);
+    
+    if (itemIdx !== -1) {
+        cart[itemIdx].quantity += 1;
+    } else {
+        cart.push({ id, name, price, quantity: 1 });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`Đã thêm "${name}" vào giỏ hàng thành công!`);
+}
+
+// Gọi hàm chạy ngay khi tải trang khách hàng
+document.addEventListener('DOMContentLoaded', displayMenu);
     </script>
   </body>
 </html>
