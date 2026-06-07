@@ -249,7 +249,7 @@
                     Nếu bạn có thắc mắc gì, có thể gửi yêu cầu cho chúng tôi, và chúng tôi sẽ liên lạc lại với bạn sớm nhất có thể.
                 </p>
 
-                <form action="#" method="POST">
+                <form id="contactForm" action="#" method="POST" novalidate>
                     <div class="mb-3">
                         <label for="userName" class="form-label visually-hidden">Tên của bạn</label>
                         <input type="text"
@@ -296,6 +296,8 @@
 </button>
                     </div>
                 </form>
+
+                <div id="contactResult" class="mt-4" style="display:none;"></div>
             </div>
         </div>
 
@@ -445,5 +447,52 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+<script>
+(function(){
+    const form = document.getElementById('contactForm');
+    const res = document.getElementById('contactResult');
+
+    function showError(el,msg){
+        el.classList.add('is-invalid');
+        let fb = el.nextElementSibling;
+        if(!fb || !fb.classList.contains('invalid-feedback')){
+            fb = document.createElement('div'); fb.className='invalid-feedback'; el.parentNode.appendChild(fb);
+        }
+        fb.textContent = msg;
+    }
+    function clearError(el){ el.classList.remove('is-invalid'); const fb = el.parentNode.querySelector('.invalid-feedback'); if(fb) fb.remove(); }
+
+    function validatePhone(v){ return /^\d{10}$/.test(v.trim()); }
+    function validateName(v){ return v.trim().length >= 2; }
+    function validateEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
+
+    form.addEventListener('submit', function(e){
+        e.preventDefault(); res.style.display='none'; res.innerHTML='';
+        const name = document.getElementById('userName');
+        const email = document.getElementById('userEmail');
+        const phone = document.getElementById('userPhone');
+        const msg = document.getElementById('userMessage');
+        [name,email,phone,msg].forEach(clearError);
+        let valid = true;
+        if(!validateName(name.value)){ showError(name,'Vui lòng nhập tên hợp lệ.'); valid=false; }
+        if(!validateEmail(email.value)){ showError(email,'Email không hợp lệ.'); valid=false; }
+        if(!validatePhone(phone.value)){ showError(phone,'Số điện thoại phải có đúng 10 chữ số.'); valid=false; }
+        if(msg.value.trim().length < 5){ showError(msg,'Nội dung quá ngắn.'); valid=false; }
+        if(!valid) return;
+
+        res.style.display='block';
+        res.innerHTML = '<div class="alert alert-success">Đã gửi thành công!</div>' +
+            '<div class="card"><div class="card-body"><h5 class="card-title">Thông điệp đã gửi</h5>' +
+            '<p><strong>Tên:</strong> '+escapeHtml(name.value)+'</p>' +
+            '<p><strong>Email:</strong> '+escapeHtml(email.value)+'</p>' +
+            '<p><strong>Phone:</strong> '+escapeHtml(phone.value)+'</p>' +
+            '<p><strong>Nội dung:</strong><br/>'+escapeHtml(msg.value)+'</p>' +
+            '</div></div>';
+        form.reset();
+    });
+
+    function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m]; }); }
+})();
+</script>
   </body>
 </html>

@@ -1,0 +1,730 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bánh Ngọt Thủ Công | Bean & Brew Café</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        /* ── BRAND COLORS ─────────────────────── */
+        :root {
+            --brown: #6F4E37;
+            --brown-dark: #3E2723;
+            --tan: #D2B48C;
+            --cream: #FDF8F2;
+            --border: #e8d9cb;
+        }
+
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+            background: var(--cream);
+        }
+
+        /* ── BUTTON OVERRIDES ─────────────────── */
+        .btn-coffee {
+            background: var(--brown) !important;
+            border-color: var(--brown) !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+            .btn-coffee:hover {
+                background: var(--brown-dark) !important;
+                border-color: var(--brown-dark) !important;
+            }
+
+        .btn-coffee-outline {
+            color: var(--brown) !important;
+            border-color: var(--brown) !important;
+            background: transparent !important;
+            font-weight: 600;
+        }
+
+            .btn-coffee-outline:hover {
+                background: var(--brown) !important;
+                color: #fff !important;
+            }
+
+        .btn-dark {
+            background: var(--brown) !important;
+            border-color: var(--brown) !important;
+            color: #fff !important;
+        }
+
+            .btn-dark:hover {
+                background: var(--brown-dark) !important;
+            }
+
+        .text-warning {
+            color: var(--tan) !important;
+        }
+
+        .text-danger {
+            color: var(--brown) !important;
+        }
+
+        .border-warning {
+            border-color: var(--tan) !important;
+        }
+
+        .logo {
+            color: var(--brown) !important;
+            font-family: "Playfair Display", serif;
+        }
+
+        /* ── CATEGORY TABS ────────────────────── */
+        .cat-tabs {
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .cat-tab {
+            display: inline-block;
+            padding: .55rem 1.4rem;
+            font-size: .9rem;
+            font-weight: 600;
+            color: #888;
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            transition: all .25s;
+        }
+
+            .cat-tab:hover {
+                color: var(--brown);
+            }
+
+            .cat-tab.active {
+                color: var(--brown);
+                border-bottom-color: var(--brown);
+            }
+
+        /* ── HERO BANNER ──────────────────────── */
+        .page-hero {
+            background: linear-gradient(135deg, #4a1942 0%, #8b3a6e 100%);
+            padding: 72px 0 60px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .page-hero::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+                pointer-events: none;
+            }
+
+            .page-hero .hero-label {
+                font-size: .78rem;
+                letter-spacing: 3.5px;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #f9c5e0;
+                margin-bottom: .6rem;
+            }
+
+            .page-hero h1 {
+                font-family: "Playfair Display", serif;
+                font-size: clamp(2.2rem, 5vw, 3.6rem);
+                font-weight: 600;
+                line-height: 1.15;
+            }
+
+            .page-hero .hero-desc {
+                font-size: 1.05rem;
+                font-weight: 300;
+                opacity: .88;
+                max-width: 560px;
+                margin-top: .8rem;
+            }
+
+        /* ── FILTER BAR ───────────────────────── */
+        .filter-bar {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(111,78,55,.07);
+            padding: 1rem 1.5rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: .6rem;
+        }
+
+        .filter-btn {
+            padding: .4rem 1.1rem;
+            border-radius: 20px;
+            font-size: .85rem;
+            font-weight: 600;
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: #666;
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+            .filter-btn:hover, .filter-btn.active {
+                background: var(--brown);
+                border-color: var(--brown);
+                color: #fff;
+            }
+
+        /* ── PRODUCT CARD ─────────────────────── */
+        .drink-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 3px 16px rgba(111,78,55,.07);
+            transition: transform .25s, box-shadow .25s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+            .drink-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 10px 32px rgba(111,78,55,.15);
+            }
+
+            .drink-card .img-wrap {
+                overflow: hidden;
+                position: relative;
+                background: #f5ede4;
+            }
+
+                .drink-card .img-wrap img {
+                    width: 100%;
+                    height: 220px;
+                    object-fit: cover;
+                    transition: transform .45s ease;
+                }
+
+            .drink-card:hover .img-wrap img {
+                transform: scale(1.07);
+            }
+
+            .drink-card .badge-label {
+                position: absolute;
+                top: 12px;
+                left: 12px;
+                background: var(--brown);
+                color: #fff;
+                font-size: .72rem;
+                font-weight: 700;
+                padding: 3px 10px;
+                border-radius: 20px;
+                letter-spacing: .5px;
+            }
+
+            .drink-card .card-body {
+                padding: 1.1rem 1.2rem 1rem;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+            }
+
+            .drink-card .card-title {
+                font-family: "Playfair Display", serif;
+                font-size: 1.05rem;
+                font-weight: 600;
+                color: var(--brown-dark);
+                margin-bottom: .35rem;
+            }
+
+            .drink-card .card-desc {
+                font-size: .85rem;
+                color: #888;
+                flex-grow: 1;
+                margin-bottom: .7rem;
+                line-height: 1.55;
+            }
+
+            .drink-card .price {
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: var(--brown);
+            }
+
+            .drink-card .btn-row {
+                margin-top: .7rem;
+                display: flex;
+                gap: .5rem;
+            }
+
+            .drink-card .btn-add {
+                flex: 1;
+                padding: .5rem;
+                background: var(--brown);
+                color: #fff;
+                border: none;
+                border-radius: 8px;
+                font-size: .88rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: background .2s;
+            }
+
+                .drink-card .btn-add:hover {
+                    background: var(--brown-dark);
+                }
+
+            .drink-card .btn-detail {
+                padding: .5rem .9rem;
+                border: 1.5px solid var(--brown);
+                color: var(--brown);
+                background: transparent;
+                border-radius: 8px;
+                font-size: .88rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all .2s;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+            }
+
+                .drink-card .btn-detail:hover {
+                    background: var(--brown);
+                    color: #fff;
+                }
+
+        /* ── TOAST ────────────────────────────── */
+        #cart-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            min-width: 260px;
+            display: none;
+        }
+
+            #cart-toast .inner {
+                background: var(--brown-dark);
+                color: #fff;
+                padding: .8rem 1.2rem;
+                border-radius: 12px;
+                display: flex;
+                align-items: center;
+                gap: .6rem;
+                box-shadow: 0 6px 24px rgba(0,0,0,.25);
+                animation: slideUp .3s ease;
+            }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ── STORY SECTION ────────────────────── */
+        .story-section {
+            background: #fef6f9;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+            .story-section blockquote {
+                border-left: 4px solid var(--tan);
+                padding-left: 1.4rem;
+                font-style: italic;
+                color: var(--brown);
+                font-size: 1.05rem;
+            }
+
+        /* ── CTA BANNER ───────────────────────── */
+        .cta-band {
+            background: var(--brown-dark);
+            color: #fff;
+            text-align: center;
+            padding: 56px 0;
+        }
+
+            .cta-band h2 {
+                font-family: "Playfair Display",serif;
+                font-size: 2rem;
+                margin-bottom: .5rem;
+            }
+
+            .cta-band p {
+                opacity: .8;
+                margin-bottom: 1.5rem;
+            }
+    </style>
+    <style>
+        .lb-overlay { position: fixed; inset:0; background: rgba(0,0,0,0); display:none; align-items:center; justify-content:center; z-index:2000; transition: background 0.3s ease; }
+        .lb-overlay.show { display:flex; background: rgba(0,0,0,0.45); }
+        .lb-img { position: fixed; will-change: transform, width, height, left, top; transition: all 0.3s ease; z-index:2001; object-fit: contain; box-shadow:0 10px 40px rgba(0,0,0,0.45); border-radius:6px; }
+    </style>
+</head>
+<body>
+    <header class="bg-white shadow-sm">
+        <div class="container py-3">
+            <div class="row align-items-center g-3">
+                <div class="col-lg-2 col-md-12 text-center text-lg-start">
+                    <a href="index.html" class="text-decoration-none d-inline-flex align-items-center gap-2">
+                        <h2 class="logo mb-0" style="font-size:1.5rem;">Bean &amp; Brew Café</h2>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Bạn muốn uống gì hôm nay?" />
+                        <button class="btn btn-coffee"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+                        <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
+                        <a href="cart.html" class="btn btn-coffee"><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navMain">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="menu.html" data-bs-toggle="dropdown">Menu</a>
+                        <div class="dropdown-menu w-100 p-3">
+                            <div class="container-fluid">
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">CÀ PHÊ</h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="caphe.html">Cà phê đen đá</a>
+                                            <a class="dropdown-item" href="caphe.html">Cà phê sữa đá</a>
+                                            <a class="dropdown-item" href="caphe.html">Bạc xỉu</a>
+                                            <a class="dropdown-item" href="caphe.html">Cà phê đen nóng</a>
+                                            <a class="dropdown-item" href="caphe.html">Cà phê sữa nóng</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">ESPRESSO</h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="espresso.html">Espresso</a>
+                                            <a class="dropdown-item" href="espresso.html">Americano</a>
+                                            <a class="dropdown-item" href="espresso.html">Cappuccino</a>
+                                            <a class="dropdown-item" href="espresso.html">Latte</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">TRÀ</h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="tra.html">Trà đào cam sả</a>
+                                            <a class="dropdown-item" href="tra.html">Trà vải</a>
+                                            <a class="dropdown-item" href="tra.html">Trà sen vàng</a>
+                                            <a class="dropdown-item" href="tra.html">Trà chanh mật ong</a>
+                                            <a class="dropdown-item" href="tra.html">Trà dâu tây</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">ĐÁ XAY</h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="daxay.html">Chocolate đá xay</a>
+                                            <a class="dropdown-item" href="daxay.html">Cookies đá xay</a>
+                                            <a class="dropdown-item" href="daxay.html">Matcha đá xay</a>
+                                            <a class="dropdown-item" href="daxay.html">Caramel đá xay</a>
+                                            <a class="dropdown-item" href="daxay.html">Oreo đá xay</a>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">BÁNH NGỌT</h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item" href="banhngot.html">Tiramisu</a>
+                                            <a class="dropdown-item" href="banhngot.html">Cheesecake</a>
+                                            <a class="dropdown-item" href="banhngot.html">Red Velvet</a>
+                                            <a class="dropdown-item" href="banhngot.html">Croissant Bơ</a>
+                                            <a class="dropdown-item" href="banhngot.html">Bánh Su Kem</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Về chúng tôi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="promotion.html">Khuyến mãi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="member.html">Hội viên</a></li>
+                    <li class="nav-item"><a class="nav-link" href="booking.html">Đặt bàn</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ── HERO ─────────────────────────────── -->
+    <section class="page-hero">
+        <div class="container position-relative" style="z-index:1">
+            <p class="hero-label">Ngọt ngào từng miếng</p>
+            <h1>Bánh Ngọt Thủ Công</h1>
+            <p class="hero-desc">Không có gì hoàn hảo hơn một miếng bánh ngọt bên ly cà phê ấm — khoảnh khắc đó không cần thêm thứ gì khác. Đó là đủ. Đó là hạnh phúc.</p>
+            <div class="mt-4 d-flex gap-3 flex-wrap">
+                <a href="booking.html" class="btn btn-light fw-semibold px-4">Đặt bàn ngay</a>
+                <a href="menu.html" class="btn btn-outline-light px-4">Xem toàn bộ menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CATEGORY TABS & PRODUCTS ─────────── -->
+    <section class="container py-5">
+        <div class="cat-tabs"><a href="caphe.html" class="cat-tab">Cà Phê Truyền Thống</a><a href="espresso.html" class="cat-tab">Espresso</a><a href="tra.html" class="cat-tab">Trà</a><a href="daxay.html" class="cat-tab">Đá Xay</a><a href="banhngot.html" class="cat-tab active">Bánh Ngọt</a></div>
+        <div class="filter-bar"><span class="fw-600 text-muted small me-2">Lọc:</span><button class="filter-btn active" data-filter="all">Tất cả</button><button class="filter-btn" data-filter="cake">Bánh kem</button><button class="filter-btn" data-filter="pastry">Bánh mì & Pastry</button></div>
+        <div id="product-grid">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-4">
+                <div class="col drink-card-wrap" data-tag="CK01">
+                    <div class="drink-card">
+                        <div class="img-wrap">
+                            <img src="../Images/CK01.jpg" alt="Tiramisu" loading="lazy" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">Tiramisu</div>
+                            <p class="card-desc">Những lớp mascarpone béo ngậy xen kẽ bánh lady finger thấm cà phê — Tiramisu nghĩa là 'kéo tôi lên' và quả thật, mỗi miếng là một sự hồi sinh nhỏ.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">45.000đ</span>
+                            </div>
+                            <div class="btn-row">
+                                <button class="btn-detail zoom-btn" type="button" aria-label="Xem hình"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col drink-card-wrap" data-tag="CK02">
+                    <div class="drink-card">
+                        <div class="img-wrap">
+                            <img src="../Images/CK02.jpg" alt="Cheesecake" loading="lazy" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">Cheesecake</div>
+                            <p class="card-desc">Phô mai kem New York style — đặc, mịn và đủ đậm để bạn nhớ mãi. Crust bơ giòn tan ở đáy là điểm nhấn không thể thiếu của một chiếc cheesecake hoàn hảo.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">49.000đ</span>
+                            </div>
+                            <div class="btn-row">
+                                <button class="btn-add" onclick="addToCart('CK02','Cheesecake',49000)">
+                                    <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                </button>
+                                <a href="product-detail.html" class="btn-detail"><i class="bi bi-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col drink-card-wrap" data-tag="CK03">
+                    <div class="drink-card">
+                        <div class="img-wrap">
+                            <img src="../Images/CK03.jpg" alt="Red Velvet" loading="lazy" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">Red Velvet</div>
+                            <p class="card-desc">Màu đỏ rực như một lời tuyên ngôn. Vị cacao nhẹ, cream cheese frosting mát lạnh và phần bông xốp mịn như nhung — Red Velvet là nghệ thuật biết nói.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">55.000đ</span>
+                            </div>
+                            <div class="btn-row">
+                                <button class="btn-add" onclick="addToCart('CK03','Red Velvet',55000)">
+                                    <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                </button>
+                                <a href="product-detail.html" class="btn-detail"><i class="bi bi-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col drink-card-wrap" data-tag="CK04">
+                    <div class="drink-card">
+                        <div class="img-wrap">
+                            <img src="../Images/CK04.jpg" alt="Croissant Bơ" loading="lazy" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">Croissant Bơ</div>
+                            <p class="card-desc">Vàng giòn bên ngoài, mềm bơ bên trong — nướng tươi mỗi sáng. Một chiếc croissant đúng chuẩn không cần thêm gì ngoài một ngụm cà phê bên cạnh.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">35.000đ</span>
+                            </div>
+                            <div class="btn-row">
+                                <button class="btn-add" onclick="addToCart('CK04','Croissant Bơ',35000)">
+                                    <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                </button>
+                                <a href="product-detail.html" class="btn-detail"><i class="bi bi-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col drink-card-wrap" data-tag="CK05">
+                    <div class="drink-card">
+                        <div class="img-wrap">
+                            <img src="../Images/CK05.jpg" alt="Bánh Su Kem" loading="lazy" />
+
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">Bánh Su Kem</div>
+                            <p class="card-desc">Vỏ bánh choux nhẹ xốp, nhân kem vanilla béo ngậy — thứ bánh khiến bạn ăn một cái rồi nhìn xuống hộp bánh và cầm thêm cái nữa mà không kịp hối hận.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="price">29.000đ</span>
+                            </div>
+                            <div class="btn-row">
+                                <button class="btn-add" onclick="addToCart('CK05','Bánh Su Kem',29000)">
+                                    <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                </button>
+                                <a href="product-detail.html" class="btn-detail"><i class="bi bi-eye"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── STORY SECTION ─────────────────────── -->
+    <section class="story-section py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <p class="fw-bold text-uppercase small mb-2" style="color:var(--tan);letter-spacing:3px;">Câu chuyện</p>
+                    <h2 class="fw-bold mb-4" style="font-family:'Playfair Display',serif;color:var(--brown-dark);">Pha lê từ tình yêu</h2>
+                    <blockquote class="mb-4">"Mỗi chiếc bánh được nướng như thể chỉ dành riêng cho một người — người đó, hôm nay, ngồi đây, cần một điều gì đó thật ngọt ngào."</blockquote>
+                    <p class="text-muted" style="line-height:1.75;">Toàn bộ bánh ngọt tại Bean & Brew được làm thủ công hàng ngày bởi đội ngũ pastry chef với nguyên liệu tươi nhập trực tiếp. Không dùng chất bảo quản, không dùng bột bánh pha sẵn — tất cả từ bơ tươi Pháp, bột mì cao cấp và trái cây theo mùa. Điều đó có nghĩa là: bánh hôm nay khác ngày hôm qua, và ngày mai sẽ có điều gì đó mới chờ bạn khám phá.</p>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <div class="rounded-4 overflow-hidden" style="height:200px;background:linear-gradient(135deg,#4a1942,#8b3a6e);display:flex;align-items:center;justify-content:center;">
+                                <i class="bi bi-cup-hot-fill" style="font-size:4rem;color:rgba(255,255,255,.3);"></i>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="rounded-4 overflow-hidden" style="height:200px;background:#f5ede4;display:flex;align-items:center;justify-content:center;">
+                                <i class="bi bi-heart-fill" style="font-size:4rem;color:var(--tan);"></i>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="rounded-4 p-4 d-flex align-items-center gap-4" style="background:#fff;border:1px solid var(--border);">
+                                <i class="bi bi-award-fill fs-2" style="color:var(--brown);flex-shrink:0;"></i>
+                                <div>
+                                    <div class="fw-bold" style="color:var(--brown-dark);">Cam kết chất lượng Bean & Brew</div>
+                                    <div class="text-muted small mt-1">Nguyên liệu tươi hàng ngày · Không chất bảo quản · Pha chế thủ công</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA BAND ───────────────────────────── -->
+    <div class="cta-band">
+        <div class="container">
+            <h2>Đặt bánh cho buổi họp mặt của bạn</h2>
+            <p>Bean & Brew nhận đặt bánh theo yêu cầu cho tiệc nhỏ, sinh nhật hoặc quà tặng đặc biệt.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="booking.html" class="btn btn-light fw-semibold px-4">Đặt bàn</a>
+                <a href="cart.html" class="btn btn-outline-light px-4"><i class="bi bi-cart me-1"></i>Xem giỏ hàng</a>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white pt-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-warning mb-3">Bean &amp; Brew</h5>
+                    <p class="text-muted">Nơi thưởng thức cà phê nguyên chất và không gian thư giãn hiện đại.</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50 text-decoration-none">Trang chủ</a></li>
+                        <li class="mb-2"><a href="menu.html" class="text-white-50 text-decoration-none">Menu</a></li>
+                        <li class="mb-2"><a href="booking.html" class="text-white-50 text-decoration-none">Đặt bàn</a></li>
+                        <li class="mb-2"><a href="contact.html" class="text-white-50 text-decoration-none">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Giờ mở cửa</h5>
+                    <p class="text-white-50 mb-1"><i class="bi bi-clock me-2 text-warning"></i>07:00 - 22:00</p>
+                    <p class="text-white-50"><i class="bi bi-calendar-check me-2 text-warning"></i>Tất cả các ngày</p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên hệ</h5>
+                    <p class="text-white-50 mb-2"><i class="bi bi-geo-alt-fill me-2 text-warning"></i>TP.HCM</p>
+                    <p class="text-white-50 mb-2"><i class="bi bi-telephone-fill me-2 text-warning"></i>0909 999 999</p>
+                    <p class="text-white-50 mb-2"><i class="bi bi-envelope-fill me-2 text-warning"></i>info@beanbrew.vn</p>
+                </div>
+            </div>
+            <hr class="text-white-50" />
+            <div class="d-flex justify-content-between align-items-center flex-wrap pt-2 pb-3">
+                <div class="mb-2 mb-md-0 fs-4">
+                    <a href="https://facebook.com" target="_blank" class="text-white-50 me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="text-white-50 me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="https://tiktok.com" target="_blank" class="text-white-50 me-3"><i class="bi bi-tiktok"></i></a>
+                    <a href="https://youtube.com" target="_blank" class="text-white-50"><i class="bi bi-youtube"></i></a>
+                </div>
+                <div class="text-white-50 small">© 2026 Bean &amp; Brew Café. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast thông báo -->
+    <div id="cart-toast">
+        <div class="inner"><i class="bi bi-cart-check-fill fs-5"></i><span id="toast-msg">Đã thêm vào giỏ hàng!</span></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+function addToCart(id, name, price) {{
+  let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+  const idx = cart.findIndex(i => i.id === id);
+  if (idx > -1) {{ cart[idx].quantity++; }} else {{ cart.push({{id, name, price, quantity:1}}); }}
+  localStorage.setItem('cart', JSON.stringify(cart));
+  showToast('Đã thêm "' + name + '" vào giỏ hàng!');
+}}
+function showToast(msg) {{
+  const t = document.getElementById('cart-toast');
+  document.getElementById('toast-msg').textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => {{ t.style.display = 'none'; }}, 2800);
+}}
+// Filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn => {{
+  btn.addEventListener('click', function() {{
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const tag = this.dataset.filter;
+    document.querySelectorAll('.drink-card-wrap').forEach(card => {{
+      card.style.display = (tag === 'all' || card.dataset.tag === tag) ? '' : 'none';
+    }});
+  }});
+}});
+    </script>
+    <div class="lb-overlay" id="lbOverlay"></div>
+    <img id="lbImg" class="lb-img" src="" alt="" style="display:none;" />
+    <script>
+    (function(){
+        const overlay = document.getElementById('lbOverlay');
+        const lbImg = document.getElementById('lbImg');
+        let animating = false;
+        function openLightbox(imgEl){ if(animating) return; animating=true; const rect=imgEl.getBoundingClientRect(); lbImg.src=imgEl.src; lbImg.style.display='block'; lbImg.style.width=rect.width+'px'; lbImg.style.height=rect.height+'px'; lbImg.style.left=rect.left+'px'; lbImg.style.top=rect.top+'px'; void lbImg.offsetWidth; overlay.classList.add('show'); const maxW=window.innerWidth*0.85; const maxH=window.innerHeight*0.85; const ratio=Math.min(maxW/rect.width,maxH/rect.height,1.9); const targetW=rect.width*ratio; const targetH=rect.height*ratio; lbImg.style.left=(window.innerWidth-targetW)/2+'px'; lbImg.style.top=(window.innerHeight-targetH)/2+'px'; lbImg.style.width=targetW+'px'; lbImg.style.height=targetH+'px'; setTimeout(()=>{animating=false;},320); }
+        function closeLightbox(){ if(animating) return; animating=true; overlay.classList.remove('show'); lbImg.style.transform='scale(0.95)'; setTimeout(()=>{ lbImg.style.display='none'; lbImg.style.transform=''; animating=false; },300); }
+        document.addEventListener('click', function(e){ const z = e.target.closest('.zoom-btn'); if(z){ const img = z.closest('.drink-card').querySelector('img'); if(img) openLightbox(img); return; } if(e.target===overlay) closeLightbox(); });
+        document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLightbox(); });
+    })();
+    </script>
+</body>
+</html>

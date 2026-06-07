@@ -317,7 +317,7 @@
                     <h4 class="fw-bold mb-2 text-uppercase">Thông Tin Đặt Lịch Sự Kiện</h4>
                     <p class="text-muted small mb-4">Vui lòng điền đầy đủ các thông tin có dấu (*) dưới đây để chúng tôi liên hệ xác nhận.</p>
 
-                    <form action="#" method="POST">
+                    <form id="bookingForm" action="#" method="POST" novalidate>
 
                         <div class="row g-3 mb-3">
                             <div class="col-md-6">
@@ -355,7 +355,7 @@
                         <div class="row g-3 mb-3">
                             <div class="col-md-6">
                                 <label for="bookingGuests" class="form-label small fw-bold">Số Lượng Khách</label>
-                                <input type="number" class="form-control py-2" id="bookingGuests" placeholder="Dự kiến số người tham gia">
+                                <input type="number" min="1" step="1" class="form-control py-2" id="bookingGuests" placeholder="Dự kiến số người tham gia">
                             </div>
                             <div class="col-md-6">
                                 <label for="bookingPurpose" class="form-label small fw-bold">Mục Đích Tổ Chức Sự Kiện</label>
@@ -377,21 +377,22 @@
                         <div class="mb-3">
                             <label class="form-label small fw-bold d-block">Bạn biết Bean & Brew qua kênh? *</label>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="channelFB" value="facebook">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelFB" value="facebook">
                                 <label class="form-check-label small" for="channelFB">Facebook</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="channelTT" value="tiktok">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelTT" value="tiktok">
                                 <label class="form-check-label small" for="channelTT">Tiktok</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="channelGG" value="google">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelGG" value="google">
                                 <label class="form-check-label small" for="channelGG">Google</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" id="channelFriends" value="friends">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelFriends" value="friends">
                                 <label class="form-check-label small" for="channelFriends">Bạn bè giới thiệu</label>
                             </div>
+                            <div id="channelsFeedback" class="invalid-feedback d-block" style="display:none;">Vui lòng chọn ít nhất một kênh.</div>
                         </div>
 
                         <div class="mb-4">
@@ -406,6 +407,8 @@
                         </div>
 
                     </form>
+
+                    <div id="bookingResult" class="mt-4" style="display:none;"></div>
                 </div>
             </div>
 
@@ -506,5 +509,123 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script>
+    (function(){
+        const form = document.getElementById('bookingForm');
+        const result = document.getElementById('bookingResult');
+        const channelsFeedback = document.getElementById('channelsFeedback');
+
+        function showError(el,msg){
+            el.classList.add('is-invalid');
+            let fb = el.nextElementSibling;
+            if(!fb || !fb.classList.contains('invalid-feedback')){
+                fb = document.createElement('div');
+                fb.className = 'invalid-feedback';
+                el.parentNode.appendChild(fb);
+            }
+            fb.textContent = msg;
+        }
+
+        function clearError(el){
+            el.classList.remove('is-invalid');
+            const fb = el.parentNode.querySelector('.invalid-feedback');
+            if(fb) fb.remove();
+        }
+
+        function validatePhone(v){
+            // only digits, exactly 10 characters (Vietnam phone standard)
+            return /^\d{10}$/.test(v.trim());
+        }
+
+        function validateName(v){
+            return v.trim().length >= 2;
+        }
+
+        function validateDate(v){
+            const d = new Date(v);
+            if(isNaN(d.getTime())) return false;
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            return d >= today; // today or future
+        }
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            // clear previous
+            result.style.display = 'none';
+            result.innerHTML = '';
+            channelsFeedback.style.display = 'none';
+
+            let valid = true;
+            // fields
+            const name = document.getElementById('bookingName');
+            const phone = document.getElementById('bookingPhone');
+            const zalo = document.getElementById('bookingZalo');
+            const date = document.getElementById('bookingDate');
+
+            // clear
+            [name, phone, zalo, date].forEach(clearError);
+
+            if(!validateName(name.value)) { showError(name, 'Vui lòng nhập tên hợp lệ (ít nhất 2 ký tự).'); valid=false; }
+            if(!validatePhone(phone.value)) { showError(phone, 'Số điện thoại không hợp lệ.'); valid=false; }
+            if(!validatePhone(zalo.value)) { showError(zalo, 'Zalo không hợp lệ.'); valid=false; }
+            if(!validateDate(date.value)) { showError(date, 'Vui lòng chọn ngày hôm nay hoặc ngày tương lai.'); valid=false; }
+
+            // validate guests (no negative numbers)
+            const guestsEl = document.getElementById('bookingGuests');
+            const guestsVal = guestsEl.value.trim();
+            if(guestsVal !== ''){
+                const n = Number(guestsVal);
+                if(!Number.isInteger(n) || n <= 0){
+                    showError(guestsEl, 'Số lượng phải là số nguyên dương.'); valid = false;
+                } else {
+                    clearError(guestsEl);
+                }
+            }
+
+            // channels at least one
+            const channels = Array.from(document.querySelectorAll('.channel-checkbox')).filter(c=>c.checked).map(c=>c.value);
+            if(channels.length === 0){ channelsFeedback.style.display = 'block'; valid = false; }
+
+            if(!valid) return;
+
+            // collect rest
+            const company = document.getElementById('bookingCompany').value.trim();
+            const time = document.getElementById('bookingTime').value.trim();
+            const guests = document.getElementById('bookingGuests').value.trim();
+            const purpose = document.getElementById('bookingPurpose').value.trim();
+            const device = document.getElementById('bookingDevice').value.trim();
+            const social = document.getElementById('bookingSocial').value.trim();
+            const notes = document.getElementById('bookingNotes').value.trim();
+
+            // show success
+            result.style.display = 'block';
+            result.innerHTML = '<div class="alert alert-success">Đã đặt lịch thành công!</div>' +
+                '<div class="card"><div class="card-body"><h5 class="card-title">Thông tin đặt lịch</h5>' +
+                '<ul class="list-unstyled mb-0">' +
+                '<li><strong>Tên:</strong> ' + escapeHtml(name.value) + '</li>' +
+                (company?('<li><strong>Đơn vị:</strong> '+escapeHtml(company)+'</li>'):'') +
+                '<li><strong>Phone:</strong> ' + escapeHtml(phone.value) + '</li>' +
+                '<li><strong>Zalo:</strong> ' + escapeHtml(zalo.value) + '</li>' +
+                '<li><strong>Ngày:</strong> ' + escapeHtml(date.value) + (time?(' - '+escapeHtml(time)):'') + '</li>' +
+                (guests?('<li><strong>Số lượng:</strong> '+escapeHtml(guests)+'</li>'):'') +
+                (purpose?('<li><strong>Mục đích:</strong> '+escapeHtml(purpose)+'</li>'):'') +
+                (device?('<li><strong>Thiết bị yêu cầu:</strong> '+escapeHtml(device)+'</li>'):'') +
+                (social?('<li><strong>Social:</strong> '+escapeHtml(social)+'</li>'):'') +
+                (notes?('<li><strong>Ghi chú:</strong> '+escapeHtml(notes)+'</li>'):'') +
+                '<li><strong>Kênh biết đến:</strong> ' + escapeHtml(channels.join(', ')) + '</li>' +
+                '</ul></div></div>';
+
+            // optionally reset form
+            form.reset();
+        });
+
+        function escapeHtml(s){
+            return String(s).replace(/[&<>"']/g, function(m){
+                return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+            });
+        }
+    })();
+    </script>
 </body>
 </html>

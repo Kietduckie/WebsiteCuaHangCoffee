@@ -1,0 +1,618 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bean & Brew café</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <style>
+        /* === OVERRIDE TONE MÀU NÂU CAFE (đồng bộ Style.css) === */
+        .btn-coffee {
+            background-color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+            .btn-coffee:hover {
+                background-color: #5a3d2b !important;
+                border-color: #5a3d2b !important;
+            }
+
+        .btn-coffee-outline {
+            color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+            background-color: transparent !important;
+            font-weight: 600;
+        }
+
+            .btn-coffee-outline:hover {
+                background-color: #6F4E37 !important;
+                color: #fff !important;
+            }
+
+        .text-warning {
+            color: #D2B48C !important;
+        }
+
+        .border-warning {
+            border-color: #D2B48C !important;
+        }
+
+        .logo {
+            color: #6F4E37 !important;
+        }
+
+        /* Tiêu đề mega menu dropdown */
+        .mega-menu h6.text-warning {
+            color: #D2B48C !important;
+            border-color: #D2B48C !important;
+        }
+
+        /* Form booking */
+        .policy-container {
+            border-color: #D2B48C !important;
+            background-color: #fdf8f4;
+        }
+
+        .booking-form-container {
+            border-color: #D2B48C !important;
+            background-color: #fff;
+        }
+
+            .policy-container h4,
+            .booking-form-container h4 {
+                color: #6F4E37;
+            }
+
+        .policy-content h6 i {
+            color: #6F4E37;
+        }
+
+        /* Nút Submit form */
+        form [type="submit"],
+        .d-grid .btn[type="submit"] {
+            background-color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+            color: #fff !important;
+        }
+
+            form [type="submit"]:hover {
+                background-color: #5a3d2b !important;
+            }
+
+        /* Form controls focus */
+        .form-control:focus,
+        .form-select:focus {
+            border-color: #6F4E37 !important;
+            box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
+        }
+
+        /* Checkbox accent */
+        .form-check-input:checked {
+            background-color: #6F4E37 !important;
+            border-color: #6F4E37 !important;
+        }
+
+        /* Footer icons */
+        footer .bi.text-warning {
+            color: #D2B48C !important;
+        }
+
+        footer h5.text-warning {
+            color: #D2B48C !important;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-white">
+        <div class="container py-3">
+            <div class="row align-items-center g-3">
+                <div class="col-lg-2 col-md-12 text-center text-lg-start">
+                    <a href="index.html" class="text-decoration-none">
+                        <h2 class="logo mb-0">Bean & Brew Café</h2>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group search-box">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Bạn muốn uống gì hôm nay?" />
+                        <button class="btn btn-coffee">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+                        <a href="member.html" class="btn btn-coffee-outline">Hội viên</a>
+                        <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
+                        <a href="cart.html" class="btn btn-coffee"><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle"
+                           href="menu.html"
+                           data-bs-toggle="dropdown">Menu</a>
+
+                        <div class="dropdown-menu mega-menu w-100 p-3">
+                            <div class="container-fluid">
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            CÀ PHÊ
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê đen đá</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê sữa đá</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Bạc xỉu</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê đen nóng</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê sữa nóng</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            ESPRESSO
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Espresso</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Americano</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Latte</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cappuccino</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            TRÀ
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà đào cam sả</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà vải</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà sen vàng</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Trà chanh mật ong</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Trà dâu tây</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            ĐÁ XAY
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#ice">Matcha đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Chocolate đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Cookies đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Caramel đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Oreo đá xay</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            BÁNH NGỌT
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#ice">Red Velvet</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Tiramisu</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Cheesecake</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Croissant Bơ</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Bánh Su Kem</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Về chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotion.html">Khuyến mãi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="member.html">Hội viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Đặt bàn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--------------------formdatban------------------------------>
+    <section class="container py-5">
+        <div class="row g-5 align-items-stretch">
+
+            <div class="col-lg-5">
+                <div class="policy-container p-4 border rounded h-100">
+                    <h4 class="fw-bold mb-3 text-uppercase">Quy Định Đặt Bàn & Sự Kiện</h4>
+                    <p class="text-muted small mb-4">
+                        Bean & Brew xin chào, và cảm ơn bạn rất nhiều vì đã quan tâm đến dịch vụ đặt bàn và tổ chức sự kiện tại quán chúng tôi.
+                    </p>
+
+                    <div class="policy-content">
+                        <h6 class="fw-bold"><i class="bi bi-info-circle-fill me-2"></i>1. Thời gian & Số lượng</h6>
+                        <p class="text-muted small ps-4">Vui lòng đặt bàn trước ít nhất 24 giờ đối với nhóm trên 10 người hoặc các sự kiện cần chuẩn bị thiết bị để quán sắp xếp chu đáo.</p>
+
+                        <h6 class="fw-bold"><i class="bi bi-exclamation-triangle-fill me-2"></i>2. Giữ chỗ</h6>
+                        <p class="text-muted small ps-4">Bàn đặt của bạn sẽ được giữ tối đa 15 phút so với khung giờ đã đăng ký. Sau thời gian này, hệ thống sẽ tự động hủy lịch nếu không có thông báo thay đổi.</p>
+
+                        <h6 class="fw-bold"><i class="bi bi-laptop-fill me-2"></i>3. Sử dụng thiết bị</h6>
+                        <p class="text-muted small ps-4">Quán hỗ trợ sẵn các thiết bị cơ bản (Máy chiếu, Loa, Mic, Mixer...). Quý khách vui lòng đăng ký rõ trong phần yêu cầu nếu có nhu cầu sử dụng.</p>
+
+                        <h6 class="fw-bold"><i class="bi bi-shield-fill-check me-2"></i>4. Quy định chung</h6>
+                        <p class="text-muted small ps-4 mb-0">Không mang theo đồ ăn thức uống từ bên ngoài vào. Giữ gìn vệ sinh chung và không làm ảnh hưởng đến các khách hàng khác xung quanh.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="booking-form-container p-4 border rounded h-100">
+                    <h4 class="fw-bold mb-2 text-uppercase">Thông Tin Đặt Lịch Sự Kiện</h4>
+                    <p class="text-muted small mb-4">Vui lòng điền đầy đủ các thông tin có dấu (*) dưới đây để chúng tôi liên hệ xác nhận.</p>
+
+                    <form id="bookingForm" action="#" method="POST" novalidate>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="bookingName" class="form-label small fw-bold">Tên Của Bạn *</label>
+                                <input type="text" class="form-control py-2" id="bookingName" placeholder="Tên của người phụ trách trực tiếp" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="bookingCompany" class="form-label small fw-bold">Đơn Vị Tổ Chức Sự Kiện</label>
+                                <input type="text" class="form-control py-2" id="bookingCompany" placeholder="Tên công ty, nhóm hoặc câu lạc bộ">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="bookingPhone" class="form-label small fw-bold">Điện Thoại *</label>
+                                <input type="tel" class="form-control py-2" id="bookingPhone" placeholder="Số điện thoại liên hệ" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="bookingZalo" class="form-label small fw-bold">Zalo *</label>
+                                <input type="text" class="form-control py-2" id="bookingZalo" placeholder="Số điện thoại hoặc link Zalo" required>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="bookingDate" class="form-label small fw-bold">Thời Gian *</label>
+                                <input type="date" class="form-control py-2" id="bookingDate" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="bookingTime" class="form-label small fw-bold">Khung giờ Sự kiện</label>
+                                <input type="text" class="form-control py-2" id="bookingTime" placeholder="Ví dụ: 15h - 18h">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="bookingGuests" class="form-label small fw-bold">Số Lượng Khách</label>
+                                <input type="number" class="form-control py-2" id="bookingGuests" placeholder="Dự kiến số người tham gia">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="bookingPurpose" class="form-label small fw-bold">Mục Đích Tổ Chức Sự Kiện</label>
+                                <input type="text" class="form-control py-2" id="bookingPurpose" placeholder="Ví dụ: Đêm nhạc từ thiện, Họp Fan, Club ...">
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="bookingDevice" class="form-label small fw-bold">Yêu cầu Thiết Bị</label>
+                                <input type="text" class="form-control py-2" id="bookingDevice" placeholder="Hiện có: Máy Chiếu, Loa, Mic, Mixer...">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="bookingSocial" class="form-label small fw-bold">Kênh Social Của Quý Đơn Vị</label>
+                                <input type="text" class="form-control py-2" id="bookingSocial" placeholder="Cho mình xem Url Fanpage, Tiktok nhé ...">
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold d-block">Bạn biết Bean & Brew qua kênh? *</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelFB" value="facebook">
+                                <label class="form-check-label small" for="channelFB">Facebook</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelTT" value="tiktok">
+                                <label class="form-check-label small" for="channelTT">Tiktok</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelGG" value="google">
+                                <label class="form-check-label small" for="channelGG">Google</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input channel-checkbox" name="channels[]" type="checkbox" id="channelFriends" value="friends">
+                                <label class="form-check-label small" for="channelFriends">Bạn bè giới thiệu</label>
+                            </div>
+                            <div id="channelsFeedback" class="invalid-feedback d-block" style="display:none;">Vui lòng chọn ít nhất một kênh.</div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="bookingNotes" class="form-label small fw-bold">Ghi Chú</label>
+                            <textarea class="form-control py-2" id="bookingNotes" rows="3" placeholder="Các yêu cầu đặc biệt khác..."></textarea>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn py-3 fw-bold text-uppercase" style="letter-spacing: 1px;">
+                                GỬI YÊU CẦU ĐẶT LỊCH
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <div id="bookingResult" class="mt-4" style="display:none;"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--------------footer----------------->
+    <footer class="bg-dark text-white pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-warning mb-3">Bean & Brew</h5>
+                    <p class="text-muted">
+                        Nơi thưởng thức cà phê nguyên chất và không gian thư giãn hiện
+                        đại.
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="index.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Trang chủ</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="menu.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Menu</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="booking.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Đặt bàn</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="contact.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Giờ mở cửa</h5>
+                    <p class="text-white-50 mb-1">
+                        <i class="bi bi-clock me-2 text-warning"></i>07:00 - 22:00
+                    </p>
+                    <p class="text-white-50">
+                        <i class="bi bi-calendar-check me-2 text-warning"></i>Tất cả các
+                        ngày
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên hệ</h5>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-geo-alt-fill me-2 text-warning"></i> TP.HCM
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-telephone-fill me-2 text-warning"></i> 0909 999
+                        999
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-envelope-fill me-2 text-warning"></i> info@bean.vn
+                    </p>
+                </div>
+            </div>
+
+            <hr class="text-white-50" />
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap pt-2 pb-3">
+                <div class="mb-2 mb-md-0 fs-4">
+                    <a href="https://facebook.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://youtube.com"
+                       target="_blank"
+                       class="text-white-50 text-warning-hover">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+                <div class="text-white-50 small">
+                    © 2026 Bean & Brew Café. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script>
+    (function(){
+        const form = document.getElementById('bookingForm');
+        const result = document.getElementById('bookingResult');
+        const channelsFeedback = document.getElementById('channelsFeedback');
+
+        function showError(el,msg){
+            el.classList.add('is-invalid');
+            let fb = el.nextElementSibling;
+            if(!fb || !fb.classList.contains('invalid-feedback')){
+                fb = document.createElement('div');
+                fb.className = 'invalid-feedback';
+                el.parentNode.appendChild(fb);
+            }
+            fb.textContent = msg;
+        }
+
+        function clearError(el){
+            el.classList.remove('is-invalid');
+            const fb = el.parentNode.querySelector('.invalid-feedback');
+            if(fb) fb.remove();
+        }
+
+        function validatePhone(v){
+            return /^\+?[0-9\s\-]{7,15}$/.test(v.trim());
+        }
+
+        function validateName(v){
+            return v.trim().length >= 2;
+        }
+
+        function validateDate(v){
+            const d = new Date(v);
+            if(isNaN(d.getTime())) return false;
+            const today = new Date();
+            today.setHours(0,0,0,0);
+            return d >= today; // today or future
+        }
+
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            // clear previous
+            result.style.display = 'none';
+            result.innerHTML = '';
+            channelsFeedback.style.display = 'none';
+
+            let valid = true;
+            // fields
+            const name = document.getElementById('bookingName');
+            const phone = document.getElementById('bookingPhone');
+            const zalo = document.getElementById('bookingZalo');
+            const date = document.getElementById('bookingDate');
+
+            // clear
+            [name, phone, zalo, date].forEach(clearError);
+
+            if(!validateName(name.value)) { showError(name, 'Vui lòng nhập tên hợp lệ (ít nhất 2 ký tự).'); valid=false; }
+            if(!validatePhone(phone.value)) { showError(phone, 'Số điện thoại không hợp lệ.'); valid=false; }
+            if(!validatePhone(zalo.value)) { showError(zalo, 'Zalo không hợp lệ.'); valid=false; }
+            if(!validateDate(date.value)) { showError(date, 'Vui lòng chọn ngày hôm nay hoặc ngày tương lai.'); valid=false; }
+
+            // channels at least one
+            const channels = Array.from(document.querySelectorAll('.channel-checkbox')).filter(c=>c.checked).map(c=>c.value);
+            if(channels.length === 0){ channelsFeedback.style.display = 'block'; valid = false; }
+
+            if(!valid) return;
+
+            // collect rest
+            const company = document.getElementById('bookingCompany').value.trim();
+            const time = document.getElementById('bookingTime').value.trim();
+            const guests = document.getElementById('bookingGuests').value.trim();
+            const purpose = document.getElementById('bookingPurpose').value.trim();
+            const device = document.getElementById('bookingDevice').value.trim();
+            const social = document.getElementById('bookingSocial').value.trim();
+            const notes = document.getElementById('bookingNotes').value.trim();
+
+            // show success
+            result.style.display = 'block';
+            result.innerHTML = '<div class="alert alert-success">Đã đặt lịch thành công!</div>' +
+                '<div class="card"><div class="card-body"><h5 class="card-title">Thông tin đặt lịch</h5>' +
+                '<ul class="list-unstyled mb-0">' +
+                '<li><strong>Tên:</strong> ' + escapeHtml(name.value) + '</li>' +
+                (company?('<li><strong>Đơn vị:</strong> '+escapeHtml(company)+'</li>'):'') +
+                '<li><strong>Phone:</strong> ' + escapeHtml(phone.value) + '</li>' +
+                '<li><strong>Zalo:</strong> ' + escapeHtml(zalo.value) + '</li>' +
+                '<li><strong>Ngày:</strong> ' + escapeHtml(date.value) + (time?(' - '+escapeHtml(time)):'') + '</li>' +
+                (guests?('<li><strong>Số lượng:</strong> '+escapeHtml(guests)+'</li>'):'') +
+                (purpose?('<li><strong>Mục đích:</strong> '+escapeHtml(purpose)+'</li>'):'') +
+                (device?('<li><strong>Thiết bị yêu cầu:</strong> '+escapeHtml(device)+'</li>'):'') +
+                (social?('<li><strong>Social:</strong> '+escapeHtml(social)+'</li>'):'') +
+                (notes?('<li><strong>Ghi chú:</strong> '+escapeHtml(notes)+'</li>'):'') +
+                '<li><strong>Kênh biết đến:</strong> ' + escapeHtml(channels.join(', ')) + '</li>' +
+                '</ul></div></div>';
+
+            // optionally reset form
+            form.reset();
+        });
+
+        function escapeHtml(s){
+            return String(s).replace(/[&<>"']/g, function(m){
+                return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+            });
+        }
+    })();
+    </script>
+</body>
+</html>
