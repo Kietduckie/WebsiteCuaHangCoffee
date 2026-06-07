@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Về Chúng Tôi | Bean & Brew Café</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <title>Bean & Brew café</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-        /* === ĐỒNG BỘ TÔNG NÂU CAFE === */
+        /* === ĐỒNG BỘ TÔNG NÂU CAFE (Style.css) === */
         .btn-coffee, .btn-primary {
             background-color: #6F4E37 !important;
             border-color: #6F4E37 !important;
@@ -39,6 +47,10 @@
             border-color: #6F4E37 !important;
         }
 
+            .btn-dark:hover {
+                background-color: #5a3d2b !important;
+            }
+
         .text-warning {
             color: #D2B48C !important;
         }
@@ -55,135 +67,49 @@
             color: #6F4E37 !important;
         }
 
-        /* === ABOUT PAGE STYLES === */
-        .page-hero {
-            background: linear-gradient(135deg, #3E2723 0%, #6F4E37 100%);
-            padding: 80px 0;
-            color: #fff;
+        .nav-link:hover, .nav-link.active {
+            color: #6F4E37 !important;
         }
 
-            .page-hero h1 {
-                font-size: 3rem;
-                font-weight: 800;
-                letter-spacing: -1px;
-            }
-
-            .page-hero p {
-                font-size: 1.15rem;
-                opacity: 0.85;
-            }
-
-        .section-label {
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: #D2B48C;
+        .form-control:focus {
+            border-color: #6F4E37 !important;
+            box-shadow: 0 0 0 0.25rem rgba(111,78,55,0.15) !important;
+        }
+        /* Cart specific */
+        .card-header {
+            border-left: 4px solid #6F4E37;
         }
 
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #3E2723;
-            margin-bottom: 1rem;
+        tbody tr:hover {
+            background-color: #fdf8f4;
+        }
+        /* Promotion specific */
+        .promo-hero {
+            background: linear-gradient(135deg, #6F4E37, #3E2723);
+        }
+        /* About specific */
+        .text-brown {
+            color: #6F4E37 !important;
         }
 
-        /* Story section */
-        .story-quote {
-            border-left: 4px solid #D2B48C;
-            padding-left: 1.5rem;
-            color: #5a3d2b;
-            font-size: 1.1rem;
-            font-style: italic;
+        .about-banner {
+            background: linear-gradient(135deg, rgba(62,39,35,0.85), rgba(111,78,55,0.75)), url('') center/cover no-repeat;
+            background-color: #6F4E37;
+            padding: 100px 0;
         }
 
-        /* Mission/Vision cards */
-        .mv-card {
-            border: none;
-            border-radius: 16px;
-            background: #fff;
-            box-shadow: 0 4px 20px rgba(111,78,55,0.08);
-            padding: 2rem;
-            height: 100%;
-            transition: transform 0.2s;
+        .stat-number {
+            color: #6F4E37;
         }
 
-            .mv-card:hover {
-                transform: translateY(-4px);
-            }
-
-        .mv-card-icon {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .value-card {
+            border-top: 3px solid #D2B48C;
         }
 
-            .mv-card-icon.brown {
-                background: rgba(111,78,55,0.1);
-                color: #6F4E37;
-            }
-
-            .mv-card-icon.tan {
-                background: rgba(210,180,140,0.2);
-                color: #a0724a;
-            }
-
-        /* Values */
-        .value-item {
-            text-align: center;
-            padding: 2rem 1rem;
+        .value-icon {
+            color: #6F4E37;
         }
-
-            .value-item i {
-                font-size: 2.5rem;
-                color: #6F4E37;
-                margin-bottom: 1rem;
-                display: block;
-            }
-
-            .value-item h5 {
-                font-weight: 700;
-                color: #3E2723;
-                margin-bottom: .5rem;
-            }
-
-            .value-item p {
-                color: #777;
-                font-size: 0.93rem;
-                margin: 0;
-            }
-
-        /* Stats */
-        .stat-band {
-            background: #6F4E37;
-            padding: 50px 0;
-            color: #fff;
-        }
-
-            .stat-band .stat-num {
-                font-size: 2.8rem;
-                font-weight: 800;
-                color: #D2B48C;
-                line-height: 1;
-            }
-
-            .stat-band .stat-label {
-                font-size: 0.9rem;
-                opacity: 0.85;
-                margin-top: 4px;
-            }
-
-        /* Thanks banner */
-        .thanks-band {
-            background: #fdf8f4;
-            border-top: 1px solid #e8d8cb;
-            border-bottom: 1px solid #e8d8cb;
-        }
+        /* CSS path fix */
     </style>
 </head>
 
@@ -192,8 +118,8 @@
         <div class="container py-3">
             <div class="row align-items-center g-3">
                 <div class="col-lg-2 col-md-12 text-center text-lg-start">
-                    <a href="index.html" class="text-decoration-none d-inline-flex align-items-center gap-2">
-                        <h3 class="logo mb-0">Bean & Brew Café</h3>
+                    <a href="index.html" class="text-decoration-none">
+                        <h2 class="logo mb-0">Bean & Brew Café</h2>
                     </a>
                 </div>
                 <div class="col-lg-6">
@@ -355,55 +281,59 @@
             </div>
         </div>
     </nav>
+    <!-- Banner -->
 
-    <!-- ===== HERO ===== -->
-    <section class="page-hero">
-        <div class="container text-center">
-            <p class="section-label mb-2">Câu chuyện của chúng tôi</p>
-            <h1>Về Bean & Brew</h1>
-            <p class="mt-3 mx-auto" style="max-width:520px;">
-                Không chỉ là cà phê — đó là một trải nghiệm, một kết nối và những khoảnh khắc đáng nhớ.
-            </p>
-            <div class="mt-4 d-flex gap-3 justify-content-center flex-wrap">
-                <a href="menu.html" class="btn btn-light fw-semibold px-4">Khám phá Menu</a>
-                <a href="booking.html" class="btn btn-outline-light px-4">Đặt bàn ngay</a>
-            </div>
+    <section class="py-5 bg-light text-center">
+        <div class="container">
+            <h1 class="fw-bold">Giỏ Hàng Của Bạn</h1>
+            <p class="text-muted">Kiểm tra sản phẩm trước khi thanh toán</p>
         </div>
     </section>
 
-    <!-- ===== BRAND STORY ===== -->
-    <section class="py-5">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-5">
-                    <p class="section-label">Thương hiệu</p>
-                    <h2 class="section-title">Câu Chuyện Bean & Brew</h2>
-                    <blockquote class="story-quote mb-4">
-                        "Cà phê không chỉ là thức uống — đó là cầu nối cho những cuộc trò chuyện, ý tưởng và khoảnh khắc sống động nhất."
-                    </blockquote>
-                    <p class="text-muted">
-                        Bean & Brew ra đời từ niềm đam mê dành cho cà phê và khát vọng xây dựng không gian kết nối cộng đồng. Từ những ngày đầu, chúng tôi luôn đặt chất lượng làm nền tảng để mang đến trải nghiệm tốt nhất cho mỗi khách hàng.
-                    </p>
+    <!-- Cart -->
+
+    <section class="container py-5">
+        <div class="row">
+            <!-- Sản phẩm -->
+
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-white">
+                        <h4>Sản phẩm đã chọn</h4>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>SL</th>
+                                    <th>Tạm tính</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="cartItems"></tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="row g-3">
-                        <div class="col-6">
-                            <div class="bg-light rounded-4 d-flex align-items-center justify-content-center" style="height:180px; background:#EFE6E1 !important;">
-                                <i class="bi bi-cup-hot-fill" style="font-size:3rem; color:#D2B48C;"></i>
-                            </div>
+            </div>
+
+            <!-- Tổng tiền -->
+
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <h4 class="mb-4">Tổng đơn hàng</h4>
+
+                        <div class="d-flex justify-content-between">
+                            <span>Tổng tiền:</span>
+                            <strong id="totalPrice"> 0đ </strong>
                         </div>
-                        <div class="col-6">
-                            <div class="rounded-4 d-flex align-items-center justify-content-center" style="height:180px; background:#6F4E37;">
-                                <i class="bi bi-people-fill" style="font-size:3rem; color:#fff; opacity:.7;"></i>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="rounded-4 d-flex align-items-center justify-content-center" style="height:120px; background:#fdf3e3; border:1px solid #e8d8cb;">
-                                <p class="mb-0 fw-semibold text-center px-4" style="color:#6F4E37;">
-                                    <i class="bi bi-quote fs-4 me-2"></i>
-                                    Mỗi ly cà phê là một câu chuyện riêng
-                                </p>
-                            </div>
+
+                        <div class="d-grid mt-4">
+                            <button class="btn btn-primary btn-lg">Thanh Toán</button>
                         </div>
                     </div>
                 </div>
@@ -411,110 +341,124 @@
         </div>
     </section>
 
-    <!-- ===== STATS ===== -->
-    <div class="stat-band">
-        <div class="container">
-            <div class="row text-center g-4">
-                <div class="col-6 col-md-3">
-                    <div class="stat-num">15+</div>
-                    <div class="stat-label">Loại cà phê</div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-num">10+</div>
-                    <div class="stat-label">Loại trà</div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-num">25+</div>
-                    <div class="stat-label">Sản phẩm</div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="stat-num">1000+</div>
-                    <div class="stat-label">Khách hàng hài lòng</div>
-                </div>
-            </div>
-        </div>
+    <div class="container" style="margin-bottom:20px">
+        <h2 class="fw-bold">Tiếp tục mua sắm?</h2>
+        <p class="text-muted">
+            Khám phá thêm các món đồ uống và bánh ngọt hấp dẫn tại Bean & Brew.
+        </p>
+        <a href="menu.html" class="btn btn-primary"> Xem Menu </a>
     </div>
 
-    <!-- ===== MISSION & VISION ===== -->
-    <section class="py-5" style="background:#f9f4f0;">
-        <div class="container">
-            <div class="text-center mb-5">
-                <p class="section-label">Định hướng</p>
-                <h2 class="section-title">Sứ Mệnh & Tầm Nhìn</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="mv-card">
-                        <div class="mv-card-icon brown"><i class="bi bi-heart-fill"></i></div>
-                        <h4 class="fw-bold mb-3" style="color:#3E2723;">Sứ Mệnh</h4>
-                        <p class="text-muted mb-0">
-                            Mang đến những sản phẩm chất lượng cao cùng dịch vụ tận tâm, giúp khách hàng tận hưởng những khoảnh khắc thư giãn ý nghĩa mỗi ngày.
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mv-card">
-                        <div class="mv-card-icon tan"><i class="bi bi-eye-fill"></i></div>
-                        <h4 class="fw-bold mb-3" style="color:#3E2723;">Tầm Nhìn</h4>
-                        <p class="text-muted mb-0">
-                            Trở thành thương hiệu cà phê được yêu thích bởi giới trẻ nhờ chất lượng sản phẩm vượt trội và trải nghiệm khách hàng đáng nhớ.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- JS -->
 
-    <!-- ===== CORE VALUES ===== -->
-    <section class="py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <p class="section-label">Triết lý</p>
-                <h2 class="section-title">Giá Trị Cốt Lõi</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-6 col-md-3">
-                    <div class="value-item">
-                        <i class="bi bi-cup-hot-fill"></i>
-                        <h5>Chất Lượng</h5>
-                        <p>Nguyên liệu tuyển chọn kỹ lưỡng, hương vị đậm đà chuẩn vị.</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="value-item">
-                        <i class="bi bi-heart-fill"></i>
-                        <h5>Tận Tâm</h5>
-                        <p>Luôn đặt khách hàng làm trung tâm trong mọi quyết định.</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="value-item">
-                        <i class="bi bi-tree-fill"></i>
-                        <h5>Bền Vững</h5>
-                        <p>Cam kết phát triển thân thiện với môi trường và cộng đồng.</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3">
-                    <div class="value-item">
-                        <i class="bi bi-star-fill"></i>
-                        <h5>Trải Nghiệm</h5>
-                        <p>Mang đến những khoảnh khắc đáng nhớ cho mỗi lần ghé thăm.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    <!-- ===== THANKS ===== -->
-    <div class="thanks-band py-5 text-center">
-        <div class="container" style="max-width:600px;">
-            <i class="bi bi-cup-straw fs-1 mb-3 d-block" style="color:#D2B48C;"></i>
-            <h3 class="fw-bold" style="color:#3E2723;">Cảm Ơn Quý Khách</h3>
-            <p class="text-muted">Bean & Brew trân trọng sự tin tưởng và đồng hành của quý khách trên hành trình của chúng tôi.</p>
-            <a href="menu.html" class="btn btn-coffee mt-2 px-4">Xem thực đơn</a>
-        </div>
-    </div>
+        let cartHTML = "";
 
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            let subtotal = item.price * item.quantity;
+
+            total += subtotal;
+
+            cartHTML += `
+        <tr>
+
+            <td>
+                ${item.name}
+            </td>
+
+            <td>
+                ${item.price.toLocaleString()}đ
+            </td>
+
+            <td>
+
+                <div class="d-flex align-items-center">
+
+                    <button
+                        class="btn btn-sm btn-outline-secondary"
+                        onclick="decreaseQty(${index})">
+                        -
+                    </button>
+
+                    <span class="mx-3">
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        class="btn btn-sm btn-outline-secondary"
+                        onclick="increaseQty(${index})">
+                        +
+                    </button>
+
+                </div>
+
+            </td>
+
+            <td>
+                ${subtotal.toLocaleString()}đ
+            </td>
+
+            <td>
+
+                <button
+                    class="btn btn-danger btn-sm"
+                    onclick="removeItem(${index})">
+
+                    <i class="bi bi-trash"></i>
+
+                </button>
+
+            </td>
+
+        </tr>
+        `;
+        });
+
+        if (cart.length === 0) {
+            cartHTML = `
+        <tr>
+            <td colspan="5" class="text-center py-4">
+                Chưa có sản phẩm nào trong giỏ hàng
+            </td>
+        </tr>
+        `;
+        }
+
+        document.getElementById("cartItems").innerHTML = cartHTML;
+
+        document.getElementById("totalPrice").innerText =
+            total.toLocaleString() + "đ";
+
+        function increaseQty(index) {
+            cart[index].quantity++;
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            location.reload();
+        }
+
+        function decreaseQty(index) {
+            if (cart[index].quantity > 1) {
+                cart[index].quantity--;
+
+                localStorage.setItem("cart", JSON.stringify(cart));
+
+                location.reload();
+            }
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            location.reload();
+        }
+    </script>
     <footer class="bg-dark text-white pt-5">
         <div class="container">
             <div class="row">
