@@ -39,7 +39,6 @@
                     color: var(--text-dark) !important;
                 }
 
-        /* CẤU TRÚC CARD SẢN PHẨM PHÍA TRÊN LÀ ẢNH - PHÍA DƯỚI LÀ THÔNG TIN GIỐNG VIDEO MẪU */
         .menu-grid-card {
             background-color: #FFFFFF;
             border: 1px solid #E5D3C5;
@@ -47,13 +46,16 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(111, 78, 55, 0.04);
             transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
             .menu-grid-card:hover {
                 transform: translateY(-4px);
                 box-shadow: 0 6px 15px rgba(111, 78, 55, 0.1);
             }
-        /* Khung giữ ảnh tỷ lệ cố định chống vỡ giao diện khi chưa có link ảnh thật */
+
         .menu-img-container {
             width: 100%;
             height: 180px;
@@ -82,10 +84,14 @@
             padding: 4px 8px;
             border-radius: 4px;
             backdrop-filter: blur(4px);
+            z-index: 2;
         }
 
         .menu-info {
             padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .menu-title {
@@ -101,14 +107,21 @@
             color: #A94442;
             margin-bottom: 12px;
         }
+
+        .menu-actions {
+            margin-top: auto;
+        }
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
-            <div class="collapse navbar-collapse">
+            <a class="navbar-brand text-white fw-bold" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
                     <li class="nav-item">
                         <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
@@ -123,6 +136,10 @@
                         <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
                     </li>
                 </ul>
+                <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href='#' class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
+                </div>
             </div>
         </div>
     </nav>
@@ -130,81 +147,12 @@
     <main class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
             <h3 class="fw-bold m-0 text-uppercase">Quản lý thực đơn</h3>
-            <button class="btn btn-success px-4 fw-semibold" data-bs-toggle="modal" data-bs-target="#productModal">
+            <button class="btn btn-success px-4 fw-semibold" id="btn-open-add-modal">
                 <i class="fa-solid fa-plus me-2"></i>Thêm sản phẩm mới
             </button>
         </div>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="menu-container">
-
-            <div class="col">
-                <div class="menu-grid-card">
-                    <div class="menu-img-container">
-                        <span class="category-badge">Cà phê truyền thống</span>
-                        <i class="fa-solid fa-image fa-2xl opacity-50"></i>
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-title">Cà phê đen đá</div>
-                        <div class="menu-price">29,000đ</div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-primary flex-grow-1" data-bs-toggle="modal" data-bs-target="#productModal"><i class="fa-solid fa-pen me-1"></i>Sửa</button>
-                            <button class="btn btn-sm btn-outline-danger flex-grow-1"><i class="fa-solid fa-trash me-1"></i>Xóa</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="menu-grid-card">
-                    <div class="menu-img-container">
-                        <span class="category-badge">Cà phê truyền thống</span>
-                        <i class="fa-solid fa-image fa-2xl opacity-50"></i>
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-title">Cà phê sữa đá</div>
-                        <div class="menu-price">35,000đ</div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-primary flex-grow-1" data-bs-toggle="modal" data-bs-target="#productModal"><i class="fa-solid fa-pen me-1"></i>Sửa</button>
-                            <button class="btn btn-sm btn-outline-danger flex-grow-1"><i class="fa-solid fa-trash me-1"></i>Xóa</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="menu-grid-card">
-                    <div class="menu-img-container">
-                        <span class="category-badge">Trà trái cây</span>
-                        <i class="fa-solid fa-image fa-2xl opacity-50"></i>
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-title">Trà đào cam sả</div>
-                        <div class="menu-price">49,000đ</div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-primary flex-grow-1" data-bs-toggle="modal" data-bs-target="#productModal"><i class="fa-solid fa-pen me-1"></i>Sửa</button>
-                            <button class="btn btn-sm btn-outline-danger flex-grow-1"><i class="fa-solid fa-trash me-1"></i>Xóa</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="menu-grid-card">
-                    <div class="menu-img-container">
-                        <span class="category-badge">Bánh ngọt</span>
-                        <i class="fa-solid fa-image fa-2xl opacity-50"></i>
-                    </div>
-                    <div class="menu-info">
-                        <div class="menu-title">Tiramisu</div>
-                        <div class="menu-price">45,000đ</div>
-                        <div class="d-flex gap-2">
-                            <button class="btn btn-sm btn-outline-primary flex-grow-1" data-bs-toggle="modal" data-bs-target="#productModal"><i class="fa-solid fa-pen me-1"></i>Sửa</button>
-                            <button class="btn btn-sm btn-outline-danger flex-grow-1"><i class="fa-solid fa-trash me-1"></i>Xóa</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </main>
 
@@ -219,16 +167,16 @@
                     <form id="productForm">
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-secondary">Mã sản phẩm (ID)</label>
-                            <input type="text" class="form-control" placeholder="Ví dụ: CF01" required>
+                            <input type="text" id="prod-id" class="form-control" placeholder="Ví dụ: CF01" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-secondary">Tên sản phẩm</label>
-                            <input type="text" class="form-control" placeholder="Nhập tên thức uống / bánh" required>
+                            <input type="text" id="prod-name" class="form-control" placeholder="Nhập tên thức uống / bánh" required>
                         </div>
                         <div class="row g-2 mb-3">
                             <div class="col-6">
                                 <label class="form-label small fw-bold text-secondary">Danh mục</label>
-                                <select class="form-select">
+                                <select id="prod-category" class="form-select">
                                     <option>Cà phê truyền thống</option>
                                     <option>Espresso Coffee</option>
                                     <option>Trà trái cây</option>
@@ -238,16 +186,16 @@
                             </div>
                             <div class="col-6">
                                 <label class="form-label small fw-bold text-secondary">Giá bán (đ)</label>
-                                <input type="number" class="form-control" placeholder="Giá tiền" required>
+                                <input type="number" id="prod-price" class="form-control" placeholder="Giá tiền" required>
                             </div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label small fw-bold text-secondary">Đường dẫn hình ảnh</label>
-                            <input type="text" class="form-control" placeholder="images/ten-anh.jpg">
+                            <input type="text" id="prod-img" class="form-control" placeholder="Ví dụ: Images/ten_file.jpg">
                         </div>
                         <div class="mb-0">
                             <label class="form-label small fw-bold text-secondary">Mô tả chi tiết</label>
-                            <textarea class="form-control" rows="3" placeholder="Nhập vài câu mô tả sản phẩm..."></textarea>
+                            <textarea id="prod-desc" class="form-control" rows="3" placeholder="Nhập vài câu mô tả sản phẩm..."></textarea>
                         </div>
                     </form>
                 </div>
@@ -260,5 +208,142 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        const defaultProducts = [
+            { id: "CF01", name: "Cà phê đen đá", category: "Cà phê truyền thống", price: 29000, img: "../Images/CapheDenDa.jpg" },
+            { id: "CF02", name: "Cà phê sữa đá", category: "Cà phê truyền thống", price: 35000, img: "../Images/CapheSuaDa.jpg" },
+            { id: "TE01", name: "Trà đào cam sả", category: "Trà trái cây", price: 49000, img: "../Images/CapheDenDa.jpg" },
+            { id: "BM01", name: "Tiramisu", category: "Bánh ngọt", price: 45000, img: "../Images/CapheDenDa.jpg" }
+        ];
+
+     
+        let products = JSON.parse(localStorage.getItem('cafe_products')) || defaultProducts;
+
+        const productModal = new bootstrap.Modal(document.getElementById('productModal'));
+        const productForm = document.getElementById('productForm');
+        const menuContainer = document.getElementById('menu-container');
+        let editTargetId = null; 
+
+
+        function renderMenu() {
+            menuContainer.innerHTML = '';
+            products.forEach(prod => {
+                const newCardCol = document.createElement('div');
+                newCardCol.className = 'col';
+                newCardCol.setAttribute('data-id', prod.id);
+
+              
+                let imgHTML = `<i class="fa-solid fa-image fa-2xl opacity-50"></i>`;
+                if (prod.img && prod.img.trim() !== "") {
+                    imgHTML = `<img src="${prod.img.trim()}" alt="${prod.name}" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'category-badge\'>${prod.category}</span><i class=\'fa-solid fa-image fa-2xl opacity-50\'></i><small class=\'d-block position-absolute bottom-0 text-danger p-1 bg-white w-100 text-center\'>Sai đường dẫn ảnh</small>';">`;
+                }
+
+                newCardCol.innerHTML = `
+                        <div class="menu-grid-card">
+                            <div class="menu-img-container">
+                                <span class="category-badge">${prod.category}</span>
+                                ${imgHTML}
+                            </div>
+                            <div class="menu-info">
+                                <div class="menu-title">${prod.name}</div>
+                                <div class="menu-price">${parseFloat(prod.price).toLocaleString('vi-VN')}đ</div>
+                                <div class="d-flex gap-2 menu-actions">
+                                    <button class="btn btn-sm btn-outline-primary flex-grow-1 btn-edit"><i class="fa-solid fa-pen me-1"></i>Sửa</button>
+                                    <button class="btn btn-sm btn-outline-danger flex-grow-1 btn-delete"><i class="fa-solid fa-trash me-1"></i>Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                menuContainer.appendChild(newCardCol);
+            });
+
+           
+            localStorage.setItem('cafe_products', JSON.stringify(products));
+        }
+
+        
+        renderMenu();
+
+   
+        document.getElementById('btn-open-add-modal').addEventListener('click', function () {
+            editTargetId = null;
+            productForm.reset();
+            document.getElementById('prod-id').disabled = false;
+            document.getElementById('modalTitle').innerHTML = '<i class="fa-solid fa-plus me-2"></i>Thêm sản phẩm mới';
+            productModal.show();
+        });
+
+
+        productForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const id = document.getElementById('prod-id').value.trim();
+            const name = document.getElementById('prod-name').value.trim();
+            const category = document.getElementById('prod-category').value;
+            const price = parseFloat(document.getElementById('prod-price').value);
+            const img = document.getElementById('prod-img').value.trim();
+
+            if (editTargetId === null) {
+              
+                const isExist = products.some(p => p.id.toLowerCase() === id.toLowerCase());
+                if (isExist) {
+                    alert('Mã sản phẩm này đã tồn tại trên hệ thống!');
+                    return;
+                }
+
+           
+                products.push({ id, name, category, price, img });
+                alert('Thêm sản phẩm mới thành công!');
+            } else {
+             
+                const index = products.findIndex(p => p.id === editTargetId);
+                if (index !== -1) {
+                    products[index] = { id: editTargetId, name, category, price, img };
+                }
+                alert('Cập nhật thông tin sản phẩm thành công!');
+            }
+
+            productModal.hide();
+            productForm.reset();
+            renderMenu();
+        });
+
+
+        menuContainer.addEventListener('click', function (e) {
+            const colTarget = e.target.closest('.col');
+            if (!colTarget) return;
+
+            const id = colTarget.getAttribute('data-id');
+
+          
+            if (e.target.closest('.btn-delete')) {
+                const targetProd = products.find(p => p.id === id);
+                if (confirm(`Bạn có chắc chắn muốn xóa sản phẩm "${targetProd.name}"?`)) {
+                    products = products.filter(p => p.id !== id);
+                    renderMenu();
+                }
+            }
+
+            if (e.target.closest('.btn-edit')) {
+                const targetProd = products.find(p => p.id === id);
+                if (!targetProd) return;
+
+                editTargetId = id;
+
+            
+                document.getElementById('prod-id').value = targetProd.id;
+                document.getElementById('prod-id').disabled = true;
+                document.getElementById('prod-name').value = targetProd.name;
+                document.getElementById('prod-category').value = targetProd.category;
+                document.getElementById('prod-price').value = targetProd.price;
+                document.getElementById('prod-img').value = targetProd.img;
+
+                document.getElementById('modalTitle').innerHTML = '<i class="fa-solid fa-pen me-2"></i>Cập nhật thông tin sản phẩm';
+                productModal.show();
+            }
+        });
+    </script>
 </body>
 </html>

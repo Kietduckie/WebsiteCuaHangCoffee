@@ -10,35 +10,30 @@
     <link rel="stylesheet" href="CSS/Style.css">
     <link rel="stylesheet" href="CSS/admin.css">
     <style>
-        /* Ghi đè hệ màu sắc ấm áp theo tông quán cà phê của video mẫu */
         :root {
-            --primary-color: #6F4E37; /* Nâu cafe đậm */
-            --secondary-color: #D2B48C; /* Nâu nhạt / Tan */
-            --bg-light: #F5EBE6; /* Nền kem sữa ấm */
-            --text-dark: #3E2723; /* Chữ nâu đen */
+            --primary-color: #6F4E37;
+            --secondary-color: #D2B48C;
+            --bg-light: #F5EBE6;
+            --text-dark: #3E2723;
             --card-bg: #FFFFFF;
         }
 
         body {
             background-color: var(--bg-light);
             color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        /* Thanh menu ngang trên cùng giống video mẫu */
+
         .admin-navbar {
             background-color: var(--primary-color) !important;
             border-bottom: 4px solid var(--secondary-color);
         }
 
-            .admin-navbar .navbar-brand {
-                color: #FFFFFF !important;
-                font-weight: 700;
-            }
-
             .admin-navbar .nav-link {
                 color: rgba(255, 255, 255, 0.8) !important;
                 font-weight: 600;
-                padding: 10px 20px !important;
-                border-radius: 4px;
+                padding: 10px 15px !important;
+                border-radius: 6px;
                 transition: all 0.2s;
             }
 
@@ -46,17 +41,61 @@
                     background-color: var(--secondary-color) !important;
                     color: var(--text-dark) !important;
                 }
-        /* Custom Thẻ Card Thống kê */
+
         .stat-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--secondary-color);
+            background: var(--card-bg);
+            border: 1px solid rgba(111, 78, 55, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(111, 78, 55, 0.03);
+            transition: transform 0.2s;
+            height: 100%;
+        }
+
+            .stat-card:hover {
+                transform: translateY(-3px);
+            }
+
+        .icon-box {
+            width: 48px;
+            height: 48px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .table-card {
+            background: var(--card-bg);
+            border: 1px solid var(--secondary-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(111, 78, 55, 0.05);
+        }
+
+        .table th {
+            background-color: #EFE6E1 !important;
+            color: var(--text-dark);
+            font-weight: 700;
         }
 
         .badge-status {
-            font-size: 0.85rem;
-            padding: 6px 12px;
+            font-size: 0.75rem;
+            padding: 6px 10px;
+            border-radius: 30px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 280px;
+            width: 100%;
+        }
+
+        
+        @media (min-width: 1200px) {
+            .col-xl-custom {
+                flex: 0 0 20%;
+                max-width: 20%;
+            }
         }
     </style>
 </head>
@@ -64,164 +103,219 @@
 
     <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
-            <button class="navbar-expand-lg navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+            <a class="navbar-brand text-white fw-bold" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <button class="navbar-toggler text-white border-white" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
                 <i class="fa-solid fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="adminNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
-                    <li class="nav-item">
-                        <a href="dashboard.html" class="nav-link active"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
-                    </li>
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link active"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý Đơn hàng</a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý Khách hàng</a></li>
                 </ul>
-                <div class="d-flex align-items-center text-white small fw-semibold">
-                    <span class="badge bg-light text-dark px-3 py-2 me-3">Quyền: Admin</span>
-                    <a href='file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html' class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
+                <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href="login.html" class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <main class="container py-4">
-        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
-            <h3 class="fw-bold m-0 text-uppercase">Hệ Thống Báo Cáo Doanh Số</h3>
-            <span class="text-muted small">Thời gian cập nhật: Hiện tại</span>
+        <div class="mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+            <h3 class="fw-bold m-0 text-uppercase">Hệ thống báo cáo doanh thu</h3>
         </div>
 
         <div class="row g-3 mb-4">
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <p class="text-muted mb-1 small text-uppercase fw-bold">Doanh thu ngày</p>
-                        <h4 class="fw-bold mb-0 text-success">1,250,000đ</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Doanh thu ngày</div>
+                        <h4 class="fw-bold m-0 mt-1 text-danger">1.450.000đ</h4>
                     </div>
-                    <div class="bg-success bg-opacity-10 p-3 rounded-circle text-success"><i class="fa-solid fa-wallet fa-lg"></i></div>
+                    <div class="icon-box bg-danger bg-opacity-10 text-danger"><i class="fa-solid fa-money-bill-wave"></i></div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <p class="text-muted mb-1 small text-uppercase fw-bold">Hóa đơn</p>
-                        <h4 class="fw-bold mb-0 text-primary">45 đơn</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Đơn hoàn thành</div>
+                        <h4 class="fw-bold m-0 mt-1 text-success">38 đơn</h4>
                     </div>
-                    <div class="bg-primary bg-opacity-10 p-3 rounded-circle text-primary"><i class="fa-solid fa-file-invoice-dollar fa-lg"></i></div>
+                    <div class="icon-box bg-success bg-opacity-10 text-success"><i class="fa-solid fa-circle-check"></i></div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <p class="text-muted mb-1 small text-uppercase fw-bold">Tổng thực đơn</p>
-                        <h4 class="fw-bold mb-0 text-warning">25 món</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Sản phẩm đã bán</div>
+                        <h4 class="fw-bold m-0 mt-1 text-warning">86 ly</h4>
                     </div>
-                    <div class="bg-warning bg-opacity-10 p-3 rounded-circle text-warning"><i class="fa-solid fa-mug-saucer fa-lg"></i></div>
+                    <div class="icon-box bg-warning bg-opacity-10 text-warning"><i class="fa-solid fa-cup-straw-juice"></i></div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-3">
+            <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <p class="text-muted mb-1 small text-uppercase fw-bold">Lượt đặt bàn</p>
-                        <h4 class="fw-bold mb-0 text-info">12 lượt</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Khách hàng mới</div>
+                        <h4 class="fw-bold m-0 mt-1 text-primary">12 người</h4>
                     </div>
-                    <div class="bg-info bg-opacity-10 p-3 rounded-circle text-info"><i class="fa-solid fa-chair fa-lg"></i></div>
+                    <div class="icon-box bg-primary bg-opacity-10 text-primary"><i class="fa-solid fa-user-plus"></i></div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-custom">
+                <div class="stat-card p-3 d-flex align-items-center justify-content-between" style="border-left: 4px solid var(--primary-color);">
+                    <div>
+                        <div class="text-muted small fw-semibold text-uppercase" style="color: var(--primary-color) !important;">Mặt hàng kinh doanh</div>
+                        <h4 id="total-products" class="fw-bold m-0 mt-1" style="color: var(--text-dark);">0 món</h4>
+                    </div>
+                    <div class="icon-box bg-opacity-10" style="background-color: #EFE6E1; color: var(--primary-color);"><i class="fa-solid fa-mug-hot"></i></div>
                 </div>
             </div>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 mb-4">
             <div class="col-12 col-lg-7">
-                <div class="stat-card p-4">
-                    <h5 class="fw-bold mb-3 text-uppercase small text-muted"><i class="fa-solid fa-chart-column me-2"></i>Doanh thu theo nhóm món</h5>
-                    <div style="position: relative; height:300px;"><canvas id="revenueChart"></canvas></div>
+                <div class="table-card p-4 h-100">
+                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-chart-area me-2 text-danger"></i>Xu hướng doanh thu tuần</h5>
+                    <div class="chart-container"><canvas id="revenueChart"></canvas></div>
                 </div>
             </div>
             <div class="col-12 col-lg-5">
-                <div class="stat-card p-4">
-                    <h5 class="fw-bold mb-3 text-uppercase small text-muted"><i class="fa-solid fa-receipt me-2"></i>Hóa đơn xử lý gần đây</h5>
-                    <div class="table-responsive">
-                        <table class="table align-middle m-0 small">
-                            <thead>
-                                <tr>
-                                    <th>Mã Đơn</th>
-                                    <th>Món</th>
-                                    <th>Tổng tiền</th>
-                                    <th>Trạng thái</th>
-                                </tr>
-                            </thead>
-                            <tbody id="dash-orders-tbody">
-                                <tr id="dash-row-DH101">
-                                    <td class="fw-bold text-secondary">#DH101</td>
-                                    <td>Cà phê sữa đá...</td>
-                                    <td>80,000đ</td>
-                                    <td class="dash-status"><span class="badge bg-warning text-dark badge-status">Chờ làm</span></td>
-                                </tr>
-                                <tr id="dash-row-DH102">
-                                    <td class="fw-bold text-secondary">#DH102</td>
-                                    <td>Matcha đá xay</td>
-                                    <td>130,000đ</td>
-                                    <td class="dash-status"><span class="badge bg-success badge-status">Đã hoàn thành</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="table-card p-4 h-100">
+                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-pie-chart me-2 text-warning"></i>Tỷ lệ món tiêu thụ</h5>
+                    <div class="chart-container"><canvas id="categoryChart"></canvas></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="table-card p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold m-0"><i class="fa-solid fa-bolt me-2 text-danger"></i>Đơn hàng vừa phát sinh</h5>
+                <a href="orders.html" class="btn btn-sm btn-outline-dark fw-semibold">Xem tất cả</a>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle m-0">
+                    <thead>
+                        <tr>
+                            <th>Mã đơn</th>
+                            <th>Thời gian</th>
+                            <th>Sản phẩm đặt mua</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dash-orders-tbody">
+                        <tr id="dash-row-DH101">
+                            <td class="fw-bold text-muted">#DH101</td>
+                            <td class="small">14:25 - Hôm nay</td>
+                            <td class="fw-semibold">2x Cà phê sữa đá, 1x Bạc xỉu</td>
+                            <td class="fw-bold text-danger">109.000đ</td>
+                            <td class="dash-status"><span class="badge bg-warning text-dark badge-status">Chờ làm</span></td>
+                        </tr>
+                        <tr id="dash-row-DH102">
+                            <td class="fw-bold text-muted">#DH102</td>
+                            <td class="small">14:10 - Hôm nay</td>
+                            <td class="fw-semibold">1x Trà đào cam sả (Size L)</td>
+                            <td class="fw-bold text-danger">49.000đ</td>
+                            <td class="dash-status"><span class="badge bg-success badge-status">Đã hoàn thành</span></td>
+                        </tr>
+                        <tr id="dash-row-DH103">
+                            <td class="fw-bold text-muted">#DH103</td>
+                            <td class="small">13:45 - Hôm nay</td>
+                            <td class="fw-semibold">1x Matcha đá xay, 1x Cà phê đen đá</td>
+                            <td class="fw-bold text-danger">94.000đ</td>
+                            <td class="dash-status"><span class="badge bg-danger badge-status">Đã hủy</span></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        const ctxBar = document.getElementById('revenueChart').getContext('2d');
-        new Chart(ctxBar, {
-            type: 'bar',
+    
+        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctxRevenue, {
+            type: 'line',
             data: {
-                labels: ['Cà phê', 'Espresso', 'Trà trái cây', 'Đá xay', 'Bánh ngọt'],
+                labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ Nhật'],
                 datasets: [{
-                    label: 'Doanh thu ngày (VNĐ)',
-                    data: [350000, 240000, 410000, 520000, 180000],
-                    backgroundColor: '#6F4E37', // Đồng bộ màu nâu
-                    borderWidth: 0,
-                    borderRadius: 6
+                    label: 'Doanh thu (VNĐ)',
+                    data: [1200000, 1500000, 1100000, 1650000, 1450000, 2100000, 2400000],
+                    borderColor: '#6F4E37',
+                    backgroundColor: 'rgba(111, 78, 55, 0.1)',
+                    tension: 0.3,
+                    fill: true
                 }]
             },
             options: { responsive: true, maintainAspectRatio: false }
         });
 
-        // =============================================
-        // SCRIPT ĐỒNG BỘ TRẠNG THÁI ĐƠN HÀNG TỪ orders.html
-        // Đọc localStorage mỗi khi dashboard được mở / focus
-        // =============================================
+      
+        const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+        new Chart(ctxCategory, {
+            type: 'doughnut',
+            data: {
+                labels: ['Cà phê', 'Trà trái cây', 'Đá xay', 'Bánh ngọt'],
+                datasets: [{
+                    data: [45, 25, 20, 10],
+                    backgroundColor: ['#6F4E37', '#D2B48C', '#EFE6E1', '#3E2723']
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+    
         const DASH_STATUS = {
             PENDING: { badge: 'bg-warning text-dark', text: 'Chờ làm' },
             DELIVERED: { badge: 'bg-success', text: 'Đã hoàn thành' },
             CANCELLED: { badge: 'bg-danger', text: 'Đã hủy' },
         };
 
+     
         function syncDashboardOrders() {
             document.querySelectorAll('#dash-orders-tbody tr').forEach(row => {
-                const orderId = row.id.replace('dash-row-', ''); // VD: "DH101"
+                const orderId = row.id.replace('dash-row-', '');
                 const saved = localStorage.getItem('order_' + orderId);
                 if (saved && DASH_STATUS[saved]) {
                     const s = DASH_STATUS[saved];
-                    row.querySelector('.dash-status').innerHTML =
-                        `<span class="badge ${s.badge} badge-status">${s.text}</span>`;
+                    row.querySelector('.dash-status').innerHTML = `<span class="badge ${s.badge} badge-status">${s.text}</span>`;
                 }
             });
         }
 
-        // Chạy khi trang load và khi tab được focus lại
-        syncDashboardOrders();
-        window.addEventListener('focus', syncDashboardOrders);
-        window.addEventListener('storage', syncDashboardOrders); // Cập nhật realtime nếu mở cả 2 tab
+   
+        function updateProductCount() {
+        
+            const products = JSON.parse(localStorage.getItem('cafe_products')) || [];
+       
+            const totalCount = products.length;
+        
+            const productCountElement = document.getElementById('total-products');
+            if (productCountElement) {
+                productCountElement.textContent = totalCount + " món";
+            }
+        }
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            syncDashboardOrders();
+            updateProductCount();
+        });
+
+    
+        window.addEventListener('focus', function () {
+            syncDashboardOrders();
+            updateProductCount();
+        });
+        window.addEventListener('storage', function () {
+            syncDashboardOrders();
+            updateProductCount();
+        });
     </script>
 </body>
 </html>
