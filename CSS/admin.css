@@ -1,6 +1,5 @@
-
+﻿
 :root {
-    
     --primary-color: #6F4E37; 
     --secondary-color: #D2B48C; 
     --background-color: #f4f6f9; 
@@ -9,10 +8,8 @@
     --border-color: #e0e0e0;
     --sidebar-bg: #343a40;
     --sidebar-text: #ffffff;
-    
     --transition-speed: 0.3s;
 }
-
 
 
 body.dark-mode {
@@ -23,7 +20,6 @@ body.dark-mode {
     --border-color: #333333;
     --sidebar-bg: #000000;
 }
-
 
 body {
     background-color: var(--background-color);
@@ -55,11 +51,9 @@ body {
             color: #fff;
         }
 
-
 .admin-content {
     padding: 20px;
 }
-
 
 .admin-card {
     background-color: var(--card-bg);
@@ -70,7 +64,6 @@ body {
     margin-bottom: 20px;
     transition: background-color var(--transition-speed);
 }
-
 
 .admin-table {
     width: 100%;
@@ -84,9 +77,8 @@ body {
     }
 
 
-
 @media (max-width: 768px) {
-    
+
     .admin-sidebar {
         position: absolute;
         left: -100%; 
@@ -94,7 +86,7 @@ body {
         width: 250px;
     }
 
-        
+
         .admin-sidebar.show {
             left: 0;
         }
@@ -104,10 +96,8 @@ body {
         width: 100%;
     }
 
-    
     .table-responsive {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
     }
 }
-

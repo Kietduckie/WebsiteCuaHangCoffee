@@ -23,12 +23,6 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-      
-      :root {
-        --primary-color: #6f4e37;
-        --accent-color: #d2b48c;
-      }
-      
       .btn-coffee,
       .btn-primary {
         background-color: #6f4e37 !important;
@@ -54,9 +48,22 @@
         background-color: #6f4e37 !important;
         color: #fff !important;
       }
-      
+
+      .btn-dark {
+        background-color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+      }
+
+      .btn-dark:hover {
+        background-color: #5a3d2b !important;
+      }
+
       .text-warning {
         color: #d2b48c !important;
+      }
+
+      .text-danger {
+        color: #6f4e37 !important;
       }
 
       .border-warning {
@@ -67,77 +74,51 @@
         color: #6f4e37 !important;
       }
 
-      a {
+      .nav-link:hover,
+      .nav-link.active {
+        color: #6f4e37 !important;
+      }
+
+      .form-control:focus {
+        border-color: #6f4e37 !important;
+        box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
+      }
+      .card-header {
+        border-left: 4px solid #6f4e37;
+      }
+
+      tbody tr:hover {
+        background-color: #fdf8f4;
+      }
+      .promo-hero {
+        background: linear-gradient(135deg, #6f4e37, #3e2723);
+      }
+      .text-brown {
+        color: #6f4e37 !important;
+      }
+
+      .about-banner {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(62, 39, 35, 0.85),
+            rgba(111, 78, 55, 0.75)
+          ),
+          url("") center/cover no-repeat;
+        background-color: #6f4e37;
+        padding: 100px 0;
+      }
+
+      .stat-number {
         color: #6f4e37;
       }
 
-      a:hover {
-        color: #5a3d2b;
-      }
-      
-      .form-control:focus,
-      .form-select:focus {
-        border-color: #6f4e37 !important;
-        box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
-      }
-      
-      .form-check-input:checked {
-        background-color: #6f4e37 !important;
-        border-color: #6f4e37 !important;
-      }
-      
-      .mega-menu h6.text-warning {
-        color: #d2b48c !important;
-        border-color: #d2b48c !important;
-      }
-      
-      footer .bi.text-warning,
-      footer h5.text-warning {
-        color: #d2b48c !important;
-      }
-      
-      body.login-page {
-        background: linear-gradient(
-          135deg,
-          rgba(111, 78, 55, 0.1),
-          rgba(210, 180, 140, 0.12)
-        ) !important;
-      }
-      
-      .login-header {
-        background: #6f4e37 !important;
-      }
-      
-      .accordion-button:not(.collapsed) {
-        color: #6f4e37 !important;
-        background-color: rgba(111, 78, 55, 0.07) !important;
-        box-shadow: inset 0 -1px 0 rgba(111, 78, 55, 0.2) !important;
+      .value-card {
+        border-top: 3px solid #d2b48c;
       }
 
-      .accordion-button:focus {
-        box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
-      }
-      
-      .border-warning {
-        border-color: #d2b48c !important;
-      }
-
-      .bi-award-fill.text-warning {
-        color: #d2b48c !important;
-      }
-      
-      .btn-outline-danger {
-        color: #c0392b;
-        border-color: #c0392b;
-      }
-
-      
-      .back-home {
-        color: #6f4e37 !important;
-      }
-
-      .back-home:hover {
-        color: #d2b48c !important;
+      .value-icon {
+        color: #6f4e37;
       }
     </style>
   </head>
@@ -404,383 +385,169 @@
       </div>
     </nav>
 
-    
+
+    <section
+      class="py-5 text-center text-white"
+      style="
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url(&quot;../images/promotion1.jpg&quot;) center/cover;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+      "
+    >
+      <div class="container">
+        <h1 class="display-3 fw-bold">Tin Tức & Khuyến Mãi</h1>
+        <p class="lead">
+          Cập nhật những ưu đãi mới nhất và khám phá thế giới cà phê cùng Bean &
+          Brew
+        </p>
+      </div>
+    </section>
+
 
     <section class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <img
+            src="../Images/promotion2.jpg"
+            class="img-fluid rounded shadow"
+            alt="Khuyến mãi mùa hè"
+          />
+        </div>
+
+        <div class="col-lg-6">
+          <span class="badge bg-danger mb-3"> HOT! </span>
+
+          <h2 class="fw-bold">
+            Khuyến Mãi Mùa Hè – Giảm 20% Toàn Bộ Đồ Uống Đá Xay
+          </h2>
+
+          <p class="text-muted">
+            Chào đón mùa hè sôi động với chương trình giảm giá lên đến 20% cho
+            tất cả các món đá xay tại Bean & Brew. Đây là cơ hội tuyệt vời để
+            thưởng thức những thức uống mát lạnh cùng bạn bè và gia đình.
+          </p>
+
+          <a href="blog3.html" class="btn btn-primary"> Xem Chi Tiết </a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="container pb-5">
       <div class="text-center mb-5">
-        <h2 class="fw-bold">Quyền Lợi Hội Viên</h2>
+        <h2 class="fw-bold">Bài Viết Mới Nhất</h2>
+        <p class="text-muted">
+          Những câu chuyện thú vị xoay quanh cà phê và ưu đãi hấp dẫn
+        </p>
       </div>
 
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card product-card h-100 text-center">
+
+        <div class="col-lg-6">
+          <div class="card product-card h-100">
+            <img
+              src="../Images/blog1.jpg"
+              class="card-img-top"
+              alt="Cà phê sữa đá"
+            />
+
             <div class="card-body">
-              <i class="bi bi-gift-fill fs-1 text-primary logo"></i>
+              <h4 class="fw-bold">Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị</h4>
 
-              <h4 class="mt-3">Ưu Đãi Sinh Nhật</h4>
+              <p class="text-muted">
+                Khám phá công thức giúp tạo nên ly cà phê sữa đá đậm đà, thơm
+                ngon chuẩn vị Việt Nam ngay tại nhà.
+              </p>
 
-              <p>Nhận voucher giảm giá đặc biệt trong tháng sinh nhật.</p>
+              <a href="blog1.html" class="btn btn-primary"> Đọc Thêm </a>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card product-card h-100 text-center">
+
+        <div class="col-lg-6">
+          <div class="card product-card h-100">
+            <img
+              src="../Images/blog2.jpg"
+              class="card-img-top"
+              alt="Latte Art"
+            />
+
             <div class="card-body">
-              <i class="bi bi-stars fs-1 text-primary logo"></i>
+              <h4 class="fw-bold">Latte Art Là Gì?</h4>
 
-              <h4 class="mt-3">Tích Điểm</h4>
+              <p class="text-muted">
+                Nghệ thuật tạo hình trên bề mặt cà phê giúp mỗi ly Latte trở
+                thành một tác phẩm độc đáo.
+              </p>
 
-              <p>Mỗi hóa đơn đều được tích điểm để đổi quà hấp dẫn.</p>
+              <a href="blog2.html" class="btn btn-primary"> Đọc Thêm </a>
             </div>
           </div>
         </div>
 
-        <div class="col-md-4">
-          <div class="card product-card h-100 text-center">
+
+        <div class="col-lg-6">
+          <div class="card product-card h-100">
+            <img
+              src="../Images/blog3.jpg"
+              class="card-img-top"
+              alt="Khuyến mãi"
+            />
+
             <div class="card-body">
-              <i
-                class="bi bi-ticket-perforated-fill fs-1 text-primary logo"
-              ></i>
+              <h4 class="fw-bold">Khuyến Mãi Mùa Hè</h4>
 
-              <h4 class="mt-3">Voucher Độc Quyền</h4>
+              <p class="text-muted">
+                Giảm ngay 20% cho toàn bộ đồ uống đá xay trong thời gian diễn ra
+                chương trình.
+              </p>
 
-              <p>Thành viên nhận ưu đãi và chương trình riêng hàng tháng.</p>
+              <a href="blog3.html" class="btn btn-primary"> Đọc Thêm </a>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-lg-6">
+          <div class="card product-card h-100">
+            <img
+              src="../Images/blog4.jpg"
+              class="card-img-top"
+              alt="Cà phê Việt"
+            />
+
+            <div class="card-body">
+              <h4 class="fw-bold">Câu Chuyện Hạt Cà Phê Việt</h4>
+
+              <p class="text-muted">
+                Hành trình từ những nông trại Tây Nguyên đến ly cà phê thơm ngon
+                mỗi ngày tại Bean & Brew.
+              </p>
+
+              <a href="blog4.html" class="btn btn-primary"> Đọc Thêm </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    
-
-    <section class="container py-5">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold">Câu Hỏi Thường Gặp</h2>
-
-        <p class="text-muted">
-          Giải đáp những thắc mắc phổ biến về chương trình hội viên Bean & Brew
-        </p>
-      </div>
-
-      <div class="accordion" id="faqAccordion">
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#faq1"
-            >
-              Làm thế nào để trở thành hội viên Bean & Brew?
-            </button>
-          </h2>
-
-          <div
-            id="faq1"
-            class="accordion-collapse collapse show"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              Để trở thành hội viên Bean & Brew, khách hàng chỉ cần tải ứng dụng
-              Bean & Brew hoặc đăng ký trực tiếp tại cửa hàng. Sau khi cung cấp
-              các thông tin cơ bản như họ tên, số điện thoại và email, tài khoản
-              hội viên sẽ được kích hoạt hoàn toàn miễn phí. Ngay sau khi đăng
-              ký thành công, khách hàng có thể bắt đầu tích điểm cho mọi giao
-              dịch đủ điều kiện và tận hưởng các ưu đãi dành riêng cho thành
-              viên như quà tặng chào mừng, ưu đãi sinh nhật và các chương trình
-              khuyến mãi độc quyền.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#faq2"
-            >
-              Điểm thưởng được tích như thế nào?
-            </button>
-          </h2>
-
-          <div
-            id="faq2"
-            class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              Điểm thưởng được cộng dựa trên giá trị hóa đơn của khách hàng khi
-              mua sản phẩm tại hệ thống Bean & Brew. Mỗi lần thanh toán, khách
-              hàng chỉ cần quét mã thành viên trên ứng dụng hoặc cung cấp số
-              điện thoại đã đăng ký để hệ thống ghi nhận giao dịch. Điểm tích
-              lũy sẽ được tự động cập nhật vào tài khoản trong thời gian ngắn
-              sau khi thanh toán thành công. Điểm chỉ được áp dụng cho các giao
-              dịch hợp lệ theo quy định của chương trình thành viên và không áp
-              dụng cho một số sản phẩm hoặc chương trình khuyến mãi đặc biệt.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#faq3"
-            >
-              Điểm tích lũy có thời hạn không?
-            </button>
-          </h2>
-
-          <div
-            id="faq3"
-            class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              Có. Điểm tích lũy được duy trì trong một khoảng thời gian nhất
-              định theo chính sách của chương trình hội viên. Nếu khách hàng
-              không sử dụng hoặc không phát sinh giao dịch trong thời gian quy
-              định, điểm có thể hết hạn hoặc bị điều chỉnh theo quy định hiện
-              hành. Vì vậy, Bean & Brew khuyến khích khách hàng thường xuyên
-              kiểm tra số điểm trên ứng dụng và sử dụng điểm trước khi đến ngày
-              hết hạn để đảm bảo quyền lợi của mình. Thời gian hiệu lực cụ thể
-              sẽ được hiển thị trong tài khoản hội viên hoặc thông báo trên ứng
-              dụng.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#faq4"
-            >
-              Tôi có thể đổi điểm lấy gì?
-            </button>
-          </h2>
-
-          <div
-            id="faq4"
-            class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              Điểm tích lũy có thể được sử dụng để đổi nhiều phần quà và ưu đãi
-              hấp dẫn như đồ uống miễn phí, giảm giá hóa đơn, nâng cấp kích cỡ
-              đồ uống, sản phẩm giới hạn theo mùa hoặc các quà tặng đặc biệt từ
-              Bean & Brew. Tùy theo số điểm hiện có, khách hàng có thể lựa chọn
-              phần thưởng phù hợp ngay trên ứng dụng. Ngoài ra, Bean & Brew
-              thường xuyên cập nhật danh mục quà tặng nhằm mang đến nhiều lựa
-              chọn đa dạng và gia tăng trải nghiệm cho hội viên.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#faq5"
-            >
-              Làm sao để nâng hạng thành viên?
-            </button>
-          </h2>
-
-          <div
-            id="faq5"
-            class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              Khách hàng có thể nâng hạng thành viên bằng cách tích lũy đủ số
-              điểm hoặc đạt mức chi tiêu theo yêu cầu của từng hạng. Khi đạt
-              điều kiện, hệ thống sẽ tự động xét nâng hạng mà không cần thực
-              hiện thêm thủ tục nào. Hạng thành viên càng cao sẽ nhận được nhiều
-              quyền lợi hơn như ưu đãi sinh nhật giá trị hơn, tích điểm nhanh
-              hơn, nhận quà tặng đặc biệt, ưu tiên tham gia các chương trình
-              khuyến mãi độc quyền và nhiều đặc quyền khác. Việc duy trì hạng
-              thành viên cũng phụ thuộc vào mức độ mua sắm và tương tác của
-              khách hàng trong từng giai đoạn.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <h2 class="accordion-header">
-            <button
-              class="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#faq6"
-            >
-              Tôi quên mật khẩu tài khoản phải làm sao?
-            </button>
-          </h2>
-
-          <div
-            id="faq6"
-            class="accordion-collapse collapse"
-            data-bs-parent="#faqAccordion"
-          >
-            <div class="accordion-body">
-              Nếu quên mật khẩu, khách hàng có thể chọn chức năng “Quên mật
-              khẩu” trên màn hình đăng nhập của ứng dụng hoặc website Bean &
-              Brew. Sau đó, nhập số điện thoại hoặc email đã đăng ký để nhận mã
-              xác thực hoặc liên kết đặt lại mật khẩu. Thực hiện theo hướng dẫn
-              trên hệ thống để tạo mật khẩu mới và đăng nhập lại tài khoản.
-              Trong trường hợp không nhận được mã xác thực hoặc gặp khó khăn khi
-              khôi phục tài khoản, khách hàng có thể liên hệ bộ phận chăm sóc
-              khách hàng của Bean & Brew để được hỗ trợ nhanh chóng và đảm bảo
-              an toàn cho tài khoản hội viên.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    
-    <style>
-      .tier-card {
-        cursor: pointer;
-        border: 2px solid transparent !important;
-        transition:
-          border-color 0.25s ease,
-          box-shadow 0.25s ease,
-          transform 0.2s ease;
-        user-select: none;
-      }
-
-      .tier-card.active {
-        border-color: #d2b48c !important;
-        box-shadow:
-          0 0 0 4px rgba(210, 180, 140, 0.25),
-          0 6px 20px rgba(111, 78, 55, 0.15) !important;
-        transform: translateY(-4px);
-      }
-
-      .tier-card .tier-check {
-        display: none;
-        color: #6f4e37;
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-top: 10px;
-      }
-
-      .tier-card.active .tier-check {
-        display: block;
-      }
-    </style>
-
-    <section class="py-5 bg-light">
+    <section class="py-5 text-center bg-light">
       <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="fw-bold">Hạng Thành Viên</h2>
-          <p class="text-muted small">
-            Nhấn vào hạng để xem chi tiết quyền lợi
-          </p>
-        </div>
+        <h2 class="fw-bold">Đừng Bỏ Lỡ Những Ưu Đãi Hấp Dẫn</h2>
 
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div
-              class="card product-card tier-card h-100"
-              onclick="selectTier(this)"
-            >
-              <div class="card-body text-center">
-                <h3>
-                  <i class="bi bi-person-circle me-2 logo"></i>
-                  Member
-                </h3>
-                <p class="text-muted">Từ 0 điểm</p>
-                <ul class="list-unstyled">
-                  <li>✓ Tích điểm đổi quà</li>
-                  <li>✓ Nhận ưu đãi cơ bản</li>
-                </ul>
-                <div class="tier-check">✦ Đang xem hạng này</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div
-              class="card product-card tier-card h-100"
-              onclick="selectTier(this)"
-            >
-              <div class="card-body text-center">
-                <h3>
-                  <i class="bi bi-award-fill me-2 logo"></i>
-                  Gold
-                </h3>
-                <p class="text-muted">Từ 1.000 điểm</p>
-                <ul class="list-unstyled">
-                  <li>✓ Tích điểm nhanh hơn</li>
-                  <li>✓ Voucher sinh nhật</li>
-                  <li>✓ Ưu đãi thành viên</li>
-                </ul>
-                <div class="tier-check">✦ Đang xem hạng này</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div
-              class="card product-card tier-card h-100"
-              onclick="selectTier(this)"
-            >
-              <div class="card-body text-center">
-                <h3>
-                  <i class="bi bi-gem text-info me-2 logo"></i>
-                  Diamond
-                </h3>
-                <p class="text-muted">Từ 3.000 điểm</p>
-                <ul class="list-unstyled">
-                  <li>✓ Ưu đãi cao nhất</li>
-                  <li>✓ Quà tặng đặc biệt</li>
-                  <li>✓ Voucher độc quyền</li>
-                </ul>
-                <div class="tier-check">✦ Đang xem hạng này</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <script>
-      function selectTier(card) {
-        document
-          .querySelectorAll(".tier-card")
-          .forEach((c) => c.classList.remove("active"));
-        card.classList.add("active");
-      }
-    </script>
-    
-
-    <section class="text-center py-5">
-      <div class="container">
-        <h2 class="fw-bold mb-4">Trở Thành Thành Viên Ngay Hôm Nay</h2>
-
-        <p class="mb-4">
-          Tận hưởng những đặc quyền hấp dẫn chỉ dành riêng cho hội viên Bean &
-          Brew.
+        <p class="text-muted mb-4">
+          Đăng ký hội viên Bean & Brew để nhận thông tin khuyến mãi mới nhất.
         </p>
 
-        <a href="register.html" class="btn btn-primary btn-lg">
-          Đăng Ký Hội Viên
+        <a href="member.html" class="btn btn-primary btn-lg">
+          Trở Thành Hội Viên
         </a>
       </div>
     </section>
-
     <footer class="bg-dark text-white pt-5">
       <div class="container">
         <div class="row">
@@ -901,4 +668,3 @@
     ></script>
   </body>
 </html>
-

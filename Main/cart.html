@@ -23,13 +23,17 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-          .btn-coffee {
+
+      .btn-coffee,
+      .btn-primary {
         background-color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         color: #fff !important;
+        font-weight: 600;
       }
 
-      .btn-coffee:hover {
+      .btn-coffee:hover,
+      .btn-primary:hover {
         background-color: #5a3d2b !important;
         border-color: #5a3d2b !important;
       }
@@ -38,6 +42,7 @@
         color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         background-color: transparent !important;
+        font-weight: 600;
       }
 
       .btn-coffee-outline:hover {
@@ -52,7 +57,6 @@
 
       .btn-dark:hover {
         background-color: #5a3d2b !important;
-        border-color: #5a3d2b !important;
       }
 
       .text-warning {
@@ -70,129 +74,57 @@
       .logo {
         color: #6f4e37 !important;
       }
-      .carousel-img {
-        height: 85vh;
-        object-fit: cover;
-        filter: brightness(60%);
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: #6f4e37 !important;
       }
 
-      .carousel-caption {
-        bottom: 25%;
+      .form-control:focus {
+        border-color: #6f4e37 !important;
+        box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
       }
 
-      .carousel-caption h1 {
-        font-size: 4rem;
-        font-weight: 700;
+      .card-header {
+        border-left: 4px solid #6f4e37;
       }
 
-      .carousel-caption p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
+      tbody tr:hover {
+        background-color: #fdf8f4;
       }
 
-      @media (max-width: 768px) {
-        .carousel-img {
-          height: 60vh;
-        }
-
-        .carousel-caption {
-          bottom: 15%;
-        }
-
-        .carousel-caption h1 {
-          font-size: 2rem;
-        }
-
-        .carousel-caption p {
-          font-size: 1rem;
-        }
+      .promo-hero {
+        background: linear-gradient(135deg, #6f4e37, #3e2723);
       }
-      .related-blog-card {
-    border-radius: 20px;
-    background: #fff;
-    box-shadow: 0 8px 25px rgba(0,0,0,.08);
-}
 
-.related-title {
-    color: #6F4E37;
-    margin-bottom: 25px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid rgba(111,78,55,.1);
-}
+      .text-brown {
+        color: #6f4e37 !important;
+      }
 
-.related-posts li {
-    margin-bottom: 15px;
-}
+      .about-banner {
+        background:
+          linear-gradient(
+            135deg,
+            rgba(62, 39, 35, 0.85),
+            rgba(111, 78, 55, 0.75)
+          ),
+          url("") center/cover no-repeat;
+        background-color: #6f4e37;
+        padding: 100px 0;
+      }
 
-.related-posts li:last-child {
-    margin-bottom: 0;
-}
-.related-blog-card{
-    background: linear-gradient(
-        135deg,
-        #FCF8F4,
-        #F3ECE6
-    );
+      .stat-number {
+        color: #6f4e37;
+      }
 
-    border-radius: 24px;
+      .value-card {
+        border-top: 3px solid #d2b48c;
+      }
 
-    border: 1px solid rgba(111,78,55,.08);
-}
-.related-link {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+      .value-icon {
+        color: #6f4e37;
+      }
 
-    padding: 15px;
-    border-radius: 14px;
-
-    text-decoration: none;
-    transition: .3s;
-}
-
-.related-link:hover {
-    background: rgba(111,78,55,.08);
-    transform: translateX(5px);
-}
-
-.related-icon {
-    width: 50px;
-    height: 50px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 50%;
-    background: rgba(111,78,55,.12);
-}
-
-.related-icon i {
-    color: #6F4E37;
-    font-size: 1.2rem;
-}
-
-.related-category {
-    display: block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #A67C52;
-    margin-bottom: 4px;
-}
-
-.related-link h6 {
-    margin: 0;
-    color: #333;
-    font-weight: 600;
-    line-height: 1.5;
-}
-
-.related-link:hover h6 {
-    color: #6F4E37;
-}
     </style>
   </head>
 
@@ -201,10 +133,7 @@
       <div class="container py-3">
         <div class="row align-items-center g-3">
           <div class="col-lg-2 col-md-12 text-center text-lg-start">
-            <a
-              href="index.html"
-              class="text-decoration-none d-inline-flex align-items-center gap-2"
-            >
+            <a href="index.html" class="text-decoration-none">
               <h2 class="logo mb-0">Bean & Brew Café</h2>
             </a>
           </div>
@@ -222,6 +151,7 @@
           </div>
           <div class="col-lg-4 col-md-12">
             <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+              <a href="member.html" class="btn btn-coffee-outline">Hội viên</a>
               <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
               <a href="cart.html" class="btn btn-coffee"
                 ><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a
@@ -459,206 +389,223 @@
         </div>
       </div>
     </nav>
-    <section class="blog-detail py-5">
+
+    <section class="py-5 bg-light text-center">
       <div class="container">
-        <div class="row align-items-center mb-5">
-          <div class="col-lg-6">
-            <span class="badge px-3 py-2 mb-3"
-      style="background-color:#6F4E37; color:white;">
-    Coffee Art
-</span>
+        <h1 class="fw-bold">Giỏ Hàng Của Bạn</h1>
+        <p class="text-muted">Kiểm tra sản phẩm trước khi thanh toán</p>
+      </div>
+    </section>
 
-            <h1 class="display-4 fw-bold mb-4">Latte Art là gì?</h1>
-
-            <p class="lead text-muted">
-              Latte Art không chỉ là kỹ thuật pha chế mà còn là nghệ thuật biến
-              những tách cà phê thành các tác phẩm đầy sáng tạo. Từ hình trái
-              tim đơn giản đến những họa tiết phức tạp, Latte Art đã trở thành
-              biểu tượng của văn hóa cà phê hiện đại.
-            </p>
-
-            <div class="d-flex align-items-center mt-4">
-              <img
-                src="../Images/ava.jpg"
-                class="rounded-circle me-3"
-                width="50"
-                height="50"
-              />
-
-              <div>
-                <h6 class="mb-0 fw-bold">Bean & Brew Team</h6>
-                <small class="text-muted">08/06/2026 • 4 phút đọc</small>
-              </div>
+    <section class="container py-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-white">
+              <h4>Sản phẩm đã chọn</h4>
             </div>
-          </div>
 
-          <div class="col-lg-6">
-            <img
-              src="../Images/blog2(1).jpg"
-              class="img-fluid rounded-4 shadow"
-              alt="Latte Art"
-            />
+            <div class="table-responsive">
+              <table class="table align-middle">
+                <thead>
+                  <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>SL</th>
+                    <th>Tạm tính</th>
+                    <th></th>
+                  </tr>
+                </thead>
+
+                <tbody id="cartItems"></tbody>
+              </table>
+            </div>
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="blog-content bg-white p-4 rounded-4 shadow-sm">
-              <h2 class="fw-bold mb-3">Latte Art là gì?</h2>
+        <div class="col-lg-4 mt-4 mt-lg-0">
+          <div class="card shadow-sm border-0">
+            <div class="card-body">
+              <h4 class="mb-4">Tổng đơn hàng</h4>
 
-              <p>
-                Latte Art là kỹ thuật tạo hình trên bề mặt cà phê bằng cách kết
-                hợp espresso và sữa tươi được đánh bọt mịn. Những hình ảnh được
-                tạo ra có thể là trái tim, hoa tulip, chiếc lá rosetta hoặc
-                nhiều họa tiết sáng tạo khác.
-              </p>
-
-              <img
-                src="../Images/blog2(2).jpg"
-                class="img-fluid rounded-4 my-4"
-                alt="Latte Art"
-              />
-              <h2 class="fw-bold mb-3">Nguồn gốc của Latte Art</h2>
-
-              <p>
-                Latte Art được cho là bắt nguồn từ Ý – quê hương của espresso.
-                Tuy nhiên, kỹ thuật này thực sự phát triển mạnh mẽ tại Hoa Kỳ
-                vào cuối những năm 1980 khi các Barista bắt đầu thử nghiệm những
-                cách rót sữa sáng tạo lên bề mặt cà phê.
-              </p>
-
-              <p>
-                Theo thời gian, Latte Art không chỉ là một kỹ năng pha chế mà
-                còn trở thành một bộ môn nghệ thuật được yêu thích trên toàn thế
-                giới. Hiện nay có nhiều cuộc thi Latte Art chuyên nghiệp được tổ
-                chức hằng năm nhằm tôn vinh sự sáng tạo và tay nghề của các
-                Barista.
-              </p>
-
-              <h2 class="fw-bold mb-3">Vì sao Latte Art được yêu thích?</h2>
-
-              <p>
-                Latte Art giúp nâng cao trải nghiệm thưởng thức cà phê. Một ly
-                cà phê đẹp mắt không chỉ hấp dẫn về thị giác mà còn thể hiện sự
-                chuyên nghiệp và tay nghề của Barista.
-              </p>
-
-              <div class="alert border-start border-5 border-warning bg-light">
-                <strong>Thú vị:</strong>
-                Một số cuộc thi Latte Art quốc tế có sự tham gia của hàng trăm
-                Barista đến từ khắp nơi trên thế giới.
+              <div class="d-flex justify-content-between">
+                <span>Tổng tiền:</span>
+                <strong id="totalPrice"> 0đ </strong>
               </div>
 
-              <h2 class="fw-bold mb-3">Các hình Latte Art phổ biến</h2>
-
-              <ul>
-                <li>Trái tim</li>
-                <li>Tulip</li>
-                <li>Lá dương xỉ</li>
-                <li>Thiên nga</li>
-              </ul>
-
-              <img
-                src="../Images/blog2(3).jpg"
-                class="img-fluid rounded-4 my-4"
-                alt="Rosetta"
-              />
-
-              <h2 class="fw-bold mb-3">Bí quyết tạo Latte Art đẹp</h2>
-
-              <p>
-                Để tạo nên một tác phẩm Latte Art đẹp mắt, Barista cần chú ý đến
-                nhiều yếu tố khác nhau. Trước tiên, espresso phải được chiết
-                xuất đúng chuẩn với lớp crema dày và mịn. Đây là nền tảng giúp
-                hình vẽ hiện lên rõ nét.
-              </p>
-
-              <p>
-                Tiếp theo là công đoạn đánh sữa. Sữa cần đạt độ mịn như nhung
-                (microfoam), không quá nhiều bọt khí và có độ bóng tự nhiên.
-                Nhiệt độ lý tưởng thường dao động từ 60 đến 65 độ C để giữ được
-                vị ngọt tự nhiên của sữa.
-              </p>
-
-              <p>
-                Cuối cùng là kỹ thuật rót. Người pha chế phải kiểm soát chính
-                xác độ cao của ca sữa, tốc độ rót và chuyển động cổ tay để tạo
-                ra các đường nét mềm mại. Đây là kỹ năng đòi hỏi nhiều thời gian
-                luyện tập và sự kiên nhẫn.
-              </p>
-
-                  Latte Art trong văn hóa cà phê hiện đại
-</h2>
-
-<p>
-    Ngày nay, Latte Art đã trở thành một phần không thể thiếu trong văn hóa cà phê hiện đại. Tại nhiều quán cà phê chuyên nghiệp, khách hàng không chỉ tìm kiếm hương vị mà còn mong muốn được trải nghiệm sự sáng tạo và tính nghệ thuật trong từng ly đồ uống.
-</p>
-
-<p>
-    Một ly Latte Art đẹp không chỉ là thức uống mà còn là cách để Barista gửi gắm sự tâm huyết và niềm đam mê với nghề. Chính điều đó đã khiến Latte Art trở thành biểu tượng của sự tinh tế trong ngành cà phê.
-</p>
-
-<blockquote class="blockquote p-4 rounded-4 mt-4">
-    <p class="mb-0">
-        "Latte Art không chỉ là nghệ thuật trang trí cà phê mà còn là cách người Barista kể câu chuyện của mình qua từng tách cà phê."
-    </p>
-</blockquote>
+              <div class="d-grid mt-4">
+                <button class="btn btn-primary btn-lg">Thanh Toán</button>
+              </div>
             </div>
           </div>
-         <div class="product-card related-blog-card p-4 mb-4">
-
-    <h4 class="fw-bold related-title">
-        <i class="bi bi-journal-richtext me-2"></i>
-        Bài viết liên quan
-    </h4>
-
-    <ul class="list-unstyled related-posts mb-0">
-
-        <li>
-            <a href="Blog1.html" class="related-link">
-                <div class="related-icon">
-                    <i class="bi bi-cup-hot-fill"></i>
-                </div>
-
-                <div>
-                    <span class="related-category">Coffee Tips</span>
-                    <h6>Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị</h6>
-                </div>
-            </a>
-        </li>
-
-        <li>
-            <a href="Blog3.html" class="related-link">
-                <div class="related-icon">
-                    <i class="bi bi-gift-fill"></i>
-                </div>
-
-                <div>
-                    <span class="related-category">Promotion</span>
-                    <h6>Khuyến Mãi Mùa Hè</h6>
-                </div>
-            </a>
-        </li>
-
-        <li>
-            <a href="Blog4.html" class="related-link">
-                <div class="related-icon">
-                    <i class="bi bi-tree-fill"></i>
-                </div>
-
-                <div>
-                    <span class="related-category">Coffee Story</span>
-                    <h6>Câu Chuyện Hạt Cà Phê Việt</h6>
-                </div>
-            </a>
-        </li>
-
-    </ul>
-
-</div>
         </div>
       </div>
     </section>
+
+    <div class="container text-center" style="margin-bottom: 20px">
+      <h2 class="fw-bold">Tiếp tục mua sắm?</h2>
+      <p class="text-muted">
+        Khám phá thêm các món đồ uống và bánh ngọt hấp dẫn tại Bean & Brew.
+      </p>
+      <a href="menu.html" class="btn btn-primary"> Xem Menu </a>
+    </div>
+
+    <script>
+      function renderCart() {
+        const cartItemsContainer = document.getElementById("cartItems");
+        const totalPriceContainer = document.getElementById("totalPrice");
+
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (cart.length === 0) {
+          cartItemsContainer.innerHTML = `
+            <tr>
+              <td colspan="5" class="text-center py-4 text-muted">
+                <i class="bi bi-cart-x fs-2 d-block mb-2"></i>
+                Giỏ hàng của bạn đang trống!
+              </td>
+            </tr>`;
+          totalPriceContainer.innerText = "0đ";
+          return;
+        }
+
+        cartItemsContainer.innerHTML = "";
+        let totalPrice = 0;
+
+        cart.forEach((item, index) => {
+          const itemTotal = item.price * item.quantity;
+          totalPrice += itemTotal;
+
+          cartItemsContainer.innerHTML += `
+            <tr>
+              <td>
+                <div class="fw-semibold">${item.name}</div>
+                <small class="text-muted">Mã: ${item.id}</small>
+              </td>
+              <td>${Number(item.price).toLocaleString("vi-VN")}đ</td>
+              <td>
+                <div class="d-flex align-items-center gap-1">
+                  <button class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQuantity(${index}, -1)">-</button>
+                  <span class="mx-2 fw-bold">${item.quantity}</span>
+                  <button class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQuantity(${index}, 1)">+</button>
+                </div>
+              </td>
+              <td class="fw-bold">${Number(itemTotal).toLocaleString("vi-VN")}đ</td>
+              <td>
+                <button class="btn btn-link text-danger p-0" onclick="removeFromCart(${index})">
+                  <i class="bi bi-trash"></i>
+                </button>
+              </td>
+            </tr>
+          `;
+        });
+
+        totalPriceContainer.innerText =
+          Number(totalPrice).toLocaleString("vi-VN") + "đ";
+      }
+
+      function updateQuantity(index, change) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        cart[index].quantity += change;
+
+        if (cart[index].quantity <= 0) {
+          cart.splice(index, 1);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
+      }
+
+      function removeFromCart(index) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        if (
+          confirm(
+            `Bạn có chắc muốn xóa "${cart[index].name}" khỏi giỏ hàng không?`,
+          )
+        ) {
+          cart.splice(index, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderCart();
+        }
+      }
+
+        function handleCheckout(event) {
+            if (event) event.preventDefault();
+
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Giỏ hàng của bạn đang trống!");
+                return;
+            }
+
+
+            let currentUser = localStorage.getItem("currentUser");
+            let customerName = "";
+            let customerPhone = "";
+
+            if (currentUser) {
+                try {
+                    if (typeof currentUser === "string" && currentUser.startsWith("{")) {
+                        currentUser = JSON.parse(currentUser);
+                    } else if (typeof currentUser === "string") {
+                        currentUser = JSON.parse(currentUser);
+                    }
+
+                    customerName = currentUser.name || currentUser.fullName || currentUser.username || currentUser.hoten || "";
+                    customerPhone = currentUser.phone || currentUser.phoneNumber || currentUser.sdt || currentUser.dienthoai || "";
+
+                } catch (e) {
+                    console.error("Lỗi đọc dữ liệu người dùng từ localStorage:", e);
+                }
+            }
+
+            customerName = String(customerName).trim();
+            customerPhone = String(customerPhone).trim();
+
+            if (customerName === "" || customerName === "undefined" || customerPhone === "" || customerPhone === "undefined") {
+                customerName = prompt("Nhập họ tên của bạn:", customerName === "undefined" ? "" : customerName) || "";
+                customerPhone = prompt("Nhập số điện thoại của bạn:", customerPhone === "undefined" ? "" : customerPhone) || "";
+
+                if (!customerName.trim() || !customerPhone.trim()) {
+                    alert("Vui lòng điền đầy đủ thông tin để đặt hàng!");
+                    return;
+                }
+            }
+
+            const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const orderId = "DH" + Math.floor(100 + Math.random() * 900);
+            const now = new Date();
+            const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate().toString().padStart(2, "0")}/${(now.getMonth() + 1).toString().padStart(2, "0")}/${now.getFullYear()}`;
+
+            const newOrder = {
+                id: orderId,
+                customerName: customerName.trim(),
+                customerPhone: customerPhone.trim(),
+                items: cart,
+                total: totalAmount,
+                time: timeText,
+                status: "Chờ xử lý"
+            };
+
+            let orders = JSON.parse(localStorage.getItem("cafe_orders")) || [];
+            orders.unshift(newOrder);
+            localStorage.setItem("cafe_orders", JSON.stringify(orders));
+
+            localStorage.removeItem("cart");
+            alert(`Đặt hàng thành công! Mã đơn của bạn là: #${orderId}`);
+            window.location.href = "menu.html";
+        }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        renderCart();
+
+        const checkoutBtn = document.querySelector(".btn-primary.btn-lg");
+        if (checkoutBtn) {
+          checkoutBtn.addEventListener("click", handleCheckout);
+        }
+      });
+    </script>
     <footer class="bg-dark text-white pt-5">
       <div class="container">
         <div class="row">
@@ -725,8 +672,7 @@
               999
             </p>
             <p class="text-white-50 mb-2">
-              <i class="bi bi-envelope-fill me-2 text-warning"></i>
-              info@info@bean&brew.vn
+              <i class="bi bi-envelope-fill me-2 text-warning"></i> info@bean.vn
             </p>
           </div>
         </div>
@@ -780,4 +726,3 @@
     ></script>
   </body>
 </html>
-

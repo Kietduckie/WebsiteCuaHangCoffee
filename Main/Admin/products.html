@@ -1,9 +1,9 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Qu?n l� th?c don - Cafe Order</title>
+    <title>Quản lý thực đơn - Cafe Order</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -130,21 +130,21 @@
             <div class="collapse navbar-collapse" id="adminNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
                     <li class="nav-item">
-                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>B�o c�o</a>
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
                     </li>
                     <li class="nav-item">
-                        <a href="products.html" class="nav-link active"><i class="fa-solid fa-book-open me-1"></i>Qu?n l� Menu</a>
+                        <a href="products.html" class="nav-link active"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Qu?n l� don h�ng</a>
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a>
                     </li>
                     <li class="nav-item">
-                        <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Qu?n l� kh�ch h�ng</a>
+                        <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
-                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quy?n: Admin</span>
-                    <a href="#" class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Tho�t</a>
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href="file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html" onclick="logout()" class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
                 </div>
             </div>
         </div>
@@ -152,10 +152,10 @@
 
     <main class="container py-4">
         <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
-            <h3 class="fw-bold m-0 text-uppercase">Qu?n l� th?c don</h3>
+            <h3 class="fw-bold m-0 text-uppercase">Quản lý thực đơn</h3>
             <button class="btn btn-success px-4 fw-semibold"
                     id="btn-open-add-modal">
-                <i class="fa-solid fa-plus me-2"></i>Th�m s?n ph?m m?i
+                <i class="fa-solid fa-plus me-2"></i>Thêm sản phẩm mới
             </button>
         </div>
 
@@ -179,7 +179,7 @@
               border-top-right-radius: 12px;
             ">
                     <h5 class="modal-title fw-bold" id="modalTitle">
-                        <i class="fa-solid fa-box-open me-2"></i>Th�ng tin s?n ph?m
+                        <i class="fa-solid fa-box-open me-2"></i>Thông tin sản phẩm
                     </h5>
                     <button type="button"
                             class="btn-close btn-close-white"
@@ -189,54 +189,54 @@
                 <div class="modal-body p-4">
                     <form id="productForm">
                         <div class="mb-3">
-                            <label class="form-label small fw-bold text-secondary">M� s?n ph?m (ID)</label>
+                            <label class="form-label small fw-bold text-secondary">Mã sản phẩm (ID)</label>
                             <input type="text"
                                    id="prod-id"
                                    class="form-control"
-                                   placeholder="V� d?: CF01"
+                                   placeholder="Ví dụ: CF01"
                                    required />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold text-secondary">T�n s?n ph?m</label>
+                            <label class="form-label small fw-bold text-secondary">Tên sản phẩm</label>
                             <input type="text"
                                    id="prod-name"
                                    class="form-control"
-                                   placeholder="Nh?p t�n th?c u?ng / b�nh"
+                                   placeholder="Nhập tên thức uống / bánh"
                                    required />
                         </div>
                         <div class="row g-2 mb-3">
                             <div class="col-6">
-                                <label class="form-label small fw-bold text-secondary">Danh m?c</label>
+                                <label class="form-label small fw-bold text-secondary">Danh mục</label>
                                 <select id="prod-category" class="form-select">
-                                    <option value="coffee">C� ph� truy?n th?ng</option>
+                                    <option value="coffee">Cà phê truyền thống</option>
                                     <option value="espresso">Espresso Coffee</option>
-                                    <option value="tea">Tr� tr�i c�y</option>
-                                    <option value="ice">�� xay</option>
-                                    <option value="cake">B�nh ng?t</option>
+                                    <option value="tea">Trà trái cây</option>
+                                    <option value="ice">Đá xay</option>
+                                    <option value="cake">Bánh ngọt</option>
                                 </select>
                             </div>
                             <div class="col-6">
-                                <label class="form-label small fw-bold text-secondary">Gi� b�n (d)</label>
+                                <label class="form-label small fw-bold text-secondary">Giá bán (đ)</label>
                                 <input type="number"
                                        id="prod-price"
                                        class="form-control"
-                                       placeholder="Gi� ti?n"
+                                       placeholder="Giá tiền"
                                        required />
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold text-secondary">�u?ng d?n h�nh ?nh</label>
+                            <label class="form-label small fw-bold text-secondary">Đường dẫn hình ảnh</label>
                             <input type="text"
                                    id="prod-img"
                                    class="form-control"
-                                   placeholder="V� d?: Images/ten_file.jpg" />
+                                   placeholder="Ví dụ: Images/ten_file.jpg" />
                         </div>
                         <div class="mb-0">
-                            <label class="form-label small fw-bold text-secondary">M� t? chi ti?t</label>
+                            <label class="form-label small fw-bold text-secondary">Mô tả chi tiết</label>
                             <textarea id="prod-desc"
                                       class="form-control"
                                       rows="3"
-                                      placeholder="Nh?p v�i c�u m� t? s?n ph?m..."></textarea>
+                                      placeholder="Nhập vài câu mô tả sản phẩm..."></textarea>
                         </div>
                     </form>
                 </div>
@@ -248,12 +248,12 @@
                     <button type="button"
                             class="btn btn-sm btn-secondary"
                             data-bs-dismiss="modal">
-                        H?y
+                        Hủy
                     </button>
                     <button type="submit"
                             form="productForm"
                             class="btn btn-sm btn-success px-3">
-                        Luu d? li?u
+                        Lưu dữ liệu
                     </button>
                 </div>
             </div>
@@ -266,27 +266,27 @@
         const defaultProducts = [
             {
                 id: "CF01",
-                name: "C� Ph� �en ��",
+                name: "Cà Phê Đen Đá",
                 category: "coffee",
                 price: 29000,
                 img: "../Images/CF01.jpg",
-                desc: "V? d?ng thu?n khi?t c?a c� ph� Robusta, h�a quy?n v?i d� l?nh t?o n�n s? t?nh t�o t?c th�.",
+                desc: "Vị đắng thuần khiết của cà phê Robusta, hòa quyện với đá lạnh tạo nên sự tỉnh táo tức thì.",
             },
             {
                 id: "CF02",
-                name: "C� Ph� S?a ��",
+                name: "Cà Phê Sữa Đá",
                 category: "coffee",
                 price: 35000,
                 img: "../Images/CF02.jpg",
-                desc: "S? k?t h?p h�i h�a gi?a c� ph� d?m d� v� s?a d?c ng?t ng�o. M?i ng?m l� m?t k? ni?m quen thu?c.",
+                desc: "Sự kết hợp hài hòa giữa cà phê đậm đà và sữa đặc ngọt ngào. Mỗi ngụm là một kỷ niệm quen thuộc.",
             },
             {
                 id: "CF03",
-                name: "B?c X?u",
+                name: "Bạc Xỉu",
                 category: "coffee",
                 price: 39000,
                 img: "../Images/CF03.jpg",
-                desc: "�t c� ph�, nhi?u s?a � nh? nh�ng nhu bu?i s�ng y�n tinh d?u ti�n c?a tu?n.",
+                desc: "Ít cà phê, nhiều sữa — nhẹ nhàng như buổi sáng yên tĩnh đầu tiên của tuần.",
             },
             {
                 id: "ES01",
@@ -294,7 +294,7 @@
                 category: "espresso",
                 price: 45000,
                 img: "../Images/ES01.jpg",
-                desc: "Thu?n khi?t v� m�nh li?t. M?t shot espresso d�ng chu?n v?i l?p crema v�ng d?m.",
+                desc: "Thuần khiết và mãnh liệt. Một shot espresso đúng chuẩn với lớp crema vàng đậm.",
             },
             {
                 id: "ES02",
@@ -302,7 +302,7 @@
                 category: "espresso",
                 price: 49000,
                 img: "../Images/ES02.jpg",
-                desc: "Espresso k�o d�i b?ng nu?c n�ng, t?o n�n d? d?u m� v?n gi? tr?n chi?u s�u huong v?.",
+                desc: "Espresso kéo dài bằng nước nóng, tạo nên độ dịu mà vẫn giữ trọn chiều sâu hương vị.",
             },
         ];
 
@@ -321,11 +321,11 @@
 
         function getCategoryName(cat) {
             const cats = {
-                coffee: "C� ph�",
+                coffee: "Cà phê",
                 espresso: "Espresso",
-                tea: "Tr�",
-                ice: "�� xay",
-                cake: "B�nh ng?t",
+                tea: "Trà",
+                ice: "Đá xay",
+                cake: "Bánh ngọt",
             };
             return cats[cat] || cat;
         }
@@ -341,15 +341,15 @@
                             <img src="${p.img}" alt="${p.name}" onerror="this.src='https://placehold.co/300x180?text=No+Image'">
                         </div>
                         <div class="menu-info">
-                            <div class="text-muted small mb-1">M�: ${p.id}</div>
+                            <div class="text-muted small mb-1">Mã: ${p.id}</div>
                             <div class="menu-title">${p.name}</div>
-                            <div class="menu-price">${Number(p.price).toLocaleString("vi-VN")}d</div>
+                            <div class="menu-price">${Number(p.price).toLocaleString("vi-VN")}đ</div>
                             <div class="menu-actions d-flex gap-2">
                                 <button class="btn btn-sm btn-outline-primary w-100 btn-edit">
-                                    <i class="fa-solid fa-pen me-1"></i>S?a
+                                    <i class="fa-solid fa-pen me-1"></i>Sửa
                                 </button>
                                 <button class="btn btn-sm btn-outline-danger w-100 btn-delete">
-                                    <i class="fa-solid fa-trash me-1"></i>X�a
+                                    <i class="fa-solid fa-trash me-1"></i>Xóa
                                 </button>
                             </div>
                         </div>
@@ -366,7 +366,7 @@
                 productForm.reset();
                 document.getElementById("prod-id").disabled = false;
                 document.getElementById("modalTitle").innerHTML =
-                    '<i class="fa-solid fa-plus me-2"></i>Th�m s?n ph?m m?i';
+                    '<i class="fa-solid fa-plus me-2"></i>Thêm sản phẩm mới';
                 productModal.show();
             });
 
@@ -374,7 +374,7 @@
             e.preventDefault();
             const id = document.getElementById("prod-id").value.trim();
             const name = document.getElementById("prod-name").value.trim();
-            const category = document.getElementById("prod-category").value; // now stores canonical key
+            const category = document.getElementById("prod-category").value;
             const price = parseInt(document.getElementById("prod-price").value);
             const img =
                 document.getElementById("prod-img").value.trim() ||
@@ -383,7 +383,7 @@
 
             if (editTargetId === null) {
                 if (products.some((p) => p.id === id)) {
-                    alert("M� s?n ph?m n�y d� t?n t?i!");
+                    alert("Mã sản phẩm này đã tồn tại!");
                     return;
                 }
                 products.push({ id, name, category, price, img, desc });
@@ -395,7 +395,6 @@
             }
 
             localStorage.setItem("cafe_menu", JSON.stringify(products));
-            window.dispatchEvent(new StorageEvent('storage', { key: 'cafe_menu', newValue: JSON.stringify(products) }));
             renderMenu();
             productModal.hide();
         });
@@ -408,7 +407,7 @@
             if (e.target.closest(".btn-delete")) {
                 const targetProd = products.find((p) => p.id === id);
                 if (
-                    confirm(`B?n c� ch?c ch?n mu?n x�a s?n ph?m "${targetProd.name}"?`)
+                    confirm(`Bạn có chắc chắn muốn xóa sản phẩm "${targetProd.name}"?`)
                 ) {
                     products = products.filter((p) => p.id !== id);
                     localStorage.setItem("cafe_menu", JSON.stringify(products));
@@ -430,7 +429,7 @@
                 document.getElementById("prod-desc").value = targetProd.desc || "";
 
                 document.getElementById("modalTitle").innerHTML =
-                    '<i class="fa-solid fa-pen me-2"></i>C?p nh?t th�ng tin s?n ph?m';
+                    '<i class="fa-solid fa-pen me-2"></i>Cập nhật thông tin sản phẩm';
                 productModal.show();
             }
         });

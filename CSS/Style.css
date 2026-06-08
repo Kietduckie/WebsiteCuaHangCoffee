@@ -1,8 +1,5 @@
-
-
-
+﻿
 :root {
-    
     --primary-color: #6F4E37; 
     --secondary-color: #f4f6f9;
     --accent-color: #D2B48C; 
@@ -14,9 +11,8 @@
     --transition: all 0.3s ease-in-out;
 }
 
-
 body.dark-mode {
-    --primary-color: #D2B48C; 
+    --primary-color: #D2B48C;
     --secondary-color: #121212; 
     --accent-color: #D2B48C; 
     --dark-neutral: #e0e0e0; 
@@ -26,7 +22,6 @@ body.dark-mode {
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -34,7 +29,7 @@ body.dark-mode {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif; 
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif;
     background-color: var(--secondary-color);
     color: var(--dark-neutral);
     transition: var(--transition);
@@ -46,8 +41,6 @@ a {
     color: inherit;
     transition: var(--transition);
 }
-
-
 
 
 .promo-bar {
@@ -111,7 +104,6 @@ a {
         filter: brightness(1.1);
         transform: translateY(-2px);
     }
-
 
 .product-card {
     background-color: var(--light-neutral);
@@ -209,7 +201,6 @@ a {
 body.aos-all [data-aos] {
     pointer-events: auto;
 }
-
 
 .dark-mode-toggle {
     position: fixed;

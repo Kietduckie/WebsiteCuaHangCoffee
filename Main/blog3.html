@@ -23,17 +23,297 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-      
-      .btn-coffee,
-      .btn-primary {
+      .promo-content {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .section-title {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .section-title::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background: #6f4e37;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 10px;
+      }
+
+      .promo-content p {
+        line-height: 1.9;
+        color: #555;
+        text-align: justify;
+      }
+
+      /* Khối ưu đãi */
+      .promo-highlight {
+        margin-top: 30px;
+        padding: 25px;
+        background: rgba(111, 78, 55, 0.08);
+        border-left: 5px solid #6f4e37;
+        border-radius: 12px;
+      }
+
+      .promo-highlight h4 {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .promo-highlight ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .promo-highlight li {
+        margin-bottom: 10px;
+        line-height: 1.8;
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        margin-top: 30px;
+        padding-left: 35px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: #6f4e37;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -33px;
+        top: 25px;
+        width: 18px;
+        height: 18px;
+        background: #6f4e37;
+        border-radius: 50%;
+        border: 4px solid #fff;
+      }
+
+      .timeline-item h5 {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .timeline-item p {
+        margin-bottom: 0;
+      }
+.related-title {
+    color: #6F4E37;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.related-title::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #6F4E37;
+    display: block;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.related-card {
+    display: block;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    height: 100%;
+}
+
+.related-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.related-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.related-content {
+    padding: 20px;
+}
+
+.related-category {
+    display: inline-block;
+    background: rgba(111, 78, 55, 0.12);
+    color: #6F4E37;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.related-content h5 {
+    color: #333;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #6F4E37;
+    font-weight: 600;
+}
+
+.related-card:hover .read-more {
+    color: #5A3D2B;
+}
+
+.related-card:hover .read-more i {
+    transform: translateX(5px);
+}
+
+.read-more i {
+    transition: 0.3s ease;
+}
+      .promo-quote {
+    position: relative;
+    margin-top: 50px;
+    padding: 35px 40px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(111, 78, 55, 0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    text-align: center;
+    font-style: normal;
+}
+
+.promo-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -20px;
+    left: 30px;
+
+    font-size: 5rem;
+    line-height: 1;
+    color: #6F4E37;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+.promo-quote p {
+    margin: 0;
+}
+
+.promo-quote strong {
+    display: block;
+    margin-top: 15px;
+    color: #6F4E37;
+    font-weight: 700;
+}
+      .promo-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(111, 78, 55, 0.12);
+        border-radius: 50%;
+        transition: 0.3s ease;
+      }
+
+      .promo-icon i {
+        font-size: 2rem;
+        color: #6f4e37;
+      }
+
+      .promo-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+        transition: 0.3s ease;
+      }
+
+      .promo-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .promo-card:hover .promo-icon {
+        background: #6f4e37;
+      }
+
+      .promo-card:hover .promo-icon i {
+        color: #fff;
+      }
+
+      .promo-card h4 {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .promo-card p {
+        color: #666;
+        line-height: 1.7;
+      }
+      .promo-banner {
+        background:
+          linear-gradient(rgba(111, 78, 55, 0.75), rgba(111, 78, 55, 0.75)),
+          url("../Images/promotion2.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        min-height: 500px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .btn-coffee {
         background-color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         color: #fff !important;
-        font-weight: 600;
       }
 
-      .btn-coffee:hover,
-      .btn-primary:hover {
+      .btn-coffee:hover {
         background-color: #5a3d2b !important;
         border-color: #5a3d2b !important;
       }
@@ -42,7 +322,6 @@
         color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         background-color: transparent !important;
-        font-weight: 600;
       }
 
       .btn-coffee-outline:hover {
@@ -57,6 +336,7 @@
 
       .btn-dark:hover {
         background-color: #5a3d2b !important;
+        border-color: #5a3d2b !important;
       }
 
       .text-warning {
@@ -74,57 +354,52 @@
       .logo {
         color: #6f4e37 !important;
       }
-
-      .nav-link:hover,
-      .nav-link.active {
-        color: #6f4e37 !important;
+      .carousel-img {
+        height: 85vh;
+        object-fit: cover;
+        filter: brightness(60%);
       }
 
-      .form-control:focus {
-        border-color: #6f4e37 !important;
-        box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
-      }
-      
-      .card-header {
-        border-left: 4px solid #6f4e37;
+      .carousel-caption {
+        bottom: 25%;
       }
 
-      tbody tr:hover {
-        background-color: #fdf8f4;
-      }
-      
-      .promo-hero {
-        background: linear-gradient(135deg, #6f4e37, #3e2723);
-      }
-      
-      .text-brown {
-        color: #6f4e37 !important;
+      .carousel-caption h1 {
+        font-size: 4rem;
+        font-weight: 700;
       }
 
-      .about-banner {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(62, 39, 35, 0.85),
-            rgba(111, 78, 55, 0.75)
-          ),
-          url("") center/cover no-repeat;
-        background-color: #6f4e37;
-        padding: 100px 0;
+      .carousel-caption p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
       }
 
-      .stat-number {
-        color: #6f4e37;
+      @media (max-width: 768px) {
+        .carousel-img {
+          height: 60vh;
+        }
+
+        .carousel-caption {
+          bottom: 15%;
+        }
+
+        .carousel-caption h1 {
+          font-size: 2rem;
+        }
+
+        .carousel-caption p {
+          font-size: 1rem;
+        }
+      }
+      .promo-cards {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
       }
 
-      .value-card {
-        border-top: 3px solid #d2b48c;
+      .promo-cards .promo-card {
+        flex: 1;
       }
-
-      .value-icon {
-        color: #6f4e37;
-      }
-      
     </style>
   </head>
 
@@ -133,7 +408,10 @@
       <div class="container py-3">
         <div class="row align-items-center g-3">
           <div class="col-lg-2 col-md-12 text-center text-lg-start">
-            <a href="index.html" class="text-decoration-none">
+            <a
+              href="index.html"
+              class="text-decoration-none d-inline-flex align-items-center gap-2"
+            >
               <h2 class="logo mb-0">Bean & Brew Café</h2>
             </a>
           </div>
@@ -151,7 +429,6 @@
           </div>
           <div class="col-lg-4 col-md-12">
             <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
-              <a href="member.html" class="btn btn-coffee-outline">Hội viên</a>
               <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
               <a href="cart.html" class="btn btn-coffee"
                 ><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a
@@ -389,177 +666,183 @@
         </div>
       </div>
     </nav>
-
-    
-
-    <section
-      class="py-5 text-center text-white"
-      style="
-        background:
-          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url(&quot;../images/promotion1.jpg&quot;) center/cover;
-        min-height: 400px;
-        display: flex;
-        align-items: center;
-      "
-    >
+    <section class="summer-promo py-5">
       <div class="container">
-        <h1 class="display-3 fw-bold">Tin Tức & Khuyến Mãi</h1>
-        <p class="lead">
-          Cập nhật những ưu đãi mới nhất và khám phá thế giới cà phê cùng Bean &
-          Brew
-        </p>
-      </div>
-    </section>
+        <div class="promo-banner text-center rounded-4 p-5 mb-5">
+          <span class="promo-tag">SUMMER SALE 2026</span>
 
-    
+          <h1 class="display-3 fw-bold mt-3">Khuyến Mãi Mùa Hè</h1>
 
-    <section class="container py-5">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-6">
-          <img
-            src="../Images/promotion2.jpg"
-            class="img-fluid rounded shadow"
-            alt="Khuyến mãi mùa hè"
-          />
-        </div>
-
-        <div class="col-lg-6">
-          <span class="badge bg-danger mb-3"> HOT! </span>
-
-          <h2 class="fw-bold">
-            Khuyến Mãi Mùa Hè – Giảm 20% Toàn Bộ Đồ Uống Đá Xay
-          </h2>
-
-          <p class="text-muted">
-            Chào đón mùa hè sôi động với chương trình giảm giá lên đến 20% cho
-            tất cả các món đá xay tại Bean & Brew. Đây là cơ hội tuyệt vời để
-            thưởng thức những thức uống mát lạnh cùng bạn bè và gia đình.
+          <p class="lead mt-3">
+            Thưởng thức cà phê yêu thích với hàng loạt ưu đãi hấp dẫn, giảm giá
+            lên đến 30% và nhận nhiều quà tặng độc quyền.
           </p>
 
-          <a href="blog3.html" class="btn btn-primary"> Xem Chi Tiết </a>
+          <a href="menu.html" class="btn btn-coffee btn-lg mt-3">
+            Xem Ưu Đãi Ngay
+          </a>
         </div>
-      </div>
-    </section>
 
-    
-
-    <section class="container pb-5">
-      <div class="text-center mb-5">
-        <h2 class="fw-bold">Bài Viết Mới Nhất</h2>
-        <p class="text-muted">
-          Những câu chuyện thú vị xoay quanh cà phê và ưu đãi hấp dẫn
-        </p>
-      </div>
-
-      <div class="row g-4">
-        
-
-        <div class="col-lg-6">
-          <div class="card product-card h-100">
-            <img
-              src="../Images/blog1.jpg"
-              class="card-img-top"
-              alt="Cà phê sữa đá"
-            />
-
-            <div class="card-body">
-              <h4 class="fw-bold">Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị</h4>
-
-              <p class="text-muted">
-                Khám phá công thức giúp tạo nên ly cà phê sữa đá đậm đà, thơm
-                ngon chuẩn vị Việt Nam ngay tại nhà.
-              </p>
-
-              <a href="blog1.html" class="btn btn-primary"> Đọc Thêm </a>
+        <div class="promo-cards">
+          <div class="promo-card h-100">
+            <div class="promo-icon">
+              <i class="bi bi-cup-hot-fill"></i>
             </div>
+
+            <h4>Giảm 20%</h4>
+
+            <p>Áp dụng cho toàn bộ đồ uống từ 9h đến 11h sáng mỗi ngày.</p>
+          </div>
+
+          <div class="promo-card h-100">
+            <div class="promo-icon">
+              <i class="bi bi-gift-fill"></i>
+            </div>
+
+            <h4>Tặng Quà</h4>
+
+            <p>Hóa đơn từ 200.000 VNĐ nhận ngay ly giữ nhiệt Bean & Brew.</p>
+          </div>
+
+          <div class="promo-card h-100">
+            <div class="promo-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+
+            <h4>Nhân Đôi Điểm</h4>
+
+            <p>
+              Thành viên được nhân đôi điểm tích lũy trong suốt thời gian diễn
+              ra chương trình.
+            </p>
           </div>
         </div>
+        <div class="promo-content mt-5">
+          <h2 class="section-title">Chào Hè Cùng Bean & Brew</h2>
 
-        
+          <p>
+            Mùa hè là thời điểm lý tưởng để tận hưởng những ly cà phê mát lạnh
+            và những khoảnh khắc thư giãn bên gia đình, bạn bè. Nhằm tri ân
+            khách hàng, Bean & Brew triển khai chương trình khuyến mãi đặc biệt
+            với nhiều ưu đãi hấp dẫn.
+          </p>
 
-        <div class="col-lg-6">
-          <div class="card product-card h-100">
-            <img
-              src="../Images/blog2.jpg"
-              class="card-img-top"
-              alt="Latte Art"
-            />
+          <p>
+            Trong thời gian diễn ra sự kiện, khách hàng có cơ hội thưởng thức
+            các món đồ uống yêu thích với mức giá ưu đãi, đồng thời nhận được
+            nhiều phần quà giá trị và quyền lợi dành riêng cho hội viên.
+          </p>
 
-            <div class="card-body">
-              <h4 class="fw-bold">Latte Art Là Gì?</h4>
+          <div class="promo-highlight">
+            <h4>Ưu đãi nổi bật</h4>
 
-              <p class="text-muted">
-                Nghệ thuật tạo hình trên bề mặt cà phê giúp mỗi ly Latte trở
-                thành một tác phẩm độc đáo.
-              </p>
+            <ul>
+              <li>Giảm 20% toàn bộ cà phê đá.</li>
+              <li>Mua 2 tặng 1 vào mỗi thứ Sáu.</li>
+              <li>Nhân đôi điểm thưởng cho hội viên.</li>
+              <li>Tặng voucher cho khách hàng mới.</li>
+            </ul>
+          </div>
 
-              <a href="blog2.html" class="btn btn-primary"> Đọc Thêm </a>
+          <h2 class="section-title mt-5">Thời Gian Áp Dụng</h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <h5>01/06 - 15/06</h5>
+              <p>Giảm giá đồ uống mùa hè.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h5>16/06 - 30/06</h5>
+              <p>Tặng quà cho hóa đơn từ 200.000 VNĐ.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h5>Toàn bộ tháng 6</h5>
+              <p>Nhân đôi điểm tích lũy cho hội viên.</p>
             </div>
           </div>
+
+          <blockquote class="promo-quote">
+            "Mùa hè thêm trọn vẹn khi có cà phê ngon và những ưu đãi hấp dẫn."
+          </blockquote>
+        </div>
+<div class="related-section mt-5">
+    <h3 class="related-title">
+        <i class="bi bi-journal-text me-2"></i>
+        Bài viết liên quan
+    </h3>
+
+    <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+            <a href="Blog1.html" class="related-card">
+                <img src="../Images/blog1.jpg"
+                     alt="Cà phê sữa đá">
+
+                <div class="related-content">
+                    <span class="related-category">
+                        Coffee Tips
+                    </span>
+
+                    <h5>
+                        Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị
+                    </h5>
+
+                    <span class="read-more">
+                        Đọc tiếp
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
         </div>
 
-        
+        <div class="col-lg-4 col-md-6">
+            <a href="Blog2.html" class="related-card">
+                <img src="../Images/blog2.jpg"
+                     alt="Latte Art">
 
-        <div class="col-lg-6">
-          <div class="card product-card h-100">
-            <img
-              src="../Images/blog3.jpg"
-              class="card-img-top"
-              alt="Khuyến mãi"
-            />
+                <div class="related-content">
+                    <span class="related-category">
+                        Coffee Art
+                    </span>
 
-            <div class="card-body">
-              <h4 class="fw-bold">Khuyến Mãi Mùa Hè</h4>
+                    <h5>
+                        Latte Art là gì?
+                    </h5>
 
-              <p class="text-muted">
-                Giảm ngay 20% cho toàn bộ đồ uống đá xay trong thời gian diễn ra
-                chương trình.
-              </p>
-
-              <a href="blog3.html" class="btn btn-primary"> Đọc Thêm </a>
-            </div>
-          </div>
+                    <span class="read-more">
+                        Đọc tiếp
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
         </div>
 
-        
+        <div class="col-lg-4 col-md-6">
+            <a href="Blog4.html" class="related-card">
+                <img src="../Images/blog4.jpg"
+                     alt="Hạt cà phê Việt">
 
-        <div class="col-lg-6">
-          <div class="card product-card h-100">
-            <img
-              src="../Images/blog4.jpg"
-              class="card-img-top"
-              alt="Cà phê Việt"
-            />
+                <div class="related-content">
+                    <span class="related-category">
+                        Coffee Story
+                    </span>
 
-            <div class="card-body">
-              <h4 class="fw-bold">Câu Chuyện Hạt Cà Phê Việt</h4>
+                    <h5>
+                        Câu Chuyện Hạt Cà Phê Việt
+                    </h5>
 
-              <p class="text-muted">
-                Hành trình từ những nông trại Tây Nguyên đến ly cà phê thơm ngon
-                mỗi ngày tại Bean & Brew.
-              </p>
-
-              <a href="blog4.html" class="btn btn-primary"> Đọc Thêm </a>
-            </div>
-          </div>
+                    <span class="read-more">
+                        Đọc tiếp
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
         </div>
-      </div>
-    </section>
 
-    <section class="py-5 text-center bg-light">
-      <div class="container">
-        <h2 class="fw-bold">Đừng Bỏ Lỡ Những Ưu Đãi Hấp Dẫn</h2>
-
-        <p class="text-muted mb-4">
-          Đăng ký hội viên Bean & Brew để nhận thông tin khuyến mãi mới nhất.
-        </p>
-
-        <a href="member.html" class="btn btn-primary btn-lg">
-          Trở Thành Hội Viên
-        </a>
-      </div>
-    </section>
+    </div>
+</div>
     <footer class="bg-dark text-white pt-5">
       <div class="container">
         <div class="row">
@@ -626,7 +909,8 @@
               999
             </p>
             <p class="text-white-50 mb-2">
-              <i class="bi bi-envelope-fill me-2 text-warning"></i> info@bean.vn
+              <i class="bi bi-envelope-fill me-2 text-warning"></i>
+              info@info@bean&brew.vn
             </p>
           </div>
         </div>
@@ -680,4 +964,3 @@
     ></script>
   </body>
 </html>
-

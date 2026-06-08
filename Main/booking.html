@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-        
         .btn-coffee {
             background-color: #6F4E37 !important;
             border-color: #6F4E37 !important;
@@ -54,13 +53,11 @@
             color: #6F4E37 !important;
         }
 
-        
         .mega-menu h6.text-warning {
             color: #D2B48C !important;
             border-color: #D2B48C !important;
         }
 
-        
         .policy-container {
             border-color: #D2B48C !important;
             background-color: #fdf8f4;
@@ -80,7 +77,6 @@
             color: #6F4E37;
         }
 
-        
         form [type="submit"],
         .d-grid .btn[type="submit"] {
             background-color: #6F4E37 !important;
@@ -92,20 +88,17 @@
                 background-color: #5a3d2b !important;
             }
 
-        
         .form-control:focus,
         .form-select:focus {
             border-color: #6F4E37 !important;
             box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
         }
 
-        
         .form-check-input:checked {
             background-color: #6F4E37 !important;
             border-color: #6F4E37 !important;
         }
 
-        
         footer .bi.text-warning {
             color: #D2B48C !important;
         }
@@ -285,7 +278,7 @@
         </div>
     </nav>
 
-    
+    <!--------------------formdatban------------------------------>
     <section class="container py-5">
         <div class="row g-5 align-items-stretch">
 
@@ -414,7 +407,6 @@
 
         </div>
     </section>
-    
     <footer class="bg-dark text-white pt-5">
         <div class="container">
             <div class="row">
@@ -545,11 +537,12 @@
             if(isNaN(d.getTime())) return false;
             const today = new Date();
             today.setHours(0,0,0,0);
-            return d >= today; // today or future
+            return d >= today; 
         }
 
         form.addEventListener('submit', function(e){
             e.preventDefault();
+    
             result.style.display = 'none';
             result.innerHTML = '';
             channelsFeedback.style.display = 'none';

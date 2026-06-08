@@ -23,7 +23,10 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-      
+      :root {
+        --primary-color: #6f4e37;
+        --accent-color: #d2b48c;
+      }
       .btn-coffee,
       .btn-primary {
         background-color: #6f4e37 !important;
@@ -49,22 +52,8 @@
         background-color: #6f4e37 !important;
         color: #fff !important;
       }
-
-      .btn-dark {
-        background-color: #6f4e37 !important;
-        border-color: #6f4e37 !important;
-      }
-
-      .btn-dark:hover {
-        background-color: #5a3d2b !important;
-      }
-
       .text-warning {
         color: #d2b48c !important;
-      }
-
-      .text-danger {
-        color: #6f4e37 !important;
       }
 
       .border-warning {
@@ -75,56 +64,68 @@
         color: #6f4e37 !important;
       }
 
-      .nav-link:hover,
-      .nav-link.active {
-        color: #6f4e37 !important;
+      a {
+        color: #6f4e37;
       }
 
-      .form-control:focus {
+      a:hover {
+        color: #5a3d2b;
+      }
+      .form-control:focus,
+      .form-select:focus {
         border-color: #6f4e37 !important;
         box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
       }
-      
-      .card-header {
-        border-left: 4px solid #6f4e37;
+      .form-check-input:checked {
+        background-color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+      }
+      .mega-menu h6.text-warning {
+        color: #d2b48c !important;
+        border-color: #d2b48c !important;
+      }
+      footer .bi.text-warning,
+      footer h5.text-warning {
+        color: #d2b48c !important;
+      }
+      body.login-page {
+        background: linear-gradient(
+          135deg,
+          rgba(111, 78, 55, 0.1),
+          rgba(210, 180, 140, 0.12)
+        ) !important;
+      }
+      .login-header {
+        background: #6f4e37 !important;
+      }
+      .accordion-button:not(.collapsed) {
+        color: #6f4e37 !important;
+        background-color: rgba(111, 78, 55, 0.07) !important;
+        box-shadow: inset 0 -1px 0 rgba(111, 78, 55, 0.2) !important;
       }
 
-      tbody tr:hover {
-        background-color: #fdf8f4;
+      .accordion-button:focus {
+        box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.15) !important;
       }
-      
-      .promo-hero {
-        background: linear-gradient(135deg, #6f4e37, #3e2723);
+      .border-warning {
+        border-color: #d2b48c !important;
       }
-      
-      .text-brown {
+
+      .bi-award-fill.text-warning {
+        color: #d2b48c !important;
+      }
+      .btn-outline-danger {
+        color: #c0392b;
+        border-color: #c0392b;
+      }
+
+      .back-home {
         color: #6f4e37 !important;
       }
 
-      .about-banner {
-        background:
-          linear-gradient(
-            135deg,
-            rgba(62, 39, 35, 0.85),
-            rgba(111, 78, 55, 0.75)
-          ),
-          url("") center/cover no-repeat;
-        background-color: #6f4e37;
-        padding: 100px 0;
+      .back-home:hover {
+        color: #d2b48c !important;
       }
-
-      .stat-number {
-        color: #6f4e37;
-      }
-
-      .value-card {
-        border-top: 3px solid #d2b48c;
-      }
-
-      .value-icon {
-        color: #6f4e37;
-      }
-      
     </style>
   </head>
 
@@ -390,51 +391,347 @@
       </div>
     </nav>
 
-    <section class="py-5 bg-light text-center">
-      <div class="container">
-        <h1 class="fw-bold">Giỏ Hàng Của Bạn</h1>
-        <p class="text-muted">Kiểm tra sản phẩm trước khi thanh toán</p>
-      </div>
-    </section>
 
     <section class="container py-5">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="card shadow-sm border-0">
-            <div class="card-header bg-white">
-              <h4>Sản phẩm đã chọn</h4>
-            </div>
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Quyền Lợi Hội Viên</h2>
+      </div>
 
-            <div class="table-responsive">
-              <table class="table align-middle">
-                <thead>
-                  <tr>
-                    <th>Sản phẩm</th>
-                    <th>Giá</th>
-                    <th>SL</th>
-                    <th>Tạm tính</th>
-                    <th></th>
-                  </tr>
-                </thead>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card product-card h-100 text-center">
+            <div class="card-body">
+              <i class="bi bi-gift-fill fs-1 text-primary logo"></i>
 
-                <tbody id="cartItems"></tbody>
-              </table>
+              <h4 class="mt-3">Ưu Đãi Sinh Nhật</h4>
+
+              <p>Nhận voucher giảm giá đặc biệt trong tháng sinh nhật.</p>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 mt-4 mt-lg-0">
-          <div class="card shadow-sm border-0">
+        <div class="col-md-4">
+          <div class="card product-card h-100 text-center">
             <div class="card-body">
-              <h4 class="mb-4">Tổng đơn hàng</h4>
+              <i class="bi bi-stars fs-1 text-primary logo"></i>
 
-              <div class="d-flex justify-content-between">
-                <span>Tổng tiền:</span>
-                <strong id="totalPrice"> 0đ </strong>
+              <h4 class="mt-3">Tích Điểm</h4>
+
+              <p>Mỗi hóa đơn đều được tích điểm để đổi quà hấp dẫn.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card product-card h-100 text-center">
+            <div class="card-body">
+              <i
+                class="bi bi-ticket-perforated-fill fs-1 text-primary logo"
+              ></i>
+
+              <h4 class="mt-3">Voucher Độc Quyền</h4>
+
+              <p>Thành viên nhận ưu đãi và chương trình riêng hàng tháng.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="container py-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Câu Hỏi Thường Gặp</h2>
+
+        <p class="text-muted">
+          Giải đáp những thắc mắc phổ biến về chương trình hội viên Bean & Brew
+        </p>
+      </div>
+
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq1"
+            >
+              Làm thế nào để trở thành hội viên Bean & Brew?
+            </button>
+          </h2>
+
+          <div
+            id="faq1"
+            class="accordion-collapse collapse show"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Để trở thành hội viên Bean & Brew, khách hàng chỉ cần tải ứng dụng
+              Bean & Brew hoặc đăng ký trực tiếp tại cửa hàng. Sau khi cung cấp
+              các thông tin cơ bản như họ tên, số điện thoại và email, tài khoản
+              hội viên sẽ được kích hoạt hoàn toàn miễn phí. Ngay sau khi đăng
+              ký thành công, khách hàng có thể bắt đầu tích điểm cho mọi giao
+              dịch đủ điều kiện và tận hưởng các ưu đãi dành riêng cho thành
+              viên như quà tặng chào mừng, ưu đãi sinh nhật và các chương trình
+              khuyến mãi độc quyền.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq2"
+            >
+              Điểm thưởng được tích như thế nào?
+            </button>
+          </h2>
+
+          <div
+            id="faq2"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Điểm thưởng được cộng dựa trên giá trị hóa đơn của khách hàng khi
+              mua sản phẩm tại hệ thống Bean & Brew. Mỗi lần thanh toán, khách
+              hàng chỉ cần quét mã thành viên trên ứng dụng hoặc cung cấp số
+              điện thoại đã đăng ký để hệ thống ghi nhận giao dịch. Điểm tích
+              lũy sẽ được tự động cập nhật vào tài khoản trong thời gian ngắn
+              sau khi thanh toán thành công. Điểm chỉ được áp dụng cho các giao
+              dịch hợp lệ theo quy định của chương trình thành viên và không áp
+              dụng cho một số sản phẩm hoặc chương trình khuyến mãi đặc biệt.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq3"
+            >
+              Điểm tích lũy có thời hạn không?
+            </button>
+          </h2>
+
+          <div
+            id="faq3"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Có. Điểm tích lũy được duy trì trong một khoảng thời gian nhất
+              định theo chính sách của chương trình hội viên. Nếu khách hàng
+              không sử dụng hoặc không phát sinh giao dịch trong thời gian quy
+              định, điểm có thể hết hạn hoặc bị điều chỉnh theo quy định hiện
+              hành. Vì vậy, Bean & Brew khuyến khích khách hàng thường xuyên
+              kiểm tra số điểm trên ứng dụng và sử dụng điểm trước khi đến ngày
+              hết hạn để đảm bảo quyền lợi của mình. Thời gian hiệu lực cụ thể
+              sẽ được hiển thị trong tài khoản hội viên hoặc thông báo trên ứng
+              dụng.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq4"
+            >
+              Tôi có thể đổi điểm lấy gì?
+            </button>
+          </h2>
+
+          <div
+            id="faq4"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Điểm tích lũy có thể được sử dụng để đổi nhiều phần quà và ưu đãi
+              hấp dẫn như đồ uống miễn phí, giảm giá hóa đơn, nâng cấp kích cỡ
+              đồ uống, sản phẩm giới hạn theo mùa hoặc các quà tặng đặc biệt từ
+              Bean & Brew. Tùy theo số điểm hiện có, khách hàng có thể lựa chọn
+              phần thưởng phù hợp ngay trên ứng dụng. Ngoài ra, Bean & Brew
+              thường xuyên cập nhật danh mục quà tặng nhằm mang đến nhiều lựa
+              chọn đa dạng và gia tăng trải nghiệm cho hội viên.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq5"
+            >
+              Làm sao để nâng hạng thành viên?
+            </button>
+          </h2>
+
+          <div
+            id="faq5"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Khách hàng có thể nâng hạng thành viên bằng cách tích lũy đủ số
+              điểm hoặc đạt mức chi tiêu theo yêu cầu của từng hạng. Khi đạt
+              điều kiện, hệ thống sẽ tự động xét nâng hạng mà không cần thực
+              hiện thêm thủ tục nào. Hạng thành viên càng cao sẽ nhận được nhiều
+              quyền lợi hơn như ưu đãi sinh nhật giá trị hơn, tích điểm nhanh
+              hơn, nhận quà tặng đặc biệt, ưu tiên tham gia các chương trình
+              khuyến mãi độc quyền và nhiều đặc quyền khác. Việc duy trì hạng
+              thành viên cũng phụ thuộc vào mức độ mua sắm và tương tác của
+              khách hàng trong từng giai đoạn.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button
+              class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#faq6"
+            >
+              Tôi quên mật khẩu tài khoản phải làm sao?
+            </button>
+          </h2>
+
+          <div
+            id="faq6"
+            class="accordion-collapse collapse"
+            data-bs-parent="#faqAccordion"
+          >
+            <div class="accordion-body">
+              Nếu quên mật khẩu, khách hàng có thể chọn chức năng “Quên mật
+              khẩu” trên màn hình đăng nhập của ứng dụng hoặc website Bean &
+              Brew. Sau đó, nhập số điện thoại hoặc email đã đăng ký để nhận mã
+              xác thực hoặc liên kết đặt lại mật khẩu. Thực hiện theo hướng dẫn
+              trên hệ thống để tạo mật khẩu mới và đăng nhập lại tài khoản.
+              Trong trường hợp không nhận được mã xác thực hoặc gặp khó khăn khi
+              khôi phục tài khoản, khách hàng có thể liên hệ bộ phận chăm sóc
+              khách hàng của Bean & Brew để được hỗ trợ nhanh chóng và đảm bảo
+              an toàn cho tài khoản hội viên.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <style>
+      .tier-card {
+        cursor: pointer;
+        border: 2px solid transparent !important;
+        transition:
+          border-color 0.25s ease,
+          box-shadow 0.25s ease,
+          transform 0.2s ease;
+        user-select: none;
+      }
+
+      .tier-card.active {
+        border-color: #d2b48c !important;
+        box-shadow:
+          0 0 0 4px rgba(210, 180, 140, 0.25),
+          0 6px 20px rgba(111, 78, 55, 0.15) !important;
+        transform: translateY(-4px);
+      }
+
+      .tier-card .tier-check {
+        display: none;
+        color: #6f4e37;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-top: 10px;
+      }
+
+      .tier-card.active .tier-check {
+        display: block;
+      }
+    </style>
+
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">Hạng Thành Viên</h2>
+          <p class="text-muted small">
+            Nhấn vào hạng để xem chi tiết quyền lợi
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div
+              class="card product-card tier-card h-100"
+              onclick="selectTier(this)"
+            >
+              <div class="card-body text-center">
+                <h3>
+                  <i class="bi bi-person-circle me-2 logo"></i>
+                  Member
+                </h3>
+                <p class="text-muted">Từ 0 điểm</p>
+                <ul class="list-unstyled">
+                  <li>✓ Tích điểm đổi quà</li>
+                  <li>✓ Nhận ưu đãi cơ bản</li>
+                </ul>
+                <div class="tier-check">✦ Đang xem hạng này</div>
               </div>
+            </div>
+          </div>
 
-              <div class="d-grid mt-4">
-                <button class="btn btn-primary btn-lg">Thanh Toán</button>
+          <div class="col-lg-4">
+            <div
+              class="card product-card tier-card h-100"
+              onclick="selectTier(this)"
+            >
+              <div class="card-body text-center">
+                <h3>
+                  <i class="bi bi-award-fill me-2 logo"></i>
+                  Gold
+                </h3>
+                <p class="text-muted">Từ 1.000 điểm</p>
+                <ul class="list-unstyled">
+                  <li>✓ Tích điểm nhanh hơn</li>
+                  <li>✓ Voucher sinh nhật</li>
+                  <li>✓ Ưu đãi thành viên</li>
+                </ul>
+                <div class="tier-check">✦ Đang xem hạng này</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div
+              class="card product-card tier-card h-100"
+              onclick="selectTier(this)"
+            >
+              <div class="card-body text-center">
+                <h3>
+                  <i class="bi bi-gem text-info me-2 logo"></i>
+                  Diamond
+                </h3>
+                <p class="text-muted">Từ 3.000 điểm</p>
+                <ul class="list-unstyled">
+                  <li>✓ Ưu đãi cao nhất</li>
+                  <li>✓ Quà tặng đặc biệt</li>
+                  <li>✓ Voucher độc quyền</li>
+                </ul>
+                <div class="tier-check">✦ Đang xem hạng này</div>
               </div>
             </div>
           </div>
@@ -442,154 +739,30 @@
       </div>
     </section>
 
-    <div class="container text-center" style="margin-bottom: 20px">
-      <h2 class="fw-bold">Tiếp tục mua sắm?</h2>
-      <p class="text-muted">
-        Khám phá thêm các món đồ uống và bánh ngọt hấp dẫn tại Bean & Brew.
-      </p>
-      <a href="menu.html" class="btn btn-primary"> Xem Menu </a>
-    </div>
-
     <script>
-      function renderCart() {
-        const cartItemsContainer = document.getElementById("cartItems");
-        const totalPriceContainer = document.getElementById("totalPrice");
-
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        if (cart.length === 0) {
-          cartItemsContainer.innerHTML = `
-            <tr>
-              <td colspan="5" class="text-center py-4 text-muted">
-                <i class="bi bi-cart-x fs-2 d-block mb-2"></i>
-                Giỏ hàng của bạn đang trống!
-              </td>
-            </tr>`;
-          totalPriceContainer.innerText = "0đ";
-          return;
-        }
-
-        cartItemsContainer.innerHTML = "";
-        let totalPrice = 0;
-
-        cart.forEach((item, index) => {
-          const itemTotal = item.price * item.quantity;
-          totalPrice += itemTotal;
-
-          cartItemsContainer.innerHTML += `
-            <tr>
-              <td>
-                <div class="fw-semibold">${item.name}</div>
-                <small class="text-muted">Mã: ${item.id}</small>
-              </td>
-              <td>${Number(item.price).toLocaleString("vi-VN")}đ</td>
-              <td>
-                <div class="d-flex align-items-center gap-1">
-                  <button class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQuantity(${index}, -1)">-</button>
-                  <span class="mx-2 fw-bold">${item.quantity}</span>
-                  <button class="btn btn-sm btn-outline-secondary px-2 py-0" onclick="updateQuantity(${index}, 1)">+</button>
-                </div>
-              </td>
-              <td class="fw-bold">${Number(itemTotal).toLocaleString("vi-VN")}đ</td>
-              <td>
-                <button class="btn btn-link text-danger p-0" onclick="removeFromCart(${index})">
-                  <i class="bi bi-trash"></i>
-                </button>
-              </td>
-            </tr>
-          `;
-        });
-
-        totalPriceContainer.innerText =
-          Number(totalPrice).toLocaleString("vi-VN") + "đ";
+      function selectTier(card) {
+        document
+          .querySelectorAll(".tier-card")
+          .forEach((c) => c.classList.remove("active"));
+        card.classList.add("active");
       }
-
-      function updateQuantity(index, change) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        cart[index].quantity += change;
-
-        if (cart[index].quantity <= 0) {
-          cart.splice(index, 1);
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-        renderCart();
-      }
-
-      function removeFromCart(index) {
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-        if (
-          confirm(
-            `Bạn có chắc muốn xóa "${cart[index].name}" khỏi giỏ hàng không?`,
-          )
-        ) {
-          cart.splice(index, 1);
-          localStorage.setItem("cart", JSON.stringify(cart));
-          renderCart();
-        }
-      }
-
-      function handleCheckout(event) {
-        if (event) event.preventDefault();
-
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        if (cart.length === 0) {
-          alert("Giỏ hàng của bạn đang trống!");
-          return;
-        }
-
-        const customerName = prompt("Nhập họ tên của bạn:") || "";
-        const customerPhone = prompt("Nhập số điện thoại của bạn:") || "";
-
-        if (!customerName.trim() || !customerPhone.trim()) {
-          alert("Vui lòng điền đầy đủ thông tin để đặt hàng!");
-          return;
-        }
-
-        const totalAmount = cart.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0,
-        );
-
-        const itemsText = cart
-          .map((item) => `${item.quantity}x ${item.name}`)
-          .join(", ");
-
-        const orderId = "DH" + Math.floor(100 + Math.random() * 900);
-
-        const now = new Date();
-        const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate().toString().padStart(2, "0")}/${(now.getMonth() + 1).toString().padStart(2, "0")}/${now.getFullYear()}`;
-
-        const newOrder = {
-          id: orderId,
-          customerName: customerName,
-          customerPhone: customerPhone,
-          items: itemsText,
-          total: totalAmount,
-          time: timeText,
-          status: "Chờ xử lý",
-        };
-
-        let orders = JSON.parse(localStorage.getItem("cafe_orders")) || [];
-        orders.unshift(newOrder);
-        localStorage.setItem("cafe_orders", JSON.stringify(orders));
-
-        localStorage.removeItem("cart");
-
-        alert(`Đặt hàng thành công! Mã đơn của bạn là: #${orderId}`);
-        window.location.href = "menu.html";
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        renderCart();
-
-        const checkoutBtn = document.querySelector(".btn-primary.btn-lg");
-        if (checkoutBtn) {
-          checkoutBtn.addEventListener("click", handleCheckout);
-        }
-      });
     </script>
+
+    <section class="text-center py-5">
+      <div class="container">
+        <h2 class="fw-bold mb-4">Trở Thành Thành Viên Ngay Hôm Nay</h2>
+
+        <p class="mb-4">
+          Tận hưởng những đặc quyền hấp dẫn chỉ dành riêng cho hội viên Bean &
+          Brew.
+        </p>
+
+        <a href="register.html" class="btn btn-primary btn-lg">
+          Đăng Ký Hội Viên
+        </a>
+      </div>
+    </section>
+
     <footer class="bg-dark text-white pt-5">
       <div class="container">
         <div class="row">
@@ -710,4 +883,3 @@
     ></script>
   </body>
 </html>
-

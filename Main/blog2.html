@@ -23,291 +23,7 @@
 
     <link rel="stylesheet" href="CSS/Style.css" />
     <style>
-      .promo-content {
-        background: #fff;
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .section-title {
-        color: #6f4e37;
-        font-weight: 700;
-        margin-bottom: 20px;
-        position: relative;
-        padding-bottom: 10px;
-      }
-
-      .section-title::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background: #6f4e37;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        border-radius: 10px;
-      }
-
-      .promo-content p {
-        line-height: 1.9;
-        color: #555;
-        text-align: justify;
-      }
-
-      
-      .promo-highlight {
-        margin-top: 30px;
-        padding: 25px;
-        background: rgba(111, 78, 55, 0.08);
-        border-left: 5px solid #6f4e37;
-        border-radius: 12px;
-      }
-
-      .promo-highlight h4 {
-        color: #6f4e37;
-        font-weight: 700;
-        margin-bottom: 15px;
-      }
-
-      .promo-highlight ul {
-        margin: 0;
-        padding-left: 20px;
-      }
-
-      .promo-highlight li {
-        margin-bottom: 10px;
-        line-height: 1.8;
-      }
-
-      
-      .timeline {
-        position: relative;
-        margin-top: 30px;
-        padding-left: 35px;
-      }
-
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 8px;
-        top: 0;
-        width: 3px;
-        height: 100%;
-        background: #6f4e37;
-      }
-
-      .timeline-item {
-        position: relative;
-        margin-bottom: 30px;
-        padding: 20px;
-        background: #fff;
-        border-radius: 12px;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .timeline-item::before {
-        content: "";
-        position: absolute;
-        left: -33px;
-        top: 25px;
-        width: 18px;
-        height: 18px;
-        background: #6f4e37;
-        border-radius: 50%;
-        border: 4px solid #fff;
-      }
-
-      .timeline-item h5 {
-        color: #6f4e37;
-        font-weight: 700;
-        margin-bottom: 8px;
-      }
-
-      .timeline-item p {
-        margin-bottom: 0;
-      }
-.related-title {
-    color: #6F4E37;
-    font-weight: 700;
-    margin-bottom: 30px;
-    position: relative;
-}
-
-.related-title::after {
-    content: "";
-    width: 70px;
-    height: 4px;
-    background: #6F4E37;
-    display: block;
-    margin-top: 10px;
-    border-radius: 20px;
-}
-
-.related-card {
-    display: block;
-    background: #fff;
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    height: 100%;
-}
-
-.related-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-md);
-}
-
-.related-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.related-content {
-    padding: 20px;
-}
-
-.related-category {
-    display: inline-block;
-    background: rgba(111, 78, 55, 0.12);
-    color: #6F4E37;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-}
-
-.related-content h5 {
-    color: #333;
-    font-weight: 700;
-    line-height: 1.5;
-    margin-bottom: 15px;
-}
-
-.read-more {
-    color: #6F4E37;
-    font-weight: 600;
-}
-
-.related-card:hover .read-more {
-    color: #5A3D2B;
-}
-
-.related-card:hover .read-more i {
-    transform: translateX(5px);
-}
-
-.read-more i {
-    transition: 0.3s ease;
-}
-      .promo-quote {
-    position: relative;
-    margin-top: 50px;
-    padding: 35px 40px;
-    background: #fff;
-    border-radius: 20px;
-    border: 1px solid rgba(111, 78, 55, 0.15);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-
-    color: #555;
-    font-size: 1.05rem;
-    line-height: 1.9;
-    text-align: center;
-    font-style: normal;
-}
-
-.promo-quote::before {
-    content: "\201C";
-    position: absolute;
-    top: -20px;
-    left: 30px;
-
-    font-size: 5rem;
-    line-height: 1;
-    color: #6F4E37;
-    opacity: 0.2;
-    font-family: Georgia, serif;
-}
-
-.promo-quote p {
-    margin: 0;
-}
-
-.promo-quote strong {
-    display: block;
-    margin-top: 15px;
-    color: #6F4E37;
-    font-weight: 700;
-}
-      .promo-icon {
-        width: 80px;
-        height: 80px;
-        margin: 0 auto 20px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        background: rgba(111, 78, 55, 0.12);
-        border-radius: 50%;
-        transition: 0.3s ease;
-      }
-
-      .promo-icon i {
-        font-size: 2rem;
-        color: #6f4e37;
-      }
-
-      .promo-card {
-        background: #fff;
-        padding: 30px;
-        border-radius: 18px;
-        text-align: center;
-        box-shadow: var(--shadow-sm);
-        transition: 0.3s ease;
-      }
-
-      .promo-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-md);
-      }
-
-      .promo-card:hover .promo-icon {
-        background: #6f4e37;
-      }
-
-      .promo-card:hover .promo-icon i {
-        color: #fff;
-      }
-
-      .promo-card h4 {
-        color: #6f4e37;
-        font-weight: 700;
-        margin-bottom: 15px;
-      }
-
-      .promo-card p {
-        color: #666;
-        line-height: 1.7;
-      }
-      .promo-banner {
-        background:
-          linear-gradient(rgba(111, 78, 55, 0.75), rgba(111, 78, 55, 0.75)),
-          url("../Images/promotion2.jpg");
-        background-size: cover;
-        background-position: center;
-        color: white;
-        min-height: 500px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .btn-coffee {
+          .btn-coffee {
         background-color: #6f4e37 !important;
         border-color: #6f4e37 !important;
         color: #fff !important;
@@ -391,15 +107,92 @@
           font-size: 1rem;
         }
       }
-      .promo-cards {
-        display: flex;
-        gap: 25px;
-        justify-content: center;
-      }
+      .related-blog-card {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
 
-      .promo-cards .promo-card {
-        flex: 1;
-      }
+.related-title {
+    color: #6F4E37;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(111,78,55,.1);
+}
+
+.related-posts li {
+    margin-bottom: 15px;
+}
+
+.related-posts li:last-child {
+    margin-bottom: 0;
+}
+.related-blog-card{
+    background: linear-gradient(
+        135deg,
+        #FCF8F4,
+        #F3ECE6
+    );
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(111,78,55,.08);
+}
+.related-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+    border-radius: 14px;
+
+    text-decoration: none;
+    transition: .3s;
+}
+
+.related-link:hover {
+    background: rgba(111,78,55,.08);
+    transform: translateX(5px);
+}
+
+.related-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(111,78,55,.12);
+}
+
+.related-icon i {
+    color: #6F4E37;
+    font-size: 1.2rem;
+}
+
+.related-category {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #A67C52;
+    margin-bottom: 4px;
+}
+
+.related-link h6 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.related-link:hover h6 {
+    color: #6F4E37;
+}
     </style>
   </head>
 
@@ -666,183 +459,206 @@
         </div>
       </div>
     </nav>
-    <section class="summer-promo py-5">
+    <section class="blog-detail py-5">
       <div class="container">
-        <div class="promo-banner text-center rounded-4 p-5 mb-5">
-          <span class="promo-tag">SUMMER SALE 2026</span>
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6">
+            <span class="badge px-3 py-2 mb-3"
+      style="background-color:#6F4E37; color:white;">
+    Coffee Art
+</span>
 
-          <h1 class="display-3 fw-bold mt-3">Khuyến Mãi Mùa Hè</h1>
+            <h1 class="display-4 fw-bold mb-4">Latte Art là gì?</h1>
 
-          <p class="lead mt-3">
-            Thưởng thức cà phê yêu thích với hàng loạt ưu đãi hấp dẫn, giảm giá
-            lên đến 30% và nhận nhiều quà tặng độc quyền.
-          </p>
-
-          <a href="menu.html" class="btn btn-coffee btn-lg mt-3">
-            Xem Ưu Đãi Ngay
-          </a>
-        </div>
-
-        <div class="promo-cards">
-          <div class="promo-card h-100">
-            <div class="promo-icon">
-              <i class="bi bi-cup-hot-fill"></i>
-            </div>
-
-            <h4>Giảm 20%</h4>
-
-            <p>Áp dụng cho toàn bộ đồ uống từ 9h đến 11h sáng mỗi ngày.</p>
-          </div>
-
-          <div class="promo-card h-100">
-            <div class="promo-icon">
-              <i class="bi bi-gift-fill"></i>
-            </div>
-
-            <h4>Tặng Quà</h4>
-
-            <p>Hóa đơn từ 200.000 VNĐ nhận ngay ly giữ nhiệt Bean & Brew.</p>
-          </div>
-
-          <div class="promo-card h-100">
-            <div class="promo-icon">
-              <i class="bi bi-stars"></i>
-            </div>
-
-            <h4>Nhân Đôi Điểm</h4>
-
-            <p>
-              Thành viên được nhân đôi điểm tích lũy trong suốt thời gian diễn
-              ra chương trình.
+            <p class="lead text-muted">
+              Latte Art không chỉ là kỹ thuật pha chế mà còn là nghệ thuật biến
+              những tách cà phê thành các tác phẩm đầy sáng tạo. Từ hình trái
+              tim đơn giản đến những họa tiết phức tạp, Latte Art đã trở thành
+              biểu tượng của văn hóa cà phê hiện đại.
             </p>
+
+            <div class="d-flex align-items-center mt-4">
+              <img
+                src="../Images/ava.jpg"
+                class="rounded-circle me-3"
+                width="50"
+                height="50"
+              />
+
+              <div>
+                <h6 class="mb-0 fw-bold">Bean & Brew Team</h6>
+                <small class="text-muted">08/06/2026 • 4 phút đọc</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <img
+              src="../Images/blog2(1).jpg"
+              class="img-fluid rounded-4 shadow"
+              alt="Latte Art"
+            />
           </div>
         </div>
-        <div class="promo-content mt-5">
-          <h2 class="section-title">Chào Hè Cùng Bean & Brew</h2>
 
-          <p>
-            Mùa hè là thời điểm lý tưởng để tận hưởng những ly cà phê mát lạnh
-            và những khoảnh khắc thư giãn bên gia đình, bạn bè. Nhằm tri ân
-            khách hàng, Bean & Brew triển khai chương trình khuyến mãi đặc biệt
-            với nhiều ưu đãi hấp dẫn.
-          </p>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="blog-content bg-white p-4 rounded-4 shadow-sm">
+              <h2 class="fw-bold mb-3">Latte Art là gì?</h2>
 
-          <p>
-            Trong thời gian diễn ra sự kiện, khách hàng có cơ hội thưởng thức
-            các món đồ uống yêu thích với mức giá ưu đãi, đồng thời nhận được
-            nhiều phần quà giá trị và quyền lợi dành riêng cho hội viên.
-          </p>
+              <p>
+                Latte Art là kỹ thuật tạo hình trên bề mặt cà phê bằng cách kết
+                hợp espresso và sữa tươi được đánh bọt mịn. Những hình ảnh được
+                tạo ra có thể là trái tim, hoa tulip, chiếc lá rosetta hoặc
+                nhiều họa tiết sáng tạo khác.
+              </p>
 
-          <div class="promo-highlight">
-            <h4>Ưu đãi nổi bật</h4>
+              <img
+                src="../Images/blog2(2).jpg"
+                class="img-fluid rounded-4 my-4"
+                alt="Latte Art"
+              />
+              <h2 class="fw-bold mb-3">Nguồn gốc của Latte Art</h2>
 
-            <ul>
-              <li>Giảm 20% toàn bộ cà phê đá.</li>
-              <li>Mua 2 tặng 1 vào mỗi thứ Sáu.</li>
-              <li>Nhân đôi điểm thưởng cho hội viên.</li>
-              <li>Tặng voucher cho khách hàng mới.</li>
-            </ul>
+              <p>
+                Latte Art được cho là bắt nguồn từ Ý – quê hương của espresso.
+                Tuy nhiên, kỹ thuật này thực sự phát triển mạnh mẽ tại Hoa Kỳ
+                vào cuối những năm 1980 khi các Barista bắt đầu thử nghiệm những
+                cách rót sữa sáng tạo lên bề mặt cà phê.
+              </p>
+
+              <p>
+                Theo thời gian, Latte Art không chỉ là một kỹ năng pha chế mà
+                còn trở thành một bộ môn nghệ thuật được yêu thích trên toàn thế
+                giới. Hiện nay có nhiều cuộc thi Latte Art chuyên nghiệp được tổ
+                chức hằng năm nhằm tôn vinh sự sáng tạo và tay nghề của các
+                Barista.
+              </p>
+
+              <h2 class="fw-bold mb-3">Vì sao Latte Art được yêu thích?</h2>
+
+              <p>
+                Latte Art giúp nâng cao trải nghiệm thưởng thức cà phê. Một ly
+                cà phê đẹp mắt không chỉ hấp dẫn về thị giác mà còn thể hiện sự
+                chuyên nghiệp và tay nghề của Barista.
+              </p>
+
+              <div class="alert border-start border-5 border-warning bg-light">
+                <strong>Thú vị:</strong>
+                Một số cuộc thi Latte Art quốc tế có sự tham gia của hàng trăm
+                Barista đến từ khắp nơi trên thế giới.
+              </div>
+
+              <h2 class="fw-bold mb-3">Các hình Latte Art phổ biến</h2>
+
+              <ul>
+                <li>Trái tim</li>
+                <li>Tulip</li>
+                <li>Lá dương xỉ</li>
+                <li>Thiên nga</li>
+              </ul>
+
+              <img
+                src="../Images/blog2(3).jpg"
+                class="img-fluid rounded-4 my-4"
+                alt="Rosetta"
+              />
+
+              <h2 class="fw-bold mb-3">Bí quyết tạo Latte Art đẹp</h2>
+
+              <p>
+                Để tạo nên một tác phẩm Latte Art đẹp mắt, Barista cần chú ý đến
+                nhiều yếu tố khác nhau. Trước tiên, espresso phải được chiết
+                xuất đúng chuẩn với lớp crema dày và mịn. Đây là nền tảng giúp
+                hình vẽ hiện lên rõ nét.
+              </p>
+
+              <p>
+                Tiếp theo là công đoạn đánh sữa. Sữa cần đạt độ mịn như nhung
+                (microfoam), không quá nhiều bọt khí và có độ bóng tự nhiên.
+                Nhiệt độ lý tưởng thường dao động từ 60 đến 65 độ C để giữ được
+                vị ngọt tự nhiên của sữa.
+              </p>
+
+              <p>
+                Cuối cùng là kỹ thuật rót. Người pha chế phải kiểm soát chính
+                xác độ cao của ca sữa, tốc độ rót và chuyển động cổ tay để tạo
+                ra các đường nét mềm mại. Đây là kỹ năng đòi hỏi nhiều thời gian
+                luyện tập và sự kiên nhẫn.
+              </p>
+
+                  Latte Art trong văn hóa cà phê hiện đại
+</h2>
+
+<p>
+    Ngày nay, Latte Art đã trở thành một phần không thể thiếu trong văn hóa cà phê hiện đại. Tại nhiều quán cà phê chuyên nghiệp, khách hàng không chỉ tìm kiếm hương vị mà còn mong muốn được trải nghiệm sự sáng tạo và tính nghệ thuật trong từng ly đồ uống.
+</p>
+
+<p>
+    Một ly Latte Art đẹp không chỉ là thức uống mà còn là cách để Barista gửi gắm sự tâm huyết và niềm đam mê với nghề. Chính điều đó đã khiến Latte Art trở thành biểu tượng của sự tinh tế trong ngành cà phê.
+</p>
+
+<blockquote class="blockquote p-4 rounded-4 mt-4">
+    <p class="mb-0">
+        "Latte Art không chỉ là nghệ thuật trang trí cà phê mà còn là cách người Barista kể câu chuyện của mình qua từng tách cà phê."
+    </p>
+</blockquote>
+            </div>
           </div>
+         <div class="product-card related-blog-card p-4 mb-4">
 
-          <h2 class="section-title mt-5">Thời Gian Áp Dụng</h2>
-
-          <div class="timeline">
-            <div class="timeline-item">
-              <h5>01/06 - 15/06</h5>
-              <p>Giảm giá đồ uống mùa hè.</p>
-            </div>
-
-            <div class="timeline-item">
-              <h5>16/06 - 30/06</h5>
-              <p>Tặng quà cho hóa đơn từ 200.000 VNĐ.</p>
-            </div>
-
-            <div class="timeline-item">
-              <h5>Toàn bộ tháng 6</h5>
-              <p>Nhân đôi điểm tích lũy cho hội viên.</p>
-            </div>
-          </div>
-
-          <blockquote class="promo-quote">
-            "Mùa hè thêm trọn vẹn khi có cà phê ngon và những ưu đãi hấp dẫn."
-          </blockquote>
-        </div>
-<div class="related-section mt-5">
-    <h3 class="related-title">
-        <i class="bi bi-journal-text me-2"></i>
+    <h4 class="fw-bold related-title">
+        <i class="bi bi-journal-richtext me-2"></i>
         Bài viết liên quan
-    </h3>
+    </h4>
 
-    <div class="row g-4">
+    <ul class="list-unstyled related-posts mb-0">
 
-        <div class="col-lg-4 col-md-6">
-            <a href="Blog1.html" class="related-card">
-                <img src="../Images/blog1.jpg"
-                     alt="Cà phê sữa đá">
+        <li>
+            <a href="Blog1.html" class="related-link">
+                <div class="related-icon">
+                    <i class="bi bi-cup-hot-fill"></i>
+                </div>
 
-                <div class="related-content">
-                    <span class="related-category">
-                        Coffee Tips
-                    </span>
-
-                    <h5>
-                        Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị
-                    </h5>
-
-                    <span class="read-more">
-                        Đọc tiếp
-                        <i class="bi bi-arrow-right"></i>
-                    </span>
+                <div>
+                    <span class="related-category">Coffee Tips</span>
+                    <h6>Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị</h6>
                 </div>
             </a>
-        </div>
+        </li>
 
-        <div class="col-lg-4 col-md-6">
-            <a href="Blog2.html" class="related-card">
-                <img src="../Images/blog2.jpg"
-                     alt="Latte Art">
+        <li>
+            <a href="Blog3.html" class="related-link">
+                <div class="related-icon">
+                    <i class="bi bi-gift-fill"></i>
+                </div>
 
-                <div class="related-content">
-                    <span class="related-category">
-                        Coffee Art
-                    </span>
-
-                    <h5>
-                        Latte Art là gì?
-                    </h5>
-
-                    <span class="read-more">
-                        Đọc tiếp
-                        <i class="bi bi-arrow-right"></i>
-                    </span>
+                <div>
+                    <span class="related-category">Promotion</span>
+                    <h6>Khuyến Mãi Mùa Hè</h6>
                 </div>
             </a>
-        </div>
+        </li>
 
-        <div class="col-lg-4 col-md-6">
-            <a href="Blog4.html" class="related-card">
-                <img src="../Images/blog4.jpg"
-                     alt="Hạt cà phê Việt">
+        <li>
+            <a href="Blog4.html" class="related-link">
+                <div class="related-icon">
+                    <i class="bi bi-tree-fill"></i>
+                </div>
 
-                <div class="related-content">
-                    <span class="related-category">
-                        Coffee Story
-                    </span>
-
-                    <h5>
-                        Câu Chuyện Hạt Cà Phê Việt
-                    </h5>
-
-                    <span class="read-more">
-                        Đọc tiếp
-                        <i class="bi bi-arrow-right"></i>
-                    </span>
+                <div>
+                    <span class="related-category">Coffee Story</span>
+                    <h6>Câu Chuyện Hạt Cà Phê Việt</h6>
                 </div>
             </a>
-        </div>
+        </li>
 
-    </div>
+    </ul>
+
 </div>
+        </div>
+      </div>
+    </section>
     <footer class="bg-dark text-white pt-5">
       <div class="container">
         <div class="row">
@@ -964,4 +780,3 @@
     ></script>
   </body>
 </html>
-

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="CSS/Style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
-        
         :root {
             --brown: #6F4E37;
             --brown-dark: #3E2723;
@@ -75,7 +74,6 @@
             font-family: "Playfair Display",serif;
         }
 
-        
         .page-hero {
             background: linear-gradient(135deg,#3E2723 0%,#6F4E37 60%,#8b5e3c 100%);
             padding: 70px 0 55px;
@@ -116,7 +114,6 @@
                 margin-top: .7rem;
             }
 
-        
         .cat-tabs {
             border-bottom: 2px solid var(--border);
             margin-bottom: 1.8rem;
@@ -124,34 +121,6 @@
             flex-wrap: wrap;
             gap: 0;
         }
-
-        
-        .search-box { position: relative; }
-        #search-suggestions {
-            position: absolute;
-            top: calc(100% + 6px);
-            left: 0;
-            right: 0;
-            z-index: 2200;
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            max-height: 320px;
-            overflow: auto;
-            padding: 6px 6px;
-        }
-        #search-suggestions .sugg-item{
-            padding: 8px 10px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-        }
-        #search-suggestions .sugg-item small{ font-weight:400; font-size:0.85em; color:#666; }
-        #search-suggestions .sugg-item:hover{ background: rgba(111,78,55,0.06); }
-
-        
-        .drink-card-wrap.highlight{ box-shadow: 0 8px 28px rgba(255,165,0,0.12); transform: translateY(-4px); transition: box-shadow .25s, transform .25s; }
 
         .cat-tab {
             display: inline-block;
@@ -179,7 +148,6 @@
                 border-bottom-color: var(--brown);
             }
 
-        
         .filter-bar {
             background: #fff;
             border-radius: 12px;
@@ -217,7 +185,6 @@
                 color: #fff;
             }
 
-        
         .cat-section-title {
             font-family: "Playfair Display",serif;
             font-size: 1.5rem;
@@ -240,7 +207,6 @@
                 flex-shrink: 0;
             }
 
-        
         .drink-card {
             background: #fff;
             border-radius: 16px;
@@ -358,7 +324,6 @@
                 color: #fff;
             }
 
-        
         .empty-cat {
             text-align: center;
             padding: 3rem 1rem;
@@ -373,7 +338,6 @@
                 color: #d9c4b5;
             }
 
-        
         #cart-toast {
             position: fixed;
             bottom: 24px;
@@ -407,7 +371,6 @@
             }
         }
 
-        
         .lb-overlay {
             position: fixed;
             inset: 0;
@@ -434,7 +397,6 @@
             border-radius: 6px;
         }
 
-        
         .drink-card-wrap {
             transition: opacity .2s;
         }
@@ -443,7 +405,6 @@
                 display: none;
             }
 
-        
         .menu-sidebar {
             position: sticky;
             top: 80px;
@@ -465,7 +426,6 @@
 </head>
 
 <body>
-    
     <header class="bg-white shadow-sm">
         <div class="container py-3">
             <div class="row align-items-center g-3">
@@ -475,18 +435,9 @@
                     </a>
                 </div>
                 <div class="col-lg-6">
-                    <div class="input-group search-box">
-                        <input
-                            id="global-search"
-                            type="text"
-                            class="form-control"
-                            placeholder="Tìm kiếm món uống, bánh..."
-                            autocomplete="off"
-                        />
-                        <button id="global-search-btn" class="btn btn-coffee" aria-label="Tìm kiếm">
-                            <i class="fas fa-search"></i>
-                        </button>
-                        <div id="search-suggestions" class="search-suggestions" style="display:none;"></div>
+                    <div class="input-group">
+                        <input type="text" id="global-search" class="form-control" placeholder="Tìm kiếm món uống, bánh..." />
+                        <button class="btn btn-coffee" onclick="doGlobalSearch()"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
@@ -500,7 +451,6 @@
         </div>
     </header>
 
-    
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -514,7 +464,6 @@
                         <div class="dropdown-menu w-100 p-3">
                             <div class="container-fluid">
                                 <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3" id="mega-menu-inner">
-                                    
                                 </div>
                             </div>
                         </div>
@@ -529,7 +478,6 @@
         </div>
     </nav>
 
-    
     <section class="page-hero">
         <div class="container position-relative" style="z-index:1">
             <p class="hero-label">Thực đơn Bean &amp; Brew</p>
@@ -542,29 +490,22 @@
         </div>
     </section>
 
-    
     <div class="container py-5">
         <div class="row g-4">
 
-            
             <div class="col-lg-2 d-none d-lg-block">
                 <div class="menu-sidebar">
                     <h6 class="fw-bold text-uppercase small mb-3" style="color:var(--tan);letter-spacing:2px;">Danh mục</h6>
                     <div class="list-group list-group-flush" id="sidebar-list">
-                        
                     </div>
                 </div>
             </div>
 
-            
             <div class="col-lg-10">
 
-                
                 <div class="cat-tabs" id="cat-tabs">
-                    
                 </div>
 
-                
                 <div class="filter-bar">
                     <label>Lọc:</label>
                     <button class="filter-btn active" data-filter="all">Tất cả</button>
@@ -575,16 +516,13 @@
                     <button class="filter-btn" data-filter="cake">Bánh ngọt</button>
                 </div>
 
-                
                 <div id="all-sections">
-                    
                 </div>
 
             </div>
         </div>
     </div>
 
-    
     <footer class="bg-dark text-white pt-5 mt-3">
         <div class="container">
             <div class="row">
@@ -626,13 +564,11 @@
         </div>
     </footer>
 
-    
     <div id="cart-toast">
         <div class="inner"><i class="bi bi-cart-check-fill fs-5"></i><span id="toast-msg">Đã thêm vào giỏ hàng!</span></div>
     </div>
 
-    
-    <div class="lb-overlay" id="lbOverlay"></div>
+   <div class="lb-overlay" id="lbOverlay"></div>
     <img id="lbImg" class="lb-img" src="" alt="" style="display:none;" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -949,69 +885,6 @@
             }
         });
         window.addEventListener('hashchange', handleHash);
-
-        (function(){
-            const input = document.getElementById('global-search');
-            const btn = document.getElementById('global-search-btn');
-            const sugg = document.getElementById('search-suggestions');
-            if(!input || !sugg) return;
-
-            function getAllProducts(){ return getProducts(); }
-
-            function showSuggestions(list){
-                if(!list || list.length===0){ sugg.style.display='none'; sugg.innerHTML=''; return; }
-                sugg.innerHTML = list.slice(0,8).map(p=>`<div class="sugg-item" data-id="${p.id}">${p.name} <small class="text-muted"> - ${p.category}</small></div>`).join('');
-                sugg.style.display = 'block';
-            }
-
-            function query(q){
-                if(!q) return [];
-                const all = getAllProducts();
-                const t = q.trim().toLowerCase();
-                return all.filter(p=> p.name.toLowerCase().includes(t));
-            }
-
-            input.addEventListener('input', function(e){
-                const q = e.target.value;
-                if(!q) { showSuggestions([]); return; }
-                const matches = query(q);
-                showSuggestions(matches);
-            });
-
-            sugg.addEventListener('click', function(e){
-                const it = e.target.closest('.sugg-item');
-                if(!it) return;
-                const id = it.dataset.id;
-                navigateToProduct(id);
-                sugg.style.display='none';
-            });
-
-            btn?.addEventListener('click', function(){
-                performSearch(input.value);
-            });
-            input.addEventListener('keydown', function(e){
-                if(e.key === 'Enter') { e.preventDefault(); performSearch(input.value); }
-                if(e.key === 'Escape') { sugg.style.display='none'; }
-            });
-
-            document.addEventListener('click', function(e){ if(!e.target.closest('.search-box')) sugg.style.display='none'; });
-
-            function navigateToProduct(id){
-                const card = document.querySelector(`.drink-card-wrap[data-id="${id}"]`);
-                if(card){ card.scrollIntoView({ behavior: 'smooth', block: 'center' }); card.classList.add('highlight'); setTimeout(()=>card.classList.remove('highlight'), 2200); return; }
-                const prod = getAllProducts().find(p=>p.id===id);
-                if(prod){ activateFilter(prod.category); setTimeout(()=>{ const el = document.querySelector(`.drink-card-wrap[data-id="${id}"]`); if(el) el.scrollIntoView({behavior:'smooth', block:'center'}); }, 220); }
-            }
-
-            function performSearch(q){
-                if(!q) return;
-                const matches = query(q);
-                if(matches.length===0) { alert('Không tìm thấy sản phẩm phù hợp.'); return; }
-                const exact = matches.find(m=>m.name.toLowerCase()===q.trim().toLowerCase());
-                const target = exact || matches[0];
-                navigateToProduct(target.id);
-            }
-        })();
     </script>
 </body>
 </html>

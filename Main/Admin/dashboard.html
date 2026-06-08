@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
@@ -90,7 +90,6 @@
             width: 100%;
         }
 
-        
         @media (min-width: 1200px) {
             .col-xl-custom {
                 flex: 0 0 20%;
@@ -109,14 +108,14 @@
             </button>
             <div class="collapse navbar-collapse" id="adminNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
-                    <li class="nav-item"><a href="dashboard.html" class="nav-link active"><i class="fa-solid fa-chart-line me-1"></i>B�o c�o</a></li>
-                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Qu?n l� Menu</a></li>
-                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Qu?n l� �on h�ng</a></li>
-                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Qu?n l� Kh�ch h�ng</a></li>
+                    <li class="nav-item"><a href="dashboard.html" class="nav-link active"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a></li>
+                    <li class="nav-item"><a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a></li>
+                    <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý Đơn hàng</a></li>
+                    <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý Khách hàng</a></li>
                 </ul>
                 <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
-                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quy?n: Admin</span>
-                    <a href="login.html" class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Tho�t</a>
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href="file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html" onclick="logout()" class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
                 </div>
             </div>
         </div>
@@ -124,15 +123,15 @@
 
     <main class="container py-4">
         <div class="mb-4 pb-2 border-bottom border-secondary border-opacity-25">
-            <h3 class="fw-bold m-0 text-uppercase">H? th?ng b�o c�o doanh thu</h3>
+            <h3 class="fw-bold m-0 text-uppercase">Hệ thống báo cáo doanh thu</h3>
         </div>
 
         <div class="row g-3 mb-4">
             <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <div class="text-muted small fw-semibold text-uppercase">Doanh thu ng�y</div>
-                        <h4 class="fw-bold m-0 mt-1 text-danger">1.450.000d</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Doanh thu ngày</div>
+                        <h4 id="today-revenue" class="fw-bold m-0 mt-1 text-danger">0đ</h4>
                     </div>
                     <div class="icon-box bg-danger bg-opacity-10 text-danger"><i class="fa-solid fa-money-bill-wave"></i></div>
                 </div>
@@ -140,8 +139,8 @@
             <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <div class="text-muted small fw-semibold text-uppercase">�on ho�n th�nh</div>
-                        <h4 class="fw-bold m-0 mt-1 text-success">38 don</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Đơn hoàn thành</div>
+                        <h4 id="completed-orders-count" class="fw-bold m-0 mt-1 text-success">0 đơn</h4>
                     </div>
                     <div class="icon-box bg-success bg-opacity-10 text-success"><i class="fa-solid fa-circle-check"></i></div>
                 </div>
@@ -149,8 +148,8 @@
             <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <div class="text-muted small fw-semibold text-uppercase">S?n ph?m d� b�n</div>
-                        <h4 class="fw-bold m-0 mt-1 text-warning">86 ly</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Sản phẩm đã bán</div>
+                        <h4 id="total-items-sold" class="fw-bold m-0 mt-1 text-warning">0 ly</h4>
                     </div>
                     <div class="icon-box bg-warning bg-opacity-10 text-warning"><i class="fa-solid fa-cup-straw-juice"></i></div>
                 </div>
@@ -158,8 +157,8 @@
             <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <div class="text-muted small fw-semibold text-uppercase">Kh�ch h�ng m?i</div>
-                        <h4 class="fw-bold m-0 mt-1 text-primary">12 ngu?i</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Tổng khách hàng</div>
+                        <h4 id="total-customers" class="fw-bold m-0 mt-1 text-primary">0 người</h4>
                     </div>
                     <div class="icon-box bg-primary bg-opacity-10 text-primary"><i class="fa-solid fa-user-plus"></i></div>
                 </div>
@@ -167,8 +166,8 @@
             <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between" style="border-left: 4px solid var(--primary-color);">
                     <div>
-                        <div class="text-muted small fw-semibold text-uppercase" style="color: var(--primary-color) !important;">M?t h�ng kinh doanh</div>
-                        <h4 id="total-products" class="fw-bold m-0 mt-1" style="color: var(--text-dark);">0 m�n</h4>
+                        <div class="text-muted small fw-semibold text-uppercase" style="color: var(--primary-color) !important;">Mặt hàng kinh doanh</div>
+                        <h4 id="total-products" class="fw-bold m-0 mt-1" style="color: var(--text-dark);">0 món</h4>
                     </div>
                     <div class="icon-box bg-opacity-10" style="background-color: #EFE6E1; color: var(--primary-color);"><i class="fa-solid fa-mug-hot"></i></div>
                 </div>
@@ -178,13 +177,13 @@
         <div class="row g-4 mb-4">
             <div class="col-12 col-lg-7">
                 <div class="table-card p-4 h-100">
-                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-chart-area me-2 text-danger"></i>Xu hu?ng doanh thu tu?n</h5>
+                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-chart-area me-2 text-danger"></i>Xu hướng doanh thu tuần</h5>
                     <div class="chart-container"><canvas id="revenueChart"></canvas></div>
                 </div>
             </div>
             <div class="col-12 col-lg-5">
                 <div class="table-card p-4 h-100">
-                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-pie-chart me-2 text-warning"></i>T? l? m�n ti�u th?</h5>
+                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-pie-chart me-2 text-warning"></i>Tỷ lệ món tiêu thụ</h5>
                     <div class="chart-container"><canvas id="categoryChart"></canvas></div>
                 </div>
             </div>
@@ -192,42 +191,21 @@
 
         <div class="table-card p-4">
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="fw-bold m-0"><i class="fa-solid fa-bolt me-2 text-danger"></i>�on h�ng v?a ph�t sinh</h5>
-                <a href="orders.html" class="btn btn-sm btn-outline-dark fw-semibold">Xem t?t c?</a>
+                <h5 class="fw-bold m-0"><i class="fa-solid fa-bolt me-2 text-danger"></i>Đơn hàng vừa phát sinh</h5>
+                <a href="orders.html" class="btn btn-sm btn-outline-dark fw-semibold">Xem tất cả</a>
             </div>
             <div class="table-responsive">
                 <table class="table table-hover align-middle m-0">
                     <thead>
                         <tr>
-                            <th>M� don</th>
-                            <th>Th?i gian</th>
-                            <th>S?n ph?m d?t mua</th>
-                            <th>T?ng ti?n</th>
-                            <th>Tr?ng th�i</th>
+                            <th>Mã đơn</th>
+                            <th>Thời gian</th>
+                            <th>Sản phẩm đặt mua</th>
+                            <th>Tổng tiền</th>
+                            <th>Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody id="dash-orders-tbody">
-                        <tr id="dash-row-DH101">
-                            <td class="fw-bold text-muted">#DH101</td>
-                            <td class="small">14:25 - H�m nay</td>
-                            <td class="fw-semibold">2x C� ph� s?a d�, 1x B?c x?u</td>
-                            <td class="fw-bold text-danger">109.000d</td>
-                            <td class="dash-status"><span class="badge bg-warning text-dark badge-status">Ch? l�m</span></td>
-                        </tr>
-                        <tr id="dash-row-DH102">
-                            <td class="fw-bold text-muted">#DH102</td>
-                            <td class="small">14:10 - H�m nay</td>
-                            <td class="fw-semibold">1x Tr� d�o cam s? (Size L)</td>
-                            <td class="fw-bold text-danger">49.000d</td>
-                            <td class="dash-status"><span class="badge bg-success badge-status">�� ho�n th�nh</span></td>
-                        </tr>
-                        <tr id="dash-row-DH103">
-                            <td class="fw-bold text-muted">#DH103</td>
-                            <td class="small">13:45 - H�m nay</td>
-                            <td class="fw-semibold">1x Matcha d� xay, 1x C� ph� den d�</td>
-                            <td class="fw-bold text-danger">94.000d</td>
-                            <td class="dash-status"><span class="badge bg-danger badge-status">�� h?y</span></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -237,85 +215,183 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-    
-        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-        new Chart(ctxRevenue, {
-            type: 'line',
-            data: {
-                labels: ['Th? 2', 'Th? 3', 'Th? 4', 'Th? 5', 'Th? 6', 'Th? 7', 'Ch? Nh?t'],
-                datasets: [{
-                    label: 'Doanh thu (VN�)',
-                    data: [1200000, 1500000, 1100000, 1650000, 1450000, 2100000, 2400000],
-                    borderColor: '#6F4E37',
-                    backgroundColor: 'rgba(111, 78, 55, 0.1)',
-                    tension: 0.3,
-                    fill: true
-                }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
 
-      
-        const ctxCategory = document.getElementById('categoryChart').getContext('2d');
-        new Chart(ctxCategory, {
-            type: 'doughnut',
-            data: {
-                labels: ['C� ph�', 'Tr� tr�i c�y', '�� xay', 'B�nh ng?t'],
-                datasets: [{
-                    data: [45, 25, 20, 10],
-                    backgroundColor: ['#6F4E37', '#D2B48C', '#EFE6E1', '#3E2723']
-                }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
+        let revenueChartInstance = null;
+        let categoryChartInstance = null;
 
-    
-        const DASH_STATUS = {
-            PENDING: { badge: 'bg-warning text-dark', text: 'Ch? l�m' },
-            DELIVERED: { badge: 'bg-success', text: '�� ho�n th�nh' },
-            CANCELLED: { badge: 'bg-danger', text: '�� h?y' },
-        };
-
-     
-        function syncDashboardOrders() {
-            document.querySelectorAll('#dash-orders-tbody tr').forEach(row => {
-                const orderId = row.id.replace('dash-row-', '');
-                const saved = localStorage.getItem('order_' + orderId);
-                if (saved && DASH_STATUS[saved]) {
-                    const s = DASH_STATUS[saved];
-                    row.querySelector('.dash-status').innerHTML = `<span class="badge ${s.badge} badge-status">${s.text}</span>`;
-                }
-            });
+        function getTodayString() {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            return `${dd}/${mm}/${yyyy}`;
         }
 
-   
-        function updateProductCount() {
-        
-            const products = JSON.parse(localStorage.getItem('cafe_products')) || [];
-       
-            const totalCount = products.length;
-        
-            const productCountElement = document.getElementById('total-products');
-            if (productCountElement) {
-                productCountElement.textContent = totalCount + " m�n";
+        function formatCurrency(num) {
+            return num.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function initDashboard() {
+
+            const orders = JSON.parse(localStorage.getItem('cafe_orders')) || [];
+            const users = JSON.parse(localStorage.getItem('cafe_users')) || [];
+            const menu = JSON.parse(localStorage.getItem('cafe_menu')) || [];
+
+            const todayStr = getTodayString();
+
+            let todayRevenue = 0;
+            let completedCount = 0;
+            let totalItemsSold = 0;
+
+            orders.forEach(order => {
+                const isToday = order.time && order.time.includes(todayStr);
+
+                if (order.status === "Đã giao hàng") {
+                    completedCount++;
+
+                    if (isToday) {
+                        todayRevenue += Number(order.total || 0);
+                    }
+
+                    if (order.items && Array.isArray(order.items)) {
+                        order.items.forEach(item => {
+                            totalItemsSold += Number(item.quantity || 0);
+                        });
+                    }
+                }
+            });
+
+
+            document.getElementById('today-revenue').textContent = formatCurrency(todayRevenue);
+            document.getElementById('completed-orders-count').textContent = completedCount + " đơn";
+            document.getElementById('total-items-sold').textContent = totalItemsSold + " ly";
+            document.getElementById('total-customers').textContent = users.length + " người";
+            document.getElementById('total-products').textContent = menu.length + " món";
+
+            const weeklyData = [0, 0, 0, 0, 0, 0, 0];
+
+            function getDayOfWeek(dateStr) {
+                const parts = dateStr.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+                if (!parts) return -1;
+                const dateObj = new Date(parts[3], parts[2] - 1, parts[1]);
+                let day = dateObj.getDay();
+                return day === 0 ? 6 : day - 1;
+            }
+
+            orders.forEach(order => {
+                if (order.status === "Đã giao hàng" && order.time) {
+                    const dayIndex = getDayOfWeek(order.time);
+                    if (dayIndex !== -1) {
+                        weeklyData[dayIndex] += Number(order.total || 0);
+                    }
+                }
+            });
+
+
+            const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+            if (revenueChartInstance) revenueChartInstance.destroy(); 
+
+            revenueChartInstance = new Chart(ctxRevenue, {
+                type: 'line',
+                data: {
+                    labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ Nhật'],
+                    datasets: [{
+                        label: 'Doanh thu thực tế (VNĐ)',
+                        data: weeklyData,
+                        borderColor: '#6F4E37',
+                        backgroundColor: 'rgba(111, 78, 55, 0.1)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            const categoryCounts = { 'Cà phê': 0, 'Trà trái cây': 0, 'Đá xay': 0, 'Bánh ngọt': 0 };
+
+            orders.forEach(order => {
+                if (order.status === "Đã giao hàng" && order.items) {
+                    order.items.forEach(item => {
+                        const name = item.name.toLowerCase();
+                        const id = (item.id || '').toUpperCase();
+
+
+                        if (id.startsWith('CF') || id.startsWith('ES') || name.includes('cà phê') || name.includes('bạc xỉu') || name.includes('latte')) {
+                            categoryCounts['Cà phê'] += Number(item.quantity || 0);
+                        } else if (id.startsWith('T') || name.includes('trà')) {
+                            categoryCounts['Trà trái cây'] += Number(item.quantity || 0);
+                        } else if (id.startsWith('IC') || name.includes('đá xay') || name.includes('matcha')) {
+                            categoryCounts['Đá xay'] += Number(item.quantity || 0);
+                        } else if (id.startsWith('B') || name.includes('bánh') || name.includes('su kem')) {
+                            categoryCounts['Bánh ngọt'] += Number(item.quantity || 0);
+                        } else {
+                            categoryCounts['Cà phê'] += Number(item.quantity || 0); 
+                        }
+                    });
+                }
+            });
+
+            const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+            if (categoryChartInstance) categoryChartInstance.destroy();
+
+            categoryChartInstance = new Chart(ctxCategory, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(categoryCounts),
+                    datasets: [{
+                        data: Object.values(categoryCounts),
+                        backgroundColor: ['#6F4E37', '#D2B48C', '#EFE6E1', '#3E2723']
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+
+            const tbody = document.getElementById('dash-orders-tbody');
+            tbody.innerHTML = '';
+
+            const recentOrders = [...orders].reverse().slice(0, 4);
+
+            if (recentOrders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-3">Chưa có đơn hàng nào phát sinh</td></tr>`;
+            } else {
+                recentOrders.forEach(order => {
+
+                    const itemsString = order.items.map(item => `${item.quantity}x ${item.name}`).join(', ');
+
+
+                    let badgeClass = 'bg-warning text-dark';
+                    if (order.status === 'Đã giao hàng') badgeClass = 'bg-success';
+                    if (order.status === 'Đã hủy' || order.status === 'CANCELLED') badgeClass = 'bg-danger';
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="fw-bold text-muted">#${order.id}</td>
+                        <td class="small">${order.time || 'Không rõ'}</td>
+                        <td class="fw-semibold">${itemsString}</td>
+                        <td class="fw-bold text-danger">${formatCurrency(Number(order.total || 0))}</td>
+                        <td><span class="badge ${badgeClass} badge-status">${order.status || 'Chờ làm'}</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
             }
         }
 
 
-        document.addEventListener("DOMContentLoaded", function () {
-            syncDashboardOrders();
-            updateProductCount();
-        });
+        document.addEventListener("DOMContentLoaded", initDashboard);
+        window.addEventListener('focus', initDashboard);
+        window.addEventListener('storage', initDashboard);
 
-    
-        window.addEventListener('focus', function () {
-            syncDashboardOrders();
-            updateProductCount();
-        });
-        window.addEventListener('storage', function () {
-            syncDashboardOrders();
-            updateProductCount();
-        });
+        function logout() {
+            try {
+                localStorage.removeItem('currentUser');
+
+                localStorage.removeItem('cafe_admin');
+            } catch (e) {
+
+            }
+            window.location.href = 'login.html';
+        }
     </script>
 </body>
 </html>
