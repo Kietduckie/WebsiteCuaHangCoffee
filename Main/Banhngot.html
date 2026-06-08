@@ -567,8 +567,8 @@
     <script>
 
 
-        const PAGE_CATEGORY = 'cake'; 
-        const MENU_ANCHOR = '#cake'; 
+        const PAGE_CATEGORY = 'cake';
+        const MENU_ANCHOR = '#cake';
 
         const FALLBACK_DESCS = { "CF01": "Vị đắng thuần khiết của cà phê Robusta, hòa quyện với đá lạnh tạo nên sự tỉnh táo tức thì.", "CF02": "Sự kết hợp hài hòa giữa cà phê đậm đà và sữa đặc ngọt ngào.", "CF03": "Ít cà phê, nhiều sữa — nhẹ nhàng như buổi sáng yên tĩnh đầu tiên của tuần.", "CF04": "Hơi nóng bốc lên cùng mùi thơm của cà phê tươi. Thiền định theo cách của người Việt.", "CF05": "Ấm lòng như một cái ôm buổi sáng. Cà phê nóng hòa cùng sữa đặc tạo nên hương vị thân thương.", "ES01": "Thuần khiết và mãnh liệt. Một shot espresso đúng chuẩn với lớp crema vàng đậm.", "ES02": "Espresso kéo dài bằng nước nóng, tạo nên độ dịu mà vẫn giữ trọn chiều sâu hương vị.", "ES03": "Một phần ba espresso, một phần ba sữa hấp, một phần ba bọt sữa mịn — sự cân bằng hoàn hảo.", "ES04": "Espresso đằng sau vị béo ngậy của sữa tươi — một sự kết hợp làm tan chảy mọi lo lắng.", "TE01": "Hương đào ngọt lịm quyện cùng vị chua nhẹ của cam và mùi thơm dịu dàng của sả.", "TE02": "Vải chín mọng — vị ngọt thanh, thơm tinh tế như ký ức những mùa hè tuổi thơ.", "TE03": "Vị chua tươi của chanh và độ ngọt dịu của mật ong thuần tự nhiên — ấm cổ họng, nhẹ lòng.", "TE04": "Hương sen thanh cao — một ly trà dành cho khoảnh khắc bạn muốn thực sự tĩnh lặng.", "TE05": "Màu hồng bắt mắt, hương dâu tươi quyến rũ và vị chua ngọt hài hòa.", "IC01": "Chocolate đắng hòa quyện cùng kem sữa và đá xay mịn — một sự cám dỗ bạn không nên chống lại.", "IC02": "Vụn bánh quy giòn tan trộn cùng kem béo và đá mịn — từng ngụm là một bất ngờ.", "IC03": "Matcha nguyên chất từ Nhật Bản, đắng nhẹ mà thanh, xanh mướt mà sâu.", "IC04": "Sốt caramel tự nấu, ngọt cháy và béo ngậy, chảy xuống giữa những tầng đá mịn.", "IC05": "Oreo nghiền vụn, kem vanilla mát lạnh và đá xay mịn như tuyết — không thể dừng tay.", "CK01": "Lớp mascarpone béo ngậy xen kẽ bánh lady finger thấm cà phê — mỗi miếng là một sự hồi sinh nhỏ.", "CK02": "Phô mai kem New York style — đặc, mịn và đủ đậm để bạn nhớ mãi.", "CK03": "Màu đỏ rực, vị cacao nhẹ, cream cheese frosting mát lạnh — Red Velvet là nghệ thuật biết nói.", "CK04": "Vàng giòn bên ngoài, mềm bơ bên trong — nướng tươi mỗi sáng. Chuẩn croissant đích thực.", "CK05": "Vỏ bánh choux nhẹ xốp, nhân kem vanilla béo ngậy — ăn một cái rồi lại cầm thêm cái nữa." };
 
@@ -648,29 +648,29 @@
             list.forEach(p => {
                 const desc = p.desc || FALLBACK_DESCS[p.id] || 'Thức uống thơm ngon, tinh tế từ Bean & Brew.';
                 row.innerHTML += `
-          <div class="col drink-card-wrap" data-id="${p.id}">
-            <div class="drink-card">
-              <div class="img-wrap">
-                <img src="${p.img}" alt="${p.name}" loading="lazy"
-                     onerror="this.src='https://placehold.co/300x220/efe6e1/6f4e37?text=${encodeURIComponent(p.name)}'"/>
-              </div>
-              <div class="card-body">
-                <div class="card-title">${p.name}</div>
-                <p class="card-desc">${desc}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <span class="price" data-price-id="${p.id}">${formatPrice(p.price)}</span>
+              <div class="col drink-card-wrap" data-id="${p.id}">
+                <div class="drink-card">
+                  <div class="img-wrap">
+                    <img src="${p.img}" alt="${p.name}" loading="lazy"
+                         onerror="this.src='https://placehold.co/300x220/efe6e1/6f4e37?text=${encodeURIComponent(p.name)}'"/>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-title">${p.name}</div>
+                    <p class="card-desc">${desc}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="price" data-price-id="${p.id}">${formatPrice(p.price)}</span>
+                    </div>
+                    <div class="btn-row">
+                      <button class="btn-add" onclick="addToCart('${p.id}','${p.name}',${p.price})">
+                        <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                      </button>
+                      <button class="btn-detail zoom-btn" type="button" aria-label="Xem hình">
+                        <i class="bi bi-eye"></i>
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div class="btn-row">
-                  <button class="btn-add" onclick="addToCart('${p.id}','${p.name}',${p.price})">
-                    <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
-                  </button>
-                  <button class="btn-detail zoom-btn" type="button" aria-label="Xem hình">
-                    <i class="bi bi-eye"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>`;
+              </div>`;
             });
         }
 
@@ -686,9 +686,9 @@
                 const items = all.filter(p => p.category === cat);
                 const targetPage = CAT_PAGE[cat];
                 html += `
-          <div class="col">
-            <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">${CAT_LABEL[cat]}</h6>
-            <div class="d-flex flex-column">`;
+              <div class="col">
+                <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">${CAT_LABEL[cat]}</h6>
+                <div class="d-flex flex-column">`;
                 items.forEach(p => {
 
                     const anchors = { coffee: '#coffee', espresso: '#espresso', tea: '#tea', ice: '#ice', cake: '#cake' };
@@ -766,6 +766,6 @@
             }
         });
     </script>
-
+    <script src="../Script/search.js"></script>
 </body>
 </html>

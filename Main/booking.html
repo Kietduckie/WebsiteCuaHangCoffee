@@ -502,114 +502,115 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <script>
-    (function(){
-        const form = document.getElementById('bookingForm');
-        const result = document.getElementById('bookingResult');
-        const channelsFeedback = document.getElementById('channelsFeedback');
+        (function () {
+            const form = document.getElementById('bookingForm');
+            const result = document.getElementById('bookingResult');
+            const channelsFeedback = document.getElementById('channelsFeedback');
 
-        function showError(el,msg){
-            el.classList.add('is-invalid');
-            let fb = el.nextElementSibling;
-            if(!fb || !fb.classList.contains('invalid-feedback')){
-                fb = document.createElement('div');
-                fb.className = 'invalid-feedback';
-                el.parentNode.appendChild(fb);
-            }
-            fb.textContent = msg;
-        }
-
-        function clearError(el){
-            el.classList.remove('is-invalid');
-            const fb = el.parentNode.querySelector('.invalid-feedback');
-            if(fb) fb.remove();
-        }
-
-        function validatePhone(v){
-            return /^\d{10}$/.test(v.trim());
-        }
-
-        function validateName(v){
-            return v.trim().length >= 2;
-        }
-
-        function validateDate(v){
-            const d = new Date(v);
-            if(isNaN(d.getTime())) return false;
-            const today = new Date();
-            today.setHours(0,0,0,0);
-            return d >= today; 
-        }
-
-        form.addEventListener('submit', function(e){
-            e.preventDefault();
-    
-            result.style.display = 'none';
-            result.innerHTML = '';
-            channelsFeedback.style.display = 'none';
-
-            let valid = true;
-            const name = document.getElementById('bookingName');
-            const phone = document.getElementById('bookingPhone');
-            const zalo = document.getElementById('bookingZalo');
-            const date = document.getElementById('bookingDate');
-
-            [name, phone, zalo, date].forEach(clearError);
-
-            if(!validateName(name.value)) { showError(name, 'Vui lòng nhập tên hợp lệ (ít nhất 2 ký tự).'); valid=false; }
-            if(!validatePhone(phone.value)) { showError(phone, 'Số điện thoại không hợp lệ.'); valid=false; }
-            if(!validatePhone(zalo.value)) { showError(zalo, 'Zalo không hợp lệ.'); valid=false; }
-            if(!validateDate(date.value)) { showError(date, 'Vui lòng chọn ngày hôm nay hoặc ngày tương lai.'); valid=false; }
-
-            const guestsEl = document.getElementById('bookingGuests');
-            const guestsVal = guestsEl.value.trim();
-            if(guestsVal !== ''){
-                const n = Number(guestsVal);
-                if(!Number.isInteger(n) || n <= 0){
-                    showError(guestsEl, 'Số lượng phải là số nguyên dương.'); valid = false;
-                } else {
-                    clearError(guestsEl);
+            function showError(el, msg) {
+                el.classList.add('is-invalid');
+                let fb = el.nextElementSibling;
+                if (!fb || !fb.classList.contains('invalid-feedback')) {
+                    fb = document.createElement('div');
+                    fb.className = 'invalid-feedback';
+                    el.parentNode.appendChild(fb);
                 }
+                fb.textContent = msg;
             }
 
-            const channels = Array.from(document.querySelectorAll('.channel-checkbox')).filter(c=>c.checked).map(c=>c.value);
-            if(channels.length === 0){ channelsFeedback.style.display = 'block'; valid = false; }
+            function clearError(el) {
+                el.classList.remove('is-invalid');
+                const fb = el.parentNode.querySelector('.invalid-feedback');
+                if (fb) fb.remove();
+            }
 
-            if(!valid) return;
+            function validatePhone(v) {
+                return /^\d{10}$/.test(v.trim());
+            }
 
-            const company = document.getElementById('bookingCompany').value.trim();
-            const time = document.getElementById('bookingTime').value.trim();
-            const guests = document.getElementById('bookingGuests').value.trim();
-            const purpose = document.getElementById('bookingPurpose').value.trim();
-            const device = document.getElementById('bookingDevice').value.trim();
-            const social = document.getElementById('bookingSocial').value.trim();
-            const notes = document.getElementById('bookingNotes').value.trim();
+            function validateName(v) {
+                return v.trim().length >= 2;
+            }
 
-            result.style.display = 'block';
-            result.innerHTML = '<div class="alert alert-success">Đã đặt lịch thành công!</div>' +
-                '<div class="card"><div class="card-body"><h5 class="card-title">Thông tin đặt lịch</h5>' +
-                '<ul class="list-unstyled mb-0">' +
-                '<li><strong>Tên:</strong> ' + escapeHtml(name.value) + '</li>' +
-                (company?('<li><strong>Đơn vị:</strong> '+escapeHtml(company)+'</li>'):'') +
-                '<li><strong>Phone:</strong> ' + escapeHtml(phone.value) + '</li>' +
-                '<li><strong>Zalo:</strong> ' + escapeHtml(zalo.value) + '</li>' +
-                '<li><strong>Ngày:</strong> ' + escapeHtml(date.value) + (time?(' - '+escapeHtml(time)):'') + '</li>' +
-                (guests?('<li><strong>Số lượng:</strong> '+escapeHtml(guests)+'</li>'):'') +
-                (purpose?('<li><strong>Mục đích:</strong> '+escapeHtml(purpose)+'</li>'):'') +
-                (device?('<li><strong>Thiết bị yêu cầu:</strong> '+escapeHtml(device)+'</li>'):'') +
-                (social?('<li><strong>Social:</strong> '+escapeHtml(social)+'</li>'):'') +
-                (notes?('<li><strong>Ghi chú:</strong> '+escapeHtml(notes)+'</li>'):'') +
-                '<li><strong>Kênh biết đến:</strong> ' + escapeHtml(channels.join(', ')) + '</li>' +
-                '</ul></div></div>';
+            function validateDate(v) {
+                const d = new Date(v);
+                if (isNaN(d.getTime())) return false;
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                return d >= today;
+            }
 
-            form.reset();
-        });
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
 
-        function escapeHtml(s){
-            return String(s).replace(/[&<>"']/g, function(m){
-                return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+                result.style.display = 'none';
+                result.innerHTML = '';
+                channelsFeedback.style.display = 'none';
+
+                let valid = true;
+                const name = document.getElementById('bookingName');
+                const phone = document.getElementById('bookingPhone');
+                const zalo = document.getElementById('bookingZalo');
+                const date = document.getElementById('bookingDate');
+
+                [name, phone, zalo, date].forEach(clearError);
+
+                if (!validateName(name.value)) { showError(name, 'Vui lòng nhập tên hợp lệ (ít nhất 2 ký tự).'); valid = false; }
+                if (!validatePhone(phone.value)) { showError(phone, 'Số điện thoại không hợp lệ.'); valid = false; }
+                if (!validatePhone(zalo.value)) { showError(zalo, 'Zalo không hợp lệ.'); valid = false; }
+                if (!validateDate(date.value)) { showError(date, 'Vui lòng chọn ngày hôm nay hoặc ngày tương lai.'); valid = false; }
+
+                const guestsEl = document.getElementById('bookingGuests');
+                const guestsVal = guestsEl.value.trim();
+                if (guestsVal !== '') {
+                    const n = Number(guestsVal);
+                    if (!Number.isInteger(n) || n <= 0) {
+                        showError(guestsEl, 'Số lượng phải là số nguyên dương.'); valid = false;
+                    } else {
+                        clearError(guestsEl);
+                    }
+                }
+
+                const channels = Array.from(document.querySelectorAll('.channel-checkbox')).filter(c => c.checked).map(c => c.value);
+                if (channels.length === 0) { channelsFeedback.style.display = 'block'; valid = false; }
+
+                if (!valid) return;
+
+                const company = document.getElementById('bookingCompany').value.trim();
+                const time = document.getElementById('bookingTime').value.trim();
+                const guests = document.getElementById('bookingGuests').value.trim();
+                const purpose = document.getElementById('bookingPurpose').value.trim();
+                const device = document.getElementById('bookingDevice').value.trim();
+                const social = document.getElementById('bookingSocial').value.trim();
+                const notes = document.getElementById('bookingNotes').value.trim();
+
+                result.style.display = 'block';
+                result.innerHTML = '<div class="alert alert-success">Đã đặt lịch thành công!</div>' +
+                    '<div class="card"><div class="card-body"><h5 class="card-title">Thông tin đặt lịch</h5>' +
+                    '<ul class="list-unstyled mb-0">' +
+                    '<li><strong>Tên:</strong> ' + escapeHtml(name.value) + '</li>' +
+                    (company ? ('<li><strong>Đơn vị:</strong> ' + escapeHtml(company) + '</li>') : '') +
+                    '<li><strong>Phone:</strong> ' + escapeHtml(phone.value) + '</li>' +
+                    '<li><strong>Zalo:</strong> ' + escapeHtml(zalo.value) + '</li>' +
+                    '<li><strong>Ngày:</strong> ' + escapeHtml(date.value) + (time ? (' - ' + escapeHtml(time)) : '') + '</li>' +
+                    (guests ? ('<li><strong>Số lượng:</strong> ' + escapeHtml(guests) + '</li>') : '') +
+                    (purpose ? ('<li><strong>Mục đích:</strong> ' + escapeHtml(purpose) + '</li>') : '') +
+                    (device ? ('<li><strong>Thiết bị yêu cầu:</strong> ' + escapeHtml(device) + '</li>') : '') +
+                    (social ? ('<li><strong>Social:</strong> ' + escapeHtml(social) + '</li>') : '') +
+                    (notes ? ('<li><strong>Ghi chú:</strong> ' + escapeHtml(notes) + '</li>') : '') +
+                    '<li><strong>Kênh biết đến:</strong> ' + escapeHtml(channels.join(', ')) + '</li>' +
+                    '</ul></div></div>';
+
+                form.reset();
             });
-        }
-    })();
+
+            function escapeHtml(s) {
+                return String(s).replace(/[&<>"']/g, function (m) {
+                    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m];
+                });
+            }
+        })();
     </script>
+    <script src="../Script/search.js"></script>
 </body>
 </html>

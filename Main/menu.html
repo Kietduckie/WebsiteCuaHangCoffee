@@ -568,7 +568,7 @@
         <div class="inner"><i class="bi bi-cart-check-fill fs-5"></i><span id="toast-msg">Đã thêm vào giỏ hàng!</span></div>
     </div>
 
-   <div class="lb-overlay" id="lbOverlay"></div>
+    <div class="lb-overlay" id="lbOverlay"></div>
     <img id="lbImg" class="lb-img" src="" alt="" style="display:none;" />
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -655,30 +655,30 @@
             const cat = CATS.find(c => c.key === p.category);
             const badgeLabel = cat ? cat.label : p.category;
             return `
-        <div class="col drink-card-wrap" data-cat="${p.category}" data-name="${p.name.toLowerCase()}" data-id="${p.id}">
-          <div class="drink-card">
-            <div class="img-wrap">
-              <span class="badge-label">${badgeLabel}</span>
-              <img src="${p.img}" alt="${p.name}" loading="lazy"
-                   onerror="this.src='https://placehold.co/300x210/efe6e1/6f4e37?text=${encodeURIComponent(p.name)}'"/>
-            </div>
-            <div class="card-body">
-              <div class="card-title">${p.name}</div>
-              <p class="card-desc">${desc}</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price" data-price-id="${p.id}">${fmt(p.price)}</span>
+            <div class="col drink-card-wrap" data-cat="${p.category}" data-name="${p.name.toLowerCase()}" data-id="${p.id}">
+              <div class="drink-card">
+                <div class="img-wrap">
+                  <span class="badge-label">${badgeLabel}</span>
+                  <img src="${p.img}" alt="${p.name}" loading="lazy"
+                       onerror="this.src='https://placehold.co/300x210/efe6e1/6f4e37?text=${encodeURIComponent(p.name)}'"/>
+                </div>
+                <div class="card-body">
+                  <div class="card-title">${p.name}</div>
+                  <p class="card-desc">${desc}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price" data-price-id="${p.id}">${fmt(p.price)}</span>
+                  </div>
+                  <div class="btn-row">
+                    <button class="btn-add" onclick="addToCart('${p.id}','${p.name.replace(/'/g, "\\'")}',${p.price})">
+                      <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                    </button>
+                    <button class="btn-detail zoom-btn" type="button" aria-label="Xem hình">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div class="btn-row">
-                <button class="btn-add" onclick="addToCart('${p.id}','${p.name.replace(/'/g, "\\'")}',${p.price})">
-                  <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
-                </button>
-                <button class="btn-detail zoom-btn" type="button" aria-label="Xem hình">
-                  <i class="bi bi-eye"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>`;
+            </div>`;
         }
 
         function renderSections() {
@@ -693,18 +693,18 @@
                     ? `<div class="empty-cat"><i class="bi ${cat.icon}"></i>Chưa có sản phẩm trong danh mục này.</div>`
                     : '';
                 html += `
-          <section id="${cat.key}" class="mb-5 cat-section" data-cat="${cat.key}">
-            <div class="cat-section-title">
-              <span class="dot"></span>
-              <i class="bi ${cat.icon} me-2" style="color:var(--tan);font-size:1.1rem;"></i>
-              ${cat.label}
-              <a href="${cat.page}" class="ms-auto btn btn-sm btn-coffee-outline" style="font-size:.8rem;padding:.3rem .8rem;">
-                Xem trang riêng <i class="bi bi-arrow-right ms-1"></i>
-              </a>
-            </div>
-            ${empty}
-            <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3">${cardRows}</div>
-          </section>`;
+              <section id="${cat.key}" class="mb-5 cat-section" data-cat="${cat.key}">
+                <div class="cat-section-title">
+                  <span class="dot"></span>
+                  <i class="bi ${cat.icon} me-2" style="color:var(--tan);font-size:1.1rem;"></i>
+                  ${cat.label}
+                  <a href="${cat.page}" class="ms-auto btn btn-sm btn-coffee-outline" style="font-size:.8rem;padding:.3rem .8rem;">
+                    Xem trang riêng <i class="bi bi-arrow-right ms-1"></i>
+                  </a>
+                </div>
+                ${empty}
+                <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-3">${cardRows}</div>
+              </section>`;
             });
 
             container.innerHTML = html;
@@ -713,9 +713,9 @@
         function renderSidebar() {
             const sb = document.getElementById('sidebar-list');
             sb.innerHTML = CATS.map(c => `
-        <a href="#${c.key}" class="list-group-item list-group-item-action py-2" onclick="scrollToCat('${c.key}')">
-          <i class="bi ${c.icon} me-2" style="color:var(--tan);"></i>${c.label}
-        </a>`).join('');
+            <a href="#${c.key}" class="list-group-item list-group-item-action py-2" onclick="scrollToCat('${c.key}')">
+              <i class="bi ${c.icon} me-2" style="color:var(--tan);"></i>${c.label}
+            </a>`).join('');
         }
 
         function scrollToCat(key) {
@@ -742,12 +742,12 @@
             mm.innerHTML = CATS.map(cat => {
                 const items = all.filter(p => p.category === cat.key);
                 return `
-          <div class="col">
-            <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">${cat.label.toUpperCase()}</h6>
-            <div class="d-flex flex-column">
-              ${items.map(p => `<a class="dropdown-item py-05 text-truncate" href="menu.html#${cat.key}">${p.name}</a>`).join('')}
-            </div>
-          </div>`;
+              <div class="col">
+                <h6 class="fw-bold text-warning border-bottom pb-1 mb-2" style="font-size:14px">${cat.label.toUpperCase()}</h6>
+                <div class="d-flex flex-column">
+                  ${items.map(p => `<a class="dropdown-item py-05 text-truncate" href="menu.html#${cat.key}">${p.name}</a>`).join('')}
+                </div>
+              </div>`;
             }).join('');
         }
 
@@ -886,5 +886,6 @@
         });
         window.addEventListener('hashchange', handleHash);
     </script>
+    <script src="../Script/search.js"></script>
 </body>
 </html>
