@@ -157,12 +157,12 @@
         const searchBtn = document.getElementById('search-btn');
         const tbody = document.getElementById('customers-tbody');
 
-    
         function renderCustomers() {
-            
-            let users = JSON.parse(localStorage.getItem('cafe_users'));
+            let users = JSON.parse(localStorage.getItem('cafe_users')) || [];
+            let orders = JSON.parse(localStorage.getItem('cafe_orders')) || [];
 
-            if (!users || users.length === 0) {
+            // Nếu hệ thống hoàn toàn trống (lần đầu chạy), khởi tạo 2 user mẫu cho hệ thống sinh động
+            if (users.length === 0) {
                 users = [
                     { id: "KH201", name: "Nguyễn Văn Nam", phone: "0908.123.XXX", email: "namnguyen@gmail.com", totalOrders: 12, rank: "Thành viên Vàng", isLocked: false },
                     { id: "KH202", name: "Lê Thị Mai", phone: "0917.456.XXX", email: "maile98@gmail.com", totalOrders: 5, rank: "Thành viên Bạc", isLocked: false }
@@ -170,43 +170,68 @@
                 localStorage.setItem('cafe_users', JSON.stringify(users));
             }
 
-           
+            // ĐỒNG BỘ REAL-TIME: Tính toán số lượng đơn hàng thực tế dựa trên lịch sử đặt hàng thành công
+            users = users.map(user => {
+                // Đếm số đơn hàng có trạng thái "Đã giao hàng" trùng số điện thoại hoặc trùng họ tên khách hàng
+                const realTimeOrdersCount = orders.filter(order =>
+                    (order.customerPhone === user.phone || order.customerName === user.name)
+                ).length;
+
+                // Nếu khách đặt qua trang trực tiếp mà chưa qua bước đăng ký, mặc định lấy giá trị cũ hoặc giá trị tính toán lớn nhất
+                if (realTimeOrdersCount > 0) {
+                    user.totalOrders = realTimeOrdersCount;
+
+                    // Tự động phân cấp hạng thành viên dựa trên số đơn hàng thực tế đặt được
+                    if (user.totalOrders >= 10) user.rank = "Thành viên Kim cương";
+                    else if (user.totalOrders >= 5) user.rank = "Thành viên Vàng";
+                    else if (user.totalOrders >= 2) user.rank = "Thành viên Bạc";
+                    else user.rank = "Thành viên Đồng";
+                }
+                return user;
+            });
+
+            // Cập nhật lại mảng dữ liệu sạch sau khi tính toán vào LocalStorage
+            localStorage.setItem('cafe_users', JSON.stringify(users));
+
             const noResultRow = document.getElementById('no-result-row');
             tbody.innerHTML = '';
             tbody.appendChild(noResultRow);
 
-            
             users.forEach(user => {
                 const tr = document.createElement('tr');
                 tr.className = 'customer-row';
                 tr.dataset.id = user.id;
 
-                let badgeClass = 'bg-secondary';
-                if (user.rank.includes('Vàng')) badgeClass = 'bg-danger';
-                if (user.rank.includes('Kim cương')) badgeClass = 'bg-dark';
+                // Đổ màu class badge chuẩn chỉnh theo cấp bậc
+                let badgeClass = 'bg-secondary'; // Mặc định hạng Đồng/Bạc
+                if (user.rank.includes('Bạc')) badgeClass = 'bg-info text-dark';
+                if (user.rank.includes('Vàng')) badgeClass = 'bg-warning text-dark';
+                if (user.rank.includes('Kim cương')) badgeClass = 'bg-danger';
 
                 tr.innerHTML = `
-                    <td class="fw-bold text-muted">#${user.id}</td>
-                    <td class="fw-semibold cust-name">${user.name}</td>
-                    <td class="cust-phone">${user.phone}</td>
-                    <td>${user.email}</td>
-                    <td class="fw-bold text-center">${user.totalOrders} đơn</td>
-                    <td><span class="badge ${badgeClass}">${user.rank}</span></td>
-                    <td class="text-center">
-                        <button class="btn btn-sm ${user.isLocked ? 'btn-danger' : 'btn-outline-danger'} btn-toggle-lock" title="${user.isLocked ? 'Mở khóa tài khoản' : 'Khóa tài khoản'}">
-                            <i class="fa-solid ${user.isLocked ? 'fa-user-lock' : 'fa-user-slash'}"></i>
-                        </button>
-                    </td>
-                `;
+            <td class="fw-bold text-muted">#${user.id}</td>
+            <td class="fw-semibold cust-name">${user.name}</td>
+            <td class="cust-phone">${user.phone}</td>
+            <td>${user.email ? user.email : '<i>Vãng lai (Đặt tại quầy)</i>'}</td>
+            <td class="fw-bold text-center text-primary">${user.totalOrders} đơn</td>
+            <td><span class="badge ${badgeClass}">${user.rank}</span></td>
+            <td class="text-center">
+                <button class="btn btn-sm ${user.isLocked ? 'btn-danger' : 'btn-outline-danger'} btn-toggle-lock" title="${user.isLocked ? 'Mở khóa tài khoản' : 'Khóa tài khoản'}">
+                    <i class="fa-solid ${user.isLocked ? 'fa-user-lock' : 'fa-user-slash'}"></i>
+                </button>
+            </td>
+        `;
                 tbody.insertBefore(tr, noResultRow);
             });
 
-  
             initLockEvents();
         }
 
-
         function initLockEvents() {
+            document.querySelectorAll('.btn-toggle-lock').forEach(btn => {
+                btn.replaceWith(btn.cloneNode(true)); // Xóa bỏ trùng lặp sự kiện click (lặp bộ nhớ)
+            });
+
             document.querySelectorAll('.btn-toggle-lock').forEach(btn => {
                 btn.addEventListener('click', function () {
                     const row = this.closest('.customer-row');
@@ -216,7 +241,7 @@
                     users = users.map(user => {
                         if (user.id === userId) {
                             user.isLocked = !user.isLocked;
-                            alert(`${user.isLocked ? 'Đã khóa' : 'Đã mở khóa'} tài khoản của khách hàng: ${user.name}`);
+                            alert(`${user.isLocked ? '🔒 Đã khóa thành công' : '🔓 Đã mở khóa'} tài khoản của khách hàng: ${user.name}`);
                         }
                         return user;
                     });
@@ -227,7 +252,6 @@
             });
         }
 
-       
         function searchCustomers() {
             const keyword = searchInput.value.trim().toLowerCase();
             const rows = tbody.querySelectorAll('tr.customer-row');
@@ -253,7 +277,6 @@
         searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') searchCustomers(); });
         searchBtn.addEventListener('click', searchCustomers);
 
-    
         document.addEventListener('DOMContentLoaded', renderCustomers);
     </script>
 </body>

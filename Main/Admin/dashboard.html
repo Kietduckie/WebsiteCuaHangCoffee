@@ -90,7 +90,6 @@
             width: 100%;
         }
 
-        
         @media (min-width: 1200px) {
             .col-xl-custom {
                 flex: 0 0 20%;
@@ -132,7 +131,7 @@
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
                         <div class="text-muted small fw-semibold text-uppercase">Doanh thu ngày</div>
-                        <h4 class="fw-bold m-0 mt-1 text-danger">1.450.000đ</h4>
+                        <h4 id="today-revenue" class="fw-bold m-0 mt-1 text-danger">0đ</h4>
                     </div>
                     <div class="icon-box bg-danger bg-opacity-10 text-danger"><i class="fa-solid fa-money-bill-wave"></i></div>
                 </div>
@@ -141,7 +140,7 @@
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
                         <div class="text-muted small fw-semibold text-uppercase">Đơn hoàn thành</div>
-                        <h4 class="fw-bold m-0 mt-1 text-success">38 đơn</h4>
+                        <h4 id="completed-orders-count" class="fw-bold m-0 mt-1 text-success">0 đơn</h4>
                     </div>
                     <div class="icon-box bg-success bg-opacity-10 text-success"><i class="fa-solid fa-circle-check"></i></div>
                 </div>
@@ -150,7 +149,7 @@
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
                         <div class="text-muted small fw-semibold text-uppercase">Sản phẩm đã bán</div>
-                        <h4 class="fw-bold m-0 mt-1 text-warning">86 ly</h4>
+                        <h4 id="total-items-sold" class="fw-bold m-0 mt-1 text-warning">0 ly</h4>
                     </div>
                     <div class="icon-box bg-warning bg-opacity-10 text-warning"><i class="fa-solid fa-cup-straw-juice"></i></div>
                 </div>
@@ -158,8 +157,8 @@
             <div class="col-12 col-sm-6 col-xl-custom">
                 <div class="stat-card p-3 d-flex align-items-center justify-content-between">
                     <div>
-                        <div class="text-muted small fw-semibold text-uppercase">Khách hàng mới</div>
-                        <h4 class="fw-bold m-0 mt-1 text-primary">12 người</h4>
+                        <div class="text-muted small fw-semibold text-uppercase">Tổng khách hàng</div>
+                        <h4 id="total-customers" class="fw-bold m-0 mt-1 text-primary">0 người</h4>
                     </div>
                     <div class="icon-box bg-primary bg-opacity-10 text-primary"><i class="fa-solid fa-user-plus"></i></div>
                 </div>
@@ -207,27 +206,6 @@
                         </tr>
                     </thead>
                     <tbody id="dash-orders-tbody">
-                        <tr id="dash-row-DH101">
-                            <td class="fw-bold text-muted">#DH101</td>
-                            <td class="small">14:25 - Hôm nay</td>
-                            <td class="fw-semibold">2x Cà phê sữa đá, 1x Bạc xỉu</td>
-                            <td class="fw-bold text-danger">109.000đ</td>
-                            <td class="dash-status"><span class="badge bg-warning text-dark badge-status">Chờ làm</span></td>
-                        </tr>
-                        <tr id="dash-row-DH102">
-                            <td class="fw-bold text-muted">#DH102</td>
-                            <td class="small">14:10 - Hôm nay</td>
-                            <td class="fw-semibold">1x Trà đào cam sả (Size L)</td>
-                            <td class="fw-bold text-danger">49.000đ</td>
-                            <td class="dash-status"><span class="badge bg-success badge-status">Đã hoàn thành</span></td>
-                        </tr>
-                        <tr id="dash-row-DH103">
-                            <td class="fw-bold text-muted">#DH103</td>
-                            <td class="small">13:45 - Hôm nay</td>
-                            <td class="fw-semibold">1x Matcha đá xay, 1x Cà phê đen đá</td>
-                            <td class="fw-bold text-danger">94.000đ</td>
-                            <td class="dash-status"><span class="badge bg-danger badge-status">Đã hủy</span></td>
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -237,85 +215,189 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-    
-        const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
-        new Chart(ctxRevenue, {
-            type: 'line',
-            data: {
-                labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ Nhật'],
-                datasets: [{
-                    label: 'Doanh thu (VNĐ)',
-                    data: [1200000, 1500000, 1100000, 1650000, 1450000, 2100000, 2400000],
-                    borderColor: '#6F4E37',
-                    backgroundColor: 'rgba(111, 78, 55, 0.1)',
-                    tension: 0.3,
-                    fill: true
-                }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
+        // Biến toàn cục giữ đối tượng chart để có thể xóa/vẽ lại khi update dữ liệu
+        let revenueChartInstance = null;
+        let categoryChartInstance = null;
 
-      
-        const ctxCategory = document.getElementById('categoryChart').getContext('2d');
-        new Chart(ctxCategory, {
-            type: 'doughnut',
-            data: {
-                labels: ['Cà phê', 'Trà trái cây', 'Đá xay', 'Bánh ngọt'],
-                datasets: [{
-                    data: [45, 25, 20, 10],
-                    backgroundColor: ['#6F4E37', '#D2B48C', '#EFE6E1', '#3E2723']
-                }]
-            },
-            options: { responsive: true, maintainAspectRatio: false }
-        });
-
-    
-        const DASH_STATUS = {
-            PENDING: { badge: 'bg-warning text-dark', text: 'Chờ làm' },
-            DELIVERED: { badge: 'bg-success', text: 'Đã hoàn thành' },
-            CANCELLED: { badge: 'bg-danger', text: 'Đã hủy' },
-        };
-
-     
-        function syncDashboardOrders() {
-            document.querySelectorAll('#dash-orders-tbody tr').forEach(row => {
-                const orderId = row.id.replace('dash-row-', '');
-                const saved = localStorage.getItem('order_' + orderId);
-                if (saved && DASH_STATUS[saved]) {
-                    const s = DASH_STATUS[saved];
-                    row.querySelector('.dash-status').innerHTML = `<span class="badge ${s.badge} badge-status">${s.text}</span>`;
-                }
-            });
+        // Hàm tiện ích lấy chuỗi ngày hiện tại dạng DD/MM/YYYY (ví dụ: "08/06/2026")
+        function getTodayString() {
+            const today = new Date();
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const yyyy = today.getFullYear();
+            return `${dd}/${mm}/${yyyy}`;
         }
 
-   
-        function updateProductCount() {
-        
-            const products = JSON.parse(localStorage.getItem('cafe_products')) || [];
-       
-            const totalCount = products.length;
-        
-            const productCountElement = document.getElementById('total-products');
-            if (productCountElement) {
-                productCountElement.textContent = totalCount + " món";
+        // Hàm định dạng tiền tệ (ví dụ: 30000 -> "30.000đ")
+        function formatCurrency(num) {
+            return num.toLocaleString('vi-VN') + 'đ';
+        }
+
+        // Hàm chính tính toán và cập nhật toàn bộ giao diện Dashboard
+        function initDashboard() {
+            // Đọc dữ liệu từ localStorage
+            const orders = JSON.parse(localStorage.getItem('cafe_orders')) || [];
+            const users = JSON.parse(localStorage.getItem('cafe_users')) || [];
+            const menu = JSON.parse(localStorage.getItem('cafe_menu')) || [];
+
+            const todayStr = getTodayString();
+
+            // --- 1. TÍNH TOÁN CÁC THẺ CARD SỐ LIỆU TỔNG QUAN ---
+            let todayRevenue = 0;
+            let completedCount = 0;
+            let totalItemsSold = 0;
+
+            orders.forEach(order => {
+                // Kiểm tra xem chuỗi thời gian có chứa ngày hôm nay không (ví dụ "11:21 - 08/06/2026")
+                const isToday = order.time && order.time.includes(todayStr);
+
+                if (order.status === "Đã giao hàng") {
+                    completedCount++;
+
+                    // Tính doanh thu ngày hôm nay
+                    if (isToday) {
+                        todayRevenue += Number(order.total || 0);
+                    }
+
+                    // Tính tổng số ly nước/bánh đã bán thành công
+                    if (order.items && Array.isArray(order.items)) {
+                        order.items.forEach(item => {
+                            totalItemsSold += Number(item.quantity || 0);
+                        });
+                    }
+                }
+            });
+
+            // Đổ số liệu vào DOM
+            document.getElementById('today-revenue').textContent = formatCurrency(todayRevenue);
+            document.getElementById('completed-orders-count').textContent = completedCount + " đơn";
+            document.getElementById('total-items-sold').textContent = totalItemsSold + " ly";
+            document.getElementById('total-customers').textContent = users.length + " người";
+            document.getElementById('total-products').textContent = menu.length + " món";
+
+
+            // --- 2. XỬ LÝ DỮ LIỆU BIỂU ĐỒ 1: DOANH THU TUẦN ---
+            // Khởi tạo mảng doanh thu tương ứng Thứ 2 -> Chủ Nhật
+            const weeklyData = [0, 0, 0, 0, 0, 0, 0];
+
+            // Hàm tìm thứ trong tuần từ chuỗi DD/MM/YYYY
+            function getDayOfWeek(dateStr) {
+                const parts = dateStr.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+                if (!parts) return -1;
+                const dateObj = new Date(parts[3], parts[2] - 1, parts[1]);
+                let day = dateObj.getDay(); // 0: Chủ Nhật, 1: Thứ 2,...
+                return day === 0 ? 6 : day - 1; // Quy đổi về index mảng: Thứ 2 = 0, ..., CN = 6
+            }
+
+            orders.forEach(order => {
+                if (order.status === "Đã giao hàng" && order.time) {
+                    const dayIndex = getDayOfWeek(order.time);
+                    if (dayIndex !== -1) {
+                        weeklyData[dayIndex] += Number(order.total || 0);
+                    }
+                }
+            });
+
+            // Vẽ/Cập nhật Biểu đồ Doanh thu Tuần
+            const ctxRevenue = document.getElementById('revenueChart').getContext('2d');
+            if (revenueChartInstance) revenueChartInstance.destroy(); // Hủy chart cũ trước khi tạo mới
+
+            revenueChartInstance = new Chart(ctxRevenue, {
+                type: 'line',
+                data: {
+                    labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7', 'Chủ Nhật'],
+                    datasets: [{
+                        label: 'Doanh thu thực tế (VNĐ)',
+                        data: weeklyData,
+                        borderColor: '#6F4E37',
+                        backgroundColor: 'rgba(111, 78, 55, 0.1)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+
+            // --- 3. XỬ LÝ DỮ LIỆU BIỂU ĐỒ 2: TỶ LỆ MÓN TIÊU THỤ ---
+            // Logic phân loại danh mục tự động dựa trên từ khóa (Mã ID hoặc Tên) của item
+            const categoryCounts = { 'Cà phê': 0, 'Trà trái cây': 0, 'Đá xay': 0, 'Bánh ngọt': 0 };
+
+            orders.forEach(order => {
+                if (order.status === "Đã giao hàng" && order.items) {
+                    order.items.forEach(item => {
+                        const name = item.name.toLowerCase();
+                        const id = (item.id || '').toUpperCase();
+
+                        // Phân loại động dựa trên ID sản phẩm hoặc ký tự trong tên món
+                        if (id.startsWith('CF') || id.startsWith('ES') || name.includes('cà phê') || name.includes('bạc xỉu') || name.includes('latte')) {
+                            categoryCounts['Cà phê'] += Number(item.quantity || 0);
+                        } else if (id.startsWith('T') || name.includes('trà')) {
+                            categoryCounts['Trà trái cây'] += Number(item.quantity || 0);
+                        } else if (id.startsWith('IC') || name.includes('đá xay') || name.includes('matcha')) {
+                            categoryCounts['Đá xay'] += Number(item.quantity || 0);
+                        } else if (id.startsWith('B') || name.includes('bánh') || name.includes('su kem')) {
+                            categoryCounts['Bánh ngọt'] += Number(item.quantity || 0);
+                        } else {
+                            categoryCounts['Cà phê'] += Number(item.quantity || 0); // Nhóm mặc định nếu không khớp
+                        }
+                    });
+                }
+            });
+
+            // Vẽ/Cập nhật Biểu đồ Tròn
+            const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+            if (categoryChartInstance) categoryChartInstance.destroy();
+
+            categoryChartInstance = new Chart(ctxCategory, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(categoryCounts),
+                    datasets: [{
+                        data: Object.values(categoryCounts),
+                        backgroundColor: ['#6F4E37', '#D2B48C', '#EFE6E1', '#3E2723']
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+
+            // --- 4. RENDER BẢNG ĐƠN HÀNG VỪA PHÁT SINH (LẤY 4 ĐƠN MỚI NHẤT) ---
+            const tbody = document.getElementById('dash-orders-tbody');
+            tbody.innerHTML = ''; // Xóa sạch dữ liệu mẫu tĩnh cũ
+
+            // Đảo ngược mảng orders để lấy đơn hàng mới tạo lên trên đầu
+            const recentOrders = [...orders].reverse().slice(0, 4);
+
+            if (recentOrders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center text-muted py-3">Chưa có đơn hàng nào phát sinh</td></tr>`;
+            } else {
+                recentOrders.forEach(order => {
+                    // Xử lý gom danh sách tên món đặt (Ví dụ: "1x Latte, 1x Bạc Xỉu")
+                    const itemsString = order.items.map(item => `${item.quantity}x ${item.name}`).join(', ');
+
+                    // Cấu hình Badge màu sắc theo trạng thái đơn hàng
+                    let badgeClass = 'bg-warning text-dark';
+                    if (order.status === 'Đã giao hàng') badgeClass = 'bg-success';
+                    if (order.status === 'Đã hủy' || order.status === 'CANCELLED') badgeClass = 'bg-danger';
+
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td class="fw-bold text-muted">#${order.id}</td>
+                        <td class="small">${order.time || 'Không rõ'}</td>
+                        <td class="fw-semibold">${itemsString}</td>
+                        <td class="fw-bold text-danger">${formatCurrency(Number(order.total || 0))}</td>
+                        <td><span class="badge ${badgeClass} badge-status">${order.status || 'Chờ làm'}</span></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
             }
         }
 
-
-        document.addEventListener("DOMContentLoaded", function () {
-            syncDashboardOrders();
-            updateProductCount();
-        });
-
-    
-        window.addEventListener('focus', function () {
-            syncDashboardOrders();
-            updateProductCount();
-        });
-        window.addEventListener('storage', function () {
-            syncDashboardOrders();
-            updateProductCount();
-        });
+        // Thiết lập lắng nghe sự kiện tải trang và đồng bộ dữ liệu Tab
+        document.addEventListener("DOMContentLoaded", initDashboard);
+        window.addEventListener('focus', initDashboard);
+        window.addEventListener('storage', initDashboard);
     </script>
 </body>
 </html>

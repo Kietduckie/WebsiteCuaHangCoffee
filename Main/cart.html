@@ -530,56 +530,78 @@
         }
       }
 
-      function handleCheckout(event) {
-        if (event) event.preventDefault();
+        function handleCheckout(event) {
+            if (event) event.preventDefault();
 
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        if (cart.length === 0) {
-          alert("Giỏ hàng của bạn đang trống!");
-          return;
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Giỏ hàng của bạn đang trống!");
+                return;
+            }
+
+            // 1. Lấy thông tin phiên làm việc hiện tại
+            let currentUser = localStorage.getItem("currentUser");
+            let customerName = "";
+            let customerPhone = "";
+
+            if (currentUser) {
+                try {
+                    // Đề phòng trường hợp currentUser bị parse lỗi hoặc bọc chuỗi kép
+                    if (typeof currentUser === "string" && currentUser.startsWith("{")) {
+                        currentUser = JSON.parse(currentUser);
+                    } else if (typeof currentUser === "string") {
+                        currentUser = JSON.parse(currentUser);
+                    }
+
+                    // 2. SỬA LỖI CHÍNH: Kiểm tra linh hoạt tất cả các kiểu đặt tên thuộc tính (Key)
+                    customerName = currentUser.name || currentUser.fullName || currentUser.username || currentUser.hoten || "";
+                    customerPhone = currentUser.phone || currentUser.phoneNumber || currentUser.sdt || currentUser.dienthoai || "";
+
+                } catch (e) {
+                    console.error("Lỗi đọc dữ liệu người dùng từ localStorage:", e);
+                }
+            }
+
+            // Ép kiểu về chuỗi và cắt khoảng trắng thừa
+            customerName = String(customerName).trim();
+            customerPhone = String(customerPhone).trim();
+
+            // 3. Nếu thực sự không có thông tin (Chưa đăng nhập hoặc thông tin rỗng) thì mới hiện prompt
+            if (customerName === "" || customerName === "undefined" || customerPhone === "" || customerPhone === "undefined") {
+                customerName = prompt("Nhập họ tên của bạn:", customerName === "undefined" ? "" : customerName) || "";
+                customerPhone = prompt("Nhập số điện thoại của bạn:", customerPhone === "undefined" ? "" : customerPhone) || "";
+
+                if (!customerName.trim() || !customerPhone.trim()) {
+                    alert("Vui lòng điền đầy đủ thông tin để đặt hàng!");
+                    return;
+                }
+            }
+
+            // 4. Tiến hành tạo đơn hàng khi đã có đủ thông tin
+            const totalAmount = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+            const orderId = "DH" + Math.floor(100 + Math.random() * 900);
+            const now = new Date();
+            const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate().toString().padStart(2, "0")}/${(now.getMonth() + 1).toString().padStart(2, "0")}/${now.getFullYear()}`;
+
+            const newOrder = {
+                id: orderId,
+                customerName: customerName.trim(),
+                customerPhone: customerPhone.trim(),
+                items: cart,
+                total: totalAmount,
+                time: timeText,
+                status: "Chờ xử lý"
+            };
+
+            let orders = JSON.parse(localStorage.getItem("cafe_orders")) || [];
+            orders.unshift(newOrder);
+            localStorage.setItem("cafe_orders", JSON.stringify(orders));
+
+            // Xóa giỏ hàng và chuyển hướng
+            localStorage.removeItem("cart");
+            alert(`Đặt hàng thành công! Mã đơn của bạn là: #${orderId}`);
+            window.location.href = "menu.html";
         }
-
-        const customerName = prompt("Nhập họ tên của bạn:") || "";
-        const customerPhone = prompt("Nhập số điện thoại của bạn:") || "";
-
-        if (!customerName.trim() || !customerPhone.trim()) {
-          alert("Vui lòng điền đầy đủ thông tin để đặt hàng!");
-          return;
-        }
-
-        const totalAmount = cart.reduce(
-          (sum, item) => sum + item.price * item.quantity,
-          0,
-        );
-
-        const itemsText = cart
-          .map((item) => `${item.quantity}x ${item.name}`)
-          .join(", ");
-
-        const orderId = "DH" + Math.floor(100 + Math.random() * 900);
-
-        const now = new Date();
-        const timeText = `${now.getHours().toString().padStart(2, "0")}:${now.getMinutes().toString().padStart(2, "0")} - ${now.getDate().toString().padStart(2, "0")}/${(now.getMonth() + 1).toString().padStart(2, "0")}/${now.getFullYear()}`;
-
-        const newOrder = {
-          id: orderId,
-          customerName: customerName,
-          customerPhone: customerPhone,
-          items: itemsText,
-          total: totalAmount,
-          time: timeText,
-          status: "Chờ xử lý",
-        };
-
-        let orders = JSON.parse(localStorage.getItem("cafe_orders")) || [];
-        orders.unshift(newOrder);
-        localStorage.setItem("cafe_orders", JSON.stringify(orders));
-
-        localStorage.removeItem("cart");
-
-        alert(`Đặt hàng thành công! Mã đơn của bạn là: #${orderId}`);
-        window.location.href = "menu.html";
-      }
 
       document.addEventListener("DOMContentLoaded", () => {
         renderCart();

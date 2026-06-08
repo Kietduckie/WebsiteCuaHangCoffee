@@ -1,465 +1,396 @@
 ﻿<!doctype html>
 <html lang="vi">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quản lý đơn hàng - Cafe Order</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet" />
     <link rel="stylesheet" href="CSS/Style.css" />
     <link rel="stylesheet" href="CSS/admin.css" />
-    <link rel="stylesheet" href="CSS/admin.css" />
     <style>
-      :root {
-        --primary-color: #6f4e37;
-        --secondary-color: #d2b48c;
-        --bg-light: #f5ebe6;
-        --text-dark: #3e2723;
-      }
+        :root {
+            --primary-color: #6f4e37;
+            --secondary-color: #d2b48c;
+            --bg-light: #f5ebe6;
+            --text-dark: #3e2723;
+        }
 
-      body {
-        background-color: var(--bg-light);
-        color: var(--text-dark);
-      }
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
 
-      .admin-navbar {
-        background-color: var(--primary-color) !important;
-        border-bottom: 4px solid var(--secondary-color);
-      }
+        .admin-navbar {
+            background-color: var(--primary-color) !important;
+            border-bottom: 4px solid var(--secondary-color);
+        }
 
-      .admin-navbar .nav-link {
-        color: rgba(255, 255, 255, 0.8) !important;
-        font-weight: 600;
-        padding: 10px 20px !important;
-      }
+            .admin-navbar .nav-link {
+                color: rgba(255, 255, 255, 0.8) !important;
+                font-weight: 600;
+                padding: 10px 20px !important;
+            }
 
-      .admin-navbar .nav-link:hover,
-      .admin-navbar .nav-link.active {
-        background-color: var(--secondary-color) !important;
-        color: var(--text-dark) !important;
-      }
+                .admin-navbar .nav-link:hover,
+                .admin-navbar .nav-link.active {
+                    background-color: var(--secondary-color) !important;
+                    color: var(--text-dark) !important;
+                }
 
-      .order-card {
-        background: #fff;
-        border: 1px solid var(--secondary-color);
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
-      }
+        .order-card {
+            background: #fff;
+            border: 1px solid var(--secondary-color);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(111, 78, 55, 0.05);
+        }
 
-      .table th {
-        background-color: #efe6e1 !important;
-        color: var(--text-dark);
-        font-weight: 700;
-      }
+        .table th {
+            background-color: #efe6e1 !important;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
-      <div class="container-fluid px-4">
-        <a class="navbar-brand text-white fw-bold" href="#"
-          ><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a
-        >
-        <button
-          class="navbar-toggler text-white border-white"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#adminNav"
-        >
-          <i class="fa-solid fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="adminNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
-            <li class="nav-item">
-              <a href="dashboard.html" class="nav-link"
-                ><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="products.html" class="nav-link"
-                ><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="orders.html" class="nav-link active"
-                ><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a
-              >
-            </li>
-            <li class="nav-item">
-              <a href="customers.html" class="nav-link"
-                ><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a
-              >
-            </li>
-          </ul>
-          <div
-            class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0"
-          >
-            <span
-              class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0"
-              >Quyền: Admin</span
-            >
-            <a
-              href="file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html"
-              class="text-white text-decoration-none"
-              ><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a
-            >
-          </div>
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-white fw-bold" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <button class="navbar-toggler text-white border-white"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#adminNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="orders.html" class="nav-link active"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href="file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html"
+                       class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
+                </div>
+            </div>
         </div>
-      </div>
     </nav>
 
     <main class="container py-4">
-      <div
-        class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25"
-      >
-        <h3 class="fw-bold m-0 text-uppercase">Danh sách đơn hàng nhận được</h3>
-        <div class="d-flex gap-2">
-          <select class="form-select form-select-sm" style="width: 180px">
-            <option>Tất cả trạng thái</option>
-            <option>Chờ xử lý</option>
-            <option>Đang làm món</option>
-            <option>Đã giao hàng</option>
-          </select>
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+            <h3 class="fw-bold m-0 text-uppercase">Danh sách đơn hàng nhận được</h3>
+            <div class="d-flex gap-2">
+                <select class="form-select form-select-sm" style="width: 180px">
+                    <option>Tất cả trạng thái</option>
+                    <option>Chờ xử lý</option>
+                    <option>Đang làm món</option>
+                    <option>Đã giao hàng</option>
+                </select>
+            </div>
         </div>
-      </div>
 
-      <div class="order-card p-4">
-        <div class="table-responsive">
-          <table class="table table-hover align-middle m-0">
-            <thead>
-              <tr>
-                <th>Mã Đơn</th>
-                <th>Khách hàng</th>
-                <th>Chi tiết món đặt</th>
-                <th>Tổng tiền</th>
-                <th>Thời gian</th>
-                <th>Trạng thái</th>
-                <th class="text-center">Thao tác</th>
-              </tr>
-            </thead>
-            <tbody id="orders-tbody">
-              <tr id="row-DH101">
-                <td class="fw-bold text-secondary">#DH101</td>
-                <td>
-                  <div class="fw-semibold">Nguyễn Văn Nam</div>
-                  <small class="text-muted">0908.123.XXX</small>
-                </td>
-                <td>
-                  <div class="small">2x Cà phê sữa đá</div>
-                  <div class="small text-muted">Mẹo: Ít ngọt, nhiều đá</div>
-                </td>
-                <td class="fw-bold text-danger">70,000đ</td>
-                <td class="small text-muted">09:45 - Hôm nay</td>
-                <td class="status-cell">
-                  <span class="badge bg-warning text-dark px-2 py-1"
-                    >Chờ xử lý</span
-                  >
-                </td>
-                <td class="text-center action-cell">
-                  <button
-                    class="btn btn-sm btn-outline-success btn-confirm"
-                    data-order="DH101"
-                    title="Xác nhận đơn"
-                  >
-                    <i class="fa-solid fa-check"></i>
-                  </button>
-                  <button
-                    class="btn btn-sm btn-outline-danger btn-cancel"
-                    data-order="DH101"
-                    title="Hủy đơn"
-                  >
-                    <i class="fa-solid fa-xmark"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr id="row-DH102">
-                <td class="fw-bold text-secondary">#DH102</td>
-                <td>
-                  <div class="fw-semibold">Lê Thị Mai</div>
-                  <small class="text-muted">0917.456.XXX</small>
-                </td>
-                <td>
-                  <div class="small">1x Matcha đá xay, 1x Tiramisu</div>
-                </td>
-                <td class="fw-bold text-danger">110,000đ</td>
-                <td class="small text-muted">08:30 - Hôm nay</td>
-                <td class="status-cell">
-                  <span class="badge bg-success px-2 py-1">Đã hoàn thành</span>
-                </td>
-                <td class="text-center action-cell">
-                  <span class="text-muted small"
-                    ><i class="fa-solid fa-circle-check text-success me-1"></i
-                    >Đã xử lý</span
-                  >
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="order-card p-4">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle m-0">
+                    <thead>
+                        <tr>
+                            <th>Mã Đơn</th>
+                            <th>Khách hàng</th>
+                            <th>Chi tiết món đặt</th>
+                            <th>Tổng tiền</th>
+                            <th>Thời gian</th>
+                            <th>Trạng thái</th>
+                            <th class="text-center">Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-tbody">
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      const ordersTbody = document.getElementById("orders-tbody");
-      const statusFilter = document.querySelector(".form-select");
+        const ordersTbody = document.getElementById("orders-tbody");
+        const statusFilter = document.querySelector(".form-select");
 
-      let editOrderId = null;
+        let editOrderId = null;
 
-      const defaultOrders = [
-        {
-          id: "DH101",
-          customerName: "Nguyễn Văn Nam",
-          customerPhone: "0901234567",
-          items: "1x Cà phê sữa đá",
-          total: 29000,
-          time: "08:30 - 28/05/2026",
-          status: "Chờ xử lý",
-        },
-      ];
+        const defaultOrders = [
+            {
+                id: "DH101",
+                customerName: "Nguyễn Văn Nam",
+                customerPhone: "0901234567",
+                items: "1x Cà phê sữa đá",
+                total: 29000,
+                time: "08:30 - 28/05/2026",
+                status: "Chờ xử lý",
+            },
+        ];
 
-      let orders =
-        JSON.parse(localStorage.getItem("cafe_orders")) || defaultOrders;
-      if (!localStorage.getItem("cafe_orders")) {
-        localStorage.setItem("cafe_orders", JSON.stringify(orders));
-      }
-
-      function getStatusBadge(status) {
-        if (status === "Chờ xử lý")
-          return '<span class="badge bg-warning text-dark"><i class="fa-solid fa-clock me-1"></i>Chờ xử lý</span>';
-        if (status === "Đang làm món")
-          return '<span class="badge bg-info text-dark"><i class="fa-solid fa-mug-hot me-1"></i>Đang làm món</span>';
-        if (status === "Đã giao hàng")
-          return '<span class="badge bg-success"><i class="fa-solid fa-circle-check me-1"></i>Đã giao hàng</span>';
-        return '<span class="badge bg-danger"><i class="fa-solid fa-circle-xmark me-1"></i>Đã hủy</span>';
-      }
-
-      function loadMenuToSelect() {
-        const menuList = JSON.parse(localStorage.getItem("cafe_menu")) || [];
-        const selectElement = document.getElementById("order-product-select");
-
-        if (!selectElement) return;
-
-        selectElement.innerHTML =
-          '<option value="">-- Chọn món ăn từ Menu --</option>';
-        menuList.forEach((product) => {
-          selectElement.innerHTML += `<option value="${product.id}" data-name="${product.name}" data-price="${product.price}">${product.name} (${Number(product.price).toLocaleString()}đ)</option>`;
-        });
-      }
-
-      function renderOrders() {
-        ordersTbody.innerHTML = "";
-        const filterValue = statusFilter.value;
-
-        orders.forEach((order) => {
-          if (
-            filterValue !== "Tất cả trạng thái" &&
-            order.status !== filterValue
-          ) {
-            return;
-          }
-
-          let actionButtons = "";
-          if (order.status === "Chờ xử lý") {
-            actionButtons = `
-                <button class="btn btn-sm btn-success me-1" onclick="updateStatus('${order.id}', 'Đang làm món')"><i class="fa-solid fa-check"></i> Nhận</button>
-                <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark"></i> Hủy</button>
-            `;
-          } else if (order.status === "Đang làm món") {
-            actionButtons = `
-                <button class="btn btn-sm btn-primary me-1" onclick="updateStatus('${order.id}', 'Đã giao hàng')"><i class="fa-solid fa-truck"></i> Giao</button>
-                <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark"></i> Hủy</button>
-            `;
-          } else {
-            actionButtons = `<span class="text-muted small me-2">Hoàn thành</span>`;
-          }
-
-          actionButtons += `
-            <button class="btn btn-sm btn-outline-secondary me-1" onclick="openEditOrderModal('${order.id}')" title="Sửa đơn"><i class="fa-solid fa-pen"></i></button>
-            <button class="btn btn-sm btn-outline-dark" onclick="deleteOrder('${order.id}')" title="Xóa đơn"><i class="fa-solid fa-trash"></i></button>
-          `;
-
-          ordersTbody.innerHTML += `
-            <tr id="row-${order.id}">
-                <td class="fw-bold text-secondary">#${order.id}</td>
-                <td>
-                    <div class="fw-semibold">${order.customerName}</div>
-                    <small class="text-muted"><i class="fa-solid fa-phone me-1" style="font-size:10px;"></i>${order.customerPhone}</small>
-                </td>
-                <td class="small text-truncate" style="max-width: 250px;">${order.items}</td>
-                <td class="fw-bold text-brown">${Number(order.total).toLocaleString("vi-VN")}đ</td>
-                <td class="small text-muted">${order.time}</td>
-                <td>${getStatusBadge(order.status)}</td>
-                <td class="text-center">${actionButtons}</td>
-            </tr>
-        `;
-        });
-      }
-
-      function saveOrder(e) {
-        if (e) e.preventDefault();
-
-        const name = document
-          .getElementById("order-customer-name")
-          .value.trim();
-        const phone = document
-          .getElementById("order-customer-phone")
-          .value.trim();
-        const selectElement = document.getElementById("order-product-select");
-        const selectedOption =
-          selectElement.options[selectElement.selectedIndex];
-
-        if (!name || !phone || !selectElement.value) {
-          alert("Vui lòng nhập đầy đủ thông tin và chọn món ăn!");
-          return;
+        let orders =
+            JSON.parse(localStorage.getItem("cafe_orders")) || defaultOrders;
+        if (!localStorage.getItem("cafe_orders")) {
+            localStorage.setItem("cafe_orders", JSON.stringify(orders));
         }
 
-        const productName = selectedOption.getAttribute("data-name");
-        const productPrice = Number(selectedOption.getAttribute("data-price"));
+        function getStatusBadge(status) {
+            if (status === "Chờ xử lý")
+                return '<span class="badge bg-warning text-dark"><i class="fa-solid fa-clock me-1"></i>Chờ xử lý</span>';
+            if (status === "Đang làm món")
+                return '<span class="badge bg-info text-dark"><i class="fa-solid fa-mug-hot me-1"></i>Đang làm món</span>';
+            if (status === "Đã giao hàng")
+                return '<span class="badge bg-success"><i class="fa-solid fa-circle-check me-1"></i>Đã giao hàng</span>';
+            return '<span class="badge bg-danger"><i class="fa-solid fa-circle-xmark me-1"></i>Đã hủy</span>';
+        }
 
-        const now = new Date();
-        const timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")} - ${String(now.getDate()).padStart(2, "0")}/${String(now.getMonth() + 1).padStart(2, "0")}/${now.getFullYear()}`;
+        function loadMenuToSelect() {
+            const menuList = JSON.parse(localStorage.getItem("cafe_menu")) || [];
+            const selectElement = document.getElementById("order-product-select");
 
-        if (editOrderId === null) {
-          const newOrder = {
-            id: "DH" + Math.floor(100 + Math.random() * 900), // Tạo mã đơn ngẫu nhiên dạng DH123
-            customerName: name,
-            customerPhone: phone,
-            items: `1x ${productName}`,
-            total: productPrice,
-            time: timeStr,
-            status: "Chờ xử lý",
-          };
-          orders.push(newOrder);
-          showToast("Thêm đơn hàng thành công!", "success");
-        } else {
-          orders = orders.map((order) => {
-            if (order.id === editOrderId) {
-              order.customerName = name;
-              order.customerPhone = phone;
-              order.items = `1x ${productName}`;
-              order.total = productPrice;
+            if (!selectElement) return;
+
+            selectElement.innerHTML =
+                '<option value="">-- Chọn món ăn từ Menu --</option>';
+            menuList.forEach((product) => {
+                selectElement.innerHTML += `<option value="${product.id}" data-name="${product.name}" data-price="${product.price}">${product.name} (${Number(product.price).toLocaleString()}đ)</option>`;
+            });
+        }
+
+        // --- HÀM RENDER ĐÃ ĐƯỢC CHỈNH SỬA ĐỂ KHẮC PHỤC LỖI ---
+        function renderOrders() {
+            ordersTbody.innerHTML = "";
+            const filterValue = statusFilter.value;
+
+            orders.forEach((order) => {
+                if (
+                    filterValue !== "Tất cả trạng thái" &&
+                    order.status !== filterValue
+                ) {
+                    return;
+                }
+
+                // Kiểm tra và xử lý hiển thị danh sách món ăn một cách an toàn
+                let stringChiTietMon = "";
+                if (Array.isArray(order.items)) {
+                    // Nếu là mảng Object (Từ giỏ hàng thật đổ về)
+                    stringChiTietMon = order.items.map(item => `${item.quantity}x ${item.name}`).join(", ");
+                } else if (typeof order.items === "string") {
+                    // Nếu là chuỗi (Từ dữ liệu mẫu mặc định)
+                    stringChiTietMon = order.items;
+                } else {
+                    stringChiTietMon = "Không rõ món";
+                }
+
+                let actionButtons = "";
+                if (order.status === "Chờ xử lý") {
+                    actionButtons = `
+                    <button class="btn btn-sm btn-success me-1" onclick="updateStatus('${order.id}', 'Đang làm món')"><i class="fa-solid fa-check"></i> Nhận</button>
+                    <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                `;
+                } else if (order.status === "Đang làm món") {
+                    actionButtons = `
+                    <button class="btn btn-sm btn-primary me-1" onclick="updateStatus('${order.id}', 'Đã giao hàng')"><i class="fa-solid fa-truck"></i> Giao</button>
+                    <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                `;
+                } else {
+                    actionButtons = `<span class="text-muted small me-2">Hoàn thành</span>`;
+                }
+
+                actionButtons += `
+                <button class="btn btn-sm btn-outline-secondary me-1" onclick="openEditOrderModal('${order.id}')" title="Sửa đơn"><i class="fa-solid fa-pen"></i></button>
+                <button class="btn btn-sm btn-outline-dark" onclick="deleteOrder('${order.id}')" title="Xóa đơn"><i class="fa-solid fa-trash"></i></button>
+              `;
+
+                // Cập nhật ${order.items} cũ thành ${stringChiTietMon} vừa xử lý ở trên
+                ordersTbody.innerHTML += `
+                <tr id="row-${order.id}">
+                    <td class="fw-bold text-secondary">#${order.id}</td>
+                    <td>
+                        <div class="fw-semibold">${order.customerName || "Khách vãng lai"}</div>
+                        <small class="text-muted"><i class="fa-solid fa-phone me-1" style="font-size:10px;"></i>${order.customerPhone || "Chưa có SĐT"}</small>
+                    </td>
+                    <td class="small text-truncate" style="max-width: 250px;" title="${stringChiTietMon}">${stringChiTietMon}</td>
+                    <td class="fw-bold text-brown">${Number(order.total || 0).toLocaleString("vi-VN")}đ</td>
+                    <td class="small text-muted">${order.time}</td>
+                    <td>${getStatusBadge(order.status)}</td>
+                    <td class="text-center">${actionButtons}</td>
+                </tr>
+            `;
+            });
+        }
+
+        function saveOrder(e) {
+            if (e) e.preventDefault();
+
+            const name = document
+                .getElementById("order-customer-name")
+                .value.trim();
+            const phone = document
+                .getElementById("order-customer-phone")
+                .value.trim();
+            const selectElement = document.getElementById("order-product-select");
+            const selectedOption =
+                selectElement.options[selectElement.selectedIndex];
+
+            if (!name || !phone || !selectElement.value) {
+                alert("Vui lòng nhập đầy đủ thông tin và chọn món ăn!");
+                return;
             }
-            return order;
-          });
-          showToast(`Cập nhật đơn hàng #${editOrderId} thành công!`, "success");
-          editOrderId = null;
+
+            const productName = selectedOption.getAttribute("data-name");
+            const productPrice = Number(selectedOption.getAttribute("data-price"));
+
+            const now = new Date();
+            const timeStr = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")} - ${String(now.getDate()).padStart(2, "0")}/${String(now.getMonth() + 1).padStart(2, "0")}/${now.getFullYear()}`;
+
+            if (editOrderId === null) {
+                const newOrder = {
+                    id: "DH" + Math.floor(100 + Math.random() * 900),
+                    customerName: name,
+                    customerPhone: phone,
+                    items: `1x ${productName}`,
+                    total: productPrice,
+                    time: timeStr,
+                    status: "Chờ xử lý",
+                };
+                orders.push(newOrder);
+                showToast("Thêm đơn hàng thành công!", "success");
+            } else {
+                orders = orders.map((order) => {
+                    if (order.id === editOrderId) {
+                        order.customerName = name;
+                        order.customerPhone = phone;
+                        order.items = `1x ${productName}`;
+                        order.total = productPrice;
+                    }
+                    return order;
+                });
+                showToast(`Cập nhật đơn hàng #${editOrderId} thành công!`, "success");
+                editOrderId = null;
+            }
+
+            localStorage.setItem("cafe_orders", JSON.stringify(orders));
+            renderOrders();
+
+            const modalElement = document.getElementById("orderModal");
+            const modalInstance =
+                bootstrap.Modal.getInstance(modalElement) ||
+                new bootstrap.Modal(modalElement);
+            modalInstance.hide();
+            document.getElementById("order-form").reset();
         }
 
-        localStorage.setItem("cafe_orders", JSON.stringify(orders));
-        renderOrders();
-
-        const modalElement = document.getElementById("orderModal");
-        const modalInstance =
-          bootstrap.Modal.getInstance(modalElement) ||
-          new bootstrap.Modal(modalElement);
-        modalInstance.hide();
-        document.getElementById("order-form").reset();
-      }
-
-      function openAddOrderModal() {
-        editOrderId = null;
-        document.getElementById("orderModalLabel").innerText =
-          "Thêm đơn hàng mới";
-        document.getElementById("order-form").reset();
-        loadMenuToSelect();
-        const myModal = new bootstrap.Modal(
-          document.getElementById("orderModal"),
-        );
-        myModal.show();
-      }
-
-      function openEditOrderModal(orderId) {
-        const targetOrder = orders.find((o) => o.id === orderId);
-        if (!targetOrder) return;
-
-        editOrderId = orderId;
-        document.getElementById("orderModalLabel").innerText =
-          `Chỉnh sửa đơn hàng #${orderId}`;
-
-        document.getElementById("order-customer-name").value =
-          targetOrder.customerName;
-        document.getElementById("order-customer-phone").value =
-          targetOrder.customerPhone;
-
-        loadMenuToSelect();
-
-        const selectElement = document.getElementById("order-product-select");
-        for (let i = 0; i < selectElement.options.length; i++) {
-          if (
-            targetOrder.items.includes(
-              selectElement.options[i].getAttribute("data-name"),
-            )
-          ) {
-            selectElement.selectedIndex = i;
-            break;
-          }
+        function openAddOrderModal() {
+            editOrderId = null;
+            document.getElementById("orderModalLabel").innerText =
+                "Thêm đơn hàng mới";
+            document.getElementById("order-form").reset();
+            loadMenuToSelect();
+            const myModal = new bootstrap.Modal(
+                document.getElementById("orderModal"),
+            );
+            myModal.show();
         }
 
-        const myModal = new bootstrap.Modal(
-          document.getElementById("orderModal"),
-        );
-        myModal.show();
-      }
+        function openEditOrderModal(orderId) {
+            const targetOrder = orders.find((o) => o.id === orderId);
+            if (!targetOrder) return;
 
-      function deleteOrder(orderId) {
-        if (confirm(`Bạn có chắc chắn muốn xóa đơn hàng #${orderId} không?`)) {
-          orders = orders.filter((o) => o.id !== orderId);
-          localStorage.setItem("cafe_orders", JSON.stringify(orders));
-          renderOrders();
-          showToast(`Đã xóa đơn hàng #${orderId}`, "danger");
+            editOrderId = orderId;
+            document.getElementById("orderModalLabel").innerText =
+                `Chỉnh sửa đơn hàng #${orderId}`;
+
+            document.getElementById("order-customer-name").value =
+                targetOrder.customerName;
+            document.getElementById("order-customer-phone").value =
+                targetOrder.customerPhone;
+
+            loadMenuToSelect();
+
+            const selectElement = document.getElementById("order-product-select");
+            for (let i = 0; i < selectElement.options.length; i++) {
+                if (
+                    typeof targetOrder.items === "string" &&
+                    targetOrder.items.includes(
+                        selectElement.options[i].getAttribute("data-name"),
+                    )
+                ) {
+                    selectElement.selectedIndex = i;
+                    break;
+                }
+            }
+
+            const myModal = new bootstrap.Modal(
+                document.getElementById("orderModal"),
+            );
+            myModal.show();
         }
-      }
 
-      function updateStatus(orderId, nextStatus) {
-        orders = orders.map((order) => {
-          if (order.id === orderId) {
-            order.status = nextStatus;
-          }
-          return order;
+        function deleteOrder(orderId) {
+            if (confirm(`Bạn có chắc chắn muốn xóa đơn hàng #${orderId} không?`)) {
+                orders = orders.filter((o) => o.id !== orderId);
+                localStorage.setItem("cafe_orders", JSON.stringify(orders));
+                renderOrders();
+                showToast(`Đã xóa đơn hàng #${orderId}`, "danger");
+            }
+        }
+
+        function updateStatus(orderId, nextStatus) {
+            orders = orders.map((order) => {
+                if (order.id === orderId) {
+                    order.status = nextStatus;
+                }
+                return order;
+            });
+
+            localStorage.setItem("cafe_orders", JSON.stringify(orders));
+            renderOrders();
+
+            let msg = `Đơn hàng #${orderId} đã chuyển sang trạng thái: ${nextStatus}!`;
+            showToast(msg, nextStatus === "Đã hủy" ? "danger" : "success");
+        }
+
+        statusFilter.addEventListener("change", renderOrders);
+
+        function showToast(message, type) {
+            const existing = document.getElementById("order-toast");
+            if (existing) existing.remove();
+
+            const toast = document.createElement("div");
+            toast.id = "order-toast";
+            toast.style.cssText =
+                "position:fixed;bottom:24px;right:24px;z-index:9999;min-width:260px;";
+            toast.innerHTML = `
+            <div class="alert alert-${type} alert-dismissible shadow mb-0 d-flex align-items-center gap-2" role="alert">
+                <i class="fa-solid ${type === "success" ? "fa-circle-check" : "fa-circle-xmark"}"></i>
+                <span>${message}</span>
+                <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
+            </div>`;
+            document.body.appendChild(toast);
+            setTimeout(() => toast.remove(), 3000);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderOrders();
+            const form = document.getElementById("order-form");
+            if (form) form.addEventListener("submit", saveOrder);
         });
-
-        localStorage.setItem("cafe_orders", JSON.stringify(orders));
-        renderOrders();
-
-        let msg = `Đơn hàng #${orderId} đã chuyển sang trạng thái: ${nextStatus}!`;
-        showToast(msg, nextStatus === "Đã hủy" ? "danger" : "success");
-      }
-
-      statusFilter.addEventListener("change", renderOrders);
-
-      function showToast(message, type) {
-        const existing = document.getElementById("order-toast");
-        if (existing) existing.remove();
-
-        const toast = document.createElement("div");
-        toast.id = "order-toast";
-        toast.style.cssText =
-          "position:fixed;bottom:24px;right:24px;z-index:9999;min-width:260px;";
-        toast.innerHTML = `
-        <div class="alert alert-${type} alert-dismissible shadow mb-0 d-flex align-items-center gap-2" role="alert">
-            <i class="fa-solid ${type === "success" ? "fa-circle-check" : "fa-circle-xmark"}"></i>
-            <span>${message}</span>
-            <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
-        </div>`;
-        document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 3000);
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        renderOrders();
-        const form = document.getElementById("order-form");
-        if (form) form.addEventListener("submit", saveOrder);
-      });
     </script>
-  </body>
+</body>
 </html>
