@@ -1,10 +1,8 @@
-﻿/* ==========================================================================
-   STYLE.CSS - THÀNH VIÊN 4: UI/UX, RESPONSIVE & DARK MODE
-   ========================================================================== */
 
-/* 1. HỆ THỐNG BIẾN MÀU & THIẾT KẾ */
+
+
 :root {
-    /* --- LIGHT MODE --- */
+    
     --primary-color: #6F4E37; 
     --secondary-color: #f4f6f9;
     --accent-color: #D2B48C; 
@@ -16,19 +14,19 @@
     --transition: all 0.3s ease-in-out;
 }
 
-/* --- 2. CẤU HÌNH DARK MODE --- */
+
 body.dark-mode {
-    --primary-color: #D2B48C; /* Nâu nhạt nổi bật trên nền tối */
-    --secondary-color: #121212; /* Nền đen sâu */
-    --accent-color: #D2B48C; /* Giữ tone nâu nhạt */
-    --dark-neutral: #e0e0e0; /* Chữ chuyển sang trắng sáng */
-    --light-neutral: #1e1e1e; /* Nền các Card/Navbar chuyển sang xám đen */
+    --primary-color: #D2B48C; 
+    --secondary-color: #121212; 
+    --accent-color: #D2B48C; 
+    --dark-neutral: #e0e0e0; 
+    --light-neutral: #1e1e1e; 
     --border-color: #333333;
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
 }
 
-/* 3. RESET CƠ BẢN & TYPOGRAPHY */
+
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +34,7 @@ body.dark-mode {
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif; /* Font chữ hiện đại thời thượng */
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Roboto, sans-serif; 
     background-color: var(--secondary-color);
     color: var(--dark-neutral);
     transition: var(--transition);
@@ -49,9 +47,9 @@ a {
     transition: var(--transition);
 }
 
-/* 4. BIẾN ĐỔI BOOTSTRAP 5 THEO PHONG CÁCH COFFEE-WEBSTORE */
 
-/* Thanh thông báo nhỏ trên cùng (Promo Bar giống bản mẫu) */
+
+
 .promo-bar {
     background-color: var(--dark-neutral);
     color: var(--light-neutral);
@@ -60,7 +58,7 @@ a {
     letter-spacing: 0.5px;
 }
 
-/* Thanh điều hướng Navbar */
+
 .navbar {
     background-color: var(--light-neutral) !important;
     border-bottom: 1px solid var(--border-color);
@@ -83,7 +81,7 @@ a {
         color: var(--primary-color) !important;
     }
 
-/* Ghi đè các nút bấm (Buttons) */
+
 .btn-primary {
     background-color: var(--primary-color) !important;
     border-color: var(--primary-color) !important;
@@ -114,7 +112,7 @@ a {
         transform: translateY(-2px);
     }
 
-/* 5. GIAO DIỆN CARD SẢN PHẨM LƯỚI (PRODUCT GRID STYLE) */
+
 .product-card {
     background-color: var(--light-neutral);
     border: 1px solid var(--border-color);
@@ -130,7 +128,7 @@ a {
         transform: translateY(-5px);
     }
 
-/* Hiệu ứng zoom ảnh chuẩn E-commerce */
+
 .product-img-wrapper {
     overflow: hidden;
     position: relative;
@@ -148,7 +146,7 @@ a {
     transform: scale(1.08);
 }
 
-/* Nhãn giảm giá / Hot tag */
+
 .product-badge {
     position: absolute;
     top: 12px;
@@ -175,7 +173,7 @@ a {
     color: var(--primary-color);
 }
 
-/* 6. GIỎ HÀNG & FORM VALIDATION ĐỒNG BỘ */
+
 .table {
     color: var(--dark-neutral) !important;
     border-color: var(--border-color) !important;
@@ -193,7 +191,7 @@ a {
         box-shadow: 0 0 0 0.25rem rgba(140, 29, 36, 0.15) !important;
     }
 
-/* Định dạng lỗi Validation Form của Thành viên 2 */
+
 .is-invalid {
     border-color: #dc3545 !important;
 }
@@ -203,7 +201,7 @@ a {
     color: #dc3545;
 }
 
-/* 7. CẤU HÌNH CHO HOẠT ẢNH AOS (AOS ANIMATION HOOKS) */
+
 [data-aos] {
     pointer-events: none;
 }
@@ -212,7 +210,7 @@ body.aos-all [data-aos] {
     pointer-events: auto;
 }
 
-/* 8. NÚT CHUYỂN ĐỔI DARK MODE GẮN CỐ ĐỊNH (FLOAT BUTTON) */
+
 .dark-mode-toggle {
     position: fixed;
     bottom: 25px;
@@ -237,7 +235,7 @@ body.aos-all [data-aos] {
         transform: scale(1.1) rotate(15deg);
     }
 
-/* 9. FOOTER SANG TRỌNG */
+
 footer {
     background-color: var(--dark-neutral);
     color: #A0A0A0;

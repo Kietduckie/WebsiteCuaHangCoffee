@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bean & Brew café</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <style>
+          .btn-coffee {
+        background-color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+        color: #fff !important;
+      }
+
+      .btn-coffee:hover {
+        background-color: #5a3d2b !important;
+        border-color: #5a3d2b !important;
+      }
+
+      .btn-coffee-outline {
+        color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+        background-color: transparent !important;
+      }
+
+      .btn-coffee-outline:hover {
+        background-color: #6f4e37 !important;
+        color: #fff !important;
+      }
+
+      .btn-dark {
+        background-color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+      }
+
+      .btn-dark:hover {
+        background-color: #5a3d2b !important;
+        border-color: #5a3d2b !important;
+      }
+
+      .text-warning {
+        color: #d2b48c !important;
+      }
+
+      .text-danger {
+        color: #6f4e37 !important;
+      }
+
+      .border-warning {
+        border-color: #d2b48c !important;
+      }
+
+      .logo {
+        color: #6f4e37 !important;
+      }
+      .carousel-img {
+        height: 85vh;
+        object-fit: cover;
+        filter: brightness(60%);
+      }
+
+      .carousel-caption {
+        bottom: 25%;
+      }
+
+      .carousel-caption h1 {
+        font-size: 4rem;
+        font-weight: 700;
+      }
+
+      .carousel-caption p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .carousel-img {
+          height: 60vh;
+        }
+
+        .carousel-caption {
+          bottom: 15%;
+        }
+
+        .carousel-caption h1 {
+          font-size: 2rem;
+        }
+
+        .carousel-caption p {
+          font-size: 1rem;
+        }
+      }
+      .related-blog-card {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.related-title {
+    color: #6F4E37;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid rgba(111,78,55,.1);
+}
+
+.related-posts li {
+    margin-bottom: 15px;
+}
+
+.related-posts li:last-child {
+    margin-bottom: 0;
+}
+.related-blog-card{
+    background: linear-gradient(
+        135deg,
+        #FCF8F4,
+        #F3ECE6
+    );
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(111,78,55,.08);
+}
+.related-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 15px;
+    border-radius: 14px;
+
+    text-decoration: none;
+    transition: .3s;
+}
+
+.related-link:hover {
+    background: rgba(111,78,55,.08);
+    transform: translateX(5px);
+}
+
+.related-icon {
+    width: 50px;
+    height: 50px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: rgba(111,78,55,.12);
+}
+
+.related-icon i {
+    color: #6F4E37;
+    font-size: 1.2rem;
+}
+
+.related-category {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #A67C52;
+    margin-bottom: 4px;
+}
+
+.related-link h6 {
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.related-link:hover h6 {
+    color: #6F4E37;
+}
+    </style>
+  </head>
+
+  <body>
+    <header class="bg-white">
+      <div class="container py-3">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-2 col-md-12 text-center text-lg-start">
+            <a
+              href="index.html"
+              class="text-decoration-none d-inline-flex align-items-center gap-2"
+            >
+              <h2 class="logo mb-0">Bean & Brew Café</h2>
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <div class="input-group search-box">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Bạn muốn uống gì hôm nay?"
+              />
+              <button class="btn btn-coffee">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+              <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
+              <a href="cart.html" class="btn btn-coffee"
+                ><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="menu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Trang chủ</a>
+            </li>
+
+            <li class="nav-item dropdown position-static">
+              <a
+                class="nav-link dropdown-toggle"
+                href="menu.html"
+                data-bs-toggle="dropdown"
+                >Menu</a
+              >
+
+              <div class="dropdown-menu mega-menu w-100 p-3">
+                <div class="container-fluid">
+                  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        CÀ PHÊ
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê đen đá</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê sữa đá</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Bạc xỉu</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê đen nóng</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê sữa nóng</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        ESPRESSO
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#espresso"
+                          >Espresso</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#espresso"
+                          >Americano</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#espresso"
+                          >Latte</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cappuccino</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        TRÀ
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#tea"
+                          >Trà đào cam sả</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#tea"
+                          >Trà vải</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#tea"
+                          >Trà sen vàng</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Trà chanh mật ong</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Trà dâu tây</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        ĐÁ XAY
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#ice"
+                          >Matcha đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Chocolate đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Cookies đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Caramel đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Oreo đá xay</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        BÁNH NGỌT
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#ice"
+                          >Red Velvet</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Tiramisu</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Cheesecake</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Croissant Bơ</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Bánh Su Kem</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Về chúng tôi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="promotion.html">Khuyến mãi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="member.html">Hội viên</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booking.html">Đặt bàn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="blog-detail py-5">
+      <div class="container">
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6">
+            <span class="badge px-3 py-2 mb-3"
+      style="background-color:#6F4E37; color:white;">
+    Coffee Art
+</span>
+
+            <h1 class="display-4 fw-bold mb-4">Latte Art là gì?</h1>
+
+            <p class="lead text-muted">
+              Latte Art không chỉ là kỹ thuật pha chế mà còn là nghệ thuật biến
+              những tách cà phê thành các tác phẩm đầy sáng tạo. Từ hình trái
+              tim đơn giản đến những họa tiết phức tạp, Latte Art đã trở thành
+              biểu tượng của văn hóa cà phê hiện đại.
+            </p>
+
+            <div class="d-flex align-items-center mt-4">
+              <img
+                src="../Images/ava.jpg"
+                class="rounded-circle me-3"
+                width="50"
+                height="50"
+              />
+
+              <div>
+                <h6 class="mb-0 fw-bold">Bean & Brew Team</h6>
+                <small class="text-muted">08/06/2026 • 4 phút đọc</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <img
+              src="../Images/blog2(1).jpg"
+              class="img-fluid rounded-4 shadow"
+              alt="Latte Art"
+            />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="blog-content bg-white p-4 rounded-4 shadow-sm">
+              <h2 class="fw-bold mb-3">Latte Art là gì?</h2>
+
+              <p>
+                Latte Art là kỹ thuật tạo hình trên bề mặt cà phê bằng cách kết
+                hợp espresso và sữa tươi được đánh bọt mịn. Những hình ảnh được
+                tạo ra có thể là trái tim, hoa tulip, chiếc lá rosetta hoặc
+                nhiều họa tiết sáng tạo khác.
+              </p>
+
+              <img
+                src="../Images/blog2(2).jpg"
+                class="img-fluid rounded-4 my-4"
+                alt="Latte Art"
+              />
+              <h2 class="fw-bold mb-3">Nguồn gốc của Latte Art</h2>
+
+              <p>
+                Latte Art được cho là bắt nguồn từ Ý – quê hương của espresso.
+                Tuy nhiên, kỹ thuật này thực sự phát triển mạnh mẽ tại Hoa Kỳ
+                vào cuối những năm 1980 khi các Barista bắt đầu thử nghiệm những
+                cách rót sữa sáng tạo lên bề mặt cà phê.
+              </p>
+
+              <p>
+                Theo thời gian, Latte Art không chỉ là một kỹ năng pha chế mà
+                còn trở thành một bộ môn nghệ thuật được yêu thích trên toàn thế
+                giới. Hiện nay có nhiều cuộc thi Latte Art chuyên nghiệp được tổ
+                chức hằng năm nhằm tôn vinh sự sáng tạo và tay nghề của các
+                Barista.
+              </p>
+
+              <h2 class="fw-bold mb-3">Vì sao Latte Art được yêu thích?</h2>
+
+              <p>
+                Latte Art giúp nâng cao trải nghiệm thưởng thức cà phê. Một ly
+                cà phê đẹp mắt không chỉ hấp dẫn về thị giác mà còn thể hiện sự
+                chuyên nghiệp và tay nghề của Barista.
+              </p>
+
+              <div class="alert border-start border-5 border-warning bg-light">
+                <strong>Thú vị:</strong>
+                Một số cuộc thi Latte Art quốc tế có sự tham gia của hàng trăm
+                Barista đến từ khắp nơi trên thế giới.
+              </div>
+
+              <h2 class="fw-bold mb-3">Các hình Latte Art phổ biến</h2>
+
+              <ul>
+                <li>Trái tim</li>
+                <li>Tulip</li>
+                <li>Lá dương xỉ</li>
+                <li>Thiên nga</li>
+              </ul>
+
+              <img
+                src="../Images/blog2(3).jpg"
+                class="img-fluid rounded-4 my-4"
+                alt="Rosetta"
+              />
+
+              <h2 class="fw-bold mb-3">Bí quyết tạo Latte Art đẹp</h2>
+
+              <p>
+                Để tạo nên một tác phẩm Latte Art đẹp mắt, Barista cần chú ý đến
+                nhiều yếu tố khác nhau. Trước tiên, espresso phải được chiết
+                xuất đúng chuẩn với lớp crema dày và mịn. Đây là nền tảng giúp
+                hình vẽ hiện lên rõ nét.
+              </p>
+
+              <p>
+                Tiếp theo là công đoạn đánh sữa. Sữa cần đạt độ mịn như nhung
+                (microfoam), không quá nhiều bọt khí và có độ bóng tự nhiên.
+                Nhiệt độ lý tưởng thường dao động từ 60 đến 65 độ C để giữ được
+                vị ngọt tự nhiên của sữa.
+              </p>
+
+              <p>
+                Cuối cùng là kỹ thuật rót. Người pha chế phải kiểm soát chính
+                xác độ cao của ca sữa, tốc độ rót và chuyển động cổ tay để tạo
+                ra các đường nét mềm mại. Đây là kỹ năng đòi hỏi nhiều thời gian
+                luyện tập và sự kiên nhẫn.
+              </p>
+
+                  Latte Art trong văn hóa cà phê hiện đại
+</h2>
+
+<p>
+    Ngày nay, Latte Art đã trở thành một phần không thể thiếu trong văn hóa cà phê hiện đại. Tại nhiều quán cà phê chuyên nghiệp, khách hàng không chỉ tìm kiếm hương vị mà còn mong muốn được trải nghiệm sự sáng tạo và tính nghệ thuật trong từng ly đồ uống.
+</p>
+
+<p>
+    Một ly Latte Art đẹp không chỉ là thức uống mà còn là cách để Barista gửi gắm sự tâm huyết và niềm đam mê với nghề. Chính điều đó đã khiến Latte Art trở thành biểu tượng của sự tinh tế trong ngành cà phê.
+</p>
+
+<blockquote class="blockquote p-4 rounded-4 mt-4">
+    <p class="mb-0">
+        "Latte Art không chỉ là nghệ thuật trang trí cà phê mà còn là cách người Barista kể câu chuyện của mình qua từng tách cà phê."
+    </p>
+</blockquote>
+            </div>
+          </div>
+         <div class="product-card related-blog-card p-4 mb-4">
+
+    <h4 class="fw-bold related-title">
+        <i class="bi bi-journal-richtext me-2"></i>
+        Bài viết liên quan
+    </h4>
+
+    <ul class="list-unstyled related-posts mb-0">
+
+        <li>
+            <a href="Blog1.html" class="related-link">
+                <div class="related-icon">
+                    <i class="bi bi-cup-hot-fill"></i>
+                </div>
+
+                <div>
+                    <span class="related-category">Coffee Tips</span>
+                    <h6>Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị</h6>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="Blog3.html" class="related-link">
+                <div class="related-icon">
+                    <i class="bi bi-gift-fill"></i>
+                </div>
+
+                <div>
+                    <span class="related-category">Promotion</span>
+                    <h6>Khuyến Mãi Mùa Hè</h6>
+                </div>
+            </a>
+        </li>
+
+        <li>
+            <a href="Blog4.html" class="related-link">
+                <div class="related-icon">
+                    <i class="bi bi-tree-fill"></i>
+                </div>
+
+                <div>
+                    <span class="related-category">Coffee Story</span>
+                    <h6>Câu Chuyện Hạt Cà Phê Việt</h6>
+                </div>
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-dark text-white pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold text-warning mb-3">Bean & Brew</h5>
+            <p class="text-muted">
+              Nơi thưởng thức cà phê nguyên chất và không gian thư giãn hiện
+              đại.
+            </p>
+          </div>
+
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold mb-3">Liên kết</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="index.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Trang chủ</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="menu.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Menu</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="booking.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Đặt bàn</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="contact.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold mb-3">Giờ mở cửa</h5>
+            <p class="text-white-50 mb-1">
+              <i class="bi bi-clock me-2 text-warning"></i>07:00 - 22:00
+            </p>
+            <p class="text-white-50">
+              <i class="bi bi-calendar-check me-2 text-warning"></i>Tất cả các
+              ngày
+            </p>
+          </div>
+
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold mb-3">Liên hệ</h5>
+            <p class="text-white-50 mb-2">
+              <i class="bi bi-geo-alt-fill me-2 text-warning"></i> TP.HCM
+            </p>
+            <p class="text-white-50 mb-2">
+              <i class="bi bi-telephone-fill me-2 text-warning"></i> 0909 999
+              999
+            </p>
+            <p class="text-white-50 mb-2">
+              <i class="bi bi-envelope-fill me-2 text-warning"></i>
+              info@info@bean&brew.vn
+            </p>
+          </div>
+        </div>
+
+        <hr class="text-white-50" />
+
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap pt-2 pb-3"
+        >
+          <div class="mb-2 mb-md-0 fs-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              class="text-white-50 me-3 text-warning-hover"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="text-white-50 me-3 text-warning-hover"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              class="text-white-50 me-3 text-warning-hover"
+            >
+              <i class="bi bi-tiktok"></i>
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              class="text-white-50 text-warning-hover"
+            >
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+          <div class="text-white-50 small">
+            © 2026 Bean & Brew Café. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+

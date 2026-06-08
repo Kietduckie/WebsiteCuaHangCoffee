@@ -1,9 +1,9 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quản lý đơn hàng - Cafe Order</title>
+    <title>Qu?n l� don h�ng - Cafe Order</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -81,22 +81,22 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
             <li class="nav-item">
               <a href="dashboard.html" class="nav-link"
-                ><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a
+                ><i class="fa-solid fa-chart-line me-1"></i>B�o c�o</a
               >
             </li>
             <li class="nav-item">
               <a href="products.html" class="nav-link"
-                ><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a
+                ><i class="fa-solid fa-book-open me-1"></i>Qu?n l� Menu</a
               >
             </li>
             <li class="nav-item">
               <a href="orders.html" class="nav-link active"
-                ><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a
+                ><i class="fa-solid fa-receipt me-1"></i>Qu?n l� don h�ng</a
               >
             </li>
             <li class="nav-item">
               <a href="customers.html" class="nav-link"
-                ><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a
+                ><i class="fa-solid fa-users me-1"></i>Qu?n l� kh�ch h�ng</a
               >
             </li>
           </ul>
@@ -105,12 +105,12 @@
           >
             <span
               class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0"
-              >Quyền: Admin</span
+              >Quy?n: Admin</span
             >
             <a
               href="file:///C:/BaoCaoCacMon/ThietKeWeb/QuanLyCuaHangCafe/QuanLyCuaHangCafe/Main/login.html"
               class="text-white text-decoration-none"
-              ><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a
+              ><i class="fa-solid fa-right-from-bracket me-1"></i>Tho�t</a
             >
           </div>
         </div>
@@ -121,13 +121,13 @@
       <div
         class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25"
       >
-        <h3 class="fw-bold m-0 text-uppercase">Danh sách đơn hàng nhận được</h3>
+        <h3 class="fw-bold m-0 text-uppercase">Danh s�ch don h�ng nh?n du?c</h3>
         <div class="d-flex gap-2">
           <select class="form-select form-select-sm" style="width: 180px">
-            <option>Tất cả trạng thái</option>
-            <option>Chờ xử lý</option>
-            <option>Đang làm món</option>
-            <option>Đã giao hàng</option>
+            <option>T?t c? tr?ng th�i</option>
+            <option>Ch? x? l�</option>
+            <option>�ang l�m m�n</option>
+            <option>�� giao h�ng</option>
           </select>
         </div>
       </div>
@@ -137,45 +137,45 @@
           <table class="table table-hover align-middle m-0">
             <thead>
               <tr>
-                <th>Mã Đơn</th>
-                <th>Khách hàng</th>
-                <th>Chi tiết món đặt</th>
-                <th>Tổng tiền</th>
-                <th>Thời gian</th>
-                <th>Trạng thái</th>
-                <th class="text-center">Thao tác</th>
+                <th>M� �on</th>
+                <th>Kh�ch h�ng</th>
+                <th>Chi ti?t m�n d?t</th>
+                <th>T?ng ti?n</th>
+                <th>Th?i gian</th>
+                <th>Tr?ng th�i</th>
+                <th class="text-center">Thao t�c</th>
               </tr>
             </thead>
             <tbody id="orders-tbody">
               <tr id="row-DH101">
                 <td class="fw-bold text-secondary">#DH101</td>
                 <td>
-                  <div class="fw-semibold">Nguyễn Văn Nam</div>
+                  <div class="fw-semibold">Nguy?n Van Nam</div>
                   <small class="text-muted">0908.123.XXX</small>
                 </td>
                 <td>
-                  <div class="small">2x Cà phê sữa đá</div>
-                  <div class="small text-muted">Mẹo: Ít ngọt, nhiều đá</div>
+                  <div class="small">2x C� ph� s?a d�</div>
+                  <div class="small text-muted">M?o: �t ng?t, nhi?u d�</div>
                 </td>
-                <td class="fw-bold text-danger">70,000đ</td>
-                <td class="small text-muted">09:45 - Hôm nay</td>
+                <td class="fw-bold text-danger">70,000d</td>
+                <td class="small text-muted">09:45 - H�m nay</td>
                 <td class="status-cell">
                   <span class="badge bg-warning text-dark px-2 py-1"
-                    >Chờ xử lý</span
+                    >Ch? x? l�</span
                   >
                 </td>
                 <td class="text-center action-cell">
                   <button
                     class="btn btn-sm btn-outline-success btn-confirm"
                     data-order="DH101"
-                    title="Xác nhận đơn"
+                    title="X�c nh?n don"
                   >
                     <i class="fa-solid fa-check"></i>
                   </button>
                   <button
                     class="btn btn-sm btn-outline-danger btn-cancel"
                     data-order="DH101"
-                    title="Hủy đơn"
+                    title="H?y don"
                   >
                     <i class="fa-solid fa-xmark"></i>
                   </button>
@@ -184,21 +184,21 @@
               <tr id="row-DH102">
                 <td class="fw-bold text-secondary">#DH102</td>
                 <td>
-                  <div class="fw-semibold">Lê Thị Mai</div>
+                  <div class="fw-semibold">L� Th? Mai</div>
                   <small class="text-muted">0917.456.XXX</small>
                 </td>
                 <td>
-                  <div class="small">1x Matcha đá xay, 1x Tiramisu</div>
+                  <div class="small">1x Matcha d� xay, 1x Tiramisu</div>
                 </td>
-                <td class="fw-bold text-danger">110,000đ</td>
-                <td class="small text-muted">08:30 - Hôm nay</td>
+                <td class="fw-bold text-danger">110,000d</td>
+                <td class="small text-muted">08:30 - H�m nay</td>
                 <td class="status-cell">
-                  <span class="badge bg-success px-2 py-1">Đã hoàn thành</span>
+                  <span class="badge bg-success px-2 py-1">�� ho�n th�nh</span>
                 </td>
                 <td class="text-center action-cell">
                   <span class="text-muted small"
                     ><i class="fa-solid fa-circle-check text-success me-1"></i
-                    >Đã xử lý</span
+                    >�� x? l�</span
                   >
                 </td>
               </tr>
@@ -218,12 +218,12 @@
       const defaultOrders = [
         {
           id: "DH101",
-          customerName: "Nguyễn Văn Nam",
+          customerName: "Nguy?n Van Nam",
           customerPhone: "0901234567",
-          items: "1x Cà phê sữa đá",
+          items: "1x C� ph� s?a d�",
           total: 29000,
           time: "08:30 - 28/05/2026",
-          status: "Chờ xử lý",
+          status: "Ch? x? l�",
         },
       ];
 
@@ -234,13 +234,13 @@
       }
 
       function getStatusBadge(status) {
-        if (status === "Chờ xử lý")
-          return '<span class="badge bg-warning text-dark"><i class="fa-solid fa-clock me-1"></i>Chờ xử lý</span>';
-        if (status === "Đang làm món")
-          return '<span class="badge bg-info text-dark"><i class="fa-solid fa-mug-hot me-1"></i>Đang làm món</span>';
-        if (status === "Đã giao hàng")
-          return '<span class="badge bg-success"><i class="fa-solid fa-circle-check me-1"></i>Đã giao hàng</span>';
-        return '<span class="badge bg-danger"><i class="fa-solid fa-circle-xmark me-1"></i>Đã hủy</span>';
+        if (status === "Ch? x? l�")
+          return '<span class="badge bg-warning text-dark"><i class="fa-solid fa-clock me-1"></i>Ch? x? l�</span>';
+        if (status === "�ang l�m m�n")
+          return '<span class="badge bg-info text-dark"><i class="fa-solid fa-mug-hot me-1"></i>�ang l�m m�n</span>';
+        if (status === "�� giao h�ng")
+          return '<span class="badge bg-success"><i class="fa-solid fa-circle-check me-1"></i>�� giao h�ng</span>';
+        return '<span class="badge bg-danger"><i class="fa-solid fa-circle-xmark me-1"></i>�� h?y</span>';
       }
 
       function loadMenuToSelect() {
@@ -250,9 +250,9 @@
         if (!selectElement) return;
 
         selectElement.innerHTML =
-          '<option value="">-- Chọn món ăn từ Menu --</option>';
+          '<option value="">-- Ch?n m�n an t? Menu --</option>';
         menuList.forEach((product) => {
-          selectElement.innerHTML += `<option value="${product.id}" data-name="${product.name}" data-price="${product.price}">${product.name} (${Number(product.price).toLocaleString()}đ)</option>`;
+          selectElement.innerHTML += `<option value="${product.id}" data-name="${product.name}" data-price="${product.price}">${product.name} (${Number(product.price).toLocaleString()}d)</option>`;
         });
       }
 
@@ -262,30 +262,30 @@
 
         orders.forEach((order) => {
           if (
-            filterValue !== "Tất cả trạng thái" &&
+            filterValue !== "T?t c? tr?ng th�i" &&
             order.status !== filterValue
           ) {
             return;
           }
 
           let actionButtons = "";
-          if (order.status === "Chờ xử lý") {
+          if (order.status === "Ch? x? l�") {
             actionButtons = `
-                <button class="btn btn-sm btn-success me-1" onclick="updateStatus('${order.id}', 'Đang làm món')"><i class="fa-solid fa-check"></i> Nhận</button>
-                <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                <button class="btn btn-sm btn-success me-1" onclick="updateStatus('${order.id}', '�ang l�m m�n')"><i class="fa-solid fa-check"></i> Nh?n</button>
+                <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', '�� h?y')"><i class="fa-solid fa-xmark"></i> H?y</button>
             `;
-          } else if (order.status === "Đang làm món") {
+          } else if (order.status === "�ang l�m m�n") {
             actionButtons = `
-                <button class="btn btn-sm btn-primary me-1" onclick="updateStatus('${order.id}', 'Đã giao hàng')"><i class="fa-solid fa-truck"></i> Giao</button>
-                <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', 'Đã hủy')"><i class="fa-solid fa-xmark"></i> Hủy</button>
+                <button class="btn btn-sm btn-primary me-1" onclick="updateStatus('${order.id}', '�� giao h�ng')"><i class="fa-solid fa-truck"></i> Giao</button>
+                <button class="btn btn-sm btn-outline-danger me-1" onclick="updateStatus('${order.id}', '�� h?y')"><i class="fa-solid fa-xmark"></i> H?y</button>
             `;
           } else {
-            actionButtons = `<span class="text-muted small me-2">Hoàn thành</span>`;
+            actionButtons = `<span class="text-muted small me-2">Ho�n th�nh</span>`;
           }
 
           actionButtons += `
-            <button class="btn btn-sm btn-outline-secondary me-1" onclick="openEditOrderModal('${order.id}')" title="Sửa đơn"><i class="fa-solid fa-pen"></i></button>
-            <button class="btn btn-sm btn-outline-dark" onclick="deleteOrder('${order.id}')" title="Xóa đơn"><i class="fa-solid fa-trash"></i></button>
+            <button class="btn btn-sm btn-outline-secondary me-1" onclick="openEditOrderModal('${order.id}')" title="S?a don"><i class="fa-solid fa-pen"></i></button>
+            <button class="btn btn-sm btn-outline-dark" onclick="deleteOrder('${order.id}')" title="X�a don"><i class="fa-solid fa-trash"></i></button>
           `;
 
           ordersTbody.innerHTML += `
@@ -296,7 +296,7 @@
                     <small class="text-muted"><i class="fa-solid fa-phone me-1" style="font-size:10px;"></i>${order.customerPhone}</small>
                 </td>
                 <td class="small text-truncate" style="max-width: 250px;">${order.items}</td>
-                <td class="fw-bold text-brown">${Number(order.total).toLocaleString("vi-VN")}đ</td>
+                <td class="fw-bold text-brown">${Number(order.total).toLocaleString("vi-VN")}d</td>
                 <td class="small text-muted">${order.time}</td>
                 <td>${getStatusBadge(order.status)}</td>
                 <td class="text-center">${actionButtons}</td>
@@ -319,7 +319,7 @@
           selectElement.options[selectElement.selectedIndex];
 
         if (!name || !phone || !selectElement.value) {
-          alert("Vui lòng nhập đầy đủ thông tin và chọn món ăn!");
+          alert("Vui l�ng nh?p d?y d? th�ng tin v� ch?n m�n an!");
           return;
         }
 
@@ -331,16 +331,16 @@
 
         if (editOrderId === null) {
           const newOrder = {
-            id: "DH" + Math.floor(100 + Math.random() * 900), // Tạo mã đơn ngẫu nhiên dạng DH123
+            id: "DH" + Math.floor(100 + Math.random() * 900), // T?o m� don ng?u nhi�n d?ng DH123
             customerName: name,
             customerPhone: phone,
             items: `1x ${productName}`,
             total: productPrice,
             time: timeStr,
-            status: "Chờ xử lý",
+            status: "Ch? x? l�",
           };
           orders.push(newOrder);
-          showToast("Thêm đơn hàng thành công!", "success");
+          showToast("Th�m don h�ng th�nh c�ng!", "success");
         } else {
           orders = orders.map((order) => {
             if (order.id === editOrderId) {
@@ -351,7 +351,7 @@
             }
             return order;
           });
-          showToast(`Cập nhật đơn hàng #${editOrderId} thành công!`, "success");
+          showToast(`C?p nh?t don h�ng #${editOrderId} th�nh c�ng!`, "success");
           editOrderId = null;
         }
 
@@ -369,7 +369,7 @@
       function openAddOrderModal() {
         editOrderId = null;
         document.getElementById("orderModalLabel").innerText =
-          "Thêm đơn hàng mới";
+          "Th�m don h�ng m?i";
         document.getElementById("order-form").reset();
         loadMenuToSelect();
         const myModal = new bootstrap.Modal(
@@ -384,7 +384,7 @@
 
         editOrderId = orderId;
         document.getElementById("orderModalLabel").innerText =
-          `Chỉnh sửa đơn hàng #${orderId}`;
+          `Ch?nh s?a don h�ng #${orderId}`;
 
         document.getElementById("order-customer-name").value =
           targetOrder.customerName;
@@ -412,11 +412,11 @@
       }
 
       function deleteOrder(orderId) {
-        if (confirm(`Bạn có chắc chắn muốn xóa đơn hàng #${orderId} không?`)) {
+        if (confirm(`B?n c� ch?c ch?n mu?n x�a don h�ng #${orderId} kh�ng?`)) {
           orders = orders.filter((o) => o.id !== orderId);
           localStorage.setItem("cafe_orders", JSON.stringify(orders));
           renderOrders();
-          showToast(`Đã xóa đơn hàng #${orderId}`, "danger");
+          showToast(`�� x�a don h�ng #${orderId}`, "danger");
         }
       }
 
@@ -431,8 +431,8 @@
         localStorage.setItem("cafe_orders", JSON.stringify(orders));
         renderOrders();
 
-        let msg = `Đơn hàng #${orderId} đã chuyển sang trạng thái: ${nextStatus}!`;
-        showToast(msg, nextStatus === "Đã hủy" ? "danger" : "success");
+        let msg = `�on h�ng #${orderId} d� chuy?n sang tr?ng th�i: ${nextStatus}!`;
+        showToast(msg, nextStatus === "�� h?y" ? "danger" : "success");
       }
 
       statusFilter.addEventListener("change", renderOrders);
@@ -463,3 +463,4 @@
     </script>
   </body>
 </html>
+

@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bean & Brew café</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <style>
+      .promo-content {
+        background: #fff;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .section-title {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      .section-title::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background: #6f4e37;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-radius: 10px;
+      }
+
+      .promo-content p {
+        line-height: 1.9;
+        color: #555;
+        text-align: justify;
+      }
+
+      
+      .promo-highlight {
+        margin-top: 30px;
+        padding: 25px;
+        background: rgba(111, 78, 55, 0.08);
+        border-left: 5px solid #6f4e37;
+        border-radius: 12px;
+      }
+
+      .promo-highlight h4 {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .promo-highlight ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+
+      .promo-highlight li {
+        margin-bottom: 10px;
+        line-height: 1.8;
+      }
+
+      
+      .timeline {
+        position: relative;
+        margin-top: 30px;
+        padding-left: 35px;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 8px;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        background: #6f4e37;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+        padding: 20px;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .timeline-item::before {
+        content: "";
+        position: absolute;
+        left: -33px;
+        top: 25px;
+        width: 18px;
+        height: 18px;
+        background: #6f4e37;
+        border-radius: 50%;
+        border: 4px solid #fff;
+      }
+
+      .timeline-item h5 {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .timeline-item p {
+        margin-bottom: 0;
+      }
+.related-title {
+    color: #6F4E37;
+    font-weight: 700;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.related-title::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background: #6F4E37;
+    display: block;
+    margin-top: 10px;
+    border-radius: 20px;
+}
+
+.related-card {
+    display: block;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    height: 100%;
+}
+
+.related-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+}
+
+.related-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.related-content {
+    padding: 20px;
+}
+
+.related-category {
+    display: inline-block;
+    background: rgba(111, 78, 55, 0.12);
+    color: #6F4E37;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.related-content h5 {
+    color: #333;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    color: #6F4E37;
+    font-weight: 600;
+}
+
+.related-card:hover .read-more {
+    color: #5A3D2B;
+}
+
+.related-card:hover .read-more i {
+    transform: translateX(5px);
+}
+
+.read-more i {
+    transition: 0.3s ease;
+}
+      .promo-quote {
+    position: relative;
+    margin-top: 50px;
+    padding: 35px 40px;
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid rgba(111, 78, 55, 0.15);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+    color: #555;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    text-align: center;
+    font-style: normal;
+}
+
+.promo-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -20px;
+    left: 30px;
+
+    font-size: 5rem;
+    line-height: 1;
+    color: #6F4E37;
+    opacity: 0.2;
+    font-family: Georgia, serif;
+}
+
+.promo-quote p {
+    margin: 0;
+}
+
+.promo-quote strong {
+    display: block;
+    margin-top: 15px;
+    color: #6F4E37;
+    font-weight: 700;
+}
+      .promo-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: rgba(111, 78, 55, 0.12);
+        border-radius: 50%;
+        transition: 0.3s ease;
+      }
+
+      .promo-icon i {
+        font-size: 2rem;
+        color: #6f4e37;
+      }
+
+      .promo-card {
+        background: #fff;
+        padding: 30px;
+        border-radius: 18px;
+        text-align: center;
+        box-shadow: var(--shadow-sm);
+        transition: 0.3s ease;
+      }
+
+      .promo-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .promo-card:hover .promo-icon {
+        background: #6f4e37;
+      }
+
+      .promo-card:hover .promo-icon i {
+        color: #fff;
+      }
+
+      .promo-card h4 {
+        color: #6f4e37;
+        font-weight: 700;
+        margin-bottom: 15px;
+      }
+
+      .promo-card p {
+        color: #666;
+        line-height: 1.7;
+      }
+      .promo-banner {
+        background:
+          linear-gradient(rgba(111, 78, 55, 0.75), rgba(111, 78, 55, 0.75)),
+          url("../Images/promotion2.jpg");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        min-height: 500px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .btn-coffee {
+        background-color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+        color: #fff !important;
+      }
+
+      .btn-coffee:hover {
+        background-color: #5a3d2b !important;
+        border-color: #5a3d2b !important;
+      }
+
+      .btn-coffee-outline {
+        color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+        background-color: transparent !important;
+      }
+
+      .btn-coffee-outline:hover {
+        background-color: #6f4e37 !important;
+        color: #fff !important;
+      }
+
+      .btn-dark {
+        background-color: #6f4e37 !important;
+        border-color: #6f4e37 !important;
+      }
+
+      .btn-dark:hover {
+        background-color: #5a3d2b !important;
+        border-color: #5a3d2b !important;
+      }
+
+      .text-warning {
+        color: #d2b48c !important;
+      }
+
+      .text-danger {
+        color: #6f4e37 !important;
+      }
+
+      .border-warning {
+        border-color: #d2b48c !important;
+      }
+
+      .logo {
+        color: #6f4e37 !important;
+      }
+      .carousel-img {
+        height: 85vh;
+        object-fit: cover;
+        filter: brightness(60%);
+      }
+
+      .carousel-caption {
+        bottom: 25%;
+      }
+
+      .carousel-caption h1 {
+        font-size: 4rem;
+        font-weight: 700;
+      }
+
+      .carousel-caption p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 768px) {
+        .carousel-img {
+          height: 60vh;
+        }
+
+        .carousel-caption {
+          bottom: 15%;
+        }
+
+        .carousel-caption h1 {
+          font-size: 2rem;
+        }
+
+        .carousel-caption p {
+          font-size: 1rem;
+        }
+      }
+      .promo-cards {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+      }
+
+      .promo-cards .promo-card {
+        flex: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="bg-white">
+      <div class="container py-3">
+        <div class="row align-items-center g-3">
+          <div class="col-lg-2 col-md-12 text-center text-lg-start">
+            <a
+              href="index.html"
+              class="text-decoration-none d-inline-flex align-items-center gap-2"
+            >
+              <h2 class="logo mb-0">Bean & Brew Café</h2>
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <div class="input-group search-box">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Bạn muốn uống gì hôm nay?"
+              />
+              <button class="btn btn-coffee">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12">
+            <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+              <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
+              <a href="cart.html" class="btn btn-coffee"
+                ><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menu"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center" id="menu">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Trang chủ</a>
+            </li>
+
+            <li class="nav-item dropdown position-static">
+              <a
+                class="nav-link dropdown-toggle"
+                href="menu.html"
+                data-bs-toggle="dropdown"
+                >Menu</a
+              >
+
+              <div class="dropdown-menu mega-menu w-100 p-3">
+                <div class="container-fluid">
+                  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        CÀ PHÊ
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê đen đá</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê sữa đá</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Bạc xỉu</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê đen nóng</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cà phê sữa nóng</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        ESPRESSO
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#espresso"
+                          >Espresso</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#espresso"
+                          >Americano</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#espresso"
+                          >Latte</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Cappuccino</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        TRÀ
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#tea"
+                          >Trà đào cam sả</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#tea"
+                          >Trà vải</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#tea"
+                          >Trà sen vàng</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Trà chanh mật ong</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#coffee"
+                          >Trà dâu tây</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        ĐÁ XAY
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#ice"
+                          >Matcha đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Chocolate đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Cookies đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Caramel đá xay</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Oreo đá xay</a
+                        >
+                      </div>
+                    </div>
+
+                    <div class="col">
+                      <h6
+                        class="fw-bold text-warning border-bottom pb-1 mb-2"
+                        style="font-size: 14px"
+                      >
+                        BÁNH NGỌT
+                      </h6>
+                      <div class="d-flex flex-column">
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#ice"
+                          >Red Velvet</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Tiramisu</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Cheesecake</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Croissant Bơ</a
+                        >
+                        <a
+                          class="dropdown-item py-05 text-truncate"
+                          href="menu.html#cake"
+                          >Bánh Su Kem</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Về chúng tôi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="promotion.html">Khuyến mãi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="member.html">Hội viên</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booking.html">Đặt bàn</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Liên hệ</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <section class="summer-promo py-5">
+      <div class="container">
+        <div class="promo-banner text-center rounded-4 p-5 mb-5">
+          <span class="promo-tag">SUMMER SALE 2026</span>
+
+          <h1 class="display-3 fw-bold mt-3">Khuyến Mãi Mùa Hè</h1>
+
+          <p class="lead mt-3">
+            Thưởng thức cà phê yêu thích với hàng loạt ưu đãi hấp dẫn, giảm giá
+            lên đến 30% và nhận nhiều quà tặng độc quyền.
+          </p>
+
+          <a href="menu.html" class="btn btn-coffee btn-lg mt-3">
+            Xem Ưu Đãi Ngay
+          </a>
+        </div>
+
+        <div class="promo-cards">
+          <div class="promo-card h-100">
+            <div class="promo-icon">
+              <i class="bi bi-cup-hot-fill"></i>
+            </div>
+
+            <h4>Giảm 20%</h4>
+
+            <p>Áp dụng cho toàn bộ đồ uống từ 9h đến 11h sáng mỗi ngày.</p>
+          </div>
+
+          <div class="promo-card h-100">
+            <div class="promo-icon">
+              <i class="bi bi-gift-fill"></i>
+            </div>
+
+            <h4>Tặng Quà</h4>
+
+            <p>Hóa đơn từ 200.000 VNĐ nhận ngay ly giữ nhiệt Bean & Brew.</p>
+          </div>
+
+          <div class="promo-card h-100">
+            <div class="promo-icon">
+              <i class="bi bi-stars"></i>
+            </div>
+
+            <h4>Nhân Đôi Điểm</h4>
+
+            <p>
+              Thành viên được nhân đôi điểm tích lũy trong suốt thời gian diễn
+              ra chương trình.
+            </p>
+          </div>
+        </div>
+        <div class="promo-content mt-5">
+          <h2 class="section-title">Chào Hè Cùng Bean & Brew</h2>
+
+          <p>
+            Mùa hè là thời điểm lý tưởng để tận hưởng những ly cà phê mát lạnh
+            và những khoảnh khắc thư giãn bên gia đình, bạn bè. Nhằm tri ân
+            khách hàng, Bean & Brew triển khai chương trình khuyến mãi đặc biệt
+            với nhiều ưu đãi hấp dẫn.
+          </p>
+
+          <p>
+            Trong thời gian diễn ra sự kiện, khách hàng có cơ hội thưởng thức
+            các món đồ uống yêu thích với mức giá ưu đãi, đồng thời nhận được
+            nhiều phần quà giá trị và quyền lợi dành riêng cho hội viên.
+          </p>
+
+          <div class="promo-highlight">
+            <h4>Ưu đãi nổi bật</h4>
+
+            <ul>
+              <li>Giảm 20% toàn bộ cà phê đá.</li>
+              <li>Mua 2 tặng 1 vào mỗi thứ Sáu.</li>
+              <li>Nhân đôi điểm thưởng cho hội viên.</li>
+              <li>Tặng voucher cho khách hàng mới.</li>
+            </ul>
+          </div>
+
+          <h2 class="section-title mt-5">Thời Gian Áp Dụng</h2>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <h5>01/06 - 15/06</h5>
+              <p>Giảm giá đồ uống mùa hè.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h5>16/06 - 30/06</h5>
+              <p>Tặng quà cho hóa đơn từ 200.000 VNĐ.</p>
+            </div>
+
+            <div class="timeline-item">
+              <h5>Toàn bộ tháng 6</h5>
+              <p>Nhân đôi điểm tích lũy cho hội viên.</p>
+            </div>
+          </div>
+
+          <blockquote class="promo-quote">
+            "Mùa hè thêm trọn vẹn khi có cà phê ngon và những ưu đãi hấp dẫn."
+          </blockquote>
+        </div>
+<div class="related-section mt-5">
+    <h3 class="related-title">
+        <i class="bi bi-journal-text me-2"></i>
+        Bài viết liên quan
+    </h3>
+
+    <div class="row g-4">
+
+        <div class="col-lg-4 col-md-6">
+            <a href="Blog1.html" class="related-card">
+                <img src="../Images/blog1.jpg"
+                     alt="Cà phê sữa đá">
+
+                <div class="related-content">
+                    <span class="related-category">
+                        Coffee Tips
+                    </span>
+
+                    <h5>
+                        Bí Quyết Pha Cà Phê Sữa Đá Chuẩn Vị
+                    </h5>
+
+                    <span class="read-more">
+                        Đọc tiếp
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <a href="Blog2.html" class="related-card">
+                <img src="../Images/blog2.jpg"
+                     alt="Latte Art">
+
+                <div class="related-content">
+                    <span class="related-category">
+                        Coffee Art
+                    </span>
+
+                    <h5>
+                        Latte Art là gì?
+                    </h5>
+
+                    <span class="read-more">
+                        Đọc tiếp
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <a href="Blog4.html" class="related-card">
+                <img src="../Images/blog4.jpg"
+                     alt="Hạt cà phê Việt">
+
+                <div class="related-content">
+                    <span class="related-category">
+                        Coffee Story
+                    </span>
+
+                    <h5>
+                        Câu Chuyện Hạt Cà Phê Việt
+                    </h5>
+
+                    <span class="read-more">
+                        Đọc tiếp
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+    <footer class="bg-dark text-white pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold text-warning mb-3">Bean & Brew</h5>
+            <p class="text-muted">
+              Nơi thưởng thức cà phê nguyên chất và không gian thư giãn hiện
+              đại.
+            </p>
+          </div>
+
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold mb-3">Liên kết</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="index.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Trang chủ</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="menu.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Menu</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="booking.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Đặt bàn</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="contact.html"
+                  class="text-white-50 text-decoration-none text-warning-hover"
+                  >Liên hệ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold mb-3">Giờ mở cửa</h5>
+            <p class="text-white-50 mb-1">
+              <i class="bi bi-clock me-2 text-warning"></i>07:00 - 22:00
+            </p>
+            <p class="text-white-50">
+              <i class="bi bi-calendar-check me-2 text-warning"></i>Tất cả các
+              ngày
+            </p>
+          </div>
+
+          <div class="col-md-3 mb-4">
+            <h5 class="fw-bold mb-3">Liên hệ</h5>
+            <p class="text-white-50 mb-2">
+              <i class="bi bi-geo-alt-fill me-2 text-warning"></i> TP.HCM
+            </p>
+            <p class="text-white-50 mb-2">
+              <i class="bi bi-telephone-fill me-2 text-warning"></i> 0909 999
+              999
+            </p>
+            <p class="text-white-50 mb-2">
+              <i class="bi bi-envelope-fill me-2 text-warning"></i>
+              info@info@bean&brew.vn
+            </p>
+          </div>
+        </div>
+
+        <hr class="text-white-50" />
+
+        <div
+          class="d-flex justify-content-between align-items-center flex-wrap pt-2 pb-3"
+        >
+          <div class="mb-2 mb-md-0 fs-4">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              class="text-white-50 me-3 text-warning-hover"
+            >
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              class="text-white-50 me-3 text-warning-hover"
+            >
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a
+              href="https://tiktok.com"
+              target="_blank"
+              class="text-white-50 me-3 text-warning-hover"
+            >
+              <i class="bi bi-tiktok"></i>
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              class="text-white-50 text-warning-hover"
+            >
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+          <div class="text-white-50 small">
+            © 2026 Bean & Brew Café. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+

@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Bean & Brew café</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <style>
+        
+        .btn-coffee {
+            background-color: #6f4e37 !important;
+            border-color: #6f4e37 !important;
+            color: #fff !important;
+        }
+
+            .btn-coffee:hover {
+                background-color: #5a3d2b !important;
+                border-color: #5a3d2b !important;
+            }
+
+        .btn-coffee-outline {
+            color: #6f4e37 !important;
+            border-color: #6f4e37 !important;
+            background-color: transparent !important;
+        }
+
+            .btn-coffee-outline:hover {
+                background-color: #6f4e37 !important;
+                color: #fff !important;
+            }
+
+        .btn-dark {
+            background-color: #6f4e37 !important;
+            border-color: #6f4e37 !important;
+        }
+
+            .btn-dark:hover {
+                background-color: #5a3d2b !important;
+                border-color: #5a3d2b !important;
+            }
+
+        .text-warning {
+            color: #d2b48c !important;
+        }
+
+        .text-danger {
+            color: #6f4e37 !important;
+        }
+
+        .border-warning {
+            border-color: #d2b48c !important;
+        }
+
+        .logo {
+            color: #6f4e37 !important;
+        }
+
+        .carousel-img {
+            height: 85vh;
+            object-fit: cover;
+            filter: brightness(60%);
+        }
+
+        .carousel-caption {
+            bottom: 25%;
+        }
+
+            .carousel-caption h1 {
+                font-size: 4rem;
+                font-weight: 700;
+            }
+
+            .carousel-caption p {
+                font-size: 1.2rem;
+                margin-bottom: 20px;
+            }
+
+        
+        #mainCarousel .carousel-item {
+            transition: transform 0.85s cubic-bezier(0.45, 0, 0.15, 1) !important;
+        }
+
+        
+        #mainCarousel .carousel-caption h1,
+        #mainCarousel .carousel-caption p,
+        #mainCarousel .carousel-caption a {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.55s ease, transform 0.55s ease;
+        }
+
+        #mainCarousel .carousel-item.active .carousel-caption h1 {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.35s;
+        }
+
+        #mainCarousel .carousel-item.active .carousel-caption p {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.52s;
+        }
+
+        #mainCarousel .carousel-item.active .carousel-caption a {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.68s;
+        }
+
+        
+        .carousel-indicators [data-bs-slide-to] {
+            width: 24px;
+            height: 4px;
+            border-radius: 2px;
+            background-color: rgba(255,255,255,0.45);
+            border: none;
+            transition: width 0.3s, background-color 0.3s;
+        }
+
+        .carousel-indicators .active {
+            width: 44px;
+            background-color: #D2B48C !important;
+        }
+
+        
+        .product-card-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card-body {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+
+            .product-card-body p.text-muted {
+                flex-grow: 1;
+            }
+
+            .product-card-body .btn {
+                margin-top: auto;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+
+        
+        .blog-card-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .blog-card-body p.card-text {
+                flex-grow: 1;
+            }
+
+            .blog-card-body .btn {
+                margin-top: auto;
+                margin-bottom: 10px;
+            }
+
+        
+        @media (max-width: 768px) {
+            .carousel-img {
+                height: 60vh;
+            }
+
+            .carousel-caption {
+                bottom: 15%;
+            }
+
+                .carousel-caption h1 {
+                    font-size: 2rem;
+                }
+
+                .carousel-caption p {
+                    font-size: 1rem;
+                }
+
+            .product-card-img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-white">
+        <div class="container py-3">
+            <div class="row align-items-center g-3">
+                <div class="col-lg-2 col-md-12 text-center text-lg-start">
+                    <a href="index.html"
+                       class="text-decoration-none d-inline-flex align-items-center gap-2">
+                        <h2 class="logo mb-0">Bean & Brew Café</h2>
+                    </a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="input-group search-box">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Bạn muốn uống gì hôm nay?" />
+                        <button class="btn btn-coffee">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="d-grid d-md-flex gap-2 justify-content-lg-end">
+                        <a href="login.html" class="btn btn-coffee-outline">Đăng nhập</a>
+                        <a href="cart.html" class="btn btn-coffee"><i class="fas fa-shopping-cart me-1"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top border-top shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="menu">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle"
+                           href="menu.html"
+                           data-bs-toggle="dropdown">Menu</a>
+
+                        <div class="dropdown-menu mega-menu w-100 p-3">
+                            <div class="container-fluid">
+                                <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 g-3">
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            CÀ PHÊ
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê đen đá</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê sữa đá</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Bạc xỉu</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê đen nóng</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cà phê sữa nóng</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            ESPRESSO
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Espresso</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Americano</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#espresso">Latte</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Cappuccino</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            TRÀ
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà đào cam sả</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà vải</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#tea">Trà sen vàng</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Trà chanh mật ong</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#coffee">Trà dâu tây</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            ĐÁ XAY
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#ice">Matcha đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Chocolate đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Cookies đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Caramel đá xay</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Oreo đá xay</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <h6 class="fw-bold text-warning border-bottom pb-1 mb-2"
+                                            style="font-size: 14px">
+                                            BÁNH NGỌT
+                                        </h6>
+                                        <div class="d-flex flex-column">
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#ice">Red Velvet</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Tiramisu</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Cheesecake</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Croissant Bơ</a>
+                                            <a class="dropdown-item py-05 text-truncate"
+                                               href="menu.html#cake">Bánh Su Kem</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Về chúng tôi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotion.html">Khuyến mãi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="member.html">Hội viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="booking.html">Đặt bàn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+
+    <section>
+        <div id="mainCarousel"
+             class="carousel slide"
+             data-bs-ride="carousel"
+             data-bs-interval="4500">
+            
+            <div class="carousel-indicators">
+                <button type="button"
+                        data-bs-target="#mainCarousel"
+                        data-bs-slide-to="0"
+                        class="active"></button>
+
+                <button type="button"
+                        data-bs-target="#mainCarousel"
+                        data-bs-slide-to="1"></button>
+
+                <button type="button"
+                        data-bs-target="#mainCarousel"
+                        data-bs-slide-to="2"></button>
+
+                <button type="button"
+                        data-bs-target="#mainCarousel"
+                        data-bs-slide-to="3"></button>
+
+                <button type="button"
+                        data-bs-target="#mainCarousel"
+                        data-bs-slide-to="4"></button>
+            </div>
+
+            
+            <div class="carousel-inner">
+                
+                <div class="carousel-item active">
+                    <img src="../Images/banner1.jpg"
+                         class="d-block w-100 carousel-img"
+                         alt="Coffee" />
+
+                    <div class="carousel-caption">
+                        <h1 class="fw-bold">Bean & Brew Coffee</h1>
+
+                        <p>Khởi đầu ngày mới với ly cà phê nguyên chất</p>
+
+                        <a href="menu.html" class="btn btn-dark"> Xem Menu </a>
+                    </div>
+                </div>
+
+                
+                <div class="carousel-item">
+                    <img src="../Images/banner2.jpg"
+                         class="d-block w-100 carousel-img"
+                         alt="Latte" />
+
+                    <div class="carousel-caption">
+                        <h1 class="fw-bold">Espresso Collection</h1>
+
+                        <p>Thưởng thức hương vị Ý đích thực</p>
+
+                        <a href="menu.html#espresso" class="btn btn-dark">
+                            Khám phá ngay
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="carousel-item">
+                    <img src="../Images/banner3.jpg"
+                         class="d-block w-100 carousel-img"
+                         alt="Tea" />
+
+                    <div class="carousel-caption">
+                        <h1 class="fw-bold">Trà</h1>
+
+                        <p>Giải nhiệt cùng những thức uống tươi mát</p>
+
+                        <a href="menu.html#tea" class="btn btn-dark"> Khám phá ngay </a>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="../Images/banner5.jpg"
+                         class="d-block w-100 carousel-img"
+                         alt="Tea" />
+
+                    <div class="carousel-caption">
+                        <h1 class="fw-bold">Đá Xay Signature</h1>
+
+                        <p>
+                            Hòa quyện giữa đá mịn và nguyên liệu cao cấp, mang đến trải
+                            nghiệm sảng khoái trong từng ngụm
+                        </p>
+
+                        <a href="menu.html#ice-blended" class="btn btn-dark">
+                            Khám phá ngay
+                        </a>
+                    </div>
+                </div>
+
+                
+                <div class="carousel-item">
+                    <img src="../Images/banner4.jpg"
+                         class="d-block w-100 carousel-img"
+                         alt="Cake" />
+
+                    <div class="carousel-caption">
+                        <h1 class="fw-bold">Bánh Ngọt Thủ Công</h1>
+
+                        <p>Hoàn hảo cho mọi buổi gặp gỡ</p>
+
+                        <a href="menu.html" class="btn btn-dark"> Xem sản phẩm </a>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#mainCarousel"
+                    data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+
+            <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#mainCarousel"
+                    data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </section>
+
+    
+    <section class="container py-5 pb-5 mt-4">
+        <h2 class="text-center fw-bold mb-5">DANH MỤC SẢN PHẨM</h2>
+
+        <div class="row justify-content-center g-4">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <a href="menu.html#coffee"
+                   class="text-decoration-none text-dark d-block h-100">
+                    <div class="card text-center shadow-sm h-100 border-0 py-3">
+                        <div class="card-body">
+                            <div class="fs-1 mb-3 text-warning">
+                                <i class="bi bi-cup-hot-fill"></i>
+                            </div>
+                            <h5 class="fw-bold m-0">Cà Phê</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <a href="menu.html#espresso"
+                   class="text-decoration-none text-dark d-block h-100">
+                    <div class="card text-center shadow-sm h-100 border-0 py-3">
+                        <div class="card-body">
+                            <div class="fs-1 mb-3 text-warning">
+                                <i class="bi bi-moisture"></i>
+                            </div>
+                            <h5 class="fw-bold m-0">Espresso</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <a href="menu.html#tea"
+                   class="text-decoration-none text-dark d-block h-100">
+                    <div class="card text-center shadow-sm h-100 border-0 py-3">
+                        <div class="card-body">
+                            <div class="fs-1 mb-3 text-warning">
+                                <i class="bi bi-cup-fill"></i>
+                            </div>
+                            <h5 class="fw-bold m-0">Trà</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <a href="menu.html#ice"
+                   class="text-decoration-none text-dark d-block h-100">
+                    <div class="card text-center shadow-sm h-100 border-0 py-3">
+                        <div class="card-body">
+                            <div class="fs-1 mb-3 text-warning">
+                                <i class="bi bi-cup-straw"></i>
+                            </div>
+                            <h5 class="fw-bold m-0">Đá Xay</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <a href="menu.html#cake"
+                   class="text-decoration-none text-dark d-block h-100">
+                    <div class="card text-center shadow-sm h-100 border-0 py-3">
+                        <div class="card-body">
+                            <div class="fs-1 mb-3 text-warning">
+                                <i class="bi bi-cake2-fill"></i>
+                            </div>
+                            <h5 class="fw-bold m-0">Bánh Ngọt</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section class="container py-5">
+        <h2 class="text-center fw-bold mb-5">SẢN PHẨM NỔI BẬT</h2>
+
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-3">
+            
+            <div class="col">
+                <div class="card shadow h-100">
+                    <img src="../Images/ES04.jpg" class="product-card-img" alt="Cà phê sữa đá" />
+                    <div class="card-body product-card-body">
+                        <h5 class="card-title">Cà Phê Sữa Đá</h5>
+                        <p class="text-muted">Hương vị đậm đà truyền thống Việt Nam.</p>
+                        <h5 class="text-danger">39.000đ</h5>
+                        <a href="Caphe.html" class="btn btn-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col">
+                <div class="card shadow h-100">
+                    <img src="../Images/ES01.jpg" class="product-card-img" alt="Latte" />
+                    <div class="card-body product-card-body">
+                        <h5 class="card-title">Latte</h5>
+                        <p class="text-muted">Espresso kết hợp sữa tươi béo mịn.</p>
+                        <h5 class="text-danger">59.000đ</h5>
+                        <a href="Espresso.html" class="btn btn-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col">
+                <div class="card shadow h-100">
+                    <img src="../Images/TE01.jpg" class="product-card-img" alt="Trà đào cam sả" />
+                    <div class="card-body product-card-body">
+                        <h5 class="card-title">Trà Đào Cam Sả</h5>
+                        <p class="text-muted">Thanh mát và giải nhiệt mỗi ngày.</p>
+                        <h5 class="text-danger">49.000đ</h5>
+                        <a href="Tra.html" class="btn btn-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col">
+                <div class="card shadow h-100">
+                    <img src="../Images/IC02.JPG" class="product-card-img" alt="Cookies đá xay" />
+                    <div class="card-body product-card-body">
+                        <h5 class="card-title">Cookies Đá Xay</h5>
+                        <p class="text-muted">Ngọt bùi vị bánh quy.</p>
+                        <h5 class="text-danger">65.000đ</h5>
+                        <a href="Daxay.html" class="btn btn-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col">
+                <div class="card shadow h-100">
+                    <img src="../Images/CK01.jpg" class="product-card-img" alt="Tiramisu" />
+                    <div class="card-body product-card-body">
+                        <h5 class="card-title">Tiramisu</h5>
+                        <p class="text-muted">Bánh ngọt Ý mềm mịn và thơm béo.</p>
+                        <h5 class="text-danger">45.000đ</h5>
+                        <a href="Banhngot.html" class="btn btn-dark">Xem Chi Tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <h2 class="text-center fw-bold mb-2">Tin Tức & Khuyến Mãi</h2>
+
+        <p class="text-center text-muted mb-5">
+            Cập nhật những tin tức mới nhất từ Aroma Coffee
+        </p>
+
+        <div class="row g-4">
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="../Images/blog1.jpg" class="card-img-top" alt="Blog" />
+
+                    <div class="card-body blog-card-body">
+                        <h5 class="card-title">Bí quyết pha cà phê sữa đá chuẩn vị</h5>
+
+                        <p class="card-text text-muted">
+                            Khám phá cách tạo nên ly cà phê đậm đà, thơm ngon ngay tại nhà.
+                        </p>
+
+                        <a href="blog1.html" class="btn btn-coffee"> Xem thêm </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="../Images/blog2.jpg" class="card-img-top" />
+
+                    <div class="card-body blog-card-body">
+                        <h5 class="card-title">Latte Art là gì?</h5>
+
+                        <p class="card-text text-muted">
+                            Nghệ thuật tạo hình trên cà phê được yêu thích nhất hiện nay.
+                        </p>
+
+                        <a href="blog2.html" class="btn btn-coffee"> Xem thêm </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="../Images/blog3.jpg" class="card-img-top" />
+
+                    <div class="card-body blog-card-body">
+                        <h5 class="card-title">Khuyến mãi mùa hè</h5>
+
+                        <p class="card-text text-muted">
+                            Giảm giá 20% cho toàn bộ đồ uống đá xay.
+                        </p>
+
+                        <a href="blog3.html" class="btn btn-coffee"> Xem thêm </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="card shadow-sm h-100">
+                    <img src="../Images/blog4.jpg" class="card-img-top" />
+
+                    <div class="card-body blog-card-body">
+                        <h5 class="card-title">Câu chuyện hạt cà phê Việt</h5>
+
+                        <p class="card-text text-muted">
+                            Hành trình từ nông trại đến ly cà phê.
+                        </p>
+
+                        <a href="blog4.html" class="btn btn-coffee"> Xem thêm </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    
+    <section class="container-fluid p-0">
+        <iframe src="https://maps.google.com/maps?q=140%20L%C3%AA%20Tr%E1%BB%8Dng%20T%E1%BA%A5n%2C%20T%C3%A2y%20Th%E1%BA%A1nh%2C%20H%E1%BB%93%20Ch%C3%AD%20Minh&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="350"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy">
+        </iframe>
+    </section>
+    
+    <footer class="bg-dark text-white pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold text-warning mb-3">Bean & Brew</h5>
+                    <p class="text-muted">
+                        Nơi thưởng thức cà phê nguyên chất và không gian thư giãn hiện
+                        đại.
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <a href="index.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Trang chủ</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="menu.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Menu</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="booking.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Đặt bàn</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="contact.html"
+                               class="text-white-50 text-decoration-none text-warning-hover">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Giờ mở cửa</h5>
+                    <p class="text-white-50 mb-1">
+                        <i class="bi bi-clock me-2 text-warning"></i>07:00 - 22:00
+                    </p>
+                    <p class="text-white-50">
+                        <i class="bi bi-calendar-check me-2 text-warning"></i>Tất cả các
+                        ngày
+                    </p>
+                </div>
+
+                <div class="col-md-3 mb-4">
+                    <h5 class="fw-bold mb-3">Liên hệ</h5>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-geo-alt-fill me-2 text-warning"></i> TP.HCM
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-telephone-fill me-2 text-warning"></i> 0909 999
+                        999
+                    </p>
+                    <p class="text-white-50 mb-2">
+                        <i class="bi bi-envelope-fill me-2 text-warning"></i>
+                        info@info@bean&brew.vn
+                    </p>
+                </div>
+            </div>
+
+            <hr class="text-white-50" />
+
+            <div class="d-flex justify-content-between align-items-center flex-wrap pt-2 pb-3">
+                <div class="mb-2 mb-md-0 fs-4">
+                    <a href="https://facebook.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+                    <a href="https://instagram.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com"
+                       target="_blank"
+                       class="text-white-50 me-3 text-warning-hover">
+                        <i class="bi bi-tiktok"></i>
+                    </a>
+                    <a href="https://youtube.com"
+                       target="_blank"
+                       class="text-white-50 text-warning-hover">
+                        <i class="bi bi-youtube"></i>
+                    </a>
+                </div>
+                <div class="text-white-50 small">
+                    © 2026 Bean & Brew Café. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script>
+        const carousel = document.getElementById('mainCarousel');
+        if (carousel) {
+            carousel.addEventListener('slid.bs.carousel', function () {
+                const active = carousel.querySelector('.carousel-item.active');
+                if (active) {
+                    const els = active.querySelectorAll('.carousel-caption h1, .carousel-caption p, .carousel-caption a');
+                    els.forEach(el => {
+                        el.style.transition = 'none';
+                        el.style.opacity = '0';
+                        el.style.transform = 'translateY(30px)';
+                        void el.offsetWidth; // reflow
+                        el.style.transition = '';
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

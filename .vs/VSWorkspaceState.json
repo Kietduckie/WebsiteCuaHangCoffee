@@ -3,7 +3,10 @@
     "",
     "\\CSS",
     "\\Main",
-    "\\Main\\Admin"
+    "\\Main\\Admin",
+    "\\Main\\User",
+    "\\Script"
   ],
+  "SelectedNode": "\\CSS\\admin.css",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,440 @@
+﻿<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản lý thực đơn - Cafe Order</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+          rel="stylesheet" />
+    <link rel="stylesheet" href="CSS/Style.css" />
+    <link rel="stylesheet" href="CSS/admin.css" />
+    <style>
+        :root {
+            --primary-color: #6f4e37;
+            --secondary-color: #d2b48c;
+            --bg-light: #f5ebe6;
+            --text-dark: #3e2723;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .admin-navbar {
+            background-color: var(--primary-color) !important;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+
+            .admin-navbar .nav-link {
+                color: rgba(255, 255, 255, 0.8) !important;
+                font-weight: 600;
+                padding: 10px 20px !important;
+                border-radius: 4px;
+            }
+
+                .admin-navbar .nav-link:hover,
+                .admin-navbar .nav-link.active {
+                    background-color: var(--secondary-color) !important;
+                    color: var(--text-dark) !important;
+                }
+
+        .menu-grid-card {
+            background-color: #ffffff;
+            border: 1px solid #e5d3c5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(111, 78, 55, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .menu-grid-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 6px 15px rgba(111, 78, 55, 0.1);
+            }
+
+        .menu-img-container {
+            width: 100%;
+            height: 180px;
+            background-color: #efe6e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            position: relative;
+            border-bottom: 1px solid #e5d3c5;
+        }
+
+            .menu-img-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        .category-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(111, 78, 55, 0.85);
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+
+        .menu-info {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .menu-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .menu-price {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #a94442;
+            margin-bottom: 12px;
+        }
+
+        .menu-actions {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg admin-navbar shadow-sm sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand text-white fw-bold" href="#"><i class="fa-solid fa-mug-hot me-2"></i>Cafe Order</a>
+            <button class="navbar-toggler text-white border-white"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#adminNav">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
+                    <li class="nav-item">
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-line me-1"></i>Báo cáo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="products.html" class="nav-link active"><i class="fa-solid fa-book-open me-1"></i>Quản lý Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-receipt me-1"></i>Quản lý đơn hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="customers.html" class="nav-link"><i class="fa-solid fa-users me-1"></i>Quản lý khách hàng</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center text-white small fw-semibold my-2 my-lg-0">
+                    <span class="badge bg-light text-dark px-3 py-2 me-lg-3 mb-2 mb-lg-0">Quyền: Admin</span>
+                    <a href="#" class="text-white text-decoration-none"><i class="fa-solid fa-right-from-bracket me-1"></i>Thoát</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom border-secondary border-opacity-25">
+            <h3 class="fw-bold m-0 text-uppercase">Quản lý thực đơn</h3>
+            <button class="btn btn-success px-4 fw-semibold"
+                    id="btn-open-add-modal">
+                <i class="fa-solid fa-plus me-2"></i>Thêm sản phẩm mới
+            </button>
+        </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4"
+             id="menu-container"></div>
+    </main>
+
+    <div class="modal fade"
+         id="productModal"
+         tabindex="-1"
+         aria-labelledby="modalTitle"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-dark"
+                 style="border-radius: 12px; border: none">
+                <div class="modal-header"
+                     style="
+              background-color: var(--primary-color);
+              color: white;
+              border-top-left-radius: 12px;
+              border-top-right-radius: 12px;
+            ">
+                    <h5 class="modal-title fw-bold" id="modalTitle">
+                        <i class="fa-solid fa-box-open me-2"></i>Thông tin sản phẩm
+                    </h5>
+                    <button type="button"
+                            class="btn-close btn-close-white"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="productForm">
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">Mã sản phẩm (ID)</label>
+                            <input type="text"
+                                   id="prod-id"
+                                   class="form-control"
+                                   placeholder="Ví dụ: CF01"
+                                   required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">Tên sản phẩm</label>
+                            <input type="text"
+                                   id="prod-name"
+                                   class="form-control"
+                                   placeholder="Nhập tên thức uống / bánh"
+                                   required />
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <label class="form-label small fw-bold text-secondary">Danh mục</label>
+                                <select id="prod-category" class="form-select">
+                                    <option value="coffee">Cà phê truyền thống</option>
+                                    <option value="espresso">Espresso Coffee</option>
+                                    <option value="tea">Trà trái cây</option>
+                                    <option value="ice">Đá xay</option>
+                                    <option value="cake">Bánh ngọt</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label small fw-bold text-secondary">Giá bán (đ)</label>
+                                <input type="number"
+                                       id="prod-price"
+                                       class="form-control"
+                                       placeholder="Giá tiền"
+                                       required />
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-secondary">Đường dẫn hình ảnh</label>
+                            <input type="text"
+                                   id="prod-img"
+                                   class="form-control"
+                                   placeholder="Ví dụ: Images/ten_file.jpg" />
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small fw-bold text-secondary">Mô tả chi tiết</label>
+                            <textarea id="prod-desc"
+                                      class="form-control"
+                                      rows="3"
+                                      placeholder="Nhập vài câu mô tả sản phẩm..."></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer style-footer bg-light"
+                     style="
+              border-bottom-left-radius: 12px;
+              border-bottom-right-radius: 12px;
+            ">
+                    <button type="button"
+                            class="btn btn-sm btn-secondary"
+                            data-bs-dismiss="modal">
+                        Hủy
+                    </button>
+                    <button type="submit"
+                            form="productForm"
+                            class="btn btn-sm btn-success px-3">
+                        Lưu dữ liệu
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const defaultProducts = [
+            {
+                id: "CF01",
+                name: "Cà Phê Đen Đá",
+                category: "coffee",
+                price: 29000,
+                img: "../Images/CF01.jpg",
+                desc: "Vị đắng thuần khiết của cà phê Robusta, hòa quyện với đá lạnh tạo nên sự tỉnh táo tức thì.",
+            },
+            {
+                id: "CF02",
+                name: "Cà Phê Sữa Đá",
+                category: "coffee",
+                price: 35000,
+                img: "../Images/CF02.jpg",
+                desc: "Sự kết hợp hài hòa giữa cà phê đậm đà và sữa đặc ngọt ngào. Mỗi ngụm là một kỷ niệm quen thuộc.",
+            },
+            {
+                id: "CF03",
+                name: "Bạc Xỉu",
+                category: "coffee",
+                price: 39000,
+                img: "../Images/CF03.jpg",
+                desc: "Ít cà phê, nhiều sữa — nhẹ nhàng như buổi sáng yên tĩnh đầu tiên của tuần.",
+            },
+            {
+                id: "ES01",
+                name: "Espresso",
+                category: "espresso",
+                price: 45000,
+                img: "../Images/ES01.jpg",
+                desc: "Thuần khiết và mãnh liệt. Một shot espresso đúng chuẩn với lớp crema vàng đậm.",
+            },
+            {
+                id: "ES02",
+                name: "Americano",
+                category: "espresso",
+                price: 49000,
+                img: "../Images/ES02.jpg",
+                desc: "Espresso kéo dài bằng nước nóng, tạo nên độ dịu mà vẫn giữ trọn chiều sâu hương vị.",
+            },
+        ];
+
+        let products =
+            JSON.parse(localStorage.getItem("cafe_menu")) || defaultProducts;
+        if (!localStorage.getItem("cafe_menu")) {
+            localStorage.setItem("cafe_menu", JSON.stringify(products));
+        }
+
+        const menuContainer = document.getElementById("menu-container");
+        const productModal = new bootstrap.Modal(
+            document.getElementById("productModal"),
+        );
+        const productForm = document.getElementById("productForm");
+        let editTargetId = null;
+
+        function getCategoryName(cat) {
+            const cats = {
+                coffee: "Cà phê",
+                espresso: "Espresso",
+                tea: "Trà",
+                ice: "Đá xay",
+                cake: "Bánh ngọt",
+            };
+            return cats[cat] || cat;
+        }
+
+        function renderMenu() {
+            menuContainer.innerHTML = "";
+            products.forEach((p) => {
+                menuContainer.innerHTML += `
+                <div class="col" data-id="${p.id}">
+                    <div class="menu-grid-card">
+                        <div class="menu-img-container">
+                            <span class="category-badge">${getCategoryName(p.category)}</span>
+                            <img src="${p.img}" alt="${p.name}" onerror="this.src='https://placehold.co/300x180?text=No+Image'">
+                        </div>
+                        <div class="menu-info">
+                            <div class="text-muted small mb-1">Mã: ${p.id}</div>
+                            <div class="menu-title">${p.name}</div>
+                            <div class="menu-price">${Number(p.price).toLocaleString("vi-VN")}đ</div>
+                            <div class="menu-actions d-flex gap-2">
+                                <button class="btn btn-sm btn-outline-primary w-100 btn-edit">
+                                    <i class="fa-solid fa-pen me-1"></i>Sửa
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger w-100 btn-delete">
+                                    <i class="fa-solid fa-trash me-1"></i>Xóa
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            });
+        }
+
+        document
+            .getElementById("btn-open-add-modal")
+            .addEventListener("click", function () {
+                editTargetId = null;
+                productForm.reset();
+                document.getElementById("prod-id").disabled = false;
+                document.getElementById("modalTitle").innerHTML =
+                    '<i class="fa-solid fa-plus me-2"></i>Thêm sản phẩm mới';
+                productModal.show();
+            });
+
+        productForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const id = document.getElementById("prod-id").value.trim();
+            const name = document.getElementById("prod-name").value.trim();
+            const category = document.getElementById("prod-category").value;
+            const price = parseInt(document.getElementById("prod-price").value);
+            const img =
+                document.getElementById("prod-img").value.trim() ||
+                "../Images/default.jpg";
+            const desc = document.getElementById("prod-desc").value.trim();
+
+            if (editTargetId === null) {
+                if (products.some((p) => p.id === id)) {
+                    alert("Mã sản phẩm này đã tồn tại!");
+                    return;
+                }
+                products.push({ id, name, category, price, img, desc });
+            } else {
+                const idx = products.findIndex((p) => p.id === editTargetId);
+                if (idx !== -1) {
+                    products[idx] = { id: editTargetId, name, category, price, img, desc };
+                }
+            }
+
+            localStorage.setItem("cafe_menu", JSON.stringify(products));
+            renderMenu();
+            productModal.hide();
+        });
+
+        menuContainer.addEventListener("click", function (e) {
+            const colTarget = e.target.closest(".col");
+            if (!colTarget) return;
+            const id = colTarget.getAttribute("data-id");
+
+            if (e.target.closest(".btn-delete")) {
+                const targetProd = products.find((p) => p.id === id);
+                if (
+                    confirm(`Bạn có chắc chắn muốn xóa sản phẩm "${targetProd.name}"?`)
+                ) {
+                    products = products.filter((p) => p.id !== id);
+                    localStorage.setItem("cafe_menu", JSON.stringify(products));
+                    renderMenu();
+                }
+            }
+
+            if (e.target.closest(".btn-edit")) {
+                const targetProd = products.find((p) => p.id === id);
+                if (!targetProd) return;
+
+                editTargetId = id;
+                document.getElementById("prod-id").value = targetProd.id;
+                document.getElementById("prod-id").disabled = true;
+                document.getElementById("prod-name").value = targetProd.name;
+                document.getElementById("prod-category").value = targetProd.category;
+                document.getElementById("prod-price").value = targetProd.price;
+                document.getElementById("prod-img").value = targetProd.img;
+                document.getElementById("prod-desc").value = targetProd.desc || "";
+
+                document.getElementById("modalTitle").innerHTML =
+                    '<i class="fa-solid fa-pen me-2"></i>Cập nhật thông tin sản phẩm';
+                productModal.show();
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", renderMenu);
+    </script>
+</body>
+</html>

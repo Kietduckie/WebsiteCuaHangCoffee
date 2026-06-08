@@ -1,4 +1,3 @@
-// app.js
 
 let slideIndex = 0;
 

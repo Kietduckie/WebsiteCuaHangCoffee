@@ -1,4 +1,3 @@
-// auth.js
 
 function validateEmail(email){
 

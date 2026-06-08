@@ -1,4 +1,3 @@
-// cart.js
 
 function getCart(){
 

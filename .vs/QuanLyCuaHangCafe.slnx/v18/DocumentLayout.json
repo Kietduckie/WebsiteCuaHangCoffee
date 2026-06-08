@@ -3,6 +3,46 @@
   "WorkspaceRootPath": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CSS\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\Style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CSS\\Style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Tra.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\Tra.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Banhngot.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\Banhngot.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\about.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\menu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\menu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Admin\\products.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\Admin\\products.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Caphe.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\Caphe.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Daxay.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\Daxay.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Espresso.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\User\\Espresso.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\menu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Main\\menu.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -79,14 +119,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Admin\\customers.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\Style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CSS\\Style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CSS\\admin.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -121,6 +153,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitattributes||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\tools\\strip-comments.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tools\\strip-comments.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -140,132 +176,270 @@
         },
         {
           "DockedWidth": 23,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "cart.html",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\cart.html",
-              "RelativeDocumentMoniker": "Main\\cart.html",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\cart.html",
-              "RelativeToolTip": "Main\\cart.html",
+              "DocumentIndex": 38,
+              "Title": "strip-comments.ps1",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\tools\\strip-comments.ps1",
+              "RelativeDocumentMoniker": "tools\\strip-comments.ps1",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\tools\\strip-comments.ps1",
+              "RelativeToolTip": "tools\\strip-comments.ps1",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T19:45:18.567Z"
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-08T04:21:49.173Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Banhngot.html",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Banhngot.html",
-              "RelativeDocumentMoniker": "Main\\Banhngot.html",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Banhngot.html",
-              "RelativeToolTip": "Main\\Banhngot.html",
-              "ViewState": "AgIAAH4CAAAAAAAAAAAYwKUCAAAHAAAAAAAAAA==",
+              "Title": "about.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\about.html",
+              "RelativeDocumentMoniker": "Main\\User\\about.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\about.html",
+              "RelativeToolTip": "Main\\User\\about.html",
+              "ViewState": "AgIAADkDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T18:55:06.751Z"
+              "WhenOpened": "2026-06-08T04:20:42.076Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Daxay.html",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Daxay.html",
-              "RelativeDocumentMoniker": "Main\\Daxay.html",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Daxay.html",
-              "RelativeToolTip": "Main\\Daxay.html",
-              "ViewState": "AgIAAH4CAAAAAAAAAAAYwKUCAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T18:54:32.811Z"
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{d212f56b-c48a-434c-a121-1c5d80b59b9f}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Tra.html",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Tra.html",
-              "RelativeDocumentMoniker": "Main\\Tra.html",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Tra.html",
-              "RelativeToolTip": "Main\\Tra.html",
-              "ViewState": "AgIAAJMAAAAAAAAAAAAYwJUAAAAVAAAAAAAAAA==",
+              "Title": "menu.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\menu.html",
+              "RelativeDocumentMoniker": "Main\\User\\menu.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\menu.html",
+              "RelativeToolTip": "Main\\User\\menu.html",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T18:54:09.998Z"
+              "WhenOpened": "2026-06-08T03:50:04.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "products.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Admin\\products.html",
+              "RelativeDocumentMoniker": "Main\\Admin\\products.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Admin\\products.html",
+              "RelativeToolTip": "Main\\Admin\\products.html",
+              "ViewState": "AgIAALkBAAAAAAAAAAAAALkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-08T03:42:58.414Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Banhngot.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Banhngot.html",
+              "RelativeDocumentMoniker": "Main\\User\\Banhngot.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Banhngot.html",
+              "RelativeToolTip": "Main\\User\\Banhngot.html",
+              "ViewState": "AgIAAF8CAAAAAAAAAAAowAgDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-08T03:42:47.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Tra.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Tra.html",
+              "RelativeDocumentMoniker": "Main\\User\\Tra.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Tra.html",
+              "RelativeToolTip": "Main\\User\\Tra.html",
+              "ViewState": "AgIAAH0CAAAAAAAAAAAowOoCAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-08T03:42:27.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Style.css",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\Style.css",
+              "RelativeDocumentMoniker": "CSS\\Style.css",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\Style.css",
+              "RelativeToolTip": "CSS\\Style.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-04T15:21:46.915Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "admin.css",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\admin.css",
+              "RelativeDocumentMoniker": "CSS\\admin.css",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\admin.css",
+              "RelativeToolTip": "CSS\\admin.css",
+              "ViewState": "AgIAACgAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-06-04T15:21:50.278Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "Espresso.html",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Espresso.html",
-              "RelativeDocumentMoniker": "Main\\Espresso.html",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Espresso.html",
-              "RelativeToolTip": "Main\\Espresso.html",
-              "ViewState": "AgIAAHwCAAAAAAAAAAAtwJwCAAAAAAAAAAAAAA==",
+              "Title": "Daxay.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Daxay.html",
+              "RelativeDocumentMoniker": "Main\\User\\Daxay.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Daxay.html",
+              "RelativeToolTip": "Main\\User\\Daxay.html",
+              "ViewState": "AgIAANkCAAAAAAAAAAAowO0CAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T18:53:32.539Z"
+              "WhenOpened": "2026-06-08T03:42:39.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Espresso.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Espresso.html",
+              "RelativeDocumentMoniker": "Main\\User\\Espresso.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Espresso.html",
+              "RelativeToolTip": "Main\\User\\Espresso.html",
+              "ViewState": "AgIAANsCAAAAAAAAAAAowOoCAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-08T03:42:14.733Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Caphe.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Caphe.html",
+              "RelativeDocumentMoniker": "Main\\User\\Caphe.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\User\\Caphe.html",
+              "RelativeToolTip": "Main\\User\\Caphe.html",
+              "ViewState": "AgIAAMsCAAAAAAAAAAAowAgDAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-08T03:42:03.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "cart.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\cart.html",
+              "RelativeDocumentMoniker": "Main\\cart.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\cart.html",
+              "RelativeToolTip": "Main\\cart.html",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-07T19:45:18.567Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Banhngot.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Banhngot.html",
+              "RelativeDocumentMoniker": "Main\\Banhngot.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Banhngot.html",
+              "RelativeToolTip": "Main\\Banhngot.html",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-07T18:55:06.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Daxay.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Daxay.html",
+              "RelativeDocumentMoniker": "Main\\Daxay.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Daxay.html",
+              "RelativeToolTip": "Main\\Daxay.html",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-07T18:54:32.811Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Tra.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Tra.html",
+              "RelativeDocumentMoniker": "Main\\Tra.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Tra.html",
+              "RelativeToolTip": "Main\\Tra.html",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-07T18:54:09.998Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Espresso.html",
+              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Espresso.html",
+              "RelativeDocumentMoniker": "Main\\Espresso.html",
+              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Espresso.html",
+              "RelativeToolTip": "Main\\Espresso.html",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-06-07T18:53:32.539Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Caphe.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Caphe.html",
               "RelativeDocumentMoniker": "Main\\Caphe.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Caphe.html",
               "RelativeToolTip": "Main\\Caphe.html",
-              "ViewState": "AgIAAH4CAAAAAAAAAAAYwKUCAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-07T18:53:08.864Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "menu.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\menu.html",
               "RelativeDocumentMoniker": "Main\\menu.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\menu.html",
               "RelativeToolTip": "Main\\menu.html",
-              "ViewState": "AgIAAIsBAAAAAAAAAAAowKMBAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAIsBAAAAAAAAAAAowKMBAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T15:49:11.115Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "booking.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\booking.html",
               "RelativeDocumentMoniker": "Main\\booking.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\booking.html",
               "RelativeToolTip": "Main\\booking.html",
-              "ViewState": "AgIAAHgBAAAAAAAAAAAYwPMBAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-07T02:09:27.229Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 12,
               "Title": "contact.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\contact.html",
               "RelativeDocumentMoniker": "Main\\contact.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\contact.html",
               "RelativeToolTip": "Main\\contact.html",
-              "ViewState": "AgIAAM0BAAAAAAAAAAAYwBEAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T16:27:25.648Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 19,
               "Title": "index.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\index.html",
               "RelativeDocumentMoniker": "Main\\index.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\index.html",
               "RelativeToolTip": "Main\\index.html",
-              "ViewState": "AgIAACgDAAAAAAAAAAAtwEMDAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T15:49:04.387Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 20,
               "Title": "dashboard.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Admin\\dashboard.html",
               "RelativeDocumentMoniker": "Main\\Admin\\dashboard.html",
@@ -273,71 +447,67 @@
               "RelativeToolTip": "Main\\Admin\\dashboard.html",
               "ViewState": "AgIAABIBAAAAAAAAAAAowEABAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T04:39:12.668Z"
+              "WhenOpened": "2026-06-07T04:39:12.668Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 23,
               "Title": "member.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\member.html",
               "RelativeDocumentMoniker": "Main\\member.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\member.html",
               "RelativeToolTip": "Main\\member.html",
-              "ViewState": "AgIAAGwCAAAAAAAAAAAowMICAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-07T04:13:38.353Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 22,
               "Title": "login.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\login.html",
               "RelativeDocumentMoniker": "Main\\login.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\login.html",
               "RelativeToolTip": "Main\\login.html",
-              "ViewState": "AgIAAF4BAAAAAAAAAAAowHEBAAA9AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-07T04:13:24.797Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 25,
               "Title": "orders.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\orders.html",
               "RelativeDocumentMoniker": "Admin\\orders.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\orders.html",
               "RelativeToolTip": "Admin\\orders.html",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAAAMgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T17:14:45.765Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 26,
               "Title": "dashboard.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\dashboard.html",
               "RelativeDocumentMoniker": "Admin\\dashboard.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\dashboard.html",
               "RelativeToolTip": "Admin\\dashboard.html",
-              "ViewState": "AgIAAHEAAAAAAAAAAAAYwKYAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T17:14:41.437Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 28,
               "Title": "customers.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\customers.html",
               "RelativeDocumentMoniker": "Admin\\customers.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\customers.html",
               "RelativeToolTip": "Admin\\customers.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T17:14:34.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 21,
               "Title": "orders.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\Admin\\orders.html",
               "RelativeDocumentMoniker": "Main\\Admin\\orders.html",
@@ -345,107 +515,78 @@
               "RelativeToolTip": "Main\\Admin\\orders.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2026-06-07T04:40:19.718Z"
+              "WhenOpened": "2026-06-07T04:40:19.718Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 24,
               "Title": "about.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\about.html",
               "RelativeDocumentMoniker": "Main\\about.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Main\\about.html",
               "RelativeToolTip": "Main\\about.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T15:48:41.261Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 27,
               "Title": "products.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\products.html",
               "RelativeDocumentMoniker": "Admin\\products.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Admin\\products.html",
               "RelativeToolTip": "Admin\\products.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-06T17:14:49.699Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 30,
               "Title": "cart.js",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\cart.js",
               "RelativeDocumentMoniker": "cart.js",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\cart.js",
               "RelativeToolTip": "cart.js",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-06-06T07:32:25.66Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 31,
               "Title": "auth.js",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\auth.js",
               "RelativeDocumentMoniker": "auth.js",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\auth.js",
               "RelativeToolTip": "auth.js",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-06-06T07:32:17.193Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 32,
               "Title": "app.js",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\app.js",
               "RelativeDocumentMoniker": "app.js",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\app.js",
               "RelativeToolTip": "app.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2026-06-06T07:32:06.664Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "admin.css",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\admin.css",
-              "RelativeDocumentMoniker": "CSS\\admin.css",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\admin.css",
-              "RelativeToolTip": "CSS\\admin.css",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABEAAABNAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-06-04T15:21:50.278Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "Style.css",
-              "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\Style.css",
-              "RelativeDocumentMoniker": "CSS\\Style.css",
-              "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\CSS\\Style.css",
-              "RelativeToolTip": "CSS\\Style.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-06-04T15:21:46.915Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "dashboard.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\dashboard.html",
               "RelativeDocumentMoniker": "dashboard.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\dashboard.html",
               "RelativeToolTip": "dashboard.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-04T15:21:58.406Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 37,
               "Title": ".gitattributes",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\.gitattributes",
               "RelativeDocumentMoniker": ".gitattributes",
@@ -453,53 +594,50 @@
               "RelativeToolTip": ".gitattributes",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2026-06-04T15:21:48.787Z"
+              "WhenOpened": "2026-06-04T15:21:48.787Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "customers.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\customers.html",
               "RelativeDocumentMoniker": "customers.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\customers.html",
               "RelativeToolTip": "customers.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-04T15:21:47.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 29,
               "Title": "Style.css",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Style.css",
               "RelativeDocumentMoniker": "Style.css",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\Style.css",
               "RelativeToolTip": "Style.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2026-05-31T15:58:31.949Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 36,
               "Title": "orders.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\orders.html",
               "RelativeDocumentMoniker": "orders.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\orders.html",
               "RelativeToolTip": "orders.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-04T15:21:59.411Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 35,
               "Title": "products.html",
               "DocumentMoniker": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\products.html",
               "RelativeDocumentMoniker": "products.html",
               "ToolTip": "C:\\BaoCaoCacMon\\ThietKeWeb\\QuanLyCuaHangCafe\\QuanLyCuaHangCafe\\products.html",
               "RelativeToolTip": "products.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2026-06-04T15:22:00.273Z"
             },
